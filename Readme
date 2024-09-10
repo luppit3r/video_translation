@@ -1,18 +1,22 @@
 
 
-RAZ
+##RAZ
 
 python3 -m venv myenv && pip install -r requirements.txt
 
 
-ZAFSZE 
+##ZAFSZE 
 
 source myenv/Scripts/activate
 
+#Transktrypcja
 python code/video_transcription_cli.py "2. RiSO - przem w uklad stat wyz/przykład1.avi"
 
+#Tłumaczenie
 python code/translate.py "2. RiSO - przem w uklad stat wyz/text/przykład1_sentences.txt" "2. RiSO - przem w uklad stat wyz/text/przykład1_sentences_en.txt" 
 
+#Genreacja
 python code/generate.py "2. RiSO - przem w uklad stat wyz/text/przykład1_sentences_en.txt"  "2. RiSO - przem w uklad stat wyz/przykład1.avi" 
 
+#Tworzenie video
 python code/overlay.py "2. RiSO - przem w uklad stat wyz/text/przykład1_sentences_en.txt" "2. RiSO - przem w uklad stat wyz/przykład1.avi"  --audio_dir generated
