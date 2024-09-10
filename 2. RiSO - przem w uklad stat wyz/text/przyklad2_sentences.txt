@@ -1,0 +1,72 @@
+Start: 0.00, End: 3.00, Sentence: Przykład drugi.
+Start: 3.00, End: 12.00, Sentence: Obniż na jakiej odległości X należy przyłożyć siła skupioną P, aby wydłużenia prędów spowodowały równoległe przemieszczenie belki AB w dół.
+Start: 12.00, End: 16.00, Sentence: Wszystkie pręty mają jednakowy przekrój kołowy.
+Start: 16.00, End: 23.00, Sentence: Dana jest długość L, tutaj prędów i siła P, która jest przyłożona na belce.
+Start: 23.00, End: 32.00, Sentence: Rekcje w pręta są w osi prędów, tak jak zawsze na zewnątrz układu.
+Start: 32.00, End: 35.00, Sentence: Jak by dajemy do przecięcia.
+Start: 35.00, End: 40.00, Sentence: I więc mamy trzy pręty, czyli trzy reakcje, a nie 1n2n3.
+Start: 40.00, End: 47.00, Sentence: No to co? Mamy do dyspozycji suma rzutówno-ziks i suma rzutówno-zigrek.
+Start: 47.00, End: 52.00, Sentence: I suma momentów udowolnym punkcie, czyli mamy trzy równania równowagi.
+Start: 52.00, End: 57.00, Sentence: A nie wiadomo, mamy trzy reakcje, jeszcze to siłę to odległości X.
+Start: 57.00, End: 59.00, Sentence: Czyli nie wiadomo są cztery.
+Start: 59.00, End: 64.00, Sentence: To po prostu tych naszych warunków równowagi będziemy musieli jeszcze skorzystać z warunku goometrycznego.
+Start: 64.00, End: 72.00, Sentence: Czyli jest tego równoległego przemieszczenia belki, ale to później na, i by sobie robimy warunki równowagi.
+Start: 72.00, End: 76.00, Sentence: Możemy zacząć od suma momentów, może być w punkcie AB.
+Start: 76.00, End: 81.00, Sentence: Jak robimy sobie suma momentów w punkcie, to co miał N3 będzie równaniu IP.
+Start: 81.00, End: 83.00, Sentence: No więc tak.
+Start: 83.00, End: 90.00, Sentence: Siłapy rz. X, kręci prawo skrętnie, ja przyjmuję, że prawo skrętnie to jest dodatnie.
+Start: 90.00, End: 98.00, Sentence: Przyjadliśmy reakcje, jak robimy sum momentów, to przyjmujemy sobie, albo prawo skrętnie dodatnie, albo lawoskrętnie dodatnie.
+Start: 98.00, End: 106.00, Sentence: Wyjdzie nam to samo, ale musimy sobie przyjąć, ja zawsze przyjmuję, że prawo skrętnie przyliczeniu reakcji to jest dodatnie.
+Start: 106.00, End: 115.00, Sentence: Więc siłapy kręci prawo skrętnie, więc plusem minus N3 razy cała długość tutaj 2L, czyli ramie działania siły.
+Start: 115.00, End: 121.00, Sentence: Równa się 0, z tego liczymy, że N3, równasie jedna, druga, per razy X.
+Start: 121.00, End: 124.00, Sentence: Soma rzutówna o zix, równasie 0.
+Start: 124.00, End: 129.00, Sentence: Jak siłapy zrutujemy na o zix, to nie mamy nic, mamy 0.
+Start: 129.00, End: 134.00, Sentence: Jagant 3 zrutujemy na X, czyli będzie tylko.
+Start: 134.00, End: 143.00, Sentence: Minę z N1, no i teraz rzut tej siły N1 na o zix, ja sobie zawsze rozumuję tak.
+Start: 143.00, End: 156.00, Sentence: Jak myśmy sobie tutaj zrobili składową i składową i ksową, to zawsze ta składowa przy której jest kąt, czyli tutaj wybrała to składowa i grekowa,
+Start: 156.00, End: 173.00, Sentence: przy której jest ten kąt, tutaj zapisany, to ona jest z kosinusem tego kąt, z kosinusem 60, a druga składowa jest z sinusem, czyli N2 na X, też jest, jak kąt mamy tutaj, to jest z sinus tego kąt.
+Start: 173.00, End: 178.00, Sentence: Czyli mamy minus N1 razy z sinus alpha plus N2 razy sinus alpha.
+Start: 178.00, End: 186.00, Sentence: Oba są z sinusem, bo kąt jest przy drugiej składowej, to jest sposób.
+Start: 186.00, End: 192.00, Sentence: No przejrzucając N1 na drugą stronę, dzienną z alpha mamy, że N1 razy 2.
+Start: 192.00, End: 195.00, Sentence: Suma rzutówna o zix, gra grudna z 0.
+Start: 195.00, End: 206.00, Sentence: Najtaradiu, że N1 razy sinus, N2 razy sinus, aby obadziałałem jakby w kierunku, przyjęliśmy sobie tej układ i grek do góry i ich sprawą, czyli standardowo.
+Start: 207.00, End: 215.00, Sentence: Czyli N1 kosinus, plus N2 kosinus, minus P i doda dzien trzy, równasie z 0.
+Start: 215.00, End: 224.00, Sentence: Przeronziemy sobie P i N3 na drugą stronę, za N3 podstawiamy jedą drugą Px.
+Start: 224.00, End: 229.00, Sentence: Za N2 podstawiamy N1, bo N2 razy N1.
+Start: 230.00, End: 237.00, Sentence: Dzielimy przez, no i tutaj sumowali byśmy sobie, przeciwby było 2N1 kosinus alpha, dzielimy przed 2 kosinus alpha,
+Start: 237.00, End: 249.00, Sentence: i mamy policzone, że N1 równasie tyle, a N1 jest równę N2, więc, a no jeszcze kosinus 60 to jest jedna druga, więc tutaj małe uproszczenie jeszcze,
+Start: 249.00, End: 258.00, Sentence: wymianownie kusi robię 1, więc N1 równasie P, N1 minus 1, 1 druga X, a N1 równasie N2, więc N2 równasie tyle samo.
+Start: 259.00, End: 268.00, Sentence: Czyli mamy N1, N2 i N3 policzone, no to możemy przejdę do warunku geometrycznego.
+Start: 268.00, End: 280.00, Sentence: Jeszcze wrócę do tego slajdu, możemy przejdę do warunku geometrycznego, czyli tak było warunek był taki, że belka ma się przemiesić równolegle w dół, czyli ta nasza belka apa.
+Start: 280.00, End: 286.00, Sentence: No tutaj by powiedział no to w takim razie wydłużenia tych trzech prędów mają być takie same.
+Start: 286.00, End: 300.00, Sentence: No niestety nie. Niestety nie. Nie jest to najłatwiejszy warunek geometryczny. Mówimy sobie przedłużyć jakby wydłużenia tych prędów N1, N2,
+Start: 300.00, End: 308.00, Sentence: a wydłużenie prędta N3, no to jest pionowa w dół, tak? A wydłużenie prędu N1, N2 jest w osi prędu.
+Start: 308.00, End: 316.00, Sentence: Więc ten warunek wyglądać będzie tak. Mamy to wydłużenie jednego prędta, wydłużenie 2 prędta.
+Start: 316.00, End: 324.00, Sentence: W linię dopuszczalnych przemieszczeń tych prędów jest na kierunku prostopadłym do przemieszczenia, do wydłużenia, do wydłużenia.
+Start: 324.00, End: 329.00, Sentence: Czyli to jest linię dopuszczalnych przemieszczeń prędta 2, to jest linię dopuszczalnych przemieszczeń prędta pierwszego.
+Start: 329.00, End: 339.00, Sentence: I tam gdzie one się spotykają te linię dopuszczalnych przemieszczeń w to miejsce, czyli tutaj ja zazaczyłem aprim przemieści się koniec belki A.
+Start: 339.00, End: 355.00, Sentence: To jest przemieszczenie się końca belki A, a aprim oznaczono jako FA. No a przemieszczenie końca belki B to jest po prostu wydłużenie tego prędta Delta L3, no bo wydłużenie 2 się prędta tutaj nie ma problemu.
+Start: 356.00, End: 364.00, Sentence: Czyli FB to jest no i warunek jest taki, że FA ma się równać FB, żeby belka się przemieściła równowe tu.
+Start: 364.00, End: 373.00, Sentence: Więc FB to jest po prostu Delta L3, no a z tego trójkonta, a tutaj jeszcze przeżyciłem 60 stopni sądokątywiesz hokowe, tak?
+Start: 373.00, End: 380.00, Sentence: Tutaj linia prostali, linia prosta pią, więc to sądokątywiesz hokowe.
+Start: 381.00, End: 393.00, Sentence: I z tego trójkonta prostokątnego możemy sobie napisać, że Delta L2 do FA to jest KOSINOS 60, a KOSINOS 60 HD to jest jedna druga i wymnażając na skos.
+Start: 393.00, End: 398.00, Sentence: Mamy, że FA równa się 2 raz Delta L2.
+Start: 401.00, End: 407.00, Sentence: Więc FA równa się FB, czyli 2 raz Delta L2 równa się Delta L3.
+Start: 408.00, End: 415.00, Sentence: Wzorna wydłużenie to jest siła w pręcie razy długość tego pręta, przed moduyjanta pole przekroju poprzecznego.
+Start: 415.00, End: 429.00, Sentence: Siła w pręcie drugim, czyli N2 to mieliśmy policzonom z równani równowagi, więc Delta L2 to jest ta siła razy 1 metr, czyli razy L.
+Start: 430.00, End: 438.00, Sentence: Przed moduyjanta razy pole przekroju poprzecznego, pole przekroju poprzecznego drugiego, pierwszego drugiego i trzeciego pręta są takie same z treści zadania.
+Start: 438.00, End: 440.00, Sentence: Moduyjanta również.
+Start: 441.00, End: 447.00, Sentence: No a siła w pręcie trzecim też na początku policzona, czyli Delta L3 to jest tyle.
+Start: 449.00, End: 455.00, Sentence: No i wracamy tutaj z tego warunku i zapisujemy, że 2 razy Delta L2 równa się Delta L3.
+Start: 456.00, End: 459.00, Sentence: Wymnarzamy sobie przez te mianowniki, żeby się skróciły.
+Start: 461.00, End: 466.00, Sentence: Dzielimy przez P, czyli jak już podzielimy przez P, to zostaną nam same liczby i X.
+Start: 466.00, End: 469.00, Sentence: No to tutaj już nie będę przesadła z tymi uproszeniami.
+Start: 470.00, End: 473.00, Sentence: Wydliczamy sobie, że X to są 4,3.
+Start: 474.00, End: 479.00, Sentence: No 3,4,3 metra, tak? 4,3 L, czyli 4,3 metra.
+Start: 480.00, End: 484.00, Sentence: No i to wszystko. O to nas prosili.
+Start: 484.00, End: 490.00, Sentence: W takiej odległości to tam X było zaznaczone z lewej strony, czyli w takiej odległości to jest lewej strony.
+Start: 490.00, End: 492.00, Sentence: Mabyć położona siła P.
+Start: 492.00, End: 497.00, Sentence: Aby nastąpiło równoległe przemieszczenie belki, Aby w zół.
+Start: 497.00, End: 504.00, Sentence: Cała belka miała 2 metry, 2L było zaznaczone L jako 1 metr, czyli 4,3 J1,1,3.
+Start: 504.00, End: 507.00, Sentence: Trochę za położona ma być położona to siła P.
+Start: 507.00, End: 510.00, Sentence: I to wszystko. Możemy przejdę przykładu 3G.

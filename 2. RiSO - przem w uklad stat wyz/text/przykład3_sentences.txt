@@ -1,0 +1,144 @@
+Start: 0.00, End: 12.00, Sentence: A oton. Na spordniku ABC składającym się zmiedzianej podpory AB oraz stalowego cięgnę AC, zawieszono ciężar 50 kt.
+Start: 12.00, End: 29.00, Sentence: Okresie średnice FIDE, cięgnę oraz wymiar A przekroju kwadratowego miedzianej podpory AB, przyjmując naprężenia dopuszczalne dla miedzi wytrzymałość nesciskania 40 MPa, a dla stali wytrzymałość na rozciąganie 160 MPa.
+Start: 29.00, End: 42.00, Sentence: Okresić przemieszczenie poziomej i pionowe punktu A przyjmując długość podpory AB, 1,20 m i modułu jangat dla stali jest różnanie dla miedzi, są podane.
+Start: 42.00, End: 51.00, Sentence: Rekcje mamy w osi printów na AC, oznacząłem i na AB.
+Start: 52.00, End: 58.00, Sentence: I mamy tutaj tą siłę G, podane kontylu jest lustopni na resunku.
+Start: 58.00, End: 62.00, Sentence: I teraz rozresowałem to, o czym mówiłem wcześniej.
+Start: 62.00, End: 68.00, Sentence: To jest pod kątem, który jest pod kątem na C, możemy rozłożyć na składowe.
+Start: 68.00, End: 98.00, Sentence: Tutaj jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem, który jest kątem
+Start: 98.00, End: 106.00, Sentence: A więc są arzutów na oźgi gre grówna się 0, czyli NAC-30-G,
+Start: 106.00, End: 110.00, Sentence: Równa się 0, więc NAC-2G,
+Start: 110.00, End: 113.00, Sentence: Sino-30-G to jest jedna druga.
+Start: 114.00, End: 119.00, Sentence: Sino-30-G sumarzutów na oźgi gre grówna się 0, czyli NAC-30-G,
+Start: 119.00, End: 130.00, Sentence: Z minusem, bo ujemnie znaczy w lewą stronę przyjmujemy nostandardowe układ w urzędnych i grektogury i ich w prawo.
+Start: 130.00, End: 137.00, Sentence: Czyli minus NAC-30-G, odjęć NAB-0,
+Start: 138.00, End: 143.00, Sentence: więc NAB-0, przynoszą na drugą stronę, podstawiamy sobie NAC-30-G,
+Start: 143.00, End: 146.00, Sentence: kosmiczny 60-G-30-G,
+Start: 146.00, End: 150.00, Sentence: przed 2, 2 kisie skradzają, mamy, że NAB-0,
+Start: 150.00, End: 152.00, Sentence: minus gieraz 1,5G-30-G,
+Start: 152.00, End: 155.00, Sentence: G-30-G mamy dane 50 km.
+Start: 156.00, End: 162.00, Sentence: No i warunek wytrzymałościowy, czyli co siła w pręcie AC jest dodatnia,
+Start: 162.00, End: 166.00, Sentence: więc tutaj będzie rozciąganie, tak jak już to myślmy podane w to ci dodania,
+Start: 166.00, End: 170.00, Sentence: można było się domyślać po mału, że skoro jest podane,
+Start: 170.00, End: 174.00, Sentence: wytrzymałość na rozciąganie stali i wytrzymałość na ściskanie miedzi,
+Start: 174.00, End: 180.00, Sentence: no to powinno na wejść NAB-0, NAC dodatnie,
+Start: 180.00, End: 183.00, Sentence: żeby tu właśnie było rozciągania, a tu ściskanie.
+Start: 183.00, End: 186.00, Sentence: Chociaż z tymi zadaniami to różnie bywa.
+Start: 186.00, End: 192.00, Sentence: Z czasem są też błędy w treści albo profesoryźle podana tablicy,
+Start: 192.00, End: 196.00, Sentence: za połniczego i dopiszać na różnie bywa, trzeba być czujnym.
+Start: 197.00, End: 200.00, Sentence: No ale tutaj akurat się sprawdziło.
+Start: 200.00, End: 205.00, Sentence: No więc bez względu na wartość naprężań ma być mniejsza,
+Start: 205.00, End: 208.00, Sentence: ale odytrzymałości zależy to rozciąganie czy ściskanie,
+Start: 208.00, End: 210.00, Sentence: zależy co w tym pręcie mamy.
+Start: 210.00, End: 219.00, Sentence: Więc w pręcie AB, w tej BELCAB, mamy rozciąganie,
+Start: 219.00, End: 223.00, Sentence: przepraszam w BELCAB, mamy ściskanie, bo jest siła ujemna,
+Start: 223.00, End: 227.00, Sentence: czyli siła przez pole przekroju, tutaj był przekryk quadratowy,
+Start: 227.00, End: 230.00, Sentence: pole przekrojza jest A-quadrat.
+Start: 230.00, End: 235.00, Sentence: Mamy być mniejsze lub również wytrzymałość na ściskanie 40 Mp.
+Start: 235.00, End: 236.00, Sentence: na stali.
+Start: 237.00, End: 240.00, Sentence: No i tutaj wartość bez względu jest podstawy na tak.
+Start: 240.00, End: 242.00, Sentence: Podstawiamy wartości liczbowe.
+Start: 242.00, End: 246.00, Sentence: Pierwaste kładratowe oczywiście
+Start: 246.00, End: 252.00, Sentence: i AB być większość lub również w 465,9 tys. metra.
+Start: 252.00, End: 258.00, Sentence: Czyli za konglen trochę w górach 47 tys. metra,
+Start: 258.00, End: 261.00, Sentence: czyli 47 centymetra.
+Start: 261.00, End: 265.00, Sentence: To samo robimy z prętem z ciągdem AC.
+Start: 265.00, End: 269.00, Sentence: Siła przez pole przekroju, tutaj już jest przekrykowa,
+Start: 269.00, End: 271.00, Sentence: czyli pina kładrat czwartych.
+Start: 271.00, End: 275.00, Sentence: Mniejsza lub również na rozciąganie 160 Mp.
+Start: 275.00, End: 280.00, Sentence: Stoszyj Jan Megapaskai, to jest z narazy 10 do 6.
+Start: 280.00, End: 281.00, Sentence: Tutaj tak samo.
+Start: 281.00, End: 287.00, Sentence: Prasne przeksalcenia matawa też na biedwiastek quadratowy.
+Start: 287.00, End: 293.00, Sentence: I średnica ma być większa lub również na niż 282 tys.
+Start: 293.00, End: 299.00, Sentence: Zaokrąglając trochę górę 300 M, czyli 3 centymetry.
+Start: 299.00, End: 304.00, Sentence: Wzórna wydłużenie pręta to jest siła w predzie,
+Start: 304.00, End: 307.00, Sentence: a z długą śpięta przez moduł Jan,
+Start: 307.00, End: 309.00, Sentence: a z pole przekroju poprzecznego.
+Start: 309.00, End: 313.00, Sentence: No i już dla naszych zwymiarowanych wartości
+Start: 313.00, End: 318.00, Sentence: wokół przekroju poprzecznego i średnicy przekroju kołowego
+Start: 318.00, End: 321.00, Sentence: możemy sobie liczyć wydłużenia.
+Start: 321.00, End: 324.00, Sentence: A więc wydłużenie pręta AB.
+Start: 324.00, End: 328.00, Sentence: To jest, no i teraz już postawiamy nie wartość bezględną,
+Start: 328.00, End: 330.00, Sentence: tylko wartość rzeczywistą.
+Start: 330.00, End: 335.00, Sentence: To będzie skrótne pręta, jak będzie dodatnie, to będzie wydłużenie.
+Start: 335.00, End: 343.00, Sentence: Czyli minus 50 to jest to G, minus 50 razy 10 do 30 TLG.
+Start: 343.00, End: 347.00, Sentence: Razy pierwia z tekstrzek to jest NAB.
+Start: 347.00, End: 353.00, Sentence: Razy długość pręta AB, 1,20 m przez moduł Jan,
+Start: 353.00, End: 356.00, Sentence: dla miedzi razy pole przekroju poprzecznego.
+Start: 356.00, End: 359.00, Sentence: Podstawiamy wartości wyszbowe już wszędzie.
+Start: 359.00, End: 363.00, Sentence: Jedno z niej podstawowe i wynik mamy w jednostce podstawowej.
+Start: 363.00, End: 368.00, Sentence: Zaminimy sobie na milimetry minus 499 000 milimetra.
+Start: 368.00, End: 370.00, Sentence: Takie jest skrótzenie tego pręta AB.
+Start: 370.00, End: 372.00, Sentence: To samo robimy z prętem AC.
+Start: 372.00, End: 376.00, Sentence: Czyli siła w pręcie 2 razy G, czyli 2 razy 50 TLG.
+Start: 376.00, End: 379.00, Sentence: Razy długość pręta A.
+Start: 379.00, End: 383.00, Sentence: Przez moduł Jan, dla stali pide kwadra 4, czyli pole przekroju poprzecznego.
+Start: 383.00, End: 385.00, Sentence: No jeszcze długość pręta A.
+Start: 385.00, End: 388.00, Sentence: Oczywiście zazwisk tego zbiką to prostokątnego.
+Start: 388.00, End: 391.00, Sentence: Podstawiamy 1,20 m do AC.
+Start: 391.00, End: 394.00, Sentence: To jest kosino 30.
+Start: 394.00, End: 401.00, Sentence: Z tego liczymy AC 1,20 m na kosino 30, czyli 1,386 tys.
+Start: 401.00, End: 405.00, Sentence: I podstawiamy sobie już w tej prędzie wartości wyszbowe.
+Start: 405.00, End: 410.00, Sentence: Tak samo pokrzeliczenie mamy wynik na karplatorze w jednostce podstawowej.
+Start: 410.00, End: 413.00, Sentence: Metrach przekształcał sobie na milimetry.
+Start: 413.00, End: 416.00, Sentence: Mamy policzone wydłużeni aprędu.
+Start: 416.00, End: 422.00, Sentence: A my mamy policzyć przemieszczenie pienowej i przemieszczenie poziome końca bilki.
+Start: 422.00, End: 427.00, Sentence: No to musimy się zastanowić teraz jak to będzie wyglądało.
+Start: 427.00, End: 430.00, Sentence: Skrócenie pręta A.
+Start: 430.00, End: 433.00, Sentence: I wydłużenie pręta AC.
+Start: 433.00, End: 436.00, Sentence: No to linia prędzenia do kuszalnych przemieszzeń.
+Start: 436.00, End: 443.00, Sentence: Tak jak w przykładzie po przednim linia do kuszalnych przemieszzeń jest na kierunku prostopadłem do tego przemieszczenia.
+Start: 444.00, End: 449.00, Sentence: Czyli prostopadle do przemieszczenia Delta LAB jest linia do kuszalnych przemieszczeń pręta AB.
+Start: 449.00, End: 452.00, Sentence: I tak samo z prętem AC.
+Start: 452.00, End: 456.00, Sentence: Na przecięciu tych linii do kuszalnych przemieszczenia był prędu.
+Start: 456.00, End: 461.00, Sentence: Mamy przemieszczenie końca przemieszczenie punktuła.
+Start: 461.00, End: 463.00, Sentence: Przemieszczenie przemieszcili w pomyścach.
+Start: 463.00, End: 467.00, Sentence: To jest o wiele przesadzona skala.
+Start: 467.00, End: 474.00, Sentence: No bo długość pręta tej podpory AB to jest jeden 20 metrano.
+Start: 474.00, End: 479.00, Sentence: A przemieszczenia na wydłużania na wyczuły 10 czysts.
+Start: 479.00, End: 487.00, Sentence: Części milimetrów także jest to dużo przesadzona skala.
+Start: 487.00, End: 491.00, Sentence: W tym ciały żeby było to dobrze widać, żeby się mogli to dobrze rozpaczyć.
+Start: 491.00, End: 495.00, Sentence: Także to przemieszczenie będzie minimalne, malutkie.
+Start: 497.00, End: 502.00, Sentence: Mamy tutaj połutworzyły nam się jakieś trykonty prostokątne.
+Start: 502.00, End: 509.00, Sentence: No i trzeba z tego skorzystać. Mamy poicznych przemieszczeni, składową poziomą i składową pionową tego przemieszczenia.
+Start: 512.00, End: 516.00, Sentence: Mamy sobie rozresować tak.
+Start: 516.00, End: 522.00, Sentence: Musimy zauważyć, że utworzyły nam się tutaj właśnie taki trykontent jak to zaznaczyłem na zielono.
+Start: 522.00, End: 527.00, Sentence: I że jest on podobny do tego trykonta małego tutaj.
+Start: 527.00, End: 533.00, Sentence: Ponieważ obaw są prostokątne, tutaj jest kont prosty tego małego, tu jest kont prosty z tego dużego.
+Start: 533.00, End: 537.00, Sentence: I mają ten sam kont tutaj.
+Start: 537.00, End: 541.00, Sentence: Ten małe składa się kont prosty i tu jest jakiś tamtwaźwy kondalfa.
+Start: 541.00, End: 545.00, Sentence: I ten duży zielony, tu jest kont prosty i tu jest też kondalfa.
+Start: 545.00, End: 551.00, Sentence: Z czego wynika, że pozostałe kondy, czyli ten no pozostałe trzeci kąt musi być taki sam.
+Start: 551.00, End: 557.00, Sentence: Czyli ten kąt, który tu jest zaznaczony musi być taki sam jak ten kąt tutaj.
+Start: 557.00, End: 562.00, Sentence: Czyli to 30, możemy sobie przenieść tutaj. To jest ważne, żeby to zauważyć.
+Start: 565.00, End: 570.00, Sentence: No i ja tutaj jeszcze oznaczyłem tą krawędziako A, tą jako B.
+Start: 570.00, End: 578.00, Sentence: Tutaj zaznaczyłem przemieszczenie pionowe naszego punktu A, czyli Delta i Greg.
+Start: 578.00, End: 586.00, Sentence: I napisałem, że zaznaczyłem, że ten Bok B składa się z tej właśnie Delta i Greg i z jakiegoś tam B prim,
+Start: 586.00, End: 589.00, Sentence: które będzie potrzebne nam do składowych obliczeń.
+Start: 589.00, End: 596.00, Sentence: A Delta X to jest po prostu przemieszczenie Delta L, aby bilować to na rysunku.
+Start: 596.00, End: 601.00, Sentence: No i ten Bok A składa się Delta L a C i jakiegoś A prim.
+Start: 606.00, End: 613.00, Sentence: Nawet więc tak, zaczynamy od Bok A. Bok A to jest A prim plus Delta L a C. Delta L a C jest policzone.
+Start: 613.00, End: 618.00, Sentence: Oczywiście bardzo i bez względna, bo my tutaj nie chcemy z minusami.
+Start: 618.00, End: 621.00, Sentence: I teraz sobie nas bardzo i bez względna tych przemieszczeń.
+Start: 621.00, End: 625.00, Sentence: I to jest 9,34 milimetra policzone już wcześniej.
+Start: 625.00, End: 631.00, Sentence: Możemy sobie napisać, że teraz Delta L a B, czyli ta długość, do A prim.
+Start: 631.00, End: 635.00, Sentence: To jest kosinus tego konta, czyli kosinus 30.
+Start: 635.00, End: 639.00, Sentence: Z tego policzemy A prim, a później już A.
+Start: 639.00, End: 644.00, Sentence: Czyli A prim to jest Delta L a B na kosinus 30.
+Start: 644.00, End: 648.00, Sentence: Delta L a B to jest 499 milimetra.
+Start: 648.00, End: 654.00, Sentence: Kosinus 30, kiedy raz tych szczerze przed dół, mamy policzone A prim, więc liczemy sobie A.
+Start: 654.00, End: 657.00, Sentence: I wynosi ono tyle.
+Start: 657.00, End: 660.00, Sentence: Zajmujemy się teraz drugim Bokiem.
+Start: 660.00, End: 663.00, Sentence: B składa się z B prim plus Delta i grek.
+Start: 663.00, End: 671.00, Sentence: B prim nad A prim to jest sinus 30 topni, czyli sinus tego konta.
+Start: 671.00, End: 675.00, Sentence: No albo kosinus 60 jest wszystko jedno.
+Start: 675.00, End: 683.00, Sentence: Czyli B prim to jest A prim razy sinus 30, czyli B prim to jest połowa z A prim, czyli 255 milimetra.
+Start: 683.00, End: 698.00, Sentence: No to teraz A do B to jest sinus 30, czyli B to jest A na sinus 30, czyli B to jest 2,8 tysięcznych milimetra.
+Start: 698.00, End: 703.00, Sentence: Jak widzicie, na wszystko tutaj się opiera na tych których konta prostokątnych.
+Start: 703.00, End: 712.00, Sentence: Delta i grek to jest B minus B prim, a więc Delta i grek to jest 2,570 tysięcznych milimetra.
+Start: 712.00, End: 724.00, Sentence: No więc, zauchodzimy już do końca zadania Delta X to jak widać z rysunku to jest po prostu Delta Labe, czyli 1,438 tysięcznych milimetra.
+Start: 724.00, End: 727.00, Sentence: I to wszystko co mieliśmy policzyć.
+Start: 727.00, End: 736.00, Sentence: No to N-warunek geometrze tutaj można powiedzieć jest no najtrudniejszych tych trzech zadań, które dzisiaj przerabiliśmy.
+Start: 737.00, End: 748.00, Sentence: No ale im więcej zadań się zobaczy, im więcej takich warunków geometrzeżnych się zobaczy, no to później jak się dostanie jakieś zadanie to już jest łatwiej do ich do tego jak to ma wyglądać faktycznie.
+Start: 748.00, End: 755.00, Sentence: Jak wygląda ten warunek geometrzeżny, jak wyglądają te przemieszczenia i tak dalej, także im więcej zadań.
+Start: 755.00, End: 764.00, Sentence: Tym potem mamy takie szersze spektrum jakby, no sytuacji która przerabiliśmy.
