@@ -1,0 +1,85 @@
+Start: 0.00, End: 9.00, Sentence: Greetings. Today's topic is stretching and axial compression, displacements in statically determinate systems.
+Start: 9.00, End: 16.00, Sentence: I have prepared three examples; in the previous video, I solved the first example.
+Start: 16.00, End: 28.00, Sentence: Example two, calculate at what distance x the concentrated force P should be applied so that the elongations of the bars cause a parallel displacement of beam A-B downwards.
+Start: 28.00, End: 31.00, Sentence: All bars have the same circular cross-section.
+Start: 31.00, End: 38.00, Sentence: The length L of those bars here and the force P applied on the beam are given.
+Start: 38.00, End: 49.00, Sentence: Reactions in the bars are along the axes of the bars, just as always outside the system, as if we are applying to cut it.
+Start: 49.00, End: 55.00, Sentence: We have 3 bars, which means 3 reactions N1, N2, and N3.
+Start: 55.00, End: 65.00, Sentence: We have available the sum of the projections of forces on the x-axis, the sum of the projections of forces on the y-axis, and the sum of moments at any point.
+Start: 65.00, End: 68.00, Sentence: So we have 3 equations of static equilibrium.
+Start: 68.00, End: 74.00, Sentence: And we have unknowns: 3 reactions and also the distance x, so we have 4 unknowns.
+Start: 74.00, End: 83.00, Sentence: So in addition to our conditions of static equilibrium, we will also have to utilize the geometric conditions, that is, from this parallel displacement of the beam.
+Start: 83.00, End: 88.00, Sentence: But that will come later; first, we establish the conditions of static equilibrium.
+Start: 88.00, End: 92.00, Sentence: We can start with the sum of the moments, it can be at point A.
+Start: 92.00, End: 97.00, Sentence: When we calculate the sum of moments at point A, N3 will be in the equation along with P.
+Start: 97.00, End: 106.00, Sentence: The force P times the arm x causes a clockwise rotation; I assume that clockwise moments are positive.
+Start: 106.00, End: 114.00, Sentence: When calculating reactions and forming the sum of moments, we either take clockwise as positive or counterclockwise as positive.
+Start: 114.00, End: 123.00, Sentence: We will get the same result regardless of how we assume, but we have to set something; I assume that clockwise moments are positive.
+Start: 123.00, End: 127.00, Sentence: The force P causes a clockwise rotation, so we use plus.
+Start: 127.00, End: 134.00, Sentence: Minus N3 times the total length, here 2L, which is the arm of the force, equals 0.
+Start: 134.00, End: 139.00, Sentence: From this, we calculate that N3 equals 1/2 P times x.
+Start: 139.00, End: 142.00, Sentence: The sum of the projections of forces on the x-axis equals 0.
+Start: 142.00, End: 146.00, Sentence: When we project force P onto the x-axis, we have nothing, we have 0.
+Start: 146.00, End: 152.00, Sentence: When we project N3 onto x, we also have 0, so there will only be minus N1.
+Start: 152.00, End: 159.00, Sentence: Now, regarding the projection of force N1 onto the x-axis, I always reason like this:
+Start: 159.00, End: 169.00, Sentence: If we would make a component y and a component x here, that component corresponding to the angle, which here would be the component y, where this angle is noted.
+Start: 169.00, End: 175.00, Sentence: This component is with the cosine of that angle, with the cosine of 60, and the other component is with the sine.
+Start: 175.00, End: 183.00, Sentence: So N2 on x is also, and if we have the angle here, then here is the sine of that angle.
+Start: 183.00, End: 189.00, Sentence: So we have minus N1 times sine alpha plus N2 times sine alpha.
+Start: 189.00, End: 197.00, Sentence: Both are with sine because the angle is with the second component.
+Start: 197.00, End: 202.00, Sentence: By moving N1 to the other side and dividing by sine alpha, we find that N1 equals N2.
+Start: 202.00, End: 205.00, Sentence: The sum of projections on the y-axis equals 0.
+Start: 205.00, End: 209.00, Sentence: Now, N1 is with cosine, and N2 is with cosine.
+Start: 209.00, End: 217.00, Sentence: Both are acting as if in the direction, we have adopted the coordinate system with y up and x to the right, which is standard.
+Start: 217.00, End: 225.00, Sentence: So N1 cosine plus N2 cosine minus P equals 0.
+Start: 225.00, End: 231.00, Sentence: We move P and N3 to the other side.
+Start: 231.00, End: 235.00, Sentence: We substitute one half Px for N3.
+Start: 235.00, End: 239.00, Sentence: We substitute N1 for N2 since N2 equals N1.
+Start: 239.00, End: 247.00, Sentence: And here we would sum it up, thus it would be 2 times N1 times cosine alpha divided by 2 times cosine alpha.
+Start: 247.00, End: 253.00, Sentence: And we have calculated that N1 equals this, and N1 equals N2.
+Start: 253.00, End: 259.00, Sentence: Oh, and cosine 60 is 1/2, so there's a little simplification here.
+Start: 259.00, End: 266.00, Sentence: In the denominator, we get one, so N1 equals P and in parentheses 1 minus 1/2 x, and N1 equals N2.
+Start: 266.00, End: 269.00, Sentence: So N2 equals the same amount.
+Start: 269.00, End: 274.00, Sentence: Therefore, we have N1, N2, and N3 calculated.
+Start: 274.00, End: 279.00, Sentence: So we can move on to the geometric condition.
+Start: 279.00, End: 281.00, Sentence: I will return to this slide.
+Start: 281.00, End: 290.00, Sentence: We can move on to the geometric condition, which states that the beam must move downward parallel, which is our beam A-B.
+Start: 290.00, End: 296.00, Sentence: Someone might say, then the extensions of these three rods should be the same.
+Start: 296.00, End: 298.00, Sentence: Unfortunately not.
+Start: 298.00, End: 304.00, Sentence: Unfortunately not. It is not the easiest geometric condition.
+Start: 304.00, End: 310.00, Sentence: We need to extend the axes of these rods N1 and N2.
+Start: 310.00, End: 314.00, Sentence: And the extension of rod N3 is vertical downward.
+Start: 314.00, End: 318.00, Sentence: And the extensions of rods N1 and N2 are along the axis of the rods.
+Start: 318.00, End: 321.00, Sentence: So this condition will look like this.
+Start: 321.00, End: 325.00, Sentence: We have the extension of one rod, the extension of the second rod.
+Start: 325.00, End: 333.00, Sentence: The line of permissible displacements of these rods is in a direction perpendicular to the extension.
+Start: 333.00, End: 336.00, Sentence: So this is the line of permissible displacements of the second rod.
+Start: 336.00, End: 339.00, Sentence: This is the line of permissible displacements of the first rod.
+Start: 339.00, End: 343.00, Sentence: And where they meet, these lines of permissible displacements, here I marked A', will be where the end of beam A moves.
+Start: 343.00, End: 347.00, Sentence: This is the displacement of the end of beam A.
+Start: 347.00, End: 350.00, Sentence: A-A' marked as f_a.
+Start: 350.00, End: 355.00, Sentence: And the displacement of the end of beam B is simply the extension of this rod delta L3.
+Start: 355.00, End: 361.00, Sentence: Because the extension along the axis of the rod here is no problem.
+Start: 361.00, End: 366.00, Sentence: So f_B, and the condition is that f_A must equal f_B.
+Start: 366.00, End: 369.00, Sentence: For the beam to move parallel here.
+Start: 369.00, End: 372.00, Sentence: So f_B is simply delta L3.
+Start: 372.00, End: 378.00, Sentence: And from this triangle, I have transferred the 60 degrees, which are the vertex angles.
+Start: 378.00, End: 385.00, Sentence: Here is a straight line, a straight line, a vertical, so these are the vertex angles.
+Start: 385.00, End: 390.00, Sentence: And from this right triangle, we can state that delta L2 to f_A is cos 60, and cos 60 is 1/2.
+Start: 390.00, End: 396.00, Sentence: And multiplying across, we have that f_A equals 2 times delta L2.
+Start: 396.00, End: 401.00, Sentence: So f_A equals f_B, which means 2 times delta L2 equals delta L3.  
+Start: 401.00, End: 405.00, Sentence: The formula for elongation is the force in the rod times the length of that rod divided by Young's modulus times the cross-sectional area.  
+Start: 405.00, End: 413.00, Sentence: The force in the second rod, which is N2, we calculated from the equilibrium equations.  
+Start: 413.00, End: 419.00, Sentence: So delta L2 is that force times 1 meter, or times L, divided by Young's modulus times the cross-sectional area.  
+Start: 419.00, End: 422.00, Sentence: The cross-sectional areas of the first, second, and third rods are the same according to the problem statement, as are the Young's moduli.  
+Start: 422.00, End: 427.00, Sentence: And the force in the third rod was also initially calculated, meaning delta L3 is that much.  
+Start: 427.00, End: 432.00, Sentence: Now we return to this condition and write that 2 times delta L2 equals delta L3.  
+Start: 432.00, End: 435.00, Sentence: We multiply through these denominators so that they cancel out.  
+Start: 435.00, End: 440.00, Sentence: We divide by P, so once we divide by P, we will be left with just numbers and X.  
+Start: 440.00, End: 443.00, Sentence: Well, I won't go overboard with these simplifications here.  
+Start: 443.00, End: 452.00, Sentence: We calculate that X is 4/3 meters, so 4/3 times L, which is 4/3 meters.  
+Start: 452.00, End: 455.00, Sentence: And that's all, that's what they asked us for.  
+Start: 455.00, End: 458.00, Sentence: At that distance, X was marked on the left side, meaning the force P should be applied at that distance on the left side for the downward parallel displacement of beam A-B to occur.  
+Start: 458.00, End: 463.00, Sentence: The whole beam was 2 meters, 2 L was marked L as 1 meter, so 4/3 is 1 and 1/3, which means the force P should be positioned just past the halfway mark.  
+Start: 463.00, End: 466.00, Sentence: And that's all, we can move on to the third example in the next video.  
+Start: 466.00, End: 475.00, Sentence: If you have any questions - feel free to write in the comments, for now, that's all in this example, thanks, bye!

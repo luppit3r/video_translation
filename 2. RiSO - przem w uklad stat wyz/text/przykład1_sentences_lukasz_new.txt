@@ -1,0 +1,117 @@
+Start: 0.00, End: 8.00, Sentence: Witam serdecznie. Dzisiejszy temat to rozciąganie i ściskanie osiowe, przemieszczenia w układach statycznie wyznaczalnych.
+Start: 8.00, End: 11.00, Sentence: Mam na dzisiaj przygotowane trzy przykłady.
+Start: 11.00, End: 17.00, Sentence: Pierwszy z nich: oblicz średnicę pręta D oraz wydłużenie delta L.
+Start: 17.00, End: 25.00, Sentence: Dane mamy wymiary tego układu prętowo-belkowego czy prętowo-ramowego i wszystkie siły.
+Start: 25.00, End: 37.00, Sentence: Mamy moment, wytrzymałość na rozciąganie, wytrzymałość na ściskanie i mamy z warunków wytrzymałościowego obliczyć średnicę pręta, a jak już obliczymy średnicę to policzyć wydłużenie tegoż pręta.
+Start: 37.00, End: 45.00, Sentence: No więc tak, mamy tutaj podporę przegubową nieprzesuwną, w której są dwie reakcje, pionowa i pozioma.
+Start: 45.00, End: 48.00, Sentence: I mamy reakcję w pręcie.
+Start: 48.00, End: 62.00, Sentence: Nas w tym zadaniu interesuje tak naprawdę tylko ta reakcja w pręcie, więc możemy sobie zrobić sumę momentów względem punktu A, względem tej podpory tutaj nieprzesuwnej.
+Start: 62.00, End: 69.00, Sentence: I wtedy jedną niewiadomą w tym równaniu będzie właśnie ta reakcja w pręcie.
+Start: 69.00, End: 75.00, Sentence: Więc żeby sobie to zrobić, sumę momentów w tym punkcie, to potrzebujemy ramie działania każdej siły.
+Start: 75.00, End: 77.00, Sentence: No i spójrzmy sobie na te siły w tym układzie.
+Start: 77.00, End: 92.00, Sentence: Siła P, widać ramie działania siły względem bieguna momentu, to jest najkrótsza, czyli prostopadła odległość od kierunku działania tej siły, tu jest kierunek działania siły, do bieguna momentu.
+Start: 92.00, End: 101.00, Sentence: Czyli jakbyśmy przedłużyli sobie kierunek tej siły P, to tutaj jest najkrótsza, czyli prostopadła odległość, która jest ramieniem działania.
+Start: 101.00, End: 104.00, Sentence: Czyli jest to "a", jak widać.
+Start: 104.00, End: 115.00, Sentence: No i teraz tak, obciążenie ciągłe możemy sobie zredukować do wypadkowej w środku ciężkości, środek ciężkości prostokąta jest po prostu w połowie długości.
+Start: 115.00, End: 126.00, Sentence: Czyli ramie działania tego obciążenia ciągłego, no to będzie tutaj jakby połowa tego "2a", czyli "a" i jeszcze tutaj "2a" do tego punktu.
+Start: 126.00, End: 133.00, Sentence: Czyli to też mamy, moment to jest moment, nie działa na żadnym ramieniu, bierzemy po prostu jego wartość do sumy momentów.
+Start: 133.00, End: 139.00, Sentence: No i teraz jeszcze ta reakcja, a w zasadzie siła w pręcie, ona jest w osi pręta.
+Start: 139.00, End: 144.00, Sentence: No i tutaj ta odległość nie jest już taka oczywista.
+Start: 144.00, End: 153.00, Sentence: Dobrze ją sobie tutaj przełożyć na prawo, tutaj zrobić sobie dwa trójkąty, które wyglądają tak.
+Start: 153.00, End: 160.00, Sentence: I na tej podstawie sobie tą odległość policzyć, z sinusów i kosinusów tych trójkątów prostokątnych.
+Start: 160.00, End: 173.00, Sentence: No więc tak, suma momentów względem punktu A równa się 0.
+Start: 173.00, End: 185.00, Sentence: No i równanie będzie wyglądało tak, tak jak wam mówiłem zakładamy, że prawoskrętnie względem bieguna A to są dodatnie momenty - prawoskrętne dodatnie.
+Start: 185.00, End: 193.00, Sentence: Siła P zakręciłaby nam lewoskrętnie i ona jest na ramieniu A, czyli minus P razy A.
+Start: 193.00, End: 205.00, Sentence: Dodać i teraz obciążenie ciągłe redukujemy do wypadkowej w środku ciężkości i to jest wartość tego obciążenia ciągłego razy długość odcinka, na jakim to obciążenie ciągłe leży.
+Start: 205.00, End: 212.00, Sentence: Czyli "q" razy "2a" i to jest to "2qa", ono zakręci dodatnio względem bieguna A.
+Start: 212.00, End: 220.00, Sentence: Na ramieniu "3a", czyli połowa z tych "2a" na których leży, czyli ten środek ciężkości i jeszcze "2a", to jest razem "3a".
+Start: 220.00, End: 225.00, Sentence: I teraz minus S i razy to ramię.
+Start: 225.00, End: 228.00, Sentence: Teraz skąd wziąłem to ramię? No właśnie z tych trójkątów.
+Start: 228.00, End: 238.00, Sentence: Jeżeli byśmy sobie napisali, że tutaj jest Y' czyli ta długość, to Y' do "2a" to jest sinus tego kąta, czyli sinus 60.
+Start: 238.00, End: 241.00, Sentence: Więc Y' to jest "2a" razy sinus 60.
+Start: 241.00, End: 249.00, Sentence: Jeśli tą długość byśmy sobie przyjęli jako Y'' to Y'' do "2a" to jest cosinus tego kąta, czyli cosinus 60.
+Start: 249.00, End: 254.00, Sentence: Albo sinus 30, jakkolwiek. To jest ta sama wartość.
+Start: 254.00, End: 257.00, Sentence: Czyli Y'' to jest "2a" razy cos 60.
+Start: 257.00, End: 262.00, Sentence: No i ta cała długość to jest Y' plus Y'' która jest tutaj zapisana w nawiasie.
+Start: 262.00, End: 267.00, Sentence: Ok, my chcemy policzyć naszą niewiadomą, czyli reakcję w pręcie, czyli S.
+Start: 267.00, End: 271.00, Sentence: No to przenosimy sobie S z nawiasem na drugą stronę.
+Start: 271.00, End: 275.00, Sentence: Dzielimy przez ten nawias. Możemy sobie zamienić miejscami oczywiście.
+Start: 275.00, End: 278.00, Sentence: I wstawiamy wartości liczbowe.
+Start: 278.00, End: 281.00, Sentence: Czyli P było podane, "a" było 1 metr.
+Start: 281.00, End: 287.00, Sentence: No i wszystkie dane tutaj były w treści zadania podane.
+Start: 287.00, End: 300.00, Sentence: Więc podstawiając sobie te sinusy i kosinusy mamy, że S równa się 9,88 kN.
+Start: 300.00, End: 307.00, Sentence: Bo ja tę siłę P, M i Q podstawiałem tak jak były w treści zadania, czyli w kN.
+Start: 307.00, End: 309.00, Sentence: No to wynik jest w kN.
+Start: 309.00, End: 314.00, Sentence: Jakbym zamienił na N, czyli jednostkę podstawową, to wynik by był w N.
+Start: 314.00, End: 318.00, Sentence: Ale tego nie zrobiłem, więc mam w kN.
+Start: 318.00, End: 323.00, Sentence: No i co, mając już siłę w pręcie, możemy go wymiarować.
+Start: 323.00, End: 327.00, Sentence: Czyli wymiarowanie średnicy z warunku wytrzymałości - czyli na naprężenia,
+Start: 327.00, End: 332.00, Sentence: Naprężenia do warunku wytrzymałości bierzemy jako wartość bezwzględną,
+Start: 332.00, End: 340.00, Sentence: ponieważ jak już wiemy czy pręt będzie rozciągany czy ściskany, to przyrównujemy naprężenia do odpowiedniej wytrzymałości.
+Start: 340.00, End: 346.00, Sentence: Siła w pręcie nam wyszła dodatnia, więc pręt będzie rozciągany. Zawsze siłę przyjmujemy jakby do przecięcia.
+Start: 346.00, End: 349.00, Sentence: Przecinamy ten układ i tutaj do przecięcia jest ta siła S.
+Start: 349.00, End: 351.00, Sentence: Jak ona jest dodatnia, to pręt jest rozciągany.
+Start: 351.00, End: 353.00, Sentence: Jak jest ujemna, to pręt jest ściskany.
+Start: 353.00, End: 357.00, Sentence: Czyli nasz pręt w tym układzie jest rozciągany, bo siła nam wyszła dodatnia.
+Start: 357.00, End: 360.00, Sentence: Jak już wiemy, że jest rozciągany, to bierzemy wytrzymałość na rozciąganie.
+Start: 360.00, End: 363.00, Sentence: Ale jakby był ściskany, to nie bierzemy tutaj,
+Start: 363.00, End: 368.00, Sentence: wyszłaby nam wartość ujemna siły, ale nie bierzemy z minusem,
+Start: 368.00, End: 370.00, Sentence: tylko bierzemy wartość bezwzględną.
+Start: 370.00, End: 372.00, Sentence: Dlatego tak zapisałem.
+Start: 372.00, End: 376.00, Sentence: No i tak mamy plus i tak, no ale tak to wygląda.
+Start: 376.00, End: 380.00, Sentence: Czyli siła jest dodatnia, pręt jest rozciągany,
+Start: 380.00, End: 382.00, Sentence: czyli bierzemy wytrzymałość na rozciąganie.
+Start: 382.00, End: 385.00, Sentence: A więc siła jest, jeszcze pole przekroju.
+Start: 385.00, End: 387.00, Sentence: Przekrój jest kołowy.
+Start: 387.00, End: 391.00, Sentence: Pole przekroju kołowego zapisane jakby...
+Start: 391.00, End: 394.00, Sentence: Bo pole koła to jest pi R²,
+Start: 394.00, End: 400.00, Sentence: ale jak zapiszemy zamiast promienia średnicę, to jest pi d² przez 4.
+Start: 400.00, End: 406.00, Sentence: I tego się często używa na wytrzymałości.
+Start: 406.00, End: 414.00, Sentence: Pole przekroju kołowego wyrażone średnicą, czyli pi*d²/4.
+Start: 414.00, End: 419.00, Sentence: Siła w pręcie 9,88 razy 10 do 3 N,
+Start: 419.00, End: 421.00, Sentence: już w jednostce podstawowej.
+Start: 421.00, End: 425.00, Sentence: Wytrzymałość na rozciąganie z treści zadania 80 MPa.
+Start: 425.00, End: 429.00, Sentence: Więc już możemy sobie zapisać z tego wzoru.
+Start: 429.00, End: 433.00, Sentence: Czyli siła przez pole przekroju mniejsze lub równe już 80 MPa,
+Start: 433.00, End: 437.00, Sentence: czyli razy 10 do 6.
+Start: 437.00, End: 441.00, Sentence: No i przekształcamy sobie.
+Start: 441.00, End: 444.00, Sentence: Czyli tutaj pi*d²/4 jakby mnożymy przez odwrotność,
+Start: 444.00, End: 447.00, Sentence: czyli 4 nam wskakuje do góry.
+Start: 447.00, End: 451.00, Sentence: Dzielimy przez 80 x 10 do 6.
+Start: 451.00, End: 453.00, Sentence: Mnożymy przez d².
+Start: 453.00, End: 457.00, Sentence: No takie przekształcenia matematyczne standardowe.
+Start: 457.00, End: 459.00, Sentence: Robimy pierwiastek kwadratowy z tego.
+Start: 459.00, End: 464.00, Sentence: I wychodzi nam, że średnica ma być większa lub równa niż 125 tysięcy metra,
+Start: 464.00, End: 467.00, Sentence: bo wszystko było w jednostkach podstawowych.
+Start: 467.00, End: 472.00, Sentence: Jak sobie przesuniemy przecinek dwa razy w prawo,
+Start: 472.00, End: 474.00, Sentence: czy pomnożymy przez 100, no to mamy w centymetrach.
+Start: 474.00, End: 479.00, Sentence: Czyli średnica ma być większa lub równa niż 1,25 centymetra.
+Start: 479.00, End: 484.00, Sentence: Mając już średnicę zwymiarowaną, no to możemy liczyć wydłużenie pręta.
+Start: 484.00, End: 487.00, Sentence: Wydłużenie pręta wzór na wydłużenie to jest siła w pręcie
+Start: 487.00, End: 490.00, Sentence: razy długość tego pręta przez moduł Younga,
+Start: 490.00, End: 493.00, Sentence: razy pole przekroju poprzecznego.
+Start: 493.00, End: 497.00, Sentence: Pole przypominam pi*d²/4.
+Start: 497.00, End: 501.00, Sentence: Nasze d ma być większe lub równe niż 1,25.
+Start: 501.00, End: 504.00, Sentence: Możemy przyjąć zaokrąglając delikatnie w górę,
+Start: 504.00, End: 507.00, Sentence: bo to jest 1,3 centymetra.
+Start: 507.00, End: 511.00, Sentence: A więc ja tutaj podstawiłem, to jest w centymetrach.
+Start: 511.00, End: 516.00, Sentence: Ja chcę wynik w jednostce podstawowej, a więc z powrotem zapisując w metrach,
+Start: 516.00, End: 518.00, Sentence: mogę zapisać tak, jako razy 10 do minus 2.
+Start: 518.00, End: 521.00, Sentence: I ta średnica ma być do kwadratu, więc tak jest to zapisane.
+Start: 521.00, End: 524.00, Sentence: Wynik wychodzi mi w metrach kwadratowych,
+Start: 524.00, End: 527.00, Sentence: bo zamieniłem na jednostkę podstawową.
+Start: 527.00, End: 532.00, Sentence: Moduł Younga z treści zadania to było dwa razy 10 do piątej megapaskala,
+Start: 532.00, End: 535.00, Sentence: więc dwa razy 10 do piątej razy 10 do szóstej, czyli dwa razy 10 do jedenastej.
+Start: 535.00, End: 538.00, Sentence: I policzona siła w pręcie, 9,88 razy 10 do trzeciej,
+Start: 538.00, End: 541.00, Sentence: już zapisane w jednostce podstawowej - w Newtonach.
+Start: 541.00, End: 546.00, Sentence: I wszystko w jednostkach podstawowych podstawiam do wzoru.
+Start: 546.00, End: 549.00, Sentence: No i wychodzi.
+Start: 549.00, End: 552.00, Sentence: Na kalkulatorze wychodzi nam, wynik w jednostce podstawowej,
+Start: 552.00, End: 555.00, Sentence: czyli w metrach - to jest wydłużenie,
+Start: 555.00, End: 558.00, Sentence: czyli 3,8 razy 10 do minus czwartej.
+Start: 558.00, End: 561.00, Sentence: Jak pomnożę razy 10 do trzeciej, to będzie wynik w milimetrach,
+Start: 561.00, End: 564.00, Sentence: czyli byłoby 3,8 razy 10 do minus pierwszej milimetra.
+Start: 564.00, End: 567.00, Sentence: A jak jeszcze raz przesunę przecinek w lewo, żeby nie było 10 do minus pierwszej,
+Start: 567.00, End: 570.00, Sentence: to będzie po prostu 0,38 milimetra.
+Start: 570.00, End: 573.00, Sentence: Zwymiarowaliśmy pręt i policzyliśmy jego wydłużenie.
+Start: 573.00, End: 576.00, Sentence: Czyli wszystko, o co nas prosili w tym zadaniu.

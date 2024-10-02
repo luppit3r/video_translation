@@ -1,0 +1,143 @@
+Start: 0.00, End: 17.50, Sentence:   Hello, welcome to the first video in the series where we will generally be dealing with internal forces.
+Start: 17.50, End: 27.50, Sentence:   In this video, I want to show you how to calculate simple beams and how to compute the internal forces in these beams and draw charts of those forces.
+Start: 28.50, End: 39.50, Sentence:   This will be a video for those who are just starting their adventure with beams and who want to learn how to draw internal force diagrams.
+Start: 39.50, End: 51.50, Sentence:   Therefore, this is part one; I will record part two, in which I will show you how to quickly calculate beams and how to quickly draw internal force diagrams.
+Start: 52.50, End: 55.50, Sentence:   Okay, let's get started.
+Start: 58.50, End: 73.50, Sentence:   Example one, calculate and draw the internal force diagrams. We have a simple beam supported here by a non-shifting hinge support and here by a shifting hinge support, and it is loaded only by two transverse forces acting on the beam.
+Start: 73.50, End: 76.50, Sentence:   We need to calculate and draw the internal force diagrams.
+Start: 76.50, End: 89.50, Sentence:   Let's mark it; here the lengths of the individual sections are already marked: two meters, three meters, three meters, let's mark them as abcd.
+Start: 89.50, End: 99.50, Sentence:   Now we need to know that at the non-shifting hinge support we have two reactions: a horizontal component and a vertical component.
+Start: 99.50, End: 105.50, Sentence:   At the shifting hinge support, we have one reaction, which is perpendicular to the direction of the shift.
+Start: 105.50, End: 113.50, Sentence:   So if this support were at an angle, let's say, the reaction is perpendicular to the direction of the shift.
+Start: 113.50, End: 125.50, Sentence:   So for us, it looks like this. I labeled Ha and Va for horizontal and vertical, and we can label RAx, RAy arbitrarily.
+Start: 125.50, End: 131.50, Sentence:   So, the equations of static equilibrium.
+Start: 131.50, End: 147.50, Sentence:   To calculate the reactions in our beam, the support reactions, we will use static equilibrium based on the sum of projections on the X-axis, the sum of projections on the Y-axis, and the sum of moments at any point on our beam.
+Start: 148.50, End: 161.50, Sentence:   So we can start with the sum of projections on the X-axis, which means we look at which forces act in the horizontal direction.
+Start: 161.50, End: 170.50, Sentence:   Here in our system, it is only the reaction Ha, so Ha equals 0; there is no other force.
+Start: 171.50, End: 178.50, Sentence:   So we have already calculated one component of the reaction at this hinge support.
+Start: 178.50, End: 182.50, Sentence:   Next, we can take the sum of moments at any point.
+Start: 182.50, End: 196.50, Sentence:   In practice, we will either do it at point A or at point D, as at the point where we do the sum of moments, if a reaction or force passes through the pole for which we are calculating the sum of moments, it does not create a moment, so we do not include it in the equation because the moment is force times arm,
+Start: 196.50, End: 213.50, Sentence:   so the forces that pass through the pole of the moment do not act at any arm, hence we do not see them in the equation.
+Start: 213.50, End: 222.50, Sentence:   Therefore, if we do the sum of moments at point A, we will not see, there will be no force Va or force Ha in this equation,
+Start: 222.50, End: 227.50, Sentence:   because they pass through the pole of the moment, so there will only be the reaction Vd that we need to calculate.
+Start: 227.50, End: 242.50, Sentence:   And if we do the sum of moments with respect to point D, then there will be no force Vd in this equation; there will only be force Va and the two forces loading the beam.
+Start: 242.50, End: 249.50, Sentence:   I will calculate the sum of moments with respect to point A, so the sum of moments with respect to point A equals 0.
+Start: 249.50, End: 261.50, Sentence:   Now, Va and Ha pass through the moment pole, they do not create a moment, then we assume, when calculating reactions, we still have some freedom.
+Start: 261.50, End: 272.50, Sentence:   I assume that for me right-handed moments are positive moments. It can be assumed that left-handed moments are positive; here there is freedom.
+Start: 272.50, End: 283.50, Sentence:   I assume that right-handed moments are positive, so this ten with respect to the moment pole A would like to twist to the right, as I demonstrate.
+Start: 283.50, End: 291.50, Sentence:   This ten with respect to the moment pole A wanted to twist to the right, so it is positive and it acts on the arm.
+Start: 291.50, End: 300.50, Sentence:   The arm of the force action is the shortest, meaning the perpendicular distance from the direction of force action to the moment pole.
+Start: 300.50, End: 305.50, Sentence:   Here, well, in beams this is, there is nothing difficult.
+Start: 305.50, End: 321.50, Sentence:   When we have some more complicated systems, like frames, bar-frame systems, something of that sort, then when these forces are at an angle, we have to think a bit here,
+Start: 321.50, End: 333.50, Sentence:   but we simply have shear forces, so the arm of the action is nothing other than these two meters, that is, ten right-handed times two meters.
+Start: 334.50, End: 350.50, Sentence:   Add fifteen also right-handed, the arm of the action five meters and minus reaction Vd at the arm eight meters. Vd minus because it is left-handed.
+Start: 351.50, End: 360.50, Sentence:   Equals zero, and from this we calculate the reaction Vd, which gives us 11.875 kilonewtons.
+Start: 361.50, End: 376.50, Sentence:   I didn’t mention in the task statement that these are kilonewtons, but by default we deal with such orders of magnitude in beams, so these are kilonewtons.
+Start: 377.50, End: 387.50, Sentence:   Okay, so we have the sum of projections on the Y-axis, that is the vertical axis, and we look at the left side.
+Start: 388.50, End: 398.50, Sentence:   The force Va acts upwards, so for us it is positive. Here we can also assume it freely, but usually it is taken as I say.
+Start: 398.50, End: 408.50, Sentence:   So Va upwards is positive, ten downwards, the direction is downwards, so it is minus 10, minus 15, Vd upwards, that is plus Vd.
+Start: 409.50, End: 420.50, Sentence:   We have calculated Vd, so we substitute it into the equation and calculate Va, which is 13.125 kilonewtons.
+Start: 421.50, End: 433.50, Sentence:   And we have calculated the support reactions, so we can now divide the beam into segments, as indicated by the drawing - we have three segments.
+Start: 434.50, End: 440.50, Sentence:   And we will write the conditions of static equilibrium for the cut parts of the beam, meaning we will make some mental sections.
+Start: 442.50, End: 448.50, Sentence:   And we will obtain equations describing the values of shear forces and bending moments for our beam in this way.
+Start: 451.50, End: 456.50, Sentence:   So we will have three segments, just as this beam is divided.
+Start: 460.50, End: 464.50, Sentence:   The first segment will be the segment AB.
+Start: 465.50, End: 467.50, Sentence:   A, let me check, I apologize.
+Start: 481.50, End: 484.50, Sentence:   We can also do a check.
+Start: 485.50, End: 489.50, Sentence:   The check can be the sum of moments; we can do it at any point.
+Start: 490.50, End: 498.50, Sentence:   So we will do this at the point where no reaction occurs, which means we can either do it at point B or point C, let’s say, well at any point actually we can do it.
+Start: 499.50, End: 501.50, Sentence:   I will calculate the sum of moments at point B.
+Start: 502.50, End: 510.50, Sentence:   And that sum of moments must be equal to 0. If it's not equal, it means we've calculated the reactions wrong.
+Start: 513.50, End: 520.50, Sentence:   So, the force VA acts on the arm 2 meters - clockwise with respect to pole B, so positively.
+Start: 521.50, End: 530.50, Sentence:   VA times 2 meters, then 15, acts clockwise, so also positively on the arm of 3 meters.
+Start: 532.50, End: 538.50, Sentence:   And VD on the arm of 6 meters acts negatively, so minus VD times 6 meters.
+Start: 539.50, End: 548.50, Sentence:   When we substitute the calculated values, it will indeed come out as: 0 equals 0, meaning the left equals the right, so the reactions are calculated correctly.
+Start: 549.50, End: 554.50, Sentence:   So at this moment we can check and be sure whether the reactions are calculated correctly or incorrectly.
+Start: 554.50, End: 567.50, Sentence:   If the reactions are calculated incorrectly, there's no point in continuing with this task, because if the reactions are calculated incorrectly, then the rest, meaning the internal forces, will be calculated incorrectly and the graphs will be drawn incorrectly.
+Start: 567.50, End: 569.50, Sentence:   So it's worth checking here.
+Start: 569.50, End: 588.50, Sentence:   And having that certainty that we have calculated the reactions correctly, we can divide the beam into sections where the loading conditions will change and we will write the conditions of static equilibrium for the cut parts of the beam.
+Start: 589.50, End: 604.50, Sentence:   And in this way, we will obtain equations describing the values of shear forces and bending moments in specific individual sections, and then we will be able to draw the graphs of shear forces and bending moments.
+Start: 604.50, End: 616.50, Sentence:   So the first section AB, that is the section from 0 to 2 meters, so X1 ranges from 0 to 2 meters.
+Start: 616.50, End: 633.50, Sentence:   And we can imagine, at the beginning we can still make auxiliary drawings, I will make these auxiliary drawings for now, but generally we are making a mental cut of the beam in the section from 0 to 2 meters.
+Start: 633.50, End: 653.50, Sentence:   So we cover the right part of the beam, we cannot see the right part of the beam, we only see what is on the left side, the reaction HA is zero, so we only see the reaction VA, we still cannot see that ten, we are infinitely close to it, but we do not reach it.
+Start: 653.50, End: 661.50, Sentence:   So we are in the section from 0 to 2 meters, making a mental cross-section, we see such a part of the beam, looking from the left side.
+Start: 661.50, End: 669.50, Sentence:   And for this cut part of the beam, we write the equation for the shear force.
+Start: 669.50, End: 691.50, Sentence:   So what, there is only the force VA here, so I will denote the shear force as Q, in section AB, depending on the change of X1, here in fact the shear force will not depend on it, but that’s how it’s written, it’s simply VA, positive, because it acts upwards.
+Start: 691.50, End: 703.50, Sentence:   So now we check at the beginning of the section, so we substitute 0 for X1 and for X1, the beginning of the section we substitute and the end of the section, that is 0 and 2.
+Start: 703.50, End: 721.50, Sentence:   But this equation is not dependent on the change of X1, so when we substitute 0 it will simply be VA, meaning calculated earlier 13.125 kN, and when we substitute 2, that is 2 meters, it will be the same.
+Start: 721.50, End: 741.50, Sentence:   So now we need to draw, now we need to write the moment equation for the cut part of the beam, that is for the configuration that is drawn, as if we wanted to write the moment equation for this pole.
+Start: 741.50, End: 763.50, Sentence:   So we would have VA acting clockwise on the arm, and the length of this cut part of the beam is like variable X1, meaning that this force acts on the arm X1.
+Start: 763.50, End: 773.50, Sentence:   Thus, the moment in the interval AB from X1 is VA times X1 positive, because it's clockwise.
+Start: 773.50, End: 793.50, Sentence:   And now similarly, we substitute 0 and then 2 for X1 and calculate the value. If we substitute 0, then VA times 0 is 0, and if we substitute 2, then 2 times VA is 26.25 kN times meter, which is the unit of moment.
+Start: 793.50, End: 801.50, Sentence:   And we have calculated the values of the shear forces and moments in the first interval AB.
+Start: 801.50, End: 817.50, Sentence:   So now we go to the second interval, which again is the interval BC from 2 to 5 meters, meaning it seems like our coordinate system starts here on the left side at the beginning of the beam.
+Start: 817.50, End: 825.50, Sentence:   So now the interval BC is from 2 to 5 meters, meaning X2 belongs from 2 to 5.
+Start: 825.50, End: 844.50, Sentence:   Thus, we are somewhere in this interval, so we go from the left side, meaning we again cover this part of the beam that is on the right side, so this time we see the 10, but we still do not see the 15.
+Start: 844.50, End: 859.50, Sentence:   So now we are infinitely close to the 15, but we do not see it, we see what is on the left side, meaning reaction HA is 0, we do not draw it here, reaction VA acts upwards and 10 downwards.
+Start: 859.50, End: 865.50, Sentence:   And now for this state, we need to write the shear force equation and the moment equation.
+Start: 865.50, End: 882.50, Sentence:   So QBC, that is the shear force in the interval BC from X2, we have here two forces, VA acting upwards, so positive, and 10 acting downwards, so negative, meaning it is simply VA - 10.
+Start: 883.50, End: 903.50, Sentence:   And substituting for X2 the beginning and end of the interval, that is 2 and 5, since this equation does not depend on the variable X2, it will be a constant value, which is 13.125 minus 10, meaning 3.125 kN.
+Start: 904.50, End: 923.50, Sentence:   And the same for the moment, the moment in the interval BC, well we would like to make a moment equation as if here was the pole, meaning we are at the length X2, which is in the interval from 2 to 5,
+Start: 924.50, End: 947.50, Sentence:   So the reaction VA rotates clockwise, meaning positively, on the arm over the entire length of the interval, meaning times X2, and now 10, well 10 certainly relative to this pole rotates negatively, meaning counterclockwise, so negatively.
+Start: 948.50, End: 968.50, Sentence:   And now regarding which interval it acts on, this might initially seem difficult to write down, but let's look, if the whole interval we have cut out mentally,
+Start: 968.50, End: 982.50, Sentence:   if the entire interval is the length X2, meaning a variable, it is from 2 to 5 meters, and we know that the distance between VA and 10, even looking here, is 2 meters,
+Start: 982.50, End: 1007.50, Sentence:   well since those are 2 meters, and this is some variable X2, then this value, meaning the lever arm of the force 10 relative to this pole here, meaning this length, is X2, meaning the entire length, minus this 2, X2 minus 2, simply.
+Start: 1008.50, End: 1020.50, Sentence:   Thus, the moment of the interval BC is VA clockwise times X2, meaning the entire interval, minus 10 times X2 minus 2.
+Start: 1021.50, End: 1034.50, Sentence:   And we substitute the beginning and end of the interval, which is 2 and 5 meters for X2, so when we substitute 2, it zeroes out here, we get 26.25 kNm,
+Start: 1035.50, End: 1048.50, Sentence:   when we substitute 5, we simply substitute the value 5 for X2 in the equation we wrote and calculate the result, which gives us 35.625 kNm.
+Start: 1050.50, End: 1063.50, Sentence:   So we already have two intervals behind us, and we are left with the third interval, and now I would like to show you two ways to calculate this third interval.
+Start: 1064.50, End: 1079.50, Sentence:   Well, we can either create intervals three times from the left side, meaning the first interval is from 0 to 2, the second interval from 2 to 5, and the third interval from 5 to 8.
+Start: 1079.50, End: 1094.50, Sentence:   So, as we can see, we make such a section, we only see the reaction VA, as we had here, the second time we make a section here, we see VA and 10, and we could also make the third section from the left side.
+Start: 1094.50, End: 1115.50, Sentence:   And we will do that shortly, so we would see these three forces, but it's worth at least once to go from the right side and create a section, as if the coordinate system here started from 0 to 3.
+Start: 1115.50, End: 1134.50, Sentence:   From 0 to 3, so this time, and I will be doing this soon, we would cut this beam in the opposite direction and cover its left part, so we would only see this reaction VD.
+Start: 1134.50, End: 1149.50, Sentence:   So we cut the beam, cover its left part, cut the beam somewhere in the interval from 0 to 3 and cut it, covering the left part, we only see what is on the right side, I will demonstrate how this looks in practice shortly.
+Start: 1149.50, End: 1172.50, Sentence:   So I will show you this difference, why it’s worth at least once to calculate from the right side, because sometimes it is not worth calculating three times from the left side, because we see more and more forces, so the equations get longer and more calculations, but if we go from the right side, I think we will have more than half less calculation.
+Start: 1172.50, End: 1186.50, Sentence:   Ok, so first I will do it like before, from the left side, the interval CD from the left side, meaning I cover the right side again and see all the forces that are on the left side.
+Start: 1186.50, End: 1192.50, Sentence:   So we have this fifteen here, this interval is from X3, from 5 to 8.
+Start: 1192.50, End: 1211.50, Sentence:   So the shear force in the interval CD, which is QCD from X3, and what forces do we have, VA upward, 10 downward, which is minus, 15 downward, which is minus, and that is the shear force equation.
+Start: 1211.50, End: 1234.50, Sentence:   Here it is also not dependent on the variable X3, so it will be a constant value, that is, for the coordinate five, that is, for the fifth meter of the beam, as well as for the eighth meter of the beam it is a constant value, and it is minus 11.875 kN.
+Start: 1234.50, End: 1250.50, Sentence:   If we want to write the moment equation, then like this: for sure the reaction VA rotates clockwise, again concerning this pole, clockwise, that is positive on arm X3.
+Start: 1250.50, End: 1298.50, Sentence:   And now the ten regarding this moment pole rotates counterclockwise, and now at what arm? Since the entire length of the interval that we conceptually cut is X3, and from the beginning of the beam to this ten, there are 2 meters, the arm of action, that is, from here to the intersection, is the entire length X3 minus those 2 meters from the beginning of the beam, which is X3 minus 2. So we write minus 10 times the arm of action: X3 minus 2. And now the 15. It also rotates counterclockwise with respect to the moment pole.
+Start: 1298.50, End: 1324.50, Sentence:   So which arm is it acting on now? Well, just like that, let's look at the drawing. From the beginning of the beam to this shear force of 15, we have 2 and 3, which is 5 meters. So the rest of the cross-section, since the total length is X3, then the rest is X3 minus 5 meters.
+Start: 1325.50, End: 1348.50, Sentence:   So we write minus 15 times the length of the arm of action X3 minus 5. And these are the things that can be troublesome at first, but over time, with the amount of beams processed, it becomes more intuitive and easier.
+Start: 1349.50, End: 1367.50, Sentence:   Now for our long moment equation in section CD, we substitute the boundaries of the intervals, which are 5 and 8 meters, and we calculate the numerical value. And for the coordinate 8, we get 0 kNm.
+Start: 1367.50, End: 1385.50, Sentence:   Okay, so now I would like to show you that it will be much simpler to go from the right side and write the interval X3 on the right side, that is, from 0 to 3 meters when looking from the right side.
+Start: 1385.50, End: 1409.50, Sentence:   So if we cut the beam from the right side and cover its left part, we will be, so the interval is again from 0 to 3, meaning again infinitely close to those 15 kN, but we can't see them yet, so we only see this reaction Vd.
+Start: 1410.50, End: 1423.50, Sentence:   Well, you can see the difference, there are three forces here, and here there's one force. These are still simple systems, so maybe it wouldn't be so much easier here, but it's already clear that it is easier.
+Start: 1424.50, End: 1451.50, Sentence:   And now an important point that I haven't directly mentioned before, but when we cut the beam from the left side, just as we did in the first two intervals and now the third one too, positive shear forces are upward, normal forces, which we didn't have here, are positive outward from the cut, and positive moments are right-handed moments.
+Start: 1452.50, End: 1465.50, Sentence:   But as we go from the right side now, we must remember, we need to be careful, this is very important, and also this is where mistakes often arise, as we forget about this sign convention.
+Start: 1466.50, End: 1492.50, Sentence:   So we must remember that when we take an interval from the right side, positive shear forces are those that have a downward direction, positive normal forces are also from the cut, but they are in the opposite direction than in the interval looking from the left side, and positive moments are those that are left-handed turns.
+Start: 1493.50, End: 1501.50, Sentence:   And now remembering that, we can confidently write the shear force equations and moment equations.
+Start: 1502.50, End: 1520.50, Sentence:   So the shear force in section CD, now looking from the right side, is just, we see this force VD, and it is upward, yes, but looking from the right side, it is, it is negative, a negative force, that is, minus VD.
+Start: 1521.50, End: 1538.50, Sentence:   And we substitute it, it does not depend on the variable X3, so it is a constant value, we substitute the ends of the intervals, so for 0 and for 3 meters it is minus 11.875 kN, which is the value of the relation VD.
+Start: 1538.50, End: 1566.50, Sentence:   Now we write the moment equation, so this force VD regarding this moment pole, that is, regarding the cut, turns left-handed, and looking from the right side, left-handed turns are positive moments, so here we have plus VD times X3, that is, the arm of action.
+Start: 1568.50, End: 1585.50, Sentence:   We substitute the ends of the intervals, that is, 0 and 3 meters, if we substitute 0 into X3, then the moment value is 0, if we substitute 3 meters, it is 3 times 11.875, that is 35.625.
+Start: 1585.50, End: 1604.50, Sentence:   No, now it's 0 and 3, that's looking from the right side, and here it's 5 and 8, that's looking from the left side, so the moment value for coordinate 5 is in this location and it amounts to 35.625.
+Start: 1604.50, End: 1622.50, Sentence:   And the moment value for coordinate 3 looking from the right side is also in this spot, and this value by writing equations from both sides must be the same, because it's simply the same, just calculated from the other side.
+Start: 1622.50, End: 1630.50, Sentence:   So here you can also see in this way if we did not make a mistake.
+Start: 1630.50, End: 1643.50, Sentence:   Ok, so I hope I've convinced you that it's worth at least once to make a cut from the right side, and not just three times from the left, or however many intervals there will be.
+Start: 1643.50, End: 1652.50, Sentence:   Because we will simply have less calculation and fewer opportunities to make mistakes, but also a key thing to remember about these signs.
+Start: 1652.50, End: 1660.50, Sentence:   Now we can move on to drawing the graphs.
+Start: 1660.50, End: 1670.50, Sentence:   I will try to simulate drawing the graph of internal forces. Of course, we prepare a space on paper for drawing graphs, preferably under the beam.
+Start: 1670.50, End: 1676.50, Sentence:   We extend the characteristic intervals, marking the axes.
+Start: 1676.50, End: 1695.50, Sentence:   And I will try to simulate the drawing; it will be easier for you to understand at first how these graphs are created as you observe the graphs being created in real-time, rather than if I just show you how they are supposed to look.
+Start: 1695.50, End: 1714.50, Sentence:   So, with the drawing space prepared and having in front of us all the values of cutting forces that we have determined so far in these intervals, we can begin drawing the graph.
+Start: 1714.50, End: 1738.50, Sentence:   In the first interval AB, looking from the left side, for value 0 the cutting force is 13.125 kN, and the value for coordinate 0, that is at the beginning of the beam and for two meters, is the same, so we connect them, which gives us 13.125 kN,
+Start: 1738.50, End: 1753.50, Sentence:   we connect it with a horizontal line and that will be the first interval, 13.125 kN, which is a positive value, so we put a plus sign, draw a dashed line, and then we look further.
+Start: 1753.50, End: 1775.50, Sentence:   For the value of the cutting force for coordinate 2 and for coordinate 5, it is also the same and it is 3.125, so similarly, it is definitely a smaller value, so it does not have to be drawn perfectly, but the proportions should be roughly maintained.
+Start: 1775.50, End: 1791.50, Sentence:   So 3.125, the value also does not change throughout the entire interval, thus we draw a horizontal line, and it is a positive value, we draw a dashed line, and we have two intervals drawn, we have one left.
+Start: 1791.50, End: 1808.50, Sentence:   The value in the third interval, well I pasted this here now looking from the right side, so for coordinate 0 from the right side it is 11.875 kN and for coordinate 3 looking from the right side.
+Start: 1808.50, End: 1825.50, Sentence:   So the value also does not change, it is a negative value, 11.875, cut, minus sign, we draw a dashed line, and we have completed the cutting force graph.
+Start: 1825.50, End: 1842.50, Sentence:   Now, having in front of us all the moment values that we have calculated so far, we can begin drawing the moment graph. I draw positive values for moments below the axis of the beam.
+Start: 1842.50, End: 1870.50, Sentence:   I would like to see how it is at your department, at your strength of materials, or whatever the subject is called. I know that in mechanical departments, it's common to draw positive moments at the top, but in a large part of the disciplines, positive moments are usually drawn below the axis.
+Start: 1870.50, End: 1886.50, Sentence:   So I will draw positive moments at the bottom. Well, for the coordinate 0, the moment value is equal to 0, for the coordinate 2, the moment value is 26.25 positive.
+Start: 1886.50, End: 1902.50, Sentence:   I mark this value somehow, and I connect it linearly; it is a value of 26.25 kN, it is positive, we dash it, and then we look at the second interval.
+Start: 1902.50, End: 1922.50, Sentence:   In the second interval for the value 2, there is also 26.25, so the value we already have on the graph for the value of 5 meters of the beam is 35.625, also a positive value, so we mark that 35, and we connect it linearly.
+Start: 1923.50, End: 1943.50, Sentence:   The value is positive, we dash it, and then we look at the last interval from the right side; looking from the right side for the coordinate 0, the moment value is 0, for the coordinate 3, the moment value is what we now see on the graph, meaning there is no jump on the moment graph.
+Start: 1944.50, End: 1953.50, Sentence:   So we connect it linearly, the value is positive, we dash it, and now we have drawn the shear force graph and the moment graph.
+Start: 1954.50, End: 1963.50, Sentence:   I hope I made this relatively clear and you understand more now.
+Start: 1964.50, End: 1972.50, Sentence:   If you feel like it, watch the next video on this topic; there’s a link in the description, where I will also try to solve a problem step by step.
+Start: 1973.00, End: 1979.00, Sentence: Thank you for your attention. If you have any questions or concerns, feel free to ask questions and leave comments under the video.
+Start: 1980.00, End: 1988.00, Sentence: I also recommend the other productions, encourage you to visit our website, to like our profile on Facebook and Instagram,
+Start: 1988.00, End: 1996.00, Sentence: and of course to subscribe to this channel so you can stay up to date with new videos from EduPanda.
+Start: 1996.00, End: 2000.00, Sentence: In the meantime, thank you very much, best regards, goodbye!

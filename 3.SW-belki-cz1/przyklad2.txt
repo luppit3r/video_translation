@@ -1,0 +1,260 @@
+Start: 0.00, End: 9.00, Sentence: Cześć, witam was w drugim filmiku z serii w której będziemy się zajmowali siłami wewnętrznymi w belkach.
+Start: 9.00, End: 18.00, Sentence: W tym filmiku chcę wam pokazać jak liczyć reakcje w belkach prostych, jak obliczać siły wewnętrzne i jak rysować wykresy tych sił.
+Start: 18.00, End: 22.00, Sentence: No więc przykład drugi wygląda tak.
+Start: 22.00, End: 27.00, Sentence: No mamy już ciekawszą belkę, oczywiście mamy obliczyć i narysować wykresy sił wewnętrznych.
+Start: 27.00, End: 35.00, Sentence: No ta nasza belka jest obciążona już obciążeniem ciągłym, obciążona jest momentem i siłą trącą, czyli mamy pełen zestaw.
+Start: 35.00, End: 41.00, Sentence: Podporę mamy tak samo, przegubową nieprzesuwną i przegubową przesuwną.
+Start: 42.00, End: 47.00, Sentence: No i tak samo, oznaczyłem sobie ABCD punkty charakterystyczne.
+Start: 47.00, End: 56.00, Sentence: Wiemy, że w podporze przegubowej nieprzesuwnej mamy dwie reakcje, poziomą i pionową, w podporze przegubowej przesuwnej mamy jedną reakcję.
+Start: 56.00, End: 67.00, Sentence: No i co, na początku oczywiście liczymy reakcje w podporach.
+Start: 67.00, End: 71.00, Sentence: No najpierw możemy sobie zrobić sumę rzutów na oś X.
+Start: 71.00, End: 81.00, Sentence: Mamy tylko tak samo, tylko jedną siłę poziomą HB, czyli tą reakcję w podporze, no więc ona musi być równa 0.
+Start: 81.00, End: 89.00, Sentence: Następnie tak samo, sumę momentów zrobimy sobie, moglibyśmy sobie zrobić albo w punkcie B, albo w punkcie D.
+Start: 89.00, End: 92.00, Sentence: Dowolnie, ja zrobię w punkcie D.
+Start: 92.00, End: 96.00, Sentence: No tylko teraz mamy obciążenie ciągłe.
+Start: 96.00, End: 100.00, Sentence: Możemy sobie to obciążenie ciągłe zredukować do wypadkowej.
+Start: 100.00, End: 106.00, Sentence: Jak widzicie, w tym przykładzie już oznaczyłem sobie jednostki.
+Start: 106.00, End: 110.00, Sentence: Obciążenie ciągłe jest wyrażone w kilo-newtonach na metr.
+Start: 110.00, End: 112.00, Sentence: Kilo-newton na metr.
+Start: 112.00, End: 115.00, Sentence: Moment jest wyrażony kilo-newton razy metr.
+Start: 115.00, End: 119.00, Sentence: No i siła trąca to jest kilo-newton.
+Start: 119.00, End: 124.00, Sentence: Więc nasze obciążenie ciągłe możemy zredukować do wypadkowej,
+Start: 124.00, End: 131.00, Sentence: i ta wypadkowa będzie leżała w środku ciężkości tej figury, jaką jest obciążona ta belka.
+Start: 131.00, End: 133.00, Sentence: Czyli my mamy obciążenie prostokątem.
+Start: 133.00, End: 139.00, Sentence: Zdarza się też obciążenie trójkątne, czasem trapezy są też.
+Start: 139.00, End: 148.00, Sentence: No ale najczęściej jednak jest to obciążenie prostokątem, znaczy prostokątem, no obciążenie ciągłe o stałej wartości.
+Start: 148.00, End: 154.00, Sentence: No więc możemy sobie wyobrazić, że to 10 kilo-newtonów na metr to jest wysokość tego prostokąta,
+Start: 154.00, End: 158.00, Sentence: a 6 to jest długość, 6 metrów.
+Start: 158.00, End: 161.00, Sentence: No możemy sobie zrobić taką wypadkową.
+Start: 161.00, End: 168.00, Sentence: Jeżeli to 10 kilo-newtonów pomnożymy przez 6 metrów, to tak naprawdę liczymy pole tego prostokąta,
+Start: 168.00, End: 174.00, Sentence: i z jednostek też nam wynika, że wtedy jednostką jest kilo-newton.
+Start: 174.00, End: 180.00, Sentence: No bo kilo-newton na metr razy 6 metrów to jest 60 kilo-newtonów.
+Start: 180.00, End: 183.00, Sentence: I tak jak mówię, ta wypadkowa znajduje się w środku ciężkości,
+Start: 183.00, End: 188.00, Sentence: czyli skoro obciążenie ciągłe jest prostokątem i jego długość to jest 6 metrów,
+Start: 188.00, End: 191.00, Sentence: no to wypadkowa jest na trzecim metrze.
+Start: 191.00, End: 194.00, Sentence: Także też ważne jest, gdzie ona się znajduje.
+Start: 194.00, End: 198.00, Sentence: Ok, no to czyli zapominamy o obciążeniu ciągłym.
+Start: 198.00, End: 202.00, Sentence: W tym momencie mamy tą siłę wypadkową 60 kilo-newtonów.
+Start: 202.00, End: 205.00, Sentence: Jako to obciążenie.
+Start: 205.00, End: 209.00, Sentence: No więc suma momentów w punkcie D, czyli siła razy ramię.
+Start: 209.00, End: 211.00, Sentence: No to patrzymy z lewej strony.
+Start: 211.00, End: 217.00, Sentence: 10 działa na ramieniu 8 metrów względem punktu D.
+Start: 217.00, End: 219.00, Sentence: Czyli 10 razy 8.
+Start: 219.00, End: 223.00, Sentence: Następnie to nasze 60. Ja tu jeszcze zapisałem 10 razy 6.
+Start: 223.00, End: 228.00, Sentence: Ono kręci lewoskręcnie. Oczywiście przyjmuje przy liczeniu reakcji prawoskręcnie.
+Start: 228.00, End: 230.00, Sentence: To są dla mnie momenty dokładnie.
+Start: 230.00, End: 234.00, Sentence: To 60 kilo-newtonów kręci względem biegu na D momentu.
+Start: 234.00, End: 236.00, Sentence: Lewo skręcnie, czyli ujemnie na ramieniu.
+Start: 236.00, End: 241.00, Sentence: 3 metry jest dotąd i jeszcze 2 to jest 5 metrów, czyli 10 razy 6 razy 5.
+Start: 241.00, End: 246.00, Sentence: Plus reakcja VB na ramieniu 4 metry prawo skręcnie, czyli plus.
+Start: 246.00, End: 254.00, Sentence: No i ten moment tutaj już jest jednostka momentu, no bo to jest po prostu moment skupiony.
+Start: 254.00, End: 259.00, Sentence: Tutaj już nie bierzemy do tego ramienia, bo to już jest moment skupiony.
+Start: 260.00, End: 268.00, Sentence: W jednostce kilo-newton-metr.
+Start: 268.00, End: 274.00, Sentence: Więc tutaj to 15 nie bierzemy jeszcze razy 2, tak jak te siły razy ramię.
+Start: 274.00, End: 278.00, Sentence: Tylko po prostu zapisujemy 15, zależnie czy dodatnio, czy ujemnie.
+Start: 278.00, End: 281.00, Sentence: Ono jest zaznaczone, że w lewą stronę kręci.
+Start: 281.00, End: 286.00, Sentence: Więc dla nas przy liczeniu reakcji to jest ujemnie, czyli minus 15.
+Start: 286.00, End: 289.00, Sentence: Więc tutaj już nie jest na ramieniu.
+Start: 289.00, End: 296.00, Sentence: No i z tego liczymy VB. Wychodzi 58,75 kilo-newtona.
+Start: 296.00, End: 299.00, Sentence: Następnie robimy sumę rzutów na oś Y.
+Start: 299.00, End: 302.00, Sentence: No to dziesiątka do góry, czyli dodatnio.
+Start: 302.00, End: 309.00, Sentence: 60 w dół, minus 10 razy 6. Ja to jeszcze zapisałem, tak można, dodać VB.
+Start: 309.00, End: 314.00, Sentence: Moment nie liczy się ani do sumy rzutów na oś X, ani do sumy rzutów na oś Y.
+Start: 314.00, End: 317.00, Sentence: No i VD do góry.
+Start: 317.00, End: 324.00, Sentence: I z tego nam wychodzi, że VD jest równe minus 8,75 kilo-newtona.
+Start: 324.00, End: 327.00, Sentence: O czym nam mówi ten minus?
+Start: 327.00, End: 330.00, Sentence: Wyszła nam wartość ujemna.
+Start: 330.00, End: 333.00, Sentence: To znaczy, że źle przyjęliśmy zwrot reakcji.
+Start: 333.00, End: 338.00, Sentence: Czyli ta reakcja, jej wartość jest owszem 8,75.
+Start: 338.00, End: 341.00, Sentence: Ale zwrot nie jest do góry.
+Start: 341.00, End: 344.00, Sentence: Tylko zwrot jest na dół tej reakcji.
+Start: 344.00, End: 347.00, Sentence: Zwrot nie jest do góry, tylko na dół.
+Start: 347.00, End: 350.00, Sentence: Reakcja o wartości 8,75.
+Start: 350.00, End: 355.00, Sentence: Czyli też wniosek z tego jest taki, że nie musimy się przejmować,
+Start: 355.00, End: 361.00, Sentence: oznaczając w którą stronę są zwroty reakcji tych podpór.
+Start: 361.00, End: 370.00, Sentence: Tylko jeżeli przy liczeniu wychodzi minus, to znaczy, że źle przyjęliśmy zwrot.
+Start: 370.00, End: 376.00, Sentence: Ok, no to wiemy, że to VD jest nie w tą stronę, w którą zaznaczyliśmy.
+Start: 376.00, End: 379.00, Sentence: No i robimy sobie trzy przedziały.
+Start: 379.00, End: 381.00, Sentence: Tak samo jak w przykładzie poprzednim.
+Start: 381.00, End: 386.00, Sentence: Ja zrobię dwa przedziały z lewej strony i jeden przedział z prawej strony.
+Start: 386.00, End: 389.00, Sentence: A, jeszcze sprawdzenie.
+Start: 389.00, End: 394.00, Sentence: Sprawdźmy sobie - suma momentów, niech będzie w punkcie A.
+Start: 394.00, End: 398.00, Sentence: To jest 60 razy 3 metry, minus VB razy 4 metry,
+Start: 398.00, End: 404.00, Sentence: minus 15, minus VD razy 8 metrów.
+Start: 404.00, End: 407.00, Sentence: No i jeśli dobrze policzone są reakcje, to lewa równa się prawej,
+Start: 407.00, End: 410.00, Sentence: czyli zero równa się z zero. Powinno wyjść.
+Start: 410.00, End: 413.00, Sentence: Tutaj tak wychodzi.
+Start: 413.00, End: 416.00, Sentence: Więc mamy pewność, że reakcje są policzone dobrze.
+Start: 416.00, End: 419.00, Sentence: Chyba, że się pomyliliśmy w sprawdzeniu.
+Start: 419.00, End: 423.00, Sentence: Ale nie musimy być tak pesymistycznie nastawieni.
+Start: 423.00, End: 427.00, Sentence: Także to sprawdzenie jest ważna sprawa.
+Start: 427.00, End: 430.00, Sentence: Ok, przechodzimy już do przedziałów.
+Start: 430.00, End: 432.00, Sentence: Czyli pierwszy przedział.
+Start: 433.00, End: 439.00, Sentence: Robimy myślowy przekrój na przedziale od 0 do 4 metrów.
+Start: 439.00, End: 443.00, Sentence: Czyli X1 należy od 0 do 4.
+Start: 443.00, End: 445.00, Sentence: Czyli tej podpory jeszcze nie widzimy.
+Start: 445.00, End: 447.00, Sentence: Więc tej reakcji też nie widzimy.
+Start: 447.00, End: 450.00, Sentence: Widzimy to, co jest z jej lewej strony.
+Start: 450.00, End: 452.00, Sentence: No to piszemy sobie.
+Start: 452.00, End: 455.00, Sentence: Siły tnące w przedziale AB od X1.
+Start: 455.00, End: 458.00, Sentence: No to jest. Ta dziesiątka działa do góry.
+Start: 458.00, End: 460.00, Sentence: Więc dodatnio.
+Start: 460.00, End: 467.00, Sentence: No ale teraz co z siłą tlenącą od obciążenia ciągłego?
+Start: 467.00, End: 469.00, Sentence: Tutaj jest zaznaczone 60.
+Start: 469.00, End: 473.00, Sentence: Ale to 60 dotyczy się całego obciążenia ciągłego.
+Start: 473.00, End: 478.00, Sentence: I to 60 to jest wypadkowa, jeżeli obciążenie ciągłe działa na 6 metrach.
+Start: 478.00, End: 481.00, Sentence: A u nas na ilu metrach działa?
+Start: 481.00, End: 484.00, Sentence: No nie wiadomo na ilu.
+Start: 484.00, End: 487.00, Sentence: To jest zmienna od 0 do 4 metrów.
+Start: 487.00, End: 494.00, Sentence: Czyli możemy sobie też zrobić tutaj taką wypadkową, która będzie zależna od zmiennej X1.
+Start: 494.00, End: 495.00, Sentence: Nie ma problemu.
+Start: 495.00, End: 501.00, Sentence: Jeżeli oznaczymy sobie, że długość tego przedziału to jest X1.
+Start: 501.00, End: 512.00, Sentence: To w takim razie znowu robimy sobie wartość obciążenia ciągłego razy długość przedziału.
+Start: 512.00, End: 516.00, Sentence: Razy długość belki na jakiej leży to obciążenie ciągłe.
+Start: 516.00, End: 519.00, Sentence: No w tym przypadku to jest 10 razy X1.
+Start: 519.00, End: 521.00, Sentence: X1 należy od 0 do 4.
+Start: 521.00, End: 523.00, Sentence: Także nie ma problemu.
+Start: 523.00, End: 524.00, Sentence: No i dopisujemy.
+Start: 524.00, End: 526.00, Sentence: W takim razie ono działa w dół, więc jest ujemne.
+Start: 526.00, End: 528.00, Sentence: Minus 10 razy X1.
+Start: 528.00, End: 532.00, Sentence: I teraz nasza siła tonąca jest uzależniona od zmiennej.
+Start: 532.00, End: 538.00, Sentence: No to sprawdzamy sobie na początku i na końcu przedziału, czyli dla współrzędnej 0 i dla współrzędnej 4.
+Start: 538.00, End: 541.00, Sentence: Jak podstawimy 0, to tu się zeruje, mamy 10.
+Start: 541.00, End: 545.00, Sentence: Podstawimy 4, mamy minus 30 kN.
+Start: 545.00, End: 549.00, Sentence: OK, no to przechodzimy do równania momentu.
+Start: 549.00, End: 552.00, Sentence: Moment w przedziale AB od X1.
+Start: 552.00, End: 553.00, Sentence: No i znowu.
+Start: 553.00, End: 556.00, Sentence: 10 działa jak widać na ramieniu X1.
+Start: 556.00, End: 560.00, Sentence: Kręci prawoskrętnie, czyli dodatnio idąc z lewej strony.
+Start: 560.00, End: 562.00, Sentence: No to teraz ta wypadkowa.
+Start: 562.00, End: 563.00, Sentence: 10 razy X1.
+Start: 563.00, End: 566.00, Sentence: Kręci lewoskrętnie.
+Start: 566.00, End: 567.00, Sentence: Na jakim ramieniu?
+Start: 567.00, End: 577.00, Sentence: No skoro, jak mówiłem przy wyznaczaniu wypadkowej z tego całego obciążenia ciągłego, wypadkowa jest w połowie, w środku ciężkości.
+Start: 577.00, End: 582.00, Sentence: No więc, jeżeli jest w połowie, no to możemy sobie tak oznaczyć.
+Start: 582.00, End: 585.00, Sentence: Z jednej strony jest połowa X1, z drugiej strony jest połowa X1.
+Start: 585.00, End: 591.00, Sentence: Więc ta wypadkowa 10 razy X1 kręci na ramieniu jedna druga X1.
+Start: 591.00, End: 599.00, Sentence: Czyli minus 10 razy X1 to jest wypadkowa razy ramię jedna druga X1.
+Start: 599.00, End: 607.00, Sentence: To też jest taka jedna z trudniejszych rzeczy, jeżeli zaczynamy się uczyć rozwiązywać belki.
+Start: 608.00, End: 612.00, Sentence: No więc co, teraz podstawiamy sobie końce przedziału 0 i 4 metry.
+Start: 612.00, End: 619.00, Sentence: Jeśli podstawimy 0, to mamy 0 kNm, jak dla 4 metrów mamy minus 40.
+Start: 619.00, End: 626.00, Sentence: Ok, przechodzimy do drugiego przedziału, czyli ucinamy belkę między 4 a 6 metrem patrząc z lewej strony.
+Start: 626.00, End: 632.00, Sentence: Czyli widzimy już tą podporę, ale nie widzimy jeszcze tego momentu tutaj, który jest na 6 metrze.
+Start: 632.00, End: 636.00, Sentence: Czyli na końcu przedziału jesteśmy nieskończenie blisko 6 metra.
+Start: 636.00, End: 639.00, Sentence: Czyli przedział mamy od 4 do 6 metra.
+Start: 639.00, End: 642.00, Sentence: X2 należy od 4 do 6.
+Start: 642.00, End: 648.00, Sentence: No i siła trąca w przedziale BC, no to jest tak, ta dyszka do góry dodatnio.
+Start: 648.00, End: 653.00, Sentence: Robimy wypadkową znowu od obciążenia ciągłego.
+Start: 653.00, End: 658.00, Sentence: Czyli widzimy jeszcze obciążenie ciągłe, jakąś tam część jego, nie całe.
+Start: 659.00, End: 667.00, Sentence: Więc wypadkowa to jest wartość obciążenia ciągłego razy długość przedziału.
+Start: 667.00, End: 672.00, Sentence: No i dopisujemy sobie ona jest ujemna, minus 10 razy X2.
+Start: 672.00, End: 675.00, Sentence: No i dodać reakcja Vb.
+Start: 675.00, End: 680.00, Sentence: I podstawiamy 4 i 6, liczymy dla wartości 4, liczymy dla wartości 6.
+Start: 681.00, End: 683.00, Sentence: Piszemy sobie moment.
+Start: 683.00, End: 688.00, Sentence: 10 na ramieniu X2 kręci prawoskrętnie, czyli 10 razy X2.
+Start: 688.00, End: 699.00, Sentence: Wypadkowa 10 razy X2 od obciążenia ciągłego kręci na ramieniu, tak samo jak w poprzednim tutaj przedziale, na połowie z X2.
+Start: 699.00, End: 704.00, Sentence: Czyli minus 10 X2 wypadkowa razy ramię, jedna druga X2.
+Start: 704.00, End: 709.00, Sentence: Tutaj jest jeszcze reakcja Vb, która mi się tutaj trochę przesłoniła.
+Start: 709.00, End: 712.00, Sentence: No i teraz na jakim ono na ramieniu kręci?
+Start: 712.00, End: 715.00, Sentence: Kręci na pewno prawoskrętnie.
+Start: 715.00, End: 725.00, Sentence: Nawet patrząc sobie tutaj na rysunek, podpora Vb jest oddalona od początku belki o 4 metry, tak tutaj zaznaczyłem.
+Start: 725.00, End: 742.00, Sentence: No to skoro cały przedział to jest X2, zmienne od 4 do 6, to ta pozostała część, czyli ramie działania siły reakcji Vb, to jest X2, czyli cała długość minus 4 metry.
+Start: 742.00, End: 747.00, Sentence: No i dopisujemy plus, bo prawoskrętnie Vb razy X2 minus 4 metry.
+Start: 747.00, End: 759.00, Sentence: No i do tego równania momentów w miejsce zmiennej X2, raz wstawiamy 4 i liczymy, raz wstawiamy 6 i mamy wartości momentu.
+Start: 759.00, End: 764.00, Sentence: No i tyle, idziemy do następnego przedziału.
+Start: 764.00, End: 769.00, Sentence: Zobaczcie jak fajnie, z prawej strony mamy tylko reakcję Vb w podporze.
+Start: 769.00, End: 771.00, Sentence: Także tutaj mamy jedną siłę.
+Start: 771.00, End: 779.00, Sentence: A jak byśmy chcieli iść trzeci raz z lewej strony, to tak, mamy jedną siłę, całe obciążenie ciągłe, drugą siłę i moment.
+Start: 779.00, End: 783.00, Sentence: Czyli cztery siły, a tutaj mamy tylko jedną.
+Start: 783.00, End: 785.00, Sentence: Więc no naprawdę warto.
+Start: 785.00, End: 797.00, Sentence: Iść z prawej strony, tutaj jesteśmy od 0 do 2, ale musimy pamiętać o tym, że jak ucinamy belkę z prawej strony,
+Start: 797.00, End: 809.00, Sentence: to dodatnie siły tnące działają w dół, dodatnie momenty to są momenty lewoskrętne i dodatnie siły normalne, których tutaj nie mamy, to są te, które działają w prawo, czyli od przekroju na zewnątrz.
+Start: 811.00, End: 818.00, Sentence: No i teraz tak, napiszemy sobie siłę tnącą w przedziale CD.
+Start: 818.00, End: 828.00, Sentence: No to co prawda, teraz tak, co prawda my wiemy, że ta reakcja nie działa do góry, tylko na dół.
+Start: 828.00, End: 845.00, Sentence: No ale ona jeszcze, skoro założyliśmy, że ona jest narysowana do góry, to zgodnie z tą regułą, ta siła tnąca jest ujemna.
+Start: 845.00, End: 848.00, Sentence: Czyli ja zapisałem minus VD.
+Start: 848.00, End: 856.00, Sentence: No tylko teraz VD to jest zaś minus 8,75, czyli tutaj się robi plus.
+Start: 856.00, End: 859.00, Sentence: No i na to trzeba uważać.
+Start: 859.00, End: 870.00, Sentence: Można to rozwiązać jeszcze w inny sposób, ale to pokażę jak skończę pisać te równania, żeby tutaj nie namazać za dużo na tym rysunku.
+Start: 871.00, End: 883.00, Sentence: No więc tak jak mówię, tutaj trzeba uważać, czyli ostatecznie jest to dodatnie 8,75, zarówno dla 0, jak i dla 2, bo nie jest zależne od zmiennej x3.
+Start: 883.00, End: 897.00, Sentence: No więc teraz napiszę jeszcze równanie momentu, czyli VD ze zwrotem do góry kręciłoby lewoskrętnie, czyli dodatnio, patrząc z prawej strony.
+Start: 897.00, End: 906.00, Sentence: Więc to jest wartość dodatnia VD razy x3, ale VD podstawiam to, czyli minus 8,75.
+Start: 906.00, End: 911.00, Sentence: No dla 0 to jest 0, ale dla 2 to jest minus 17,5.
+Start: 911.00, End: 914.00, Sentence: Tutaj się można naciąć, więc trzeba uważać.
+Start: 915.00, End: 928.00, Sentence: A jak można by to zrobić inaczej, żeby przysporzyć sobie mniej problemu i mniej miejsca, w którym byśmy się mogli pomylić?
+Start: 928.00, End: 946.00, Sentence: Możemy sobie już przy liczeniu reakcji zaznaczyć, skoro wyszła nam wartość ujemna, to my wiemy, że zwrot tej siły nie działa do góry, tylko w dół.
+Start: 946.00, End: 953.00, Sentence: Więc ja mogę tutaj przekreślić i wiem, że strzałka będzie na dół.
+Start: 953.00, End: 956.00, Sentence: A tutaj zmieniam znak z minusa na plus.
+Start: 956.00, End: 963.00, Sentence: I od tej pory dla nas ta reakcja działa w dół, a jej wartość to jest 8,75 dodatnio.
+Start: 963.00, End: 972.00, Sentence: I wtedy tutaj byśmy mieli nie do góry, tylko na dół.
+Start: 973.00, End: 978.00, Sentence: No czyli patrzymy sobie, czyli jeszcze raz byśmy pisali to równanie.
+Start: 978.00, End: 987.00, Sentence: Siła jest skierowana w dół, czyli siły tnące w dół to są siły dodatnie, więc ja tutaj bym miał plus Vd.
+Start: 987.00, End: 994.00, Sentence: No i patrzę, wartość reakcji Vd to jest 8,75, ok, wpisuję 8,75, nie ma problemu.
+Start: 994.00, End: 1003.00, Sentence: Następnie to Vd względem tego bieguna momentu, jakby tego przekroju, kręci prawoskrętnie, no to ujemnie.
+Start: 1003.00, End: 1016.00, Sentence: No to tutaj minus Vd razy x3, czyli minus 8,75 razy 2, czyli minus 17,5 kNm.
+Start: 1016.00, End: 1024.00, Sentence: No ja osobiście jestem za tym, żeby już na początku sobie tutaj zmieniać ten zwrot i zmieniać znak.
+Start: 1024.00, End: 1031.00, Sentence: Wydaje mi się, że wtedy jest się łatwiej nie pomylić na późniejszym etapie.
+Start: 1033.00, End: 1041.00, Sentence: No ok, mamy policzone wartości sił tnących, mamy policzone wartości momentów, no to jedziemy dalej.
+Start: 1041.00, End: 1050.00, Sentence: No więc rysujemy wykres sił tnących. Mamy przed sobą wartości sił tnących, które policzyliśmy.
+Start: 1050.00, End: 1065.00, Sentence: No i tak, w przedziale AB na początku belki dla 0 m wartośc siły tnącej to jest dodatnie 10 kNm, no to rysujemy sobie 10 kNm.
+Start: 1066.00, End: 1073.00, Sentence: Dla czwartego metra to jest minus 30 kNm, czyli wartość ujemna.
+Start: 1073.00, End: 1081.00, Sentence: Po drugiej stronie staramy się mniej-więcej zachować skalę, 30 kNm, oznaczamy sobie 10,30.
+Start: 1081.00, End: 1089.00, Sentence: No i łączymy te dwa słupki. Wykres sił tnących pod obciążeniem ciągłym jest wykresem liniowym.
+Start: 1090.00, End: 1098.00, Sentence: No i patrzymy na drugi przedział. Oczywiście znakujemy sobie, kreskujemy, patrzymy na drugi przedział.
+Start: 1098.00, End: 1105.00, Sentence: Wartość siły tnącej w przedziale BC dla czwartego metra to jest 28,75 dodatnie.
+Start: 1105.00, End: 1119.00, Sentence: No to następuje na czwartym metrze belki, następuje skok z minus 30 do 28,75 i jest to spowodowane tą reakcją Vb.
+Start: 1119.00, End: 1127.00, Sentence: Przez tą reakcję Vb następuje skok o wartość tej reakcji 58,75.
+Start: 1127.00, End: 1137.00, Sentence: No więc zaznaczamy sobie 28,75 nad 8, wartość dodatnia. Na szóstym metrze mamy 8,75.
+Start: 1137.00, End: 1146.00, Sentence: No i łączymy tak samo pod obciążeniem ciągłym, wykres sił tnących jest liniowy.
+Start: 1146.00, End: 1166.00, Sentence: No i teraz mamy trzeci przedział, liczyliśmy go z prawej strony, więc dla metra zerowego patrząc z prawej strony belki wartość siły tnącej wyszła nam 8,75 i dla metra drugiego też 8,75, czyli jest to wartość stała.
+Start: 1166.00, End: 1176.00, Sentence: No więc zaznaczamy sobie, łączymy poziomą linią, znakujemy i to wszystko, mamy wykres sił tnących.
+Start: 1176.00, End: 1182.00, Sentence: No to przechodzimy do wykresu momentów. Mamy przed sobą policzone wartości.
+Start: 1182.00, End: 1192.00, Sentence: No i teraz tak, dla zerowego metra wartość momentu wynosi 0 kNm, dla czwartego metra wynosi minus 40.
+Start: 1192.00, End: 1200.00, Sentence: No to tak jak na poprzednim wykresie wartości ujemne ja zaznaczam u góry, zaznaczam sobie 40.
+Start: 1200.00, End: 1208.00, Sentence: No ale teraz tak, musimy wiedzieć, że pod obciążeniem ciągłym wykres momentów jest parabolą.
+Start: 1209.00, End: 1218.00, Sentence: No i jeszcze jedna bardzo ważna informacja, jeżeli na wykresie sił tnących pod obciążeniem ciągłym mamy zmianę znaku,
+Start: 1218.00, End: 1228.00, Sentence: to na wykresie momentów będziemy mieli ekstremum, czyli nasz wykres sił tnących osiąga miejsce zerowe,
+Start: 1228.00, End: 1240.00, Sentence: więc na wykresie momentów, dokładnie pod tym, tak jak ja zrobiłem przerywaną linię, to w tym miejscu na wykresie momentów będzie lokalne ekstremum.
+Start: 1240.00, End: 1253.00, Sentence: No i trzeba je policzyć, bo nie wiemy jak będzie wyglądała ta parabola, nie wiemy jaka będzie ta maksymalna wartość w tym miejscu.
+Start: 1253.00, End: 1263.00, Sentence: No i jeszcze musimy policzyć, musimy policzyć tą wartość, a żeby ją policzyć, to trzeba sobie określić właśnie tą odległość,
+Start: 1263.00, End: 1268.00, Sentence: od początku belki do tego miejsca, w którym jest ekstremum.
+Start: 1268.00, End: 1282.00, Sentence: Tutaj akurat mamy sytuację o tyle prostą, że widać, że ten wykres jest tak na tyle prosty, że moglibyśmy sobie to odczytać właściwie bez liczenia,
+Start: 1282.00, End: 1296.00, Sentence: no ale tak dla przypadku uniwersalnego robi się to tak, mamy dla przedziału AB napisane równanie momentów, które tutaj tak wygląda.
+Start: 1296.00, End: 1310.00, Sentence: No i my podstawiliśmy końce przedziałów, czyli 0 i 4, no i dla wartości 0 mieliśmy 0 kNm, a dla wartości 4 mieliśmy minus 40 kNm.
+Start: 1310.00, End: 1316.00, Sentence: No a my teraz byśmy chcieli poznać wartość maksymalną, czyli dla tej współrzędnej, której jeszcze nie znamy,
+Start: 1316.00, End: 1322.00, Sentence: więc najpierw musimy policzyć tą współrzędną, a potem dla tej współrzędnej policzyć ten moment maksymalny.
+Start: 1322.00, End: 1334.00, Sentence: No więc, robi się to najczęściej tak: z podobieństwa tych trójkątów, które mamy na wykresie,
+Start: 1335.00, End: 1347.00, Sentence: zaznaczając sobie z lewej strony tą odległość do miejsca 0 jako x, no to skoro cała ta długość tego wykresu są 4 m, no to pozostała część to jest 4 minus x.
+Start: 1347.00, End: 1361.00, Sentence: No i teraz możemy zapisać, że wartość 10 do tego x jest jak 30 do 4 minus x.
+Start: 1361.00, End: 1371.00, Sentence: No i przemnażamy na skos, łatwy rachunek, wychodzi nam, że x to jest 1, czyli tak jak mówię, tutaj akurat może nie było to konieczne,
+Start: 1371.00, End: 1377.00, Sentence: ale taki jak akurat mamy przypadek, a chcę wam pokazać jak to zadziała dla każdego przypadku.
+Start: 1379.00, End: 1387.00, Sentence: No więc to się robi tak, ale można też zapamiętać sobie, że jeżeli nad tym naszym wykresem jest obciążenie ciągłe,
+Start: 1387.00, End: 1397.00, Sentence: a będzie, bo tak będzie wyglądał wykres tylko pod obciążeniem ciągłym, to możemy sobie uprościć nieco sprawę
+Start: 1397.00, End: 1411.00, Sentence: i zawsze ta wartość x patrząc z lewej strony, czyli jakby od początku belki, no to jeżeli za wartość obciążenia ciągłego oznaczemy jako q,
+Start: 1411.00, End: 1425.00, Sentence: a wartość, ja to oznaczyłem Tp, nie wiem, siła tnąca początkowa, to jest ta pierwsza siła z wykresu sił tynących na tej części, która nas interesuje,
+Start: 1425.00, End: 1434.00, Sentence: to u nas jest 110 kN. To jeżeli sobie oznaczymy wartość obciążenia ciągłego jako q,
+Start: 1434.00, End: 1452.00, Sentence: to wartość, tą pierwszą wartość na wykresie sił tynących jako Tp, to możemy sobie zawsze oznaczyć, że x0 to będzie właśnie ta pierwsza wartość z wykresu sił tynących przez q.
+Start: 1452.00, End: 1464.00, Sentence: No tutaj mamy tak banalne wartości, że to nie jest najlepszy przykład, żeby wam to zaprezentować, ale tak akurat wyszło.
+Start: 1464.00, End: 1471.00, Sentence: Także tak jak mówię, oba sposoby zadziałają dla każdego przypadku.
+Start: 1471.00, End: 1487.00, Sentence: Okej, no to wiemy już, że współrzędna 1 to jest współrzędna, dla której występuje x0, więc teraz do naszego wzoru podstawiamy sobie za x1 po prostu 1 i liczymy wartość.
+Start: 1487.00, End: 1493.00, Sentence: No i wychodzi to 5 kN razy metr, czyli wartość dodatnia.
+Start: 1494.00, End: 1502.00, Sentence: Zaznaczamy sobie ją. No i tak jak mówiłem, pod obciążeniem ciągłym na wykresie momentów wykres jest parabolą.
+Start: 1507.00, End: 1510.00, Sentence: Zaznaczamy wartość maksymalną.
+Start: 1510.00, End: 1514.00, Sentence: No i patrzymy na drugi przedział, przedział BC.
+Start: 1514.00, End: 1522.00, Sentence: Dla czwartego metra jest –40, czyli nie ma skoku, dla szóstego metra jest –2,5 kNm.
+Start: 1522.00, End: 1531.00, Sentence: No to po tej samej stronie wykresu, no i tak samo, pod obciążeniem ciągłym nadal mamy parabole na wykresie momentów.
+Start: 1536.00, End: 1546.00, Sentence: Trzeci przedział CD, patrzyliśmy z prawej strony, no to dla wartości 0 patrząc z prawej strony, dla zerowego metra belki mamy 0 kNm,
+Start: 1546.00, End: 1563.00, Sentence: dla drugiego metra belki mamy –17,5, czyli w tym, w punkcie C następuje skok do –17,5, czyli skok o 15, a to 15 to jest właśnie ten przyłożony moment na belce.
+Start: 1563.00, End: 1580.00, Sentence: No, czyli na wykresie sił tnących mamy skok, jeżeli jest przyłożona siła tnąca, a na wykresie momentów mamy skok na wykresie, jeżeli jest przyłożony moment na belce, jeżeli belka jest obciążona momentem.
+Start: 1580.00, End: 1594.00, Sentence: Czyli tutaj mamy 17,5, no i łączymy liniowo do 0, znakujemy, kreskujemy, no i mamy wykresy gotowe.
+Start: 1594.00, End: 1607.00, Sentence: Może jeszcze warto powiedzieć, że liczenie tego ekstremum, to co ja zaprezentowałem wam, to nie jest jedyna metoda, jeszcze można na przykład liczyć pochodną z tego równania momentu,
+Start: 1607.00, End: 1616.00, Sentence: który zapisaliśmy dla przedziału AB i tę pochodną przyrównać do 0, także jest kilka sposobów, żeby się z tym tematem uporać.
+Start: 1616.00, End: 1633.00, Sentence: Ok, no i to wszystko, trochę czasowo rozjechał się ten filmik, ale starałem się zaprezentować to jak najlepiej potrafiłem, no i oczywiście jak najlepiej to było możliwe w takiej formie.
+Start: 1633.00, End: 1648.00, Sentence: Tak jak mówiłem, ten filmik jest zaadresowany bardziej do osób, które się dopiero uczą rozwiązywać belki, no i również dla osób, które są na kierunkach i na wydziałach, gdzie robią takie zadania
+Start: 1648.00, End: 1661.00, Sentence: że policzenie takiej belki, to znaczy narysowanie wykresów sił wewnętrznych to jest koniec zadania, albo ewentualnie tam jeszcze niewiele więcej ponad to jest wymagane.
+Start: 1661.00, End: 1673.00, Sentence: A następny filmik będzie skierowany do osób, dla których policzenie takiej belki i narysowanie wykresów to dopiero początek zadania, a końca zadania to jeszcze nie widać.
+Start: 1673.00, End: 1681.00, Sentence: Także w następnym filmiku pokażę jak zrobić to szybko, jak zrobić to bez pisania równań.
+Start: 1681.00, End: 1698.00, Sentence: Także dziękuję za uwagę, mam nadzieję, że pomogłem. Jeżeli macie jakieś pytania lub zastrzeżenia to zapraszam do zadawania pytań i do komentarzy pod filmikiem.
+Start: 1699.00, End: 1707.00, Sentence: Polecam również pozostałe produkcje, zachęcam do odwiedzenia naszej strony, do polubienia profilu na Facebooku,
+Start: 1707.00, End: 1715.00, Sentence: no i oczywiście do subskrybowania tego kanału, żebyście byli na bieżąco z nowymi filmikami od EduPandy.
+Start: 1715.00, End: 1719.00, Sentence: A tymczasem dziękuję serdecznie, pozdrawiam, cześć!

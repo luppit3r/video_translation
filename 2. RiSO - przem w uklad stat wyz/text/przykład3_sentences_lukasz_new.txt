@@ -1,0 +1,59 @@
+Start: 0.00, End: 9.00, Sentence: Witam serdecznie. Dzisiejszy temat to rozciąganie i ściskanie osiowe, przemieszczenia w układach statycznie wyznaczalnych.
+Start: 9.00, End: 18.00, Sentence: Mam przygotowane trzy przykłady, w poprzednich wideo znajdziecie dwa poprzednie przykłady, kolej na przykład trzeci.
+Start: 18.00, End: 30.00, Sentence: Na wsporniku ABC składającym się z miedzianej podpory AB oraz stalowego cięgna AC zawieszono ciężar 50 kN.
+Start: 30.00, End: 47.00, Sentence: Określić średnicę fi D cięgna oraz wymiar A przekroju kwadratowego miedzianej podpory AB, przyjmując naprężenia dopuszczalne dla miedzi wytrzymałość na ściskanie 40 MPa, a dla stali wytrzymałość na rozciąganie 160 MPa.
+Start: 47.00, End: 59.00, Sentence: Określić przemieszczenie poziome i pionowe punktu A, przyjmując długość podpory AB 1,2 m i moduł Younga dla stali jest różna niż dla miedzi, są podane.
+Start: 59.00, End: 69.00, Sentence: Reakcję mamy w osi prętów N_AC i N_AB.
+Start: 69.00, End: 77.00, Sentence: Teraz rozrysowałem to, o czym mówiłem wcześniej.
+Start: 77.00, End: 85.00, Sentence: Tą siłę pod kątem N_AC możemy rozłożyć na składowe.
+Start: 85.00, End: 98.00, Sentence: Skoro tutaj jest kąt 30 stopni to składowa tutaj gdzie jest kąt to jest z kosinusem tego kąta, a ta druga składowa jest z sinusem tego kąta.
+Start: 98.00, End: 105.00, Sentence: Czyli tutaj jest składowa pozioma N_AC kosinus 30 a pionowa N_AC sinus 30.
+Start: 105.00, End: 116.00, Sentence: Zrobimy sobie sumę rzutów sił na oś X i na oś Y i policzymy sobie obydwie niewiadome. Mamy dwie niewiadome, zrobimy dwie sumy rzutów, będziemy mieli policzone siły w prętach.
+Start: 116.00, End: 131.00, Sentence: A więc suma rzutów na oź Y równa się 0, czyli N_AC sinus 30 minus G równa się 0, więc N_AC równa się 2G, sinus 30 to jest jedna druga.
+Start: 131.00, End: 147.00, Sentence: Suma rzutów na oź X równa się 0, czyli N_AC cosinus 30 z minusem, bo ujemnie w lewą stronę, to znaczy przyjmujemy standardowy układ urzędnych Y do góry i X w prawo.
+Start: 147.00, End: 171.00, Sentence: Czyli minus N_AC cosinus 30, odjąć N_AB równa się 0, więc N_AB przenosząc na drugą stronę, postawiamy sobie N_AC cosinus 30 pierwiastek z trzech przez dwa, dwójki się skracają, mamy, że N_AB jest równe minus G razy pierwiastek z trzech, G oczywiście mamy dane 50 kN.
+Start: 171.00, End: 199.00, Sentence: No i warunek wytrzymałościowy, czyli co, siła w pręcie AC jest dodatnia, więc tutaj będzie rozciąganie, tak jak zresztą mieliśmy podane w treści zadania, można było się domyślać, że skoro jest podana wytrzymałość na rozciąganie stali i wytrzymałość na ściskanie miedzi, no to powinno nam wyjść N_AB ujemne, a N_AC dodatnie, żeby tu faktycznie było rozciąganie, a tu ściskanie.
+Start: 199.00, End: 226.00, Sentence: Chociaż z tymi zadaniami to różnie bywa, czasem są też błędy w treści albo profesor źle poda na tablicy, zapomni czegoś dopisać, no różnie bywa, trzeba być czujnym, no ale tutaj akurat się sprawdziło, no więc bezwzględna wartość naprężeń ma być mniejsza lub równa od wytrzymałości, zależy tam na rozciąganie czy ściskanie, zależy co w tym pręcie mamy.
+Start: 226.00, End: 253.00, Sentence: Więc w pręcie AB, no w tej belce AB mamy ściskanie, bo jest siła ujemna, czyli siła przez pole przekroju, tutaj był przekrój kwadratowy, pole przekroju to jest "a" do kwadratu, ma być mniejsza lub równa niż wytrzymałość na ściskanie 40 MPa dla stali.
+Start: 253.00, End: 279.00, Sentence: No i tutaj wartość bezwzględna jest podstawiona, tak? Podstawiamy wartości liczbowe, pierwiastek kwadratowy oczywiście i "a" ma być większa lub równa niż 465/10000 m, czyli zaokrąglając trochę w górę 47/1000 m, czyli 4,70 cm.
+Start: 279.00, End: 293.00, Sentence: To samo robimy z prętem AC, siła przez pole przekroju, tutaj już jest przekrój kołowy, czyli pi razy d kwadrat przez 4, mniejsza lub równa wytrzymałość na rozciąganie 160 MPa.
+Start: 293.00, End: 316.00, Sentence: 160 MPa to jest z reazy 10 do 6, tutaj tak samo, proste przekształcenia matematyczne, pierwiastek kwadratowy robimy i średnica ma być większa lub równa niż 282/10000 m, zaokrąglając trochę w górę 3/100 m, czyli 3 cm.
+Start: 316.00, End: 336.00, Sentence: Wzór na wydłużenie pręta to jest siła w pręcie raz długość pręta przez moduł younga razy pole przekroju poprzecznego, no i już dla naszych zwymiarowanych tych wartości boku przekroju poprzecznego i średnicy przekroju kołowego możemy sobie liczyć wydłużenia.
+Start: 336.00, End: 351.00, Sentence: A więc wydłużenie pręta AB to jest, no i teraz już postawiamy nie wartość bezwzględną, tylko wartość rzeczywistą, jak jest ujemna to będzie skrócenie pręta, jak będzie dodatnia to będzie wydłużenie.
+Start: 351.00, End: 371.00, Sentence: Czyli minus 50 to jest to "G", minus 50 razy 10 do 3 to jest "G", razy pierwiastek z 3 to jest n_AB, razy długość pręta AB 1,20 m przez moduł younga dla miedzi razy pole przekroju poprzecznego.
+Start: 371.00, End: 383.00, Sentence: Podstawiamy wartości liczbowe już wszędzie, jednostki podstawowe i wynik mamy w jednostce podstawowej, zamienimy sobie na milimetry, minus 409/1000 milimetra.
+Start: 383.00, End: 399.00, Sentence: Takie jest skrócenie tego pręta AB, to samo robimy z prętem AC, czyli siła w pręcie 2 razy "G", czyli 2 razy 50 kN, razy długość pręta AC przez moduł younga dla stali, pi razy d do kwadratu przez 4, czyli pole przekroju poprzecznego.
+Start: 399.00, End: 420.00, Sentence: No i jeszcze długość pręta AC, oczywiście tutaj z tego z dwójkąta prostokątnego sobie policzymy, czyli 1,20 do AC to jest cos 30, z tego liczymy AC 1,20 nad cos 30, czyli 1 i 386 tysięcznych i podstawiamy sobie już tutaj wszędzie wartości liczbowe.
+Start: 420.00, End: 437.00, Sentence: Tak samo po przeliczeniu mamy wynik na kalkulatorze w jednostce podstawowej w metrach, przekształcamy sobie na milimetry, mamy policzone wydłużenia prętów, a my mamy policzyć przemieszczenie pionowe i przemieszczenie poziome końca belki A.
+Start: 437.00, End: 441.00, Sentence: No to musimy się zastanowić teraz jak to będzie wyglądało.
+Start: 441.00, End: 455.00, Sentence: Skrócenie pręta AB i wydłużenie pręta AC, tak? No to teraz linia dopuszczalnych przemieszczeń, tak jak w przykładzie poprzednim linia dopuszczalnych przemieszczeń jest na kierunku prostopadłem do tego przemieszczenia.
+Start: 455.00, End: 463.00, Sentence: Czyli prostopadle do przemieszczenia delta L_AB jest linia dopuszczalnych przemieszczeń pręta AB i tak samo z prętem AC.
+Start: 463.00, End: 473.00, Sentence: Na przecięciu tych linii dopuszczalnych przemieszczeń obu prętów mamy przemieszczenie końca pręta, no przemieszczenie punktu A, czyli on się przemieści w to miejsce.
+Start: 473.00, End: 492.00, Sentence: Oczywiście to jest o wiele przesadzona skala, no bo długość pręta, długość tej podpory AB to jest 1,2 metra, no a przemieszczenia nam wyszły, wydłużenia nam wyszły w dziesiątej czy setnej części milimetrów.
+Start: 492.00, End: 505.00, Sentence: Także jest to duża, no duża przesadzona skala w tym celu, żeby było to dobrze widać, żebyśmy mogli to dobrze rozpatrzeć, także to przemieszczenie będzie no minimalne, malutkie.
+Start: 505.00, End: 518.00, Sentence: No więc mamy tutaj, utworzyły nam się jakieś trójkąty prostokątne, no i trzeba z tego skorzystać, mamy policzyć przemieszczenie, mamy policzyć składową poziomą i składową pionową tego przemieszczenia.
+Start: 518.00, End: 532.00, Sentence: Więc możemy sobie to rozrysować tak. Musimy zauważyć, że utworzył nam się tutaj właśnie taki trójkąt ten, ja go zaznaczyłem na zielono i że jest on podobny do tego trójkąta małego tutaj.
+Start: 532.00, End: 541.00, Sentence: Ponieważ oba są prostokątne, tutaj jest kąt prosty tego małego, tu jest kąt prosty tego dużego i mają ten sam kąt tutaj.
+Start: 541.00, End: 549.00, Sentence: Czyli ten mały składa się kąt prosty i tu jest jakiś tam powiedzmy kąt alfa i ten duży zielony, tu jest kąt prosty i tu jest też kąt alfa.
+Start: 549.00, End: 560.00, Sentence: Z czego wynika, że pozostałe kąty, czyli ten pozostały trzeci kąt musi być taki sam, czyli ten kąt, który tu jest zaznaczony musi być taki sam jak ten kąt tutaj.
+Start: 560.00, End: 564.00, Sentence: Czyli to 30 możemy sobie przenieść tutaj. To jest ważne, żeby to zauważyć.
+Start: 564.00, End: 579.00, Sentence: No i ja tutaj jeszcze oznaczyłem tą krawędź jako "a", tą jako "b". Tutaj zaznaczyłem przemieszczenie pionowe naszego punktu A, czyli delta Y.
+Start: 579.00, End: 591.00, Sentence: I zaznaczyłem, że ten bok B składa się z tej właśnie delta Y i z jakiegoś tam "b'", które będzie potrzebne nam do składowych obliczeń.
+Start: 591.00, End: 597.00, Sentence: A delta X to jest po prostu przemieszczenie delta L_AB, widać to na rysunku.
+Start: 597.00, End: 601.00, Sentence: No i ten bok "a" składa się z delta L_AC i z jakiegoś "a'".
+Start: 601.00, End: 606.00, Sentence: No więc tak, zaczynamy od boku "a". Bok "a" to jest "a'" plus delta L_AC.
+Start: 606.00, End: 614.00, Sentence: Delta L_AC jest policzone. Oczywiście wartość bezwzględna, bo my tutaj nie chcemy z minusami, interesuje nas wartość bezwzględna tych przemieszczeń.
+Start: 614.00, End: 626.00, Sentence: I to jest 934/1000 mm, policzone już wcześniej. Możemy sobie napisać, że teraz delta L_AB, czyli ta długość, do "a'" to jest cos 30, z tego policzymy "a'" a później już "a".
+Start: 626.00, End: 630.00, Sentence: Czyli "a'" to jest delta L_AB nad cos 30.
+Start: 630.00, End: 642.00, Sentence: Delta L_AB to jest 409/1000 mm, cos 30 to pierwiastek z 3 przez 2, mamy policzone "a'", więc liczymy sobie "a" i wynosi ono tyle.
+Start: 642.00, End: 647.00, Sentence: Zajmujemy się teraz drugim bokiem. "b" składa się z "b'" plus delta Y.
+Start: 647.00, End: 657.00, Sentence: "b'" nad "b'" to jest sin 30 stopni, czyli sin tego kąta, no albo cos 60, wszystko jedno.
+Start: 657.00, End: 665.00, Sentence: Czyli "b'" to jest "a'" razy sin 30, czyli "b'" to jest połowa z "a'", czyli 235/1000 mm.
+Start: 665.00, End: 679.00, Sentence: No to teraz "a" do "b" to jest sin 30, czyli "b" to jest "a" nad sin 30, czyli "b" to jest 2,808 mm.
+Start: 679.00, End: 682.00, Sentence: Jak widzicie, no wszystko tutaj się opiera na tych trójkątach prostokątnych.
+Start: 682.00, End: 691.00, Sentence: Delta Y to jest "b" minus "b'". A więc delta Y to jest 2,573 mm.
+Start: 691.00, End: 700.00, Sentence: No więc dochodzimy już do końca zadania. Delta X to jak widać z rysunku to jest po prostu delta L_AB, czyli 1,438 mm.
+Start: 700.00, End: 713.00, Sentence: I to wszystko co mieliśmy policzyć. No ten warunek geometryczny tutaj można powiedzieć jest najtrudniejszy z tych trzech zadań, które przerobiliśmy.
+Start: 713.00, End: 725.00, Sentence: No ale im więcej zadań się zobaczy, im więcej takich warunków geometrycznych się zobaczy, no to później jak się dostanie jakieś zadanie to już jest łatwiej dojść do tego jak to ma wyglądać faktycznie.
+Start: 725.00, End: 741.00, Sentence: Jak wygląda ten warunek geometryczny, jak wyglądają te przemieszczenia i tak dalej. Także im więcej zadań tym potem mamy szersze spektrum sytuacji, które przerobiliśmy.
+Start: 741.00, End: 750.00, Sentence: Jeśli macie jakieś pytania - piszcie śmiało w komentarzach, tymczasem to wszystko w tym przykładzie, dzięki, Cześć!

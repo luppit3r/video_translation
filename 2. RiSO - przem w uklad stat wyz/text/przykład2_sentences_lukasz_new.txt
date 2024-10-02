@@ -1,0 +1,85 @@
+Start: 0.00, End: 9.00, Sentence: Witam serdecznie. Dzisiejszy temat to rozciąganie i ściskanie osiowe, przemieszczenia w układach statycznie wyznaczalnych.
+Start: 9.00, End: 16.00, Sentence: Mam przygotowane trzy przykłady, w poprzednim wideo rozwiązywałem przykład pierwszy.
+Start: 16.00, End: 28.00, Sentence: Przykład drugi, oblicz na jakiej odległości x należy przyłożyć siłę skupioną P, aby wydłużenia prętów spowodowały równoległe przemieszczenie belki A-B w dół.
+Start: 28.00, End: 31.00, Sentence: Wszystkie pręty mają jednakowy przekrój kołowy.
+Start: 31.00, End: 38.00, Sentence: Dana jest długość L tych tutaj prętów i siła P, która jest przyłożona na belce.
+Start: 38.00, End: 49.00, Sentence: Reakcje w prętach są w osi prętów, tak jak zawsze na zewnątrz układu, jakby dajemy do przecięcia.
+Start: 49.00, End: 55.00, Sentence: Mamy 3 pręty, czyli 3 reakcje N1, N2 i N3.
+Start: 55.00, End: 65.00, Sentence: Mamy do dyspozycji sumę rzutów sił na oś x, sumę rzutów sił na oś y i sumę momentów w dowolnym punkcie.
+Start: 65.00, End: 68.00, Sentence: Czyli mamy 3 równowania równowagi statycznej.
+Start: 68.00, End: 74.00, Sentence: A niewiadome mamy tak 3 reakcje i jeszcze tą odległość x, czyli niewiadome są 4.
+Start: 74.00, End: 83.00, Sentence: To oprócz tych naszych warunków równowagi statycznej będziemy musieli jeszcze skorzystać z warunków geometrycznego, czyli z tego równoległego przemieszczenia belki.
+Start: 83.00, End: 88.00, Sentence: Ale to później, najpierw sobie robimy warunki równowagi statycznej.
+Start: 88.00, End: 92.00, Sentence: Możemy zacząć od sumy momentów, może być w punkcie A.
+Start: 92.00, End: 97.00, Sentence: Jak zrobimy sobie sumy momentów w punkcie A, to N3 będzie w równaniu i P.
+Start: 97.00, End: 106.00, Sentence: Siła P razy ramię x kręci prawoskrętnie, ja przyjmuję, że prawoskrętne momenty są dodatnie.
+Start: 106.00, End: 114.00, Sentence: Jak liczymy reakcje, jak robimy sumy momentów, to przyjmujemy sobie albo prawoskrętnie dodatnio, albo lewoskrętnie dodatnio.
+Start: 114.00, End: 123.00, Sentence: Wyjdzie nam to samo niezależnie jak przyjmiemy, ale musimy coś założyć, ja przyjmuję, że prawoskrętne momenty są dodatnie.
+Start: 123.00, End: 127.00, Sentence: Siła P kręci prawoskrętnie, więc z plusem.
+Start: 127.00, End: 134.00, Sentence: Minus N3 razy cała długość, tutaj 2L, czyli ramię działania siły, równa się 0.
+Start: 134.00, End: 139.00, Sentence: Z tego liczymy, że N3 równa się 1/2 P razy x.
+Start: 139.00, End: 142.00, Sentence: Suma rzutów sił na oś x równa się 0.
+Start: 142.00, End: 146.00, Sentence: Jak siłę P zrzutujemy na oś x, to nie mamy nic, mamy 0.
+Start: 146.00, End: 152.00, Sentence: Jak N3 zrzutujemy na x, to też mamy 0, czyli będzie tylko minus N1.
+Start: 152.00, End: 159.00, Sentence: No i teraz rzut tej siły N1 na oś x, ja sobie zawsze rozumuję tak:
+Start: 159.00, End: 169.00, Sentence: Jak byśmy sobie tutaj zrobili składową y i składową x, to zawsze ta składowa, przy której jest kąt, czyli tutaj by była to składowa y, przy której jest ten kąt tutaj zapisany.
+Start: 169.00, End: 175.00, Sentence: To ona jest z kosinusem tego kąta, z kosinusem 60, a druga składowa jest z sinusem.
+Start: 175.00, End: 183.00, Sentence: Czyli N2 na x też jest, jak kąt mamy tutaj, to tutaj jest sinus tego kąta.
+Start: 183.00, End: 189.00, Sentence: Czyli mamy minus N1 razy sinus alfa plus N2 razy sinus alfa.
+Start: 189.00, End: 197.00, Sentence: Oba są z sinusem, bo kąt jest przy drugiej składowej.
+Start: 197.00, End: 202.00, Sentence: Przerzucając N1 na drugą stronę dzieląc przez sinus alfa mamy, że N1 równa się N2.
+Start: 202.00, End: 205.00, Sentence: Suma rzutów na oś y równa się 0.
+Start: 205.00, End: 209.00, Sentence: No i teraz już N1 jest z kosinusem, N2 jest z kosinusem.
+Start: 209.00, End: 217.00, Sentence: Oba działają jakby w kierunku, przyjęliśmy sobie tutaj układ y do góry i x w prawo, czyli standardowo.
+Start: 217.00, End: 225.00, Sentence: Czyli N1 kosinus plus N2 kosinus minus P i dodać N3 równa się 0.
+Start: 225.00, End: 231.00, Sentence: Przenosimy sobie P i N3 na drugą stronę.
+Start: 231.00, End: 235.00, Sentence: Za N3 podstawiamy jedną drugą Px.
+Start: 235.00, End: 239.00, Sentence: Za N2 podstawiamy N1, bo N2 równa się N1.
+Start: 239.00, End: 247.00, Sentence: No i tutaj zsumowalibyśmy sobie, czyli by było 2 razy N1 razy cosinus alfa dzielimy przez 2 razy cosinus alfa.
+Start: 247.00, End: 253.00, Sentence: I mamy policzone, że N1 równa się tyle, a N1 jest równa N2.
+Start: 253.00, End: 259.00, Sentence: Aha, no i jeszcze cosinus 60 to jest 1/2, więc tutaj małe uproszczenie jeszcze.
+Start: 259.00, End: 266.00, Sentence: W mianowniku się robi jedynka, więc N1 równa się P i w nawiasie 1 minus 1/2 x, a N1 równa się N2.
+Start: 266.00, End: 269.00, Sentence: Więc N2 równa się tyle samo.
+Start: 269.00, End: 274.00, Sentence: Czyli mamy N1, N2 i N3 policzone.
+Start: 274.00, End: 279.00, Sentence: No to możemy przejść do warunku geometrycznego.
+Start: 279.00, End: 281.00, Sentence: Jeszcze wrócę do tego slajdu.
+Start: 281.00, End: 290.00, Sentence: Możemy przejść do warunku geometrycznego, czyli warunek był taki, że belka ma się przemieścić równolegle w dół, czyli ta nasza belka A-B.
+Start: 290.00, End: 296.00, Sentence: Ktoś by powiedział, no to w takim razie wydłużenia tych trzech prętów mają być takie same.
+Start: 296.00, End: 298.00, Sentence: No niestety nie.
+Start: 298.00, End: 304.00, Sentence: Niestety nie. Nie jest to najłatwiejszy warunek geometryczny.
+Start: 304.00, End: 310.00, Sentence: Musimy sobie przedłużyć osie tych prętów N1 i N2.
+Start: 310.00, End: 314.00, Sentence: A wydłużenie pręta N3 to jest pionowe w dół.
+Start: 314.00, End: 318.00, Sentence: A wydłużenie prętów N1 i N2 jest w osi prętów.
+Start: 318.00, End: 321.00, Sentence: Więc ten warunek wyglądać będzie tak.
+Start: 321.00, End: 325.00, Sentence: Mamy to wydłużenie jednego pręta, wydłużenie drugiego pręta.
+Start: 325.00, End: 333.00, Sentence: Linia dopuszczalnych przemieszczeń tych prętów jest na kierunku prostopadłym do wydłużenia.
+Start: 333.00, End: 336.00, Sentence: Czyli to jest linia dopuszczalnych przemieszczeń pręta drugiego.
+Start: 336.00, End: 339.00, Sentence: To jest linia dopuszczalnych przemieszczeń pręta pierwszego.
+Start: 339.00, End: 343.00, Sentence: I tam gdzie one się spotykają, te linie dopuszczalnych przemieszczeń, w to miejsce, czyli tutaj ja zaznaczyłem A', przemieści się koniec belki A.
+Start: 343.00, End: 347.00, Sentence: To jest przemieszczenie się końca belki A.
+Start: 347.00, End: 350.00, Sentence: A-A' oznaczone jako f_a.
+Start: 350.00, End: 355.00, Sentence: No a przemieszczenie końca belki B to jest po prostu wydłużenie tego pręta delta L3.
+Start: 355.00, End: 361.00, Sentence: No bo wydłużenie w osi pręta tutaj nie ma problemu.
+Start: 361.00, End: 366.00, Sentence: Czyli f_B, no i warunek jest taki, że f_A ma się równać f_B.
+Start: 366.00, End: 369.00, Sentence: Żeby belka się przemieściła równolegle tu.
+Start: 369.00, End: 372.00, Sentence: Więc f_B to jest po prostu delta L3.
+Start: 372.00, End: 378.00, Sentence: No a z tego trójkąta, tutaj jeszcze przerzuciłem 60 stopni, są to kąty wierzchołkowe.
+Start: 378.00, End: 385.00, Sentence: Tutaj linia prosta, linia prosta, pion, więc to są kąty wierzchołkowe.
+Start: 385.00, End: 390.00, Sentence: I z tego trójkąta prostokątnego możemy sobie napisać, że delta L2 do f_A to jest cos60, a cos60 to jest 1/2.
+Start: 390.00, End: 396.00, Sentence: I wymnażając na skos, mamy, że f_A równa się 2 razy delta L2.
+Start: 396.00, End: 401.00, Sentence: Więc f_A równa się f_B, czyli 2 razy delta L2 równa się delta L3.
+Start: 401.00, End: 405.00, Sentence: Wzór na wydłużenie to jest siła w pręcie razy długość tego pręta przez moduł Younga pole przekroju poprzecznego.
+Start: 405.00, End: 413.00, Sentence: Siła w pręcie drugim, czyli N2, to mieliśmy policzone z równań równowagi.
+Start: 413.00, End: 419.00, Sentence: Więc delta L2 to jest ta siła razy 1 metr, czyli razy L, przez moduł Younga razy pole przekroju poprzecznego.
+Start: 419.00, End: 422.00, Sentence: Pole przekroju poprzecznego pierwszego, drugiego i trzeciego pręta są takie same z treści zadania, moduły Younga również.
+Start: 422.00, End: 427.00, Sentence: No a siła w pręcie trzecim też na początku policzona, czyli delta L3 to jest tyle.
+Start: 427.00, End: 432.00, Sentence: No i wracamy tutaj do tego warunku i zapisujemy, że 2 razy delta L2 równa się delta L3.
+Start: 432.00, End: 435.00, Sentence: Wymnażamy sobie przez te mianowniki, żeby się skróciły.
+Start: 435.00, End: 440.00, Sentence: Dzielimy przez P, czyli jak już podzielimy przez P, to zostaną nam same liczby i X.
+Start: 440.00, End: 443.00, Sentence: No to tutaj już nie będę przesadzał z tymi uproszczeniami.
+Start: 443.00, End: 452.00, Sentence: Wyliczamy sobie, że X to są 4/3 metra, no 4/3 razy L, czyli 4/3 metra.
+Start: 452.00, End: 455.00, Sentence: No i to wszystko, o to nas prosili.
+Start: 455.00, End: 458.00, Sentence: W takiej odległości to tam X było zaznaczone z lewej strony, czyli w takiej odległości tutaj z lewej strony ma być położona siła P, aby nastąpiło równoległe przemieszczenie belki A-B w dół.
+Start: 458.00, End: 463.00, Sentence: Cała belka miała 2 metry, 2 L było zaznaczone L jako 1 metr, czyli 4/3, to jest 1 i 1/3, trochę za połową ma być położona to siła P.
+Start: 463.00, End: 466.00, Sentence: I to wszystko, możemy przejść do przykładu trzeciego w kolejnym wideo.
+Start: 466.00, End: 475.00, Sentence: Jeśli macie jakieś pytania - piszcie śmiało w komentarzach, tymczasem to wszystko w tym przykładzie, dzięki, Cześć!

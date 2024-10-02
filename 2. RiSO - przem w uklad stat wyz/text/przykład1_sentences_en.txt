@@ -1,111 +1,117 @@
-Start: 0.00, End: 5.00, Sentence: Welcome warmly. Today's topic is stretching and axial compression.
-Start: 5.00, End: 8.00, Sentence: Displacement in statically determinate systems.
+Start: 0.00, End: 8.00, Sentence: Hello and welcome. Today's topic is axial stretching and compression, displacements in statically determinate systems.
 Start: 8.00, End: 11.00, Sentence: I have prepared three examples for today.
-Start: 11.00, End: 17.00, Sentence: The first one involves calculating the cross-section of rod D and the deformation Delta L.
-Start: 17.00, End: 23.00, Sentence: We are given the dimensions of this rod frame system.
-Start: 23.00, End: 28.00, Sentence: And all forces and moments acting on it.
-Start: 28.00, End: 37.00, Sentence: Notice that calculating the diameter of the rod, and once we calculate the diameter we will look at supports.
-Start: 37.00, End: 43.00, Sentence: So, here we have a hinged, non-restrained support, which has 2 reactions.
-Start: 43.00, End: 48.00, Sentence: Vertical and horizontal. And we have a reaction in the rod.
-Start: 48.00, End: 52.00, Sentence: In this task, we are actually only interested in that reaction in the rod.
-Start: 53.00, End: 61.00, Sentence: So, we can calculate the sum of moments about point A, with respect to the hinge support here.
-Start: 61.00, End: 68.00, Sentence: And then one unknown in this equation will be that reaction in the rod.
-Start: 68.00, End: 75.00, Sentence: To do this, to sum moments at that point, we need the moment arm of each force.
-Start: 75.00, End: 78.00, Sentence: Now let’s look at those forces in this system.
-Start: 78.00, End: 87.00, Sentence: The forces A P are visible, and the moment arm of the force, with respect to point A, is the shortest, that is, the perpendicular distance from the direction of the force.
-Start: 87.00, End: 93.00, Sentence: The direction of action is like an extension toward point A.
-Start: 93.00, End: 102.00, Sentence: So if we extended the direction of force P, the shortest, or the perpendicular distance which is the moment arm is here.
-Start: 102.00, End: 105.00, Sentence: So, it is A, as you can see.
-Start: 105.00, End: 113.00, Sentence: And now, continuous loading can be reduced to the resultant at the center of gravity.
-Start: 113.00, End: 116.00, Sentence: The center of gravity of a rectangle is simply in the middle.
-Start: 116.00, End: 126.00, Sentence: So the moment arm of this continuous loading would be like half of 2A, which is A, and also here 2A to that point.
-Start: 126.00, End: 133.00, Sentence: So we have that as well. The moment does not act on any arm, we just take it into the moment equation.
-Start: 133.00, End: 138.00, Sentence: And now this reaction, it is the reaction in the rod, it represents 2 si of the rod.
-Start: 138.00, End: 143.00, Sentence: And here the distance is not so obvious anymore.
-Start: 143.00, End: 150.00, Sentence: It's good to transfer this here from these 2, to make 2 right triangles.
-Start: 150.00, End: 156.00, Sentence: It looks like this, and based on that I will calculate that distance.
-Start: 156.00, End: 161.00, Sentence: Using the sine, cosine of these right triangles.
-Start: 169.00, End: 172.00, Sentence: So, that’s it.
-Start: 172.00, End: 177.00, Sentence: In the sum of moments about A, it results in 0.
-Start: 177.00, End: 182.00, Sentence: And the equation will look like this, and now as I told you.
-Start: 182.00, End: 188.00, Sentence: And now we assume that the twist law with respect to point A generates positive moments.
-Start: 188.00, End: 193.00, Sentence: The twist law. Force P would twist us left-handed.
-Start: 193.00, End: 197.00, Sentence: And here it’s at arm A, so minus per A.
-Start: 197.00, End: 206.00, Sentence: Now we add, and we reduce the continuous loading to the resultant at the center of gravity, and this is the value of the continuous loading and the length.
-Start: 206.00, End: 209.00, Sentence: The line where this continuous load lies.
-Start: 209.00, End: 213.00, Sentence: So, it's about 2a and this is 2k, it will create a positive.
-Start: 213.00, End: 217.00, Sentence: Looking like the run on A.
-Start: 217.00, End: 224.00, Sentence: On the arm 3a, which is half of those 2a that it weighs, meaning this center of gravity and another 2a is the arm 3a.
-Start: 224.00, End: 229.00, Sentence: And now minus S. Minus S and times this arm.
-Start: 229.00, End: 232.00, Sentence: Now, where did I get this arm from? Exactly from these triangles.
-Start: 232.00, End: 242.00, Sentence: If we write down that here is theta prime, which represents that length, then theta prime to 2a is the sine of this angle, that is, the sine of 60.
-Start: 242.00, End: 245.00, Sentence: So theta prime is 2a times sine 60.
-Start: 245.00, End: 253.00, Sentence: If we assumed that length as theta double prime, then theta double prime to 2a is the cosine of this angle, that is, cosine 60.
-Start: 253.00, End: 261.00, Sentence: Or sine 30, however that is the same value. So theta double prime is 2a times cosine 60.
-Start: 261.00, End: 266.00, Sentence: And this whole length is theta prime plus theta double prime, which is written here in the notes.
-Start: 266.00, End: 271.00, Sentence: Ok, we want to calculate our unknown, which is the reaction in the arm, that is S.
-Start: 271.00, End: 276.00, Sentence: So we move S with the brackets to the other side, dividing by those brackets.
-Start: 276.00, End: 280.00, Sentence: We can, of course, swap myself around.
-Start: 280.00, End: 291.00, Sentence: And we substitute numerical values, that is, P was given, A was 1 meter and all the data was presented in the task.
-Start: 291.00, End: 300.00, Sentence: So plugging in those sines, also cosines, we get that S equals 9800 kilonewtons.
-Start: 301.00, End: 308.00, Sentence: My forces P, M and K were substituted as stated in the task, so in kilonewtons, the result is in kilonewtons.
-Start: 308.00, End: 313.00, Sentence: If I converted to newtons, that is, to the basic unit, it would have been in newtons.
-Start: 313.00, End: 317.00, Sentence: But I didn't do that, it's in kilonewtons.
-Start: 317.00, End: 321.00, Sentence: And having already the force in the arm, we can dimension it.
-Start: 321.00, End: 329.00, Sentence: That is, dimensioning the arm with the conditions of strength, stress, that is the value of stress to the condition,
-Start: 329.00, End: 336.00, Sentence: of strength, we take as absolute value, because as we know, stress will be either tensile or compressive.
-Start: 336.00, End: 340.00, Sentence: The force in the arm came out positive, so the arm will be elongated.
-Start: 340.00, End: 346.00, Sentence: We always take the force as if to the intersection, we cut this system and here to the intersection is this force S.
-Start: 346.00, End: 352.00, Sentence: If it is positive, then the arm is elongated. If it is negative, then the arm is compressed.
-Start: 352.00, End: 356.00, Sentence: Thus, our arm in this system is elongated because the force came out positive.
-Start: 356.00, End: 360.00, Sentence: As we already know that it is elongated, we take the strength for tension.
-Start: 360.00, End: 368.00, Sentence: But if it were compressed, we wouldn't take it here since the force value came out negative, but we don't take it with a minus,
-Start: 368.00, End: 371.00, Sentence: we only take it as a positive absolute value. That's why I wrote it down like this.
-Start: 371.00, End: 376.00, Sentence: We have it, this is it, but that's how it looks.
-Start: 376.00, End: 382.00, Sentence: So the force is positive, the arm is elongated, meaning we take it for the strength for tension.
-Start: 382.00, End: 385.00, Sentence: So, the force is the area of the cross-section.
-Start: 385.00, End: 394.00, Sentence: Cross-sections with a circular shape, the area of the circular section is recorded as the area of a circle, and this is the square of the diameter.
-Start: 394.00, End: 402.00, Sentence: But when we take the diameter, it's the square of another diameter, so it's the fourth square diameter.
-Start: 402.00, End: 406.00, Sentence: And I often use this, even for strength calculations.
-Start: 407.00, End: 413.00, Sentence: Writing such a cross-section with the diameter, which is the fourth square diameter.
-Start: 413.00, End: 421.00, Sentence: The fourth diameter force in a bar of 98x9x3, the highest basic unit.
-Start: 421.00, End: 425.00, Sentence: The tensile strength for this task is 80 megapascals.
-Start: 425.00, End: 431.00, Sentence: So we can record from this formula, which is force divided by the area of the cross-section,
-Start: 431.00, End: 437.00, Sentence: as the motion equation, that 80 megapascals, which equals times 10x6.
-Start: 437.00, End: 443.00, Sentence: We transform it, so here the square diameter seems to multiply by the inverse,
-Start: 443.00, End: 446.00, Sentence: so the four moves up.
-Start: 446.00, End: 455.00, Sentence: We multiply before by 80x10x6, by the square, standard mathematical transformations.
-Start: 455.00, End: 464.00, Sentence: From this, we find that the diameter must be greater than or equal to 125x8 meters,
-Start: 464.00, End: 467.00, Sentence: because everything was in basic units.
-Start: 467.00, End: 471.00, Sentence: If we move the numbers two times to the right or multiply by 100,
-Start: 471.00, End: 479.00, Sentence: we get in centimeters, so the diameter must be greater than or equal to 1.25 centimeters.
-Start: 480.00, End: 486.00, Sentence: Having the diameter already dimensioned, we can calculate the elongation of the bar.
-Start: 486.00, End: 490.00, Sentence: The elongation of the bar formula states that elongation is the force in the bar,
-Start: 490.00, End: 494.00, Sentence: times the length of the bar divided by the Young's modulus times the area of the cross-section.
-Start: 497.00, End: 500.00, Sentence: The area reminds me of the square diameter.
-Start: 500.00, End: 506.00, Sentence: Our value will be greater than or equal to 125, we can assume rounding gently up,
-Start: 506.00, End: 509.00, Sentence: that it is 1.30 dm.
-Start: 511.00, End: 515.00, Sentence: So I substituted it here, it is in centimeters,
-Start: 515.00, End: 518.00, Sentence: and if I want the result in basic units,
-Start: 518.00, End: 521.00, Sentence: so we will go back to meters, I can write it as,
-Start: 521.00, End: 523.00, Sentence: as times 10 to the minus second.
-Start: 523.00, End: 526.00, Sentence: And this diameter has to be squared, so it's recorded that way.
-Start: 526.00, End: 531.00, Sentence: The result comes out in square meters, because I set it for basic units.
-Start: 532.00, End: 538.00, Sentence: The Young's modulus for this task was 2 times 10 to the 5 megapascals,
-Start: 538.00, End: 543.00, Sentence: so 2 times 10 to the 5 times 10 to the 6, which equals 2 times 10 to the 11.
-Start: 545.00, End: 549.00, Sentence: And the calculated force in the bar is 98 times 10 to the 3,
-Start: 549.00, End: 552.00, Sentence: already recorded in basic units of Newtons
-Start: 552.00, End: 556.00, Sentence: and everything in basic units is the base for the formula.
-Start: 557.00, End: 559.00, Sentence: And it comes out.
-Start: 559.00, End: 563.00, Sentence: On the calculator, we substitute basic units,
-Start: 563.00, End: 567.00, Sentence: we get the result in basic units, which is in meters, the elongation,
-Start: 567.00, End: 570.00, Sentence: which is 3.80 dm. with 4,
-Start: 570.00, End: 574.00, Sentence: as multiplying by 10 to the 3 will give the result in millimeters,
-Start: 574.00, End: 579.00, Sentence: which would be 3.80 dm. to 1 millimeter.
-Start: 579.00, End: 582.00, Sentence: and if I move the insert to the left once again,
-Start: 582.00, End: 584.00, Sentence: so that it’s not 10 to 1,
-Start: 584.00, End: 588.00, Sentence: it will simply be 48 millimeters.
-Start: 588.00, End: 590.00, Sentence: And we have calculated it.
-Start: 590.00, End: 592.00, Sentence: We calculated, we measured the speed
-Start: 592.00, End: 596.00, Sentence: and we calculated its performance,
-Start: 596.00, End: 600.00, Sentence: which is everything the task asks of us.
+Start: 11.00, End: 17.00, Sentence: The first one: calculate the diameter of the rod D and the elongation delta L.
+Start: 17.00, End: 25.00, Sentence: We have the dimensions of this rod-beam or rod-frame system and all the forces.
+Start: 25.00, End: 37.00, Sentence: We have the moment, the tensile strength, the compressive strength, and we need to calculate the diameter of the rod based on the strength conditions, and once we calculate the diameter, we can then calculate the elongation of that rod.
+Start: 37.00, End: 45.00, Sentence: So, we have here a fixed hinge support with two reactions, vertical and horizontal.
+Start: 45.00, End: 48.00, Sentence: And we have a reaction in the rod.
+Start: 48.00, End: 62.00, Sentence: What interests us in this problem is actually only that reaction in the rod, so we can set up the sum of moments about point A, relative to this fixed support here.
+Start: 62.00, End: 69.00, Sentence: And then one unknown in this equation will be that reaction in the rod.
+Start: 69.00, End: 75.00, Sentence: So, to do this, to sum the moments at this point, we need the arm of action of each force.
+Start: 75.00, End: 77.00, Sentence: Well, let's look at these forces in this system.
+Start: 77.00, End: 92.00, Sentence: Force P, you can see the arm of action of the force relative to the moment pole, which is the shortest, that is, the perpendicular distance from the direction of action of this force, here is the direction of the force, to the moment pole.
+Start: 92.00, End: 101.00, Sentence: So if we extended the direction of this force P, here is the shortest, which is the perpendicular distance, which is the arm of action.
+Start: 101.00, End: 104.00, Sentence: So it is "a", as you can see.
+Start: 104.00, End: 115.00, Sentence: And now, continuous loading can be reduced to a resultant at the center of gravity, the center of gravity of a rectangle is simply at half the length.
+Start: 115.00, End: 126.00, Sentence: So the arm of action of this continuous load, well, will be like half of this "2a", which is "a" and then here "2a" to that point.
+Start: 126.00, End: 133.00, Sentence: So we also have that, the moment is a moment, it does not act on any arm, we just take its value into the moment sum.
+Start: 133.00, End: 139.00, Sentence: And now this reaction, or rather the force in the rod, it is along the axis of the rod.
+Start: 139.00, End: 144.00, Sentence: And here this distance is not so obvious anymore.
+Start: 144.00, End: 153.00, Sentence: It’s good to transfer it here to the right, here to make two triangles, which look like this.
+Start: 153.00, End: 160.00, Sentence: And based on that, to calculate that distance from the sines and cosines of those right triangles.
+Start: 160.00, End: 173.00, Sentence: So, the sum of moments about point A equals 0.
+Start: 173.00, End: 185.00, Sentence: And the equation will look like this, as I told you, we assume that clockwise moments about point A are positive - clockwise positive.
+Start: 185.00, End: 193.00, Sentence: The force P would turn us counterclockwise, and it is at arm A, so minus P times A.
+Start: 193.00, End: 205.00, Sentence: Adding and now we reduce the continuous load to a resultant at the center of gravity, and this is the value of that continuous load times the length of the segment over which that continuous load lies.
+Start: 205.00, End: 212.00, Sentence: So "q" times "2a", and this is the "2qa", which turns positively relative to the moment pole A.
+Start: 212.00, End: 220.00, Sentence: On the arm "3a", which is half of these "2a" on which it lies, that is the center of mass and also "2a", together it makes "3a".
+Start: 220.00, End: 225.00, Sentence: And now minus S and times that arm.
+Start: 225.00, End: 228.00, Sentence: Now, where did I get that arm from? Well, precisely from those triangles.
+Start: 228.00, End: 238.00, Sentence: If we were to write that there is Y', that is this length, then Y' to "2a" is the sine of that angle, which is sine 60.
+Start: 238.00, End: 241.00, Sentence: So Y' is "2a" times sine 60.
+Start: 241.00, End: 249.00, Sentence: If we accepted this length as Y'', then Y'' to "2a" is the cosine of that angle, which is cosine 60.
+Start: 249.00, End: 254.00, Sentence: Or sine 30, whichever. It is the same value.
+Start: 254.00, End: 257.00, Sentence: So Y'' is "2a" times cos 60.
+Start: 257.00, End: 262.00, Sentence: And the entire length is Y' plus Y'' which is written here in parentheses.
+Start: 262.00, End: 267.00, Sentence: Ok, we want to calculate our unknown, that is the reaction in the rod, that is S.
+Start: 267.00, End: 271.00, Sentence: So we move S from the parentheses to the other side.
+Start: 271.00, End: 275.00, Sentence: We divide by that parenthesis. We can of course swap them around.
+Start: 275.00, End: 278.00, Sentence: And we insert numerical values.
+Start: 278.00, End: 281.00, Sentence: So P was given, "a" was 1 meter.
+Start: 281.00, End: 287.00, Sentence: And all the data here was provided in the task statement.
+Start: 287.00, End: 300.00, Sentence: So by substituting these sines and cosines we have that S equals 9.88 kN.
+Start: 300.00, End: 307.00, Sentence: Because I substituted force P, M, and Q as they were in the task statement, that is in kN.
+Start: 307.00, End: 309.00, Sentence: Therefore the result is in kN.
+Start: 309.00, End: 314.00, Sentence: If I had converted to N, that is the basic unit, the result would be in N.
+Start: 314.00, End: 318.00, Sentence: But I didn't do that, so I have it in kN.
+Start: 318.00, End: 323.00, Sentence: And what, with the force in the rod already known, we can dimension it.
+Start: 323.00, End: 327.00, Sentence: That is, we dimension the diameter based on the strength condition - that is on stress,
+Start: 327.00, End: 332.00, Sentence: Stress for the strength condition we take as an absolute value,
+Start: 332.00, End: 340.00, Sentence: because once we know whether the rod will be stretched or compressed, we compare stress to the appropriate strength.
+Start: 340.00, End: 346.00, Sentence: The force in the rod has turned out positive, so the rod will be stretched. We always assume the force as if cutting.
+Start: 346.00, End: 349.00, Sentence: We cut this system and here at the cut is this force S.
+Start: 349.00, End: 351.00, Sentence: If it is positive, then the rod is being stretched.
+Start: 351.00, End: 353.00, Sentence: If it is negative, then the rod is being compressed.
+Start: 353.00, End: 357.00, Sentence: So our rod in this system is being stretched because the force turned out positive.
+Start: 357.00, End: 360.00, Sentence: Now that we know it is being stretched, we take the tensile strength.
+Start: 360.00, End: 363.00, Sentence: But if it were compressed, we wouldn't take it here,
+Start: 363.00, End: 368.00, Sentence: it would give us a negative force value, but we don't take it with a minus,
+Start: 368.00, End: 370.00, Sentence: we only take the absolute value.
+Start: 370.00, End: 372.00, Sentence: That's why I wrote it that way.
+Start: 372.00, End: 376.00, Sentence: Well, we have plus, and that’s just how it looks.
+Start: 376.00, End: 380.00, Sentence: So the force is positive, the rod is being stretched,
+Start: 380.00, End: 382.00, Sentence: so we take the tensile strength.
+Start: 382.00, End: 385.00, Sentence: Therefore, we have the force, and the cross-sectional area.
+Start: 385.00, End: 387.00, Sentence: The cross-section is circular.  
+Start: 387.00, End: 391.00, Sentence: The area of the circular cross-section is recorded as...  
+Start: 391.00, End: 394.00, Sentence: Because the area of a circle is pi R²,  
+Start: 394.00, End: 400.00, Sentence: but if we write diameter instead of radius, it is pi d² divided by 4.  
+Start: 400.00, End: 406.00, Sentence: This is often used in strength calculations.  
+Start: 406.00, End: 414.00, Sentence: The area of the circular cross-section expressed with diameter, which is pi*d²/4.  
+Start: 414.00, End: 419.00, Sentence: The force in the rod is 9.88 times 10 to the 3 N,  
+Start: 419.00, End: 421.00, Sentence: already in base unit.  
+Start: 421.00, End: 425.00, Sentence: Tensile strength from the problem statement is 80 MPa.  
+Start: 425.00, End: 429.00, Sentence: So we can already write from this formula.  
+Start: 429.00, End: 433.00, Sentence: That is, force divided by area of the cross-section less than or equal to 80 MPa,  
+Start: 433.00, End: 437.00, Sentence: that is, times 10 to the 6.  
+Start: 437.00, End: 441.00, Sentence: Now we rearrange it.  
+Start: 441.00, End: 444.00, Sentence: Here, we multiply pi*d²/4 by the reciprocal,  
+Start: 444.00, End: 447.00, Sentence: which means 4 goes up.  
+Start: 447.00, End: 451.00, Sentence: We divide by 80 times 10 to the 6.  
+Start: 451.00, End: 453.00, Sentence: We multiply by d².  
+Start: 453.00, End: 457.00, Sentence: These are standard mathematical transformations.  
+Start: 457.00, End: 459.00, Sentence: We take the square root of this.  
+Start: 459.00, End: 464.00, Sentence: And it turns out that the diameter must be greater than or equal to 125 thousand meters,  
+Start: 464.00, End: 467.00, Sentence: because everything was in base units.  
+Start: 467.00, End: 472.00, Sentence: If we move the decimal two times to the right,  
+Start: 472.00, End: 474.00, Sentence: or multiply by 100, then we have in centimeters.  
+Start: 474.00, End: 479.00, Sentence: So the diameter must be greater than or equal to 1.25 centimeters.  
+Start: 479.00, End: 484.00, Sentence: Having already dimensioned the diameter, we can calculate the elongation of the rod.  
+Start: 484.00, End: 487.00, Sentence: The elongation of the rod formula is the force in the rod  
+Start: 487.00, End: 490.00, Sentence: times the length of the rod divided by Young's modulus,  
+Start: 490.00, End: 493.00, Sentence: times the area of the cross-section.  
+Start: 493.00, End: 497.00, Sentence: The area is pi*d²/4, I remind you.  
+Start: 497.00, End: 501.00, Sentence: Our d must be greater than or equal to 1.25.  
+Start: 501.00, End: 504.00, Sentence: We can round slightly upwards,  
+Start: 504.00, End: 507.00, Sentence: which is 1.3 centimeters.  
+Start: 507.00, End: 511.00, Sentence: So I substituted here, this is in centimeters.  
+Start: 511.00, End: 516.00, Sentence: I want the result in base units, so converting back to meters,  
+Start: 516.00, End: 518.00, Sentence: I can write it as times 10 to the minus 2.  
+Start: 518.00, End: 521.00, Sentence: And this diameter must be squared, so this is how it is written.  
+Start: 521.00, End: 524.00, Sentence: The result comes out in square meters,  
+Start: 524.00, End: 527.00, Sentence: because I converted to base units.  
+Start: 527.00, End: 532.00, Sentence: Young's modulus from the problem statement was two times 10 to the fifth megapascals,  
+Start: 532.00, End: 535.00, Sentence: so two times 10 to the fifth times 10 to the sixth, that is, two times 10 to the eleventh.  
+Start: 535.00, End: 538.00, Sentence: And the calculated force in the rod is 9.88 times 10 to the third,  
+Start: 538.00, End: 541.00, Sentence: already written in base unit - in Newtons.  
+Start: 541.00, End: 546.00, Sentence: And everything in base units is substituted into the formula.  
+Start: 546.00, End: 549.00, Sentence: And it comes out.
+Start: 549.00, End: 552.00, Sentence: On the calculator, we get a result in the base unit,  
+Start: 552.00, End: 555.00, Sentence: which is in meters - that is the extension,  
+Start: 555.00, End: 558.00, Sentence: that is 3.8 times 10 to the minus fourth.  
+Start: 558.00, End: 561.00, Sentence: If I multiply by 10 to the third, it will be the result in millimeters,  
+Start: 561.00, End: 564.00, Sentence: which would be 3.8 times 10 to the minus first millimeter.  
+Start: 564.00, End: 567.00, Sentence: And if I move the decimal point left again, so that there is no 10 to the minus first,  
+Start: 567.00, End: 570.00, Sentence: it will simply be 0.38 millimeters.  
+Start: 570.00, End: 573.00, Sentence: We measured the rod and calculated its extension.  
+Start: 573.00, End: 576.00, Sentence: So that's everything that was asked of us in this task.  

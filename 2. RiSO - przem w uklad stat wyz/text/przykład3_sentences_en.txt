@@ -1,0 +1,59 @@
+Start: 0.00, End: 9.00, Sentence: Welcome. Today's topic is stretching and axial compression, displacements in statically determinate systems.
+Start: 9.00, End: 18.00, Sentence: I have prepared three examples; in the previous videos, you will find two earlier examples, now it's time for the third example.
+Start: 18.00, End: 30.00, Sentence: A weight of 50 kN was suspended on a bracket ABC, consisting of a copper support AB and a steel cable AC.
+Start: 30.00, End: 47.00, Sentence: Determine the diameter fi D of the cable and dimension A of the square cross-section of the copper support AB, assuming allowable stresses for copper with a compressive strength of 40 MPa, and for steel with a tensile strength of 160 MPa.
+Start: 47.00, End: 59.00, Sentence: Determine the horizontal and vertical displacement of point A, assuming the length of the support AB is 1.2 m and the Young's modulus for steel is different from that for copper, as provided.
+Start: 59.00, End: 69.00, Sentence: We have the reaction in the axes of the rods N_AC and N_AB.
+Start: 69.00, End: 77.00, Sentence: Now I have drawn what I mentioned earlier.
+Start: 77.00, End: 85.00, Sentence: This force at angle N_AC can be resolved into components.
+Start: 85.00, End: 98.00, Sentence: Since there is an angle of 30 degrees here, the component at the angle is with the cosine of that angle, and the other component is with the sine of that angle.
+Start: 98.00, End: 105.00, Sentence: So here is the horizontal component N_AC cosine 30 degrees and the vertical component N_AC sine 30 degrees.
+Start: 105.00, End: 116.00, Sentence: We will calculate the sum of the projections of forces on the X and Y axes and determine both unknowns. We have two unknowns, so we will make two sums of projections to calculate the forces in the rods.
+Start: 116.00, End: 131.00, Sentence: Thus, the sum of projections on the Y axis equals 0, which means N_AC sine 30 minus G equals 0, so N_AC equals 2G, sine 30 is one half.
+Start: 131.00, End: 147.00, Sentence: The sum of projections on the X axis equals 0, which means N_AC cosine 30 with a negative sign, because it points left, assuming a standard coordinate system with Y up and X to the right.
+Start: 147.00, End: 171.00, Sentence: So minus N_AC cosine 30 minus N_AB equals 0, thus N_AB, moving to the other side, gives us N_AC cosine 30 times the square root of three divided by two; the twos cancel, yielding N_AB equal to minus G times the square root of three, with G given as 50 kN.
+Start: 171.00, End: 199.00, Sentence: The strength condition indicates that the force in the AC rod is positive, so there will be tension here, just as we were given in the task description; one could suspect that since tensile strength for steel and compressive strength for copper are given, N_AB should be negative and N_AC positive, to indeed have tension here and compression there.
+Start: 199.00, End: 226.00, Sentence: Although issues with these tasks can vary, sometimes there are mistakes in the statement, or the professor may incorrectly write something on the board, forgetting to add details; it varies, we must be vigilant, but here it worked out, so the absolute value of the stresses must be less than or equal to the strength, depending on whether it is tension or compression, depending on what we have in that rod.
+Start: 226.00, End: 253.00, Sentence: So in rod AB, in this beam AB we have compression because there is a negative force, that is, force through the cross-sectional area; here it was a square cross-section, the cross-sectional area is "a" squared, and it must be less than or equal to the compressive strength of 40 MPa for steel.
+Start: 253.00, End: 279.00, Sentence: And here, the absolute value is substituted, right? We substitute numerical values, the square root, of course, and "a" must be greater than or equal to 465/10000 m, so rounding a bit up gives 47/1000 m, which is 4.70 cm.
+Start: 279.00, End: 293.00, Sentence: We do the same with the AC rod, force through the cross-sectional area, here it is already a circular cross-section, that is, pi times d squared divided by 4, less than or equal to tensile strength of 160 MPa.  
+Start: 293.00, End: 316.00, Sentence: 160 MPa is essentially 10 to the 6, here the same, simple mathematical transformations, we take the square root and the diameter should be greater than or equal to 282/10000 m, rounding a bit up gives 3/100 m, i.e., 3 cm.  
+Start: 316.00, End: 336.00, Sentence: The formula for the elongation of the rod is the force in the rod times the length of the rod divided by Young's modulus times the cross-sectional area, and already for our dimensioned values of the cross-sectional side and the diameter of the circular cross-section, we can calculate the elongations.  
+Start: 336.00, End: 351.00, Sentence: So the elongation of rod AB is, and now we set not the absolute value, but the actual value, if it is negative, it will be rod shortening, if it is positive, it will be elongation.  
+Start: 351.00, End: 371.00, Sentence: So minus 50 is that "G," minus 50 times 10 to the 3 is "G," times the square root of 3 is n_AB, times the length of rod AB 1.20 m divided by Young's modulus for copper times the cross-sectional area.  
+Start: 371.00, End: 383.00, Sentence: We substitute numerical values everywhere, basic units, and the result is in basic units; we will convert to millimeters, minus 409/1000 millimeters.  
+Start: 383.00, End: 399.00, Sentence: This is the shortening of rod AB, we do the same with rod AC, that is, the force in the rod is 2 times "G," that is, 2 times 50 kN, times the length of rod AC divided by Young's modulus for steel, pi times d squared divided by 4, i.e., the cross-sectional area.  
+Start: 399.00, End: 420.00, Sentence: And also the length of rod AC, of course, we will calculate here from the right triangle, that is, 1.20 to AC is cos 30, from this we calculate AC 1.20 over cos 30, i.e., 1 and 386 thousandths and we substitute numerical values everywhere.  
+Start: 420.00, End: 437.00, Sentence: Similarly, after recalculating, we have the result on the calculator in basic units in meters, we convert to millimeters; we have calculated the elongations of the rods, and we need to calculate the vertical displacement and horizontal displacement of the end of beam A.  
+Start: 437.00, End: 441.00, Sentence: So we need to think now about what it will look like.  
+Start: 441.00, End: 455.00, Sentence: Shortening of rod AB and elongation of rod AC, right? Now the line of permissible displacements, as in the previous example, the line of permissible displacements is in the direction perpendicular to this displacement.  
+Start: 455.00, End: 463.00, Sentence: So perpendicular to the displacement delta L_AB is the line of permissible displacements for rod AB and similarly for rod AC.  
+Start: 463.00, End: 473.00, Sentence: At the intersection of these permissible displacement lines of both rods, we have the displacement of the end of the rod, well, the displacement of point A, meaning it will move to this place.  
+Start: 473.00, End: 492.00, Sentence: Of course, this is a greatly exaggerated scale, because the length of the rod, the length of this support AB is 1.2 meters, while the displacements we computed, the elongations came out in tenths or hundredths of a millimeter.  
+Start: 492.00, End: 505.00, Sentence: So this is a large, well, greatly exaggerated scale for this purpose to make it visible, so we can analyze it well, so this displacement will be, well, minimal, tiny.  
+Start: 505.00, End: 518.00, Sentence: So we have here, some right triangles have formed, and we need to take advantage of this, we need to calculate the displacement, we need to calculate the horizontal component and the vertical component of this displacement.
+Start: 518.00, End: 532.00, Sentence: So we can sketch it out like this. We must notice that we have formed such a triangle here, which I have marked in green, and that it is similar to this small triangle here.  
+Start: 532.00, End: 541.00, Sentence: Because both are right-angled, here is the right angle of the small one, here is the right angle of the large one, and they have the same angle here.  
+Start: 541.00, End: 549.00, Sentence: So the small one consists of a right angle and there is some angle alpha, and the large green one has a right angle and there is also angle alpha.  
+Start: 549.00, End: 560.00, Sentence: Which means that the remaining angles, that is, the remaining third angle, must be the same, so the angle that is marked here must be the same as the angle here.  
+Start: 560.00, End: 564.00, Sentence: So we can transfer this 30 here. It's important to notice that.  
+Start: 564.00, End: 579.00, Sentence: And I also marked this edge as "a", this one as "b". Here I marked the vertical displacement of our point A, meaning delta Y.  
+Start: 579.00, End: 591.00, Sentence: And I noted that this side B consists of this delta Y and some "b'", which will be needed for our component calculations.  
+Start: 591.00, End: 597.00, Sentence: And delta X is simply the displacement delta L_AB, which can be seen in the drawing.  
+Start: 597.00, End: 601.00, Sentence: And this side "a" consists of delta L_AC and some "a'".  
+Start: 601.00, End: 606.00, Sentence: So, starting with side "a". Side "a" is "a'" plus delta L_AC.  
+Start: 606.00, End: 614.00, Sentence: Delta L_AC is calculated. Of course, the absolute value because we don't want negatives here, we are interested in the absolute value of these displacements.  
+Start: 614.00, End: 626.00, Sentence: And it is 934/1000 mm, calculated earlier. We can write that now delta L_AB, meaning this length, to "a'" is cos 30, from which we will calculate "a'" and then "a".  
+Start: 626.00, End: 630.00, Sentence: So "a'" is delta L_AB over cos 30.  
+Start: 630.00, End: 642.00, Sentence: Delta L_AB is 409/1000 mm, cos 30 is the square root of 3 over 2, we have calculated "a'", so we calculate "a", and it is this much.  
+Start: 642.00, End: 647.00, Sentence: Now we are dealing with the second side. "b" consists of "b'" plus delta Y.  
+Start: 647.00, End: 657.00, Sentence: "b'" over "b'" is sin 30 degrees, so sin of this angle, or cos 60, it doesn’t matter.  
+Start: 657.00, End: 665.00, Sentence: So "b'" is "a'" times sin 30, which means "b'" is half of "a'", which is 235/1000 mm.  
+Start: 665.00, End: 679.00, Sentence: Now "a" to "b" is sin 30, which means "b" is "a" over sin 30, so "b" is 2.808 mm.  
+Start: 679.00, End: 682.00, Sentence: As you can see, everything here is based on these right triangles.  
+Start: 682.00, End: 691.00, Sentence: Delta Y is "b" minus "b'". Therefore, delta Y is 2.573 mm.  
+Start: 691.00, End: 700.00, Sentence: So we are reaching the end of the task. Delta X, as seen from the drawing, is simply delta L_AB, which is 1.438 mm.  
+Start: 700.00, End: 713.00, Sentence: And that's everything we had to calculate. This geometric condition can be said to be the most difficult of the three tasks we've covered.  
+Start: 713.00, End: 725.00, Sentence: But the more problems you see, the more geometric conditions you see, the easier it becomes to understand what a given problem should look like.  
+Start: 725.00, End: 741.00, Sentence: What this geometric condition looks like, what these displacements look like, and so on. So the more tasks, the broader the spectrum of situations we've dealt with later.
+Start: 741.00, End: 750.00, Sentence: If you have any questions - feel free to write in the comments, meanwhile that's everything in this example, thank you, bye!
