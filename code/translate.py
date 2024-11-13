@@ -54,7 +54,12 @@ def translate_text(text):
     )
     return response.choices[0].message.content
 
+from pathlib import Path
+
 def save_translated_text(file_path, content):
+    # Utwórz katalogi, jeśli nie istnieją
+    Path(file_path).parent.mkdir(parents=True, exist_ok=True)
+    
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(content)
 
@@ -70,8 +75,15 @@ def main():
     # Split content into manageable chunks
     chunks = split_text(content)
 
-    # Translate each chunk and combine the results
-    translated_chunks = [translate_text(chunk) for chunk in chunks]
+     # Translate each chunk and display progress
+    translated_chunks = []
+    total_chunks = len(chunks)
+    for i, chunk in enumerate(chunks, start=1):
+        print(f"Translating chunk {i}/{total_chunks}...")
+        translated_chunk = translate_text(chunk)
+        translated_chunks.append(translated_chunk)
+
+          # Combine the results
     translated_content = '\n'.join(translated_chunks)
 
     # Save the translated content to a new file
