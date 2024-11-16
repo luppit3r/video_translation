@@ -1,0 +1,31 @@
+Report of Removed Segments
+==========================
+Total segments removed: 26
+
+Details of each segment:
+Segment 1: Start = 10.63s, End = 14.90s, Duration = 4.27s
+Segment 2: Start = 35.07s, End = 39.63s, Duration = 4.57s
+Segment 3: Start = 144.44s, End = 148.65s, Duration = 4.22s
+Segment 4: Start = 206.09s, End = 213.62s, Duration = 7.54s
+Segment 5: Start = 314.97s, End = 319.93s, Duration = 4.97s
+Segment 6: Start = 370.19s, End = 374.90s, Duration = 4.71s
+Segment 7: Start = 469.93s, End = 473.57s, Duration = 3.63s
+Segment 8: Start = 474.97s, End = 480.63s, Duration = 5.67s
+Segment 9: Start = 509.93s, End = 513.65s, Duration = 3.72s
+Segment 10: Start = 585.39s, End = 589.64s, Duration = 4.25s
+Segment 11: Start = 600.79s, End = 604.66s, Duration = 3.88s
+Segment 12: Start = 628.34s, End = 631.90s, Duration = 3.56s
+Segment 13: Start = 684.39s, End = 689.90s, Duration = 5.50s
+Segment 14: Start = 790.32s, End = 793.67s, Duration = 3.36s
+Segment 15: Start = 1058.92s, End = 1064.60s, Duration = 5.68s
+Segment 16: Start = 1166.63s, End = 1169.90s, Duration = 3.27s
+Segment 17: Start = 1340.27s, End = 1344.90s, Duration = 4.63s
+Segment 18: Start = 1344.97s, End = 1348.57s, Duration = 3.60s
+Segment 19: Start = 1640.30s, End = 1643.65s, Duration = 3.35s
+Segment 20: Start = 1673.12s, End = 1676.67s, Duration = 3.55s
+Segment 21: Start = 1689.33s, End = 1694.23s, Duration = 4.90s
+Segment 22: Start = 1768.94s, End = 1774.23s, Duration = 5.29s
+Segment 23: Start = 1839.37s, End = 1842.63s, Duration = 3.26s
+Segment 24: Start = 1864.33s, End = 1869.27s, Duration = 4.93s
+Segment 25: Start = 1957.14s, End = 1961.33s, Duration = 4.19s
+Segment 26: Start = 1961.40s, End = 1964.65s, Duration = 3.25s
