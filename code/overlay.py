@@ -40,10 +40,18 @@ def synchronize_audio_with_video(video_file_path, timestamps, audio_dir, output_
     # First, get all audio durations
     for i, (start, end) in enumerate(timestamps):
         audio_file_path = audio_dir / f"output_audio_{i}.mp3"
+        
+        # Dodajmy debugowanie, aby wyświetlić ścieżkę pliku audio
+        print(f"Checking audio file path: {audio_file_path}")
+        
+        if not audio_file_path.exists():
+            print(f"Error: Audio file {audio_file_path} does not exist.")
+            return  # Przerwij działanie skryptu, jeśli plik nie istnieje
+        
         audio_clip = AudioFileClip(str(audio_file_path))
         audio_durations.append(audio_clip.duration)
 
-    # Adjust timestamps
+    # Reszta funkcji pozostaje bez zmian
     adjusted_timestamps = adjust_timestamps(timestamps, audio_durations)
 
     # Now create audio clips with adjusted timestamps
@@ -76,7 +84,7 @@ def main():
     
     # Adjust audio_dir to be relative to the main directory
     main_dir = input_file.parents[1]
-    audio_dir = main_dir / args.audio_dir / video_file.stem
+    audio_dir = main_dir / args.audio_dir
 
     # Create output directory in the main folder
     output_dir = main_dir / "output"

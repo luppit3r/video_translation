@@ -7,15 +7,10 @@ from pathlib import Path
 from tqdm import tqdm
 
 def detect_silent_segments(audio_path, min_silence_len=3000, silence_thresh=-40):
-<<<<<<< Updated upstream
-=======
-    """Detect silent segments in the audio file."""
->>>>>>> Stashed changes
     audio = AudioSegment.from_file(audio_path)
     silent_segments = silence.detect_silence(audio, min_silence_len=min_silence_len, silence_thresh=silence_thresh)
     return [(start / 1000, end / 1000) for start, end in silent_segments]
 
-<<<<<<< Updated upstream
 def detect_static_segments(video_path, threshold=30, min_static_duration=3):
     cap = cv2.VideoCapture(video_path)
     fps = cap.get(cv2.CAP_PROP_FPS)
@@ -98,7 +93,7 @@ def main():
     parser.add_argument("--min_silence_len", type=int, default=3000, help="Minimum length of silence to detect (ms)")
     parser.add_argument("--silence_thresh", type=int, default=-40, help="Threshold for silence detection (dB)")
     parser.add_argument("--static_threshold", type=int, default=30, help="Threshold for detecting static frames")
-    parser.add_argument("--min_static_duration", type=int, default=3, help="Minimum duration of static frames (s)")
+    parser.add_argument("--min_static_duration", type=float, default=3, help="Minimum duration of static frames (s)")
     parser.add_argument("--report_file", default="removal_report.txt", help="Path to save the report file")
     args = parser.parse_args()
 
@@ -132,125 +127,6 @@ def main():
     # Usuń tymczasowy plik audio, jeśli został utworzony
     if not args.audio_file:
         Path(audio_path).unlink()
-=======
-def generate_report(segments, output_video_path, original_duration):
-    """Generate detailed report of removed segments in the same directory as output video."""
-    # Generuj ścieżkę raportu w tym samym katalogu co wideo
-    report_path = Path(output_video_path).with_suffix('.txt')
-    
-    total_silence = sum(end - start for start, end in segments)
-    
-    with open(report_path, "w", encoding="utf-8") as report_file:
-        report_file.write("Raport usuwania fragmentów ciszy\n")
-        report_file.write("===============================\n\n")
-        report_file.write(f"Plik wideo: {Path(output_video_path).name}\n\n")
-        report_file.write(f"Liczba usuniętych segmentów: {len(segments)}\n")
-        report_file.write(f"Całkowity czas usuniętej ciszy: {total_silence:.2f}s\n")
-        report_file.write(f"Oryginalny czas trwania: {original_duration:.2f}s\n")
-        report_file.write(f"Szacowany czas po edycji: {(original_duration - total_silence):.2f}s\n")
-        report_file.write(f"Redukcja czasu: {(total_silence/original_duration)*100:.1f}%\n\n")
-        
-        report_file.write("Szczegóły usuniętych segmentów:\n")
-        report_file.write("-----------------------------\n")
-        for i, (start, end) in enumerate(segments, 1):
-            duration = end - start
-            report_file.write(f"Segment {i:3d}: {start:8.2f}s - {end:8.2f}s (długość: {duration:6.2f}s)\n")
-    
-    print(f"\nRaport zapisano w: {report_path}")
-
-def process_video(video_path, output_path, segments, silence_padding=0.5):
-    """Process video at original resolution with good performance."""
-    video = VideoFileClip(video_path, audio=True)
-    original_duration = video.duration
-    clips = []
-    current_time = 0
-    
-    try:
-        for s_start, s_end in tqdm(segments, desc="Przetwarzanie segmentów"):
-            if current_time < s_start:
-                clip = video.subclip(current_time, s_start)
-                
-                if silence_padding > 0:
-                    clip = clip.set_duration(clip.duration + silence_padding)
-                
-                clips.append(clip)
-            current_time = s_end
-
-        # Add remaining video after last silent segment
-        if current_time < video.duration:
-            clips.append(video.subclip(current_time, video.duration))
-
-        print("Łączenie segmentów...")
-        final_video = concatenate_videoclips(clips, method="compose")
-        
-        print("Zapisywanie pliku wyjściowego...")
-        final_video.write_videofile(
-            output_path,
-            codec="libx264",
-            audio_codec="aac",
-            preset="faster",
-            threads=8,
-            fps=video.fps,
-            verbose=False
-        )
-        
-        # Generate report after successful video processing
-        generate_report(segments, output_path, original_duration)
-        
-    except Exception as e:
-        print(f"Błąd podczas przetwarzania: {str(e)}")
-        raise
-        
-    finally:
-        video.close()
-        for clip in clips:
-            try:
-                clip.close()
-            except:
-                pass
-
-def main():
-    parser = argparse.ArgumentParser(description="Usuń fragmenty ciszy z wideo.")
-    parser.add_argument("video_file", help="Ścieżka do pliku wejściowego")
-    parser.add_argument("output_file", help="Ścieżka do pliku wyjściowego")
-    parser.add_argument("--min_silence_len", type=int, default=3000,
-                        help="Minimalna długość wykrywanej ciszy (ms)")
-    parser.add_argument("--silence_thresh", type=int, default=-40,
-                        help="Próg wykrywania ciszy (dB)")
-    parser.add_argument("--silence_padding", type=float, default=0.5,
-                        help="Długość przejścia w miejscu ciszy (s)")
-    args = parser.parse_args()
-
-    audio_path = "temp_audio.wav"
-    try:
-        print("Wyodrębnianie ścieżki audio...")
-        video = VideoFileClip(args.video_file, audio=True)
-        video.audio.write_audiofile(audio_path, verbose=False)
-        video.close()
-        
-        print("Wykrywanie fragmentów ciszy...")
-        silent_segments = detect_silent_segments(
-            audio_path,
-            args.min_silence_len,
-            args.silence_thresh
-        )
-        
-        process_video(
-            args.video_file,
-            args.output_file,
-            silent_segments,
-            args.silence_padding
-        )
-        
-        print("Zakończono przetwarzanie!")
-        
-    except Exception as e:
-        print(f"Wystąpił błąd: {str(e)}")
-        
-    finally:
-        if Path(audio_path).exists():
-            Path(audio_path).unlink()
->>>>>>> Stashed changes
 
 if __name__ == "__main__":
     main()
