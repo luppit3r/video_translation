@@ -13,21 +13,36 @@ source myenv/Scripts/activate
 python code/video_transcription_cli.py "2. RiSO - przem w uklad stat wyz/przykład1.avi"
 
 #Tłumaczenie
-python code/translate.py "3.SW-belki-cz1/#przyklad1-do-tlumaczenia.txt" "3.SW-belki-cz1/text/przykład1_sentences_en.txt" 
+python code/translate.py "5.SW-belki-cz1-bonus/Bcz1-bonus.txt" "5.SW-belki-cz1-bonus/text/Bcz1-bonus-sentences-en.txt" 
 
 #Genreacja
-python code/generate.py "2. RiSO - przem w uklad stat wyz/text/przykład1_sentences_en.txt"  "2. RiSO - przem w uklad stat wyz/przykład1.avi" 
-#Generacja from start to end (może być tylko --start_time lub --end_time)
-python code/generate-part.py "3.SW-belki-cz1/text/przykład1_sentences_en.txt"  "3.SW-belki-cz1/calosc.mp4" --end_time 2001
-
+python code/generate.py "5.SW-belki-cz1-bonus/text/Bcz1-bonus-sentences-en.txt" "5.SW-belki-cz1-bonus/Bcz1-bonus.mp4" 
 
 #Tworzenie video
-python code/overlay.py "2. RiSO - przem w uklad stat wyz/text/przykład1_sentences_en.txt" "2. RiSO - przem w uklad stat wyz/przykład1.avi"  --audio_dir generated
-#Tworzenie video from start to end
-python code/overlay-part.py "3.SW-belki-cz1/text/przykład2_sentences_en.txt" "3.SW-belki-cz1/calosc.mp4"  --audio_dir generated --end_time 2001
+python code/overlay.py "5.SW-belki-cz1-bonus/text/Bcz1-bonus-sentences-en.txt" "5.SW-belki-cz1-bonus/Bcz1-bonus.mp4" --audio_dir "C:\video_translation\5.SW-belki-cz1-bonus\generated\Bcz1-bonus"
 
 #Czyszczenie wideo z ciszy i bezruchu
-python code/delete-silent.py "3.SW-belki-cz1/output/calosc_synchronized.mp4" "3.SW-belki-cz1/output/calosc_cleaned.mp4" --min_silence_len 1500 --min_static_duration 1.5
+python code/delete-silent-movement.py "4.SW-belki-cz2/output/Bcz2-4_synchronized2.mp4" "4.SW-belki-cz2/output/Bcz2-4_cleaned.mp4" --min_silence_len 1000 --min_static_duration 1 --min_duration 1
 
-#Podmiana napisów NA WIDEO z polskich na angielskie (parametry na końcu w [s])
-python code/videotext-pol-to-eng.py "4.SW-belki-cz2/output/calosc_synchronized.mp4" "4.SW-belki-cz2/output/calosc_eng.mp4" 10 35 65
+#lub Czyszczenie wideo z ciszy
+python code/delete-silent.py "5.SW-belki-cz1-bonus/output/Bcz2-4_synchronized2.mp4" "4.SW-belki-cz2/output/Bcz2-4_cleaned.mp4" --min_silence_len 1000
+
+#usuwanie kolorwej stopki i dodanie logo
+python code/white-bottom-logo.py "5.SW-belki-cz1-bonus/output/Bcz1-bonus_synchronized.mp4" "5.SW-belki-cz1-bonus/output/Bcz1-bonus_synchronized_white-bottom.mp4" 
+____________________________________________________________________________________________________________________________________________________
+# Standardowe użycie - translate+generate+overlay-white bottom logo - argumenty: plik z polską transkrypcją, plik mp4 z polskim kursem
+python code/process_video.py "5.SW-belki-cz1-bonus/Bcz1-bonus.txt" "5.SW-belki-cz1-bonus/Bcz1-bonus.mp4"
+
+# Wznowienie przerwanego procesu
+python process_video.py "5.SW-belki-cz1-bonus/Bcz1-bonus.txt" "5.SW-belki-cz1-bonus/Bcz1-bonus.mp4" --resume
+
+
+
+#delete-noise usuwanie pogłosu silence_threshold: próg poniżej którego uznajemy dźwięk za ciszę silence_duration: jak długa ma być cisza przed i po pogłosie
+python code/delete-noise.py "4.SW-belki-cz2/output/Bcz2-2-white-bottom.mp4" "4.SW-belki-cz2/output/Bcz2-2_ready.mp4" --threshold 0.15 --min-duration 0.3 --max-duration 0.45 --silence-threshold 0.1 --silence-duration 0.1
+
+#echo-removal usuwanie pogłosu
+python code/echo-removal.py "4.SW-belki-cz2/output/Bcz2-2-white-bottom.mp4" "4.SW-belki-cz2/output/Bcz2-2-already-ready.mp4"
+
+#Czyszczenie wideo z ciszy
+python python code/bye-silent.py "4.SW-belki-cz2/output/test.mp4" "4.SW-belki-cz2/output/test_cleaned2.mp4" --min_silence_len 1500 --silence_padding 1

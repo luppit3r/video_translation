@@ -78,5 +78,9 @@ def main():
         generate_audio(sentence, elevenlabs_api_key, VOICE_ID, str(audio_file_path))
         print(f"Generated audio file for sentence {i}: {audio_file_path}")
 
+# Dodaj dźwięk zakończenia
+    import winsound
+    winsound.Beep(1000, 500)  # Sygnał o częstotliwości 1000Hz trwający 500ms
+
 if __name__ == "__main__":
     main()
