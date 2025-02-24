@@ -111,3 +111,8 @@ whitenoise==6.5.0
 wraps==0.15.0
 wrapt==1.15.0
 xlrd==2.0.1
+librosa
+soundfile
+opencv-python
+numpy
+moviepy

@@ -76,7 +76,7 @@ def main():
     
     # Adjust audio_dir to be relative to the main directory
     main_dir = input_file.parents[1]
-    audio_dir = main_dir / args.audio_dir / video_file.stem
+    audio_dir = Path(args.audio_dir) if Path(args.audio_dir).is_absolute() else main_dir / args.audio_dir / video_file.stem
 
     # Create output directory in the main folder
     output_dir = main_dir / "output"
@@ -88,6 +88,10 @@ def main():
 
     synchronize_audio_with_video(video_file, timestamps, audio_dir, output_video_path)
     print(f"Synchronized video saved to: {output_video_path}")
+
+# Dodaj dźwięk zakończenia
+    import winsound
+    winsound.Beep(1000, 500)  # Sygnał o częstotliwości 1000Hz trwający 500ms
 
 if __name__ == "__main__":
     main()
