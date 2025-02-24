@@ -1,0 +1,111 @@
+Start: 0.00, End: 4.20, Sentence: Hello, today's topic is internal forces in beams and this is part two.
+Start: 4.20, End: 13.00, Sentence: In this part, I will show you how to draw graphs of internal forces in simple beams and how to do it quickly and efficiently without writing equations.
+Start: 13.00, End: 19.00, Sentence: Some professors require writing equations to draw graphs of internal forces,
+Start: 19.00, End: 25.00, Sentence: so you need to make sure whether these equations are necessary for you, or if you just have to draw the graphs and that's it.
+Start: 25.00, End: 31.00, Sentence: Without writing equations, the graphs are drawn much faster.
+Start: 31.00, End: 43.00, Sentence: Example two. A bit more interesting, more forces. We also have one concentrated force, two moments applied to the beam, and a distributed load.
+Start: 43.00, End: 49.00, Sentence: And two supports. A movable hinge support, a non-movable hinge support.
+Start: 49.00, End: 53.00, Sentence: So we mark the reactions in the supports.
+Start: 53.00, End: 59.00, Sentence: One we already know has a value of 0, so this horizontal component is 0.
+Start: 59.00, End: 67.00, Sentence: And here there will be reaction Vd, and next to it will be reaction Vb.
+Start: 67.00, End: 77.00, Sentence: And once we have this marked, we can start calculating these reactions, which is just like I said before,
+Start: 77.00, End: 85.00, Sentence: first we will calculate the moments either at point B or at point D, to immediately calculate one of these reactions.
+Start: 85.00, End: 87.00, Sentence: So I did it at point B.
+Start: 87.00, End: 95.00, Sentence: Now we will also calculate the resultant moment of the distributed load, which is 15 times 2, that is 30 and is in the middle,
+Start: 95.00, End: 101.00, Sentence: which is at a distance of one meter from this support on the left side.
+Start: 101.00, End: 104.00, Sentence: How much did I say? 30.
+Start: 104.00, End: 109.00, Sentence: And now the sum of the moments at point B equals 0, so
+Start: 109.00, End: 114.00, Sentence: Minus 10 times 2, plus 30 times 1.
+Start: 114.00, End: 122.00, Sentence: The moment is applied as a counter-clockwise moment, so minus 10, minus Vd times 4 and minus 15.
+Start: 122.00, End: 127.00, Sentence: From this, it follows that Vd is equal to minus 3.75.
+Start: 127.00, End: 136.00, Sentence: So I have a negative reaction, which means I took the direction incorrectly, so I change the direction to the opposite.
+Start: 136.00, End: 141.00, Sentence: Just like before and here I put a plus sign.
+Start: 141.00, End: 144.00, Sentence: And from now on it looks like this.
+Start: 144.00, End: 153.00, Sentence: Now we make another equation: the sum of the projections on the y-axis equals 0, we have: minus 10 plus Vb, minus 30, minus 3.75 equals 0.
+Start: 153.00, End: 158.00, Sentence: From this, Vb is equal to 43.75 kN.
+Start: 158.00, End: 163.00, Sentence: And now we can start drawing the graphs.
+Start: 163.00, End: 165.00, Sentence: So like this.
+Start: 165.00, End: 168.00, Sentence: First the shear force diagram.
+Start: 168.00, End: 175.00, Sentence: We have an applied shear force of 10 kN here, so there is a jump downwards of 10.
+Start: 175.00, End: 183.00, Sentence: Next, there is no applied shear force on the beam, so we move linearly to the next point.
+Start: 183.00, End: 189.00, Sentence: Here we have the reaction Vb. It is 43.75 and is upward.
+Start: 189.00, End: 197.00, Sentence: So we move up by 43.75 from minus 10, which brings us to 33.75.
+Start: 200.00, End: 204.00, Sentence: Next, we have a distributed load.
+Start: 204.00, End: 217.00, Sentence: Its resultant value is 30 kN, so from the value of 33.75 we move down by 30 according to the direction of this load.
+Start: 217.00, End: 221.00, Sentence: So, from the negative side, linearly.
+Start: 221.00, End: 226.00, Sentence: We are under continuous load, which is up to 30.75.
+Start: 226.00, End: 231.00, Sentence: 30.75 minus 30, linearly.
+Start: 231.00, End: 234.00, Sentence: So here it's 3.75.
+Start: 234.00, End: 243.00, Sentence: Next, there is no shear force on the beam, so we move on to the next point unchanged.
+Start: 243.00, End: 249.00, Sentence: Here there is a plus. Here there is a plus.
+Start: 249.00, End: 256.00, Sentence: So what is the reaction Vb? 3.75. The graph goes down to 0. We know that it's OK.
+Start: 256.00, End: 263.00, Sentence: Then we have no shear force, so this part is 0.
+Start: 263.00, End: 267.00, Sentence: And we have drawn the shear force graph.
+Start: 267.00, End: 273.00, Sentence: Now I will calculate the areas of these figures that have formed here.
+Start: 273.00, End: 278.00, Sentence: So: 10 times 2 is 20.
+Start: 278.00, End: 281.00, Sentence: Next, I have a trapezoid.
+Start: 281.00, End: 285.00, Sentence: So, a plus b times h over 2.
+Start: 285.00, End: 295.00, Sentence: So 33.75 plus 3.75 times 2 over 2, which is 37.5.
+Start: 295.00, End: 301.00, Sentence: 37.5.
+Start: 301.00, End: 314.00, Sentence: Here we also see that the shear force graph does not cross to the other side under continuous load, so there will be no extremum on the moment graph.
+Start: 314.00, End: 323.00, Sentence: The area of this is 3.75 times 2, which is 7.5.
+Start: 323.00, End: 327.00, Sentence: And we draw the graph.
+Start: 327.00, End: 332.00, Sentence: So is there a moment applied here? No. We start from 0.
+Start: 332.00, End: 335.00, Sentence: Is there a moment applied here? Yes, 15.
+Start: 335.00, End: 343.00, Sentence: So here we start from 15. This moment arrow stretches the bottom fibers, so the graph is on the side of the fibers below.
+Start: 343.00, End: 348.00, Sentence: How else can we approach this? This is how I see it:
+Start: 348.00, End: 353.00, Sentence: This 15 would like to push the graph out here.
+Start: 353.00, End: 361.00, Sentence: And if it had a turn in the opposite direction, that is, right-hand, it would want to push the graph up.
+Start: 361.00, End: 365.00, Sentence: OK, so this 15 creates the graph down here. That's for sure.
+Start: 365.00, End: 369.00, Sentence: From such first basic things, we can note down.
+Start: 369.00, End: 371.00, Sentence: But let's calculate from the left side.
+Start: 371.00, End: 377.00, Sentence: Area 20. It is negative, so we move 20 towards the minus, the Q graph was constant, so M linearly.
+Start: 377.00, End: 382.00, Sentence: To a value of 20. Minus.
+Start: 382.00, End: 387.00, Sentence: Next, a parabola towards plus of value 37.5.
+Start: 387.00, End: 392.00, Sentence: So we cross to the other side to 17.5.
+Start: 392.00, End: 399.00, Sentence: And along the way, there is no extremum, so this graph will not look like that.
+Start: 400.00, End: 404.00, Sentence: It's just a parabola, but it ends here.
+Start: 404.00, End: 411.00, Sentence: There are no values here greater than the one on which this graph ends.
+Start: 413.00, End: 418.00, Sentence: OK, let's say it looks like this.
+Start: 420.00, End: 423.00, Sentence: So what value are we at? 17.5.
+Start: 423.00, End: 429.00, Sentence: Well, it's not very beautiful.
+Start: 429.00, End: 432.00, Sentence: Next, a value.
+Start: 432.00, End: 434.00, Sentence: And somewhere here we still have a moment indeed.
+Start: 434.00, End: 438.00, Sentence: Here is the moment 10 kNm, so we need to be careful.
+Start: 438.00, End: 440.00, Sentence: There will be a jump of the value of this moment. 
+Start: 440.00, End: 445.00, Sentence: If there is a moment applied to the beam, then on the moment graph there is a jump of the value of this moment.
+Start: 445.00, End: 449.00, Sentence: It is counterclockwise, so when we look from the left side, it is negative for us.
+Start: 449.00, End: 454.00, Sentence: Because when we cut from the left side, those are positive moments.
+Start: 454.00, End: 458.00, Sentence: And when we cut from the right side, those are positive moments.
+Start: 458.00, End: 462.00, Sentence: So that ten, when viewed from the left side, is negative.
+Start: 462.00, End: 467.00, Sentence: So there will be a jump towards negative values.
+Start: 467.00, End: 471.00, Sentence: So we subtract that ten because we are at a positive value.
+Start: 471.00, End: 474.00, Sentence: So we move to the value of 7.5 here.
+Start: 474.00, End: 478.00, Sentence: Here is 7.5 and from here now...
+Start: 482.00, End: 484.00, Sentence: Yes, good? Good.
+Start: 484.00, End: 490.00, Sentence: And from this 7.5 now in the direction of the positive value of this area.
+Start: 490.00, End: 495.00, Sentence: So we are at positive 7.5 and we have to move back by 7.5 in the positive direction.
+Start: 495.00, End: 499.00, Sentence: And here there was a constant value, so we are linear.
+Start: 499.00, End: 501.00, Sentence: It is linear.
+Start: 501.00, End: 505.00, Sentence: 15, so 7.5 plus 7.5.
+Start: 505.00, End: 509.00, Sentence: Next, there is no area here, so linear.
+Start: 509.00, End: 513.00, Sentence: At this 15, which is here on the other side.
+Start: 513.00, End: 516.00, Sentence: Without changing values.
+Start: 516.00, End: 519.00, Sentence: Plus and plus.
+Start: 519.00, End: 531.00, Sentence: Well, as I said, it's not very aesthetic, but I just wanted to show you how it looks live, drawing such a graph without writing equations.
+Start: 531.00, End: 535.00, Sentence: Meaning, I won't display the graph right away and talk about it,
+Start: 535.00, End: 538.00, Sentence: I will just draw it in real time.
+Start: 538.00, End: 542.00, Sentence: I think it's easier to understand what is happening and why.
+Start: 542.00, End: 550.00, Sentence: So you see that even on such a difficult beam, drawing the graph is not terribly hard.
+Start: 550.00, End: 553.00, Sentence: If we could orient ourselves that something is wrong.
+Start: 553.00, End: 556.00, Sentence: Yes, by drawing this graph from the left side,
+Start: 556.00, End: 561.00, Sentence: for example, we wouldn't end at the value that definitely should be at the end, which is 15.
+Start: 561.00, End: 565.00, Sentence: Then we would have miscalculated something earlier.
+Start: 565.00, End: 570.00, Sentence: Or for example, if it should be 0 here, and we end up at some value, and there is no moment here.
+Start: 570.00, End: 574.00, Sentence: So there cannot be a moment at the end of the beam if it was not applied.
+Start: 574.00, End: 578.00, Sentence: Then we can know that we made a mistake.
+Start: 578.00, End: 581.00, Sentence: Alright, that's it for this example.
+Start: 581.00, End: 596.00, Sentence: So thank you for your attention, I hope I helped. If you have any questions or concerns, feel free to ask questions and leave comments under the video.
+Start: 596.00, End: 604.00, Sentence: I also recommend the other productions, encourage you to visit our social media,
+Start: 604.00, End: 612.00, Sentence: and of course to subscribe to this channel to stay updated with new videos from EduPanda.
+Start: 612.00, End: 616.00, Sentence: In the meantime, thank you very much, best regards, goodbye!

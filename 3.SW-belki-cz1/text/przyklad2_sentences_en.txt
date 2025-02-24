@@ -1,0 +1,260 @@
+Start: 0.00, End: 9.00, Sentence: Hello, welcome to the second video in the series where we will be dealing with internal forces in beams.
+Start: 9.00, End: 18.00, Sentence: In this video, I want to show you how to calculate the reactions in simple beams, how to calculate internal forces, and how to draw graphs of these forces.
+Start: 18.00, End: 22.00, Sentence: So the second example looks like this.
+Start: 22.00, End: 27.00, Sentence: Now we have a more interesting beam, of course we need to calculate and draw the graphs of the internal forces.
+Start: 27.00, End: 35.00, Sentence: Our beam is already loaded with a distributed load, it is subjected to a moment and a shear force, so we have a complete set.
+Start: 35.00, End: 41.00, Sentence: The supports are the same, a non-sliding hinge and a sliding hinge.
+Start: 42.00, End: 47.00, Sentence: I have also marked the characteristic points ABCD.
+Start: 47.00, End: 56.00, Sentence: We know that in a non-sliding hinge support we have two reactions, horizontal and vertical, while in a sliding hinge support we have one reaction.
+Start: 56.00, End: 67.00, Sentence: So at the beginning we obviously calculate the reactions at the supports.
+Start: 67.00, End: 71.00, Sentence: First, we can do the sum of projections on the X-axis.
+Start: 71.00, End: 81.00, Sentence: We only have one horizontal force HB, which is the reaction at the support, so it must be equal to 0.
+Start: 81.00, End: 89.00, Sentence: Next, we'll do the sum of moments, and we could do that either at point B or at point D.
+Start: 89.00, End: 92.00, Sentence: It doesn't matter, I'll do it at point D.
+Start: 92.00, End: 96.00, Sentence: But now we have a distributed load.
+Start: 96.00, End: 100.00, Sentence: We can reduce this distributed load to a resultant.
+Start: 100.00, End: 106.00, Sentence: As you can see, in this example, I have already marked the units for myself.
+Start: 106.00, End: 110.00, Sentence: The distributed load is expressed in kilonewtons per meter.
+Start: 110.00, End: 112.00, Sentence: Kilonewton per meter.
+Start: 112.00, End: 115.00, Sentence: The moment is expressed in kilonewton meters.
+Start: 115.00, End: 119.00, Sentence: And the shear force is in kilonewtons.
+Start: 119.00, End: 124.00, Sentence: So we can reduce our distributed load to the resultant,
+Start: 124.00, End: 131.00, Sentence: and this resultant will lie in the center of gravity of the figure, which is the loaded beam.
+Start: 131.00, End: 133.00, Sentence: So we have a rectangular load.
+Start: 133.00, End: 139.00, Sentence: There can also be triangular loads, sometimes trapezoids as well.
+Start: 139.00, End: 148.00, Sentence: But most often it is a rectangular load, that is, a continuous load with a constant value.
+Start: 148.00, End: 154.00, Sentence: So we can imagine that this 10 kilonewtons per meter is the height of this rectangle,
+Start: 154.00, End: 158.00, Sentence: and 6 is the length, 6 meters.
+Start: 158.00, End: 161.00, Sentence: So we can find such a resultant.
+Start: 161.00, End: 168.00, Sentence: If we multiply the 10 kilonewtons by 6 meters, we are actually calculating the area of this rectangle,
+Start: 168.00, End: 174.00, Sentence: and from the units, we also see that the unit is kilonewtons.
+Start: 174.00, End: 180.00, Sentence: Because kilonewton per meter times 6 meters gives us 60 kilonewtons.
+Start: 180.00, End: 183.00, Sentence: And as I said, this resultant is located at the center of gravity,
+Start: 183.00, End: 188.00, Sentence: so since the distributed load is rectangular and its length is 6 meters,
+Start: 188.00, End: 191.00, Sentence: the resultant is at the third meter.
+Start: 191.00, End: 194.00, Sentence: It is also important where it is located.
+Start: 194.00, End: 198.00, Sentence: Ok, so we forget about the continuous load.
+Start: 198.00, End: 202.00, Sentence: At this moment we have this resultant force of 60 kilonewtons.
+Start: 202.00, End: 205.00, Sentence: As that load.
+Start: 205.00, End: 209.00, Sentence: So the sum of moments at point D, meaning force times arm.
+Start: 209.00, End: 211.00, Sentence: So we look from the left side.
+Start: 211.00, End: 217.00, Sentence: 10 acts on the arm 8 meters relative to point D.
+Start: 217.00, End: 219.00, Sentence: So 10 times 8.
+Start: 219.00, End: 223.00, Sentence: Next, we have our 60. I also wrote down 10 times 6.
+Start: 223.00, End: 228.00, Sentence: It rotates left-handed. Of course, we assume when calculating reactions right-handed.
+Start: 228.00, End: 230.00, Sentence: These are exactly the moments for me.
+Start: 230.00, End: 234.00, Sentence: This 60 kilonewtons rotates around point D in moment.
+Start: 234.00, End: 236.00, Sentence: Left-handed, so negative on the arm.
+Start: 236.00, End: 241.00, Sentence: 3 meters is to here and another 2 is 5 meters, so 10 times 6 times 5.
+Start: 241.00, End: 246.00, Sentence: Plus reaction VB on the arm 4 meters right-handed, so plus.
+Start: 246.00, End: 254.00, Sentence: And this moment here is already the unit of moment, because it is just a concentrated moment.
+Start: 254.00, End: 259.00, Sentence: Here we do not take this arm into account, as it is already a concentrated moment.
+Start: 260.00, End: 268.00, Sentence: In unit kilonewton-meter.
+Start: 268.00, End: 274.00, Sentence: So here we do not take this 15 yet times 2, just like those forces times the arm.
+Start: 274.00, End: 278.00, Sentence: We just write down 15, depending on whether positive or negative.
+Start: 278.00, End: 281.00, Sentence: It is marked that it rotates to the left.
+Start: 281.00, End: 286.00, Sentence: So for us when calculating reactions, it is negative, so minus 15.
+Start: 286.00, End: 289.00, Sentence: So here it is no longer on the arm.
+Start: 289.00, End: 296.00, Sentence: And from this, we calculate VB. It comes out to 58.75 kilonewtons.
+Start: 296.00, End: 299.00, Sentence: Next, we do the sum of projections on the Y-axis.
+Start: 299.00, End: 302.00, Sentence: So the ten goes up, thus positive.
+Start: 302.00, End: 309.00, Sentence: 60 down, minus 10 times 6. I have also written this down, yes we can add VB.
+Start: 309.00, End: 314.00, Sentence: Moment does not count towards the sum of projections on the X-axis nor to the sum of projections on the Y-axis.
+Start: 314.00, End: 317.00, Sentence: And VD goes up.
+Start: 317.00, End: 324.00, Sentence: And from this we find that VD is equal to minus 8.75 kilonewtons.
+Start: 324.00, End: 327.00, Sentence: What does this minus tell us?
+Start: 327.00, End: 330.00, Sentence: We have obtained a negative value.
+Start: 330.00, End: 333.00, Sentence: This means that we incorrectly assumed the direction of the reaction.
+Start: 333.00, End: 338.00, Sentence: So this reaction, its value is indeed 8.75.
+Start: 338.00, End: 341.00, Sentence: But the direction is not upwards.
+Start: 341.00, End: 344.00, Sentence: Only the direction is downwards for this reaction.
+Start: 344.00, End: 347.00, Sentence: The direction is not upwards, but downwards.
+Start: 347.00, End: 350.00, Sentence: A reaction of value 8.75.
+Start: 350.00, End: 355.00, Sentence: So also the conclusion from this is that we do not have to worry,
+Start: 355.00, End: 361.00, Sentence: about marking which way the directions of these supports are.
+Start: 361.00, End: 370.00, Sentence: Only if when counting we get a negative, that means we incorrectly assumed the direction.
+Start: 370.00, End: 376.00, Sentence: Ok, so we know that this VD is not in the direction we marked.
+Start: 376.00, End: 379.00, Sentence: And we create three intervals for ourselves.
+Start: 379.00, End: 381.00, Sentence: Just like in the previous example.
+Start: 381.00, End: 386.00, Sentence: I will create two sections on the left side and one section on the right side.
+Start: 386.00, End: 389.00, Sentence: Ah, one more check.
+Start: 389.00, End: 394.00, Sentence: Let's check - the sum of moments, let's take it at point A.
+Start: 394.00, End: 398.00, Sentence: This is 60 times 3 meters, minus VB times 4 meters,
+Start: 398.00, End: 404.00, Sentence: minus 15, minus VD times 8 meters.
+Start: 404.00, End: 407.00, Sentence: And if the reactions are calculated correctly, then the left equals the right,
+Start: 407.00, End: 410.00, Sentence: which means zero equals zero. It should come out correctly.
+Start: 410.00, End: 413.00, Sentence: It comes out like this here.
+Start: 413.00, End: 416.00, Sentence: So we are sure that the reactions are calculated correctly.
+Start: 416.00, End: 419.00, Sentence: Unless we made a mistake in the check.
+Start: 419.00, End: 423.00, Sentence: But we don't have to be so pessimistic.
+Start: 423.00, End: 427.00, Sentence: So this check is an important matter.
+Start: 427.00, End: 430.00, Sentence: Okay, now we move on to the sections.
+Start: 430.00, End: 432.00, Sentence: So the first section.
+Start: 433.00, End: 439.00, Sentence: We make a mental cut in the section from 0 to 4 meters.
+Start: 439.00, End: 443.00, Sentence: So X1 is from 0 to 4.
+Start: 443.00, End: 445.00, Sentence: So we do not see this support yet.
+Start: 445.00, End: 447.00, Sentence: Therefore, we do not see this reaction either.
+Start: 447.00, End: 450.00, Sentence: We see what is to its left.
+Start: 450.00, End: 452.00, Sentence: So we write it down.
+Start: 452.00, End: 455.00, Sentence: Shear forces in section AB from X1.
+Start: 455.00, End: 458.00, Sentence: So here it is. That ten acts upwards.
+Start: 458.00, End: 460.00, Sentence: So it's positive.
+Start: 460.00, End: 467.00, Sentence: But now, what about the shear force from the continuous load?
+Start: 467.00, End: 469.00, Sentence: Here it is marked as 60.
+Start: 469.00, End: 473.00, Sentence: But this 60 refers to the entire continuous load.
+Start: 473.00, End: 478.00, Sentence: And this 60 is the resultant if the continuous load acts at 6 meters.
+Start: 478.00, End: 481.00, Sentence: And at how many meters does it act in our case?
+Start: 481.00, End: 484.00, Sentence: Well, we don't know how many.
+Start: 484.00, End: 487.00, Sentence: It is variable from 0 to 4 meters.
+Start: 487.00, End: 494.00, Sentence: So we can also make a resultant here that will depend on the variable X1.
+Start: 494.00, End: 495.00, Sentence: No problem.
+Start: 495.00, End: 501.00, Sentence: If we denote that the length of this section is X1.
+Start: 501.00, End: 512.00, Sentence: Then we again take the value of the continuous load times the length of the section.
+Start: 512.00, End: 516.00, Sentence: Times the length of the beam on which this continuous load lies.
+Start: 516.00, End: 519.00, Sentence: In this case, it's 10 times X1.
+Start: 519.00, End: 521.00, Sentence: X1 is from 0 to 4.
+Start: 521.00, End: 523.00, Sentence: So there is no problem.
+Start: 523.00, End: 524.00, Sentence: And we write down.
+Start: 524.00, End: 526.00, Sentence: Therefore, it acts downwards, so it is negative.
+Start: 526.00, End: 528.00, Sentence: Minus 10 times X1.
+Start: 528.00, End: 532.00, Sentence: And now our shear force is dependent on the variable.
+Start: 532.00, End: 538.00, Sentence: So let's check at the beginning and the end of the section, that is, for coordinate 0 and for coordinate 4.
+Start: 538.00, End: 541.00, Sentence: When we substitute 0, it zeroes out, we have 10.
+Start: 541.00, End: 545.00, Sentence: We substitute 4, we have minus 30 kN.
+Start: 545.00, End: 549.00, Sentence: OK, so now we move on to the moment equation.
+Start: 549.00, End: 552.00, Sentence: Moment in section AB from X1.
+Start: 552.00, End: 553.00, Sentence: And again.
+Start: 553.00, End: 556.00, Sentence: 10 works as seen on arm X1.
+Start: 556.00, End: 560.00, Sentence: It rotates clockwise, which means positively going from the left side.
+Start: 560.00, End: 562.00, Sentence: Now, let's determine the resultant.
+Start: 562.00, End: 563.00, Sentence: 10 times X1.
+Start: 563.00, End: 566.00, Sentence: It rotates counterclockwise.
+Start: 566.00, End: 567.00, Sentence: On what arm?
+Start: 567.00, End: 577.00, Sentence: Well, as I mentioned when determining the resultant from this entire continuous load, the resultant is in the middle, at the center of gravity.
+Start: 577.00, End: 582.00, Sentence: So, if it is in the middle, we can denote it this way.
+Start: 582.00, End: 585.00, Sentence: On one side is half of X1, on the other side is half of X1.
+Start: 585.00, End: 591.00, Sentence: So this resultant of 10 times X1 rotates on arm one half of X1.
+Start: 591.00, End: 599.00, Sentence: Therefore, minus 10 times X1 is the resultant times arm one half of X1.
+Start: 599.00, End: 607.00, Sentence: This is also one of the more difficult things when we start learning to solve beams.
+Start: 608.00, End: 612.00, Sentence: So now what, we substitute the ends of the interval 0 and 4 meters.
+Start: 612.00, End: 619.00, Sentence: If we substitute 0, we have 0 kNm, and for 4 meters we have minus 40.
+Start: 619.00, End: 626.00, Sentence: Ok, we move to the second interval, so we cut the beam between 4 and 6 meters looking from the left side.
+Start: 626.00, End: 632.00, Sentence: So we can already see this support, but we do not yet see that moment here, which is at 6 meters.
+Start: 632.00, End: 636.00, Sentence: So at the end of the interval, we are infinitely close to 6 meters.
+Start: 636.00, End: 639.00, Sentence: Thus, we have the interval from 4 to 6 meters.
+Start: 639.00, End: 642.00, Sentence: X2 is from 4 to 6.
+Start: 642.00, End: 648.00, Sentence: And the force acts in the BC interval, so this tens up is positive.
+Start: 648.00, End: 653.00, Sentence: We do the resultant again from the continuous load.
+Start: 653.00, End: 658.00, Sentence: Hence we still see the continuous load, some part of it, not the whole.
+Start: 659.00, End: 667.00, Sentence: Thus, the resultant is the value of the continuous load times the length of the interval.
+Start: 667.00, End: 672.00, Sentence: And we note that it is negative, minus 10 times X2.
+Start: 672.00, End: 675.00, Sentence: And add the reaction Vb.
+Start: 675.00, End: 680.00, Sentence: We substitute 4 and 6, we calculate for the value 4, we calculate for the value 6.
+Start: 681.00, End: 683.00, Sentence: We write the moment.
+Start: 683.00, End: 688.00, Sentence: 10 on arm X2 rotates clockwise, meaning 10 times X2.
+Start: 688.00, End: 699.00, Sentence: The resultant of 10 times X2 from the continuous load rotates on the arm, just like in the previous interval, at half of X2.
+Start: 699.00, End: 704.00, Sentence: Therefore, minus 10 X2 resultant times arm, one half of X2.
+Start: 704.00, End: 709.00, Sentence: Here is also reaction Vb, which is a bit obscured here.
+Start: 709.00, End: 712.00, Sentence: So now on what arm does it rotate?
+Start: 712.00, End: 715.00, Sentence: It definitely rotates clockwise.
+Start: 715.00, End: 725.00, Sentence: Even looking here at the drawing, support Vb is 4 meters away from the beginning of the beam, as marked here.
+Start: 725.00, End: 742.00, Sentence: Since the whole interval is X2, variable from 4 to 6, this remaining part, meaning the arm of the reaction force Vb, is X2, which is the entire length minus 4 meters.
+Start: 742.00, End: 747.00, Sentence: And we write plus because clockwise Vb times X2 minus 4 meters.
+Start: 747.00, End: 759.00, Sentence: Well, for this moment equation in place of variable X2, we insert 4 and calculate, then we insert 6 and we get the moment values.
+Start: 759.00, End: 764.00, Sentence: And that's it, let's move on to the next interval.
+Start: 764.00, End: 769.00, Sentence: Look how nice it is, on the right side we only have the reaction Vb at the support.
+Start: 769.00, End: 771.00, Sentence: So here we have one force.
+Start: 771.00, End: 779.00, Sentence: And if we wanted to go for the third time from the left side, well, we have one force, the entire continuous load, a second force, and a moment.
+Start: 779.00, End: 783.00, Sentence: So four forces, and here we only have one.
+Start: 783.00, End: 785.00, Sentence: So it's really worth it.
+Start: 785.00, End: 797.00, Sentence: Going from the right side, here we are from 0 to 2, but we have to remember that when we cut the beam from the right side,
+Start: 797.00, End: 809.00, Sentence: the positive shear forces act downwards, positive moments are counterclockwise moments, and the positive normal forces, which we don’t have here, act to the right, which is from the section outward.
+Start: 811.00, End: 818.00, Sentence: Now, we will write the shear force in the interval CD.
+Start: 818.00, End: 828.00, Sentence: Well, indeed, we know that this reaction does not act upwards, but downwards.
+Start: 828.00, End: 845.00, Sentence: However, since we assumed that it is drawn upwards, according to that rule, this shear force is negative.
+Start: 845.00, End: 848.00, Sentence: So I wrote minus VD.
+Start: 848.00, End: 856.00, Sentence: But now VD is minus 8.75, so here it becomes plus.
+Start: 856.00, End: 859.00, Sentence: So we need to be careful about this.
+Start: 859.00, End: 870.00, Sentence: It can be solved in another way, but I will show that after I finish writing these equations so as not to mess too much on this drawing.
+Start: 871.00, End: 883.00, Sentence: So as I said, we need to be careful here, which means ultimately it is positive 8.75, both for 0 and for 2, because it is independent of variable x3.
+Start: 883.00, End: 897.00, Sentence: So now I will write the moment equation; that is, VD with an upward direction would rotate counterclockwise, thus positively, looking from the right side.
+Start: 897.00, End: 906.00, Sentence: So this is the positive value VD times x3, but I substitute VD, which is minus 8.75.
+Start: 906.00, End: 911.00, Sentence: For 0, that is 0, but for 2, that is minus 17.5.
+Start: 911.00, End: 914.00, Sentence: Here, one could make a mistake, so we need to be careful.
+Start: 915.00, End: 928.00, Sentence: Now, how could this be done differently to create fewer problems and less space where we could make mistakes?
+Start: 928.00, End: 946.00, Sentence: We can already mark it when calculating the reactions, since we obtained a negative value, we know that the direction of this force does not act upwards, but downwards.
+Start: 946.00, End: 953.00, Sentence: So I can cross this out and know that the arrow will point downwards.
+Start: 953.00, End: 956.00, Sentence: And here I change the sign from minus to plus.
+Start: 956.00, End: 963.00, Sentence: From now on, for us, this reaction acts downwards, and its value is positively 8.75.
+Start: 963.00, End: 972.00, Sentence: And then here we would have not upwards, but downwards.
+Start: 973.00, End: 978.00, Sentence: Well, so we look, we would write this equation again.
+Start: 978.00, End: 987.00, Sentence: The force is directed downwards, so the shear forces downwards are positive forces, so I would have plus Vd here.
+Start: 987.00, End: 994.00, Sentence: And I look, the reaction value Vd is 8.75, okay, I write 8.75, no problem.
+Start: 994.00, End: 1003.00, Sentence: Next, regarding Vd against this pole moment, as if this cut, it rotates clockwise, so it’s negative.
+Start: 1003.00, End: 1016.00, Sentence: So here it’s minus Vd times x3, which is minus 8.75 times 2, which is minus 17.5 kNm.
+Start: 1016.00, End: 1024.00, Sentence: Personally, I am in favor of changing this direction and changing the sign right from the start.
+Start: 1024.00, End: 1031.00, Sentence: I think that way it will be easier to avoid mistakes at a later stage.
+Start: 1033.00, End: 1041.00, Sentence: Okay, we have calculated the values of shear forces, we have calculated the values of moments, so let's move on.
+Start: 1041.00, End: 1050.00, Sentence: So we draw the shear force diagram. We have in front of us the values of shear forces that we calculated.
+Start: 1050.00, End: 1065.00, Sentence: So yes, in the segment AB at the beginning of the beam for 0 m the value of the shear force is plus 10 kNm, so we draw 10 kNm.
+Start: 1066.00, End: 1073.00, Sentence: For the fourth meter, it is minus 30 kNm, which is a negative value.
+Start: 1073.00, End: 1081.00, Sentence: On the other side, we try to maintain the scale, 30 kNm, we mark 10, 30.
+Start: 1081.00, End: 1089.00, Sentence: And we connect these two bars. The shear force diagram under a continuous load is a linear graph.
+Start: 1090.00, End: 1098.00, Sentence: And we look at the second segment. Of course, we label it, dash it, and look at the second segment.
+Start: 1098.00, End: 1105.00, Sentence: The value of the shear force in segment BC for the fourth meter is positive 28.75.
+Start: 1105.00, End: 1119.00, Sentence: So there is a jump at the fourth meter of the beam from minus 30 to 28.75, and this is caused by the reaction Vb.
+Start: 1119.00, End: 1127.00, Sentence: Due to this reaction Vb, a jump occurs with the value of this reaction 58.75.
+Start: 1127.00, End: 1137.00, Sentence: So we mark 28.75 above 8, a positive value. At the sixth meter, we have 8.75.
+Start: 1137.00, End: 1146.00, Sentence: And we connect it in the same way, under continuous load, the shear force graph is linear.
+Start: 1146.00, End: 1166.00, Sentence: Now we have the third segment, we calculated it from the right side, so for the zero meter looking from the right side of the beam, the value of the shear force came out to be 8.75 and for the second meter also 8.75, which is a constant value.
+Start: 1166.00, End: 1176.00, Sentence: So we mark it, connect with a horizontal line, label it, and that’s all, we have the shear force diagram.
+Start: 1176.00, End: 1182.00, Sentence: Now let's move on to the moment diagram. We have the calculated values in front of us.
+Start: 1182.00, End: 1192.00, Sentence: So now, for the zero meter, the moment value is 0 kNm, for the fourth meter, it is minus 40.
+Start: 1192.00, End: 1200.00, Sentence: Just like on the previous graph, I mark negative values at the top, marking 40.
+Start: 1200.00, End: 1208.00, Sentence: But now, we need to know that under continuous load, the moment graph is a parabola.
+Start: 1209.00, End: 1218.00, Sentence: And one more very important piece of information, if we have a change of sign on the shear force graph under continuous load,
+Start: 1218.00, End: 1228.00, Sentence: then we will have an extremum on the moment graph, meaning our shear force graph reaches a zero point,
+Start: 1228.00, End: 1240.00, Sentence: so on the moment graph, exactly under this, as I made a dashed line, at this point on the moment graph, there will be a local extremum.
+Start: 1240.00, End: 1253.00, Sentence: And we need to calculate it because we do not know how this parabola will look, we do not know what the maximum value will be at this point.
+Start: 1253.00, End: 1263.00, Sentence: Well, we still need to calculate, we need to calculate this value, and to calculate it, we need to determine that distance,
+Start: 1263.00, End: 1268.00, Sentence: from the beginning of the beam to the point where the extremum is.
+Start: 1268.00, End: 1282.00, Sentence: Here we have a situation that is simple enough, as we can see that this graph is simple enough that we could read it without actually calculating,
+Start: 1282.00, End: 1296.00, Sentence: but just for a universal case, we do it this way, we have the equation of moments written for the interval AB, which looks like this.
+Start: 1296.00, End: 1310.00, Sentence: We substituted the ends of the intervals, which are 0 and 4, and for the value 0 we had 0 kNm, while for the value 4 we had minus 40 kNm.
+Start: 1310.00, End: 1316.00, Sentence: Now we would like to find the maximum value, that is, for the coordinate that we do not yet know,
+Start: 1316.00, End: 1322.00, Sentence: so first we need to calculate that coordinate, and then for that coordinate calculate the maximum moment.
+Start: 1322.00, End: 1334.00, Sentence: So, we typically do it this way: from the similarity of the triangles we have on the graph,
+Start: 1335.00, End: 1347.00, Sentence: marking the distance to point 0 on the left as x, and since the entire length of this graph is 4 m, the remaining part is 4 minus x.
+Start: 1347.00, End: 1361.00, Sentence: Now we can write that the value 10 to this x is like 30 to 4 minus x.
+Start: 1361.00, End: 1371.00, Sentence: Multiplying diagonally, easy calculation, we find that x is 1, which, as I said, might not have been necessary here,
+Start: 1371.00, End: 1377.00, Sentence: but this is the case we have, and I want to show you how it works for any case.
+Start: 1379.00, End: 1387.00, Sentence: So this is done this way, but you can also remember that if there is a continuous load above our graph,
+Start: 1387.00, End: 1397.00, Sentence: and there will be, because that’s what the graph will look like under a continuous load, we can simplify the matter a bit
+Start: 1397.00, End: 1411.00, Sentence: and this value of x, looking from the left side, that is from the beginning of the beam, if we denote the continuous load value as q,
+Start: 1411.00, End: 1425.00, Sentence: and the value, I denote it as Tp, I don't know, the initial shear force, this is the first force from the shear force graph in the area that interests us,
+Start: 1425.00, End: 1434.00, Sentence: which for us is 110 kN. So if we denote the value of the continuous load as q,
+Start: 1434.00, End: 1452.00, Sentence: then the first value on the shear force graph as Tp, we can always denote that x0 will be that first value from the shear force graph divided by q.
+Start: 1452.00, End: 1464.00, Sentence: Here we have such trivial values that this is not the best example to present it to you, but that’s just how it turned out.
+Start: 1464.00, End: 1471.00, Sentence: So as I said, both methods will work for any case.
+Start: 1471.00, End: 1487.00, Sentence: Okay, now we know that coordinate 1 is the coordinate for which x0 occurs, so now we substitute into our formula for x1 simply 1 and calculate the value.
+Start: 1487.00, End: 1493.00, Sentence: And it comes out to 5 kN times meter, which is a positive value.
+Start: 1494.00, End: 1502.00, Sentence: We mark it. And as I mentioned, under a continuous load on the moments graph, the graph is a parabola.
+Start: 1507.00, End: 1510.00, Sentence: We mark the maximum value.
+Start: 1510.00, End: 1514.00, Sentence: And now we look at the second interval, the interval BC.
+Start: 1514.00, End: 1522.00, Sentence: For the fourth meter, it is -40, meaning there is no jump; for the sixth meter, it is -2.5 kNm.
+Start: 1522.00, End: 1531.00, Sentence: Well, on the same side of the graph, similarly, under continuous load, we still have parabolas on the moment graph.
+Start: 1536.00, End: 1546.00, Sentence: The third interval CD, we looked from the right side, so for a value of 0 looking from the right side, for the zero meter of the beam, we have 0 kNm,
+Start: 1546.00, End: 1563.00, Sentence: for the second meter of the beam we have -17.5, which means at point C there is a jump to -17.5, which is a jump of 15, and that 15 is exactly the applied moment on the beam.
+Start: 1563.00, End: 1580.00, Sentence: So, on the shear force graph, we have a jump if there is an applied shear force, and on the moment graph, we have a jump if there is an applied moment on the beam if the beam is loaded with a moment.
+Start: 1580.00, End: 1594.00, Sentence: So here we have 17.5, and we connect it linearly to 0, we mark it, we draft it, and we have the graphs ready.
+Start: 1594.00, End: 1607.00, Sentence: It may also be worth mentioning that calculating this extremum, what I presented to you, is not the only method; you can also, for example, calculate the derivative from this moment equation,
+Start: 1607.00, End: 1616.00, Sentence: which we wrote down for the interval AB and set this derivative to 0, so there are several ways to deal with this subject.
+Start: 1616.00, End: 1633.00, Sentence: Ok, and that's all; this video ran a bit long, but I tried to present it as best as I could, and of course as best as possible in this format.
+Start: 1633.00, End: 1648.00, Sentence: As I mentioned, this video is more aimed at people who are just learning to solve beams, and also for those who are in programs and departments where they tackle such tasks
+Start: 1648.00, End: 1661.00, Sentence: that calculating such a beam, meaning drawing the internal force diagrams, is the end of the task, or possibly only a little more than that is required.
+Start: 1661.00, End: 1673.00, Sentence: The next video will be aimed at those for whom calculating such a beam and drawing diagrams is just the beginning of the task, and the end of the task is still not in sight.
+Start: 1673.00, End: 1681.00, Sentence: So in the next video, I will show how to do this quickly, how to do it without writing equations.
+Start: 1681.00, End: 1698.00, Sentence: Thank you for your attention, I hope I was helpful. If you have any questions or concerns, feel free to ask questions and comment under the video.
+Start: 1699.00, End: 1707.00, Sentence: I also recommend the other productions, encourage you to visit our website, to like our Facebook profile,
+Start: 1707.00, End: 1715.00, Sentence: and of course to subscribe to this channel to stay updated with new videos from EduPanda.
+Start: 1715.00, End: 1719.00, Sentence: In the meantime, thank you very much, best regards, goodbye!

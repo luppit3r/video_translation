@@ -1,0 +1,8 @@
+Wykryte polskie wyrazy w wideo:
+
+Od: 00:00:40 Do: 00:05:15 (czas trwania: 275 sekund)
+Tekst: równania równowagi statycznej
+
+Od: 00:05:15 Do: 00:05:20 (czas trwania: 5 sekund)
+Tekst: równania równowagi statycznej sprawdzenie
+

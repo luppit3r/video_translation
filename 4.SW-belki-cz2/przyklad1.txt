@@ -1,0 +1,135 @@
+Start: 0.00, End: 4.20, Sentence: Witam, dzisiejszy temat to siły wewnętrzne w belkach i jest to część druga.
+Start: 4.20, End: 13.00, Sentence: W tej części pokażę wam jak narysować wykresy sił wewnętrznych w belkach prostych i jak to zrobić szybko i sprawnie bez pisania równań.
+Start: 13.00, End: 19.00, Sentence: Niektórzy profesorowie wymagają pisania równań do narysowania wykresów sił wewnętrznych,
+Start: 19.00, End: 25.00, Sentence: także musicie się upewnić czy dla was te równania są konieczne, czy po prostu macie narysować te wykresy i tyle.
+Start: 26.00, End: 31.00, Sentence: Bez pisania równań wykresy rysuje się o wiele szybciej.
+Start: 31.00, End: 42.00, Sentence: Także jest to na pewno filmik skierowany też do tych osób, dla których narysowanie wykresów sił wewnętrznych to jest dopiero początek zadania, a nie jego główny sens.
+Start: 42.00, End: 46.00, Sentence: Ok, no więc zaczynajmy. Pierwszy przykład.
+Start: 47.00, End: 54.00, Sentence: Taką beleczkę wybrałem obciążoną siłą skupioną 8 kNm i obciążeniem ciągłym 10 kNm.
+Start: 54.00, End: 61.00, Sentence: Postaram się w tym filmiku rysować tutaj tymi narzędziami z PowerPointa na bieżąco wykresy.
+Start: 61.00, End: 64.00, Sentence: Mam nadzieję, że wyjdzie to w miarę estetycznie.
+Start: 64.00, End: 72.00, Sentence: No więc tak, oznaczyłem sobie tutaj u góry punkty charakterystyczne A, B, C, D.
+Start: 72.00, End: 81.00, Sentence: No i musimy wiedzieć, że w podporze przegubowej nieprzesuwnej mamy dwie reakcje, składową poziomą i składową pionową, Vc i Hc.
+Start: 81.00, End: 88.00, Sentence: Przy czym spoglądamy na belkę i widzimy, że nie ma żadnej siły poziomej na tej belce,
+Start: 88.00, End: 96.00, Sentence: czyli składowa pozioma tej reakcji Hc będzie równa 0, bo nie ma żadnej siły, którą mogłaby tutaj odbierać.
+Start: 96.00, End: 107.00, Sentence: No i tutaj podpora przegubowa przesuwna, reakcja prostopadła do kierunku przesuwu o wartości VA, które zaraz policzymy.
+Start: 107.00, End: 115.00, Sentence: No i piszemy sobie równania równowagi statycznej, czyli najpierw możemy sobie zrobić albo sumę momentów względem punktu A,
+Start: 115.00, End: 122.00, Sentence: albo sumę momentów względem punktu C. Zawsze zastanówcie się, które równanie najpierw najlepiej zrobić.
+Start: 122.00, End: 128.00, Sentence: No bo moglibyśmy też zrobić sumę rzutów na oś Y, tylko że w tym równaniu będą dwie niewiadome, Va i Vc.
+Start: 128.00, End: 134.00, Sentence: A jak zrobimy sobie suma momentów, to od razu będziemy mogli policzyć jedną z tych reakcji.
+Start: 134.00, End: 143.00, Sentence: Ja wybrałem sum momentów w punkcie A, czyli ja przyjmuję prawoskrętne momenty dodatnie, czyli mamy 8 razy 2 minus Vc razy 4.
+Start: 143.00, End: 148.00, Sentence: Jeszcze tutaj zrobimy sobie wypadkową mod obciążenia ciągłego, która jest w środku ciężkości,
+Start: 148.00, End: 155.00, Sentence: a jej wartość to jest wartość obciążenia ciągłego, czyli 10 razy długość belki na jakim to obciążenie leży.
+Start: 155.00, End: 165.00, Sentence: Czyli 10 razy 4 to jest 40 i ta wypadkowa jest w środku ciężkości, a jako że to jest prostokąt to po prostu w połowie.
+Start: 165.00, End: 177.00, Sentence: Czyli 8 razy 2 minus Vc razy 4 plus 40 i tu jest tak, 2 dotąd i jeszcze 4, czyli razem 6.
+Start: 177.00, End: 182.00, Sentence: Równa się 0, z tego Vc wychodzi mi 64 kN.
+Start: 182.00, End: 193.00, Sentence: No i teraz suma rzutów na oś Y też równa się 0, czyli mamy Va minus 8 plus to Vc, które już policzyliśmy 64, minus 40 równa się 0.
+Start: 193.00, End: 200.00, Sentence: Z tego Va wychodzi mi minus 16 i tak samo jak na poprzednim filmiku tam pod koniec zrobiłem,
+Start: 200.00, End: 206.00, Sentence: ja sobie tutaj zmieniam znak na dodatni i zwrot reakcji Va na przeciwny.
+Start: 206.00, End: 216.00, Sentence: Czyli ta reakcja Va jest zawsze w wartości 16, ale nie ten zwrot, który ja zanadarzyłem do góry, tylko na dół.
+Start: 216.00, End: 219.00, Sentence: Więc ta reakcja Va jest 16, ale na dół.
+Start: 221.00, End: 227.00, Sentence: OK, no i teraz jak już mamy reakcję, no to możemy sobie rysować wykresy.
+Start: 227.00, End: 234.00, Sentence: A, możemy sobie jeszcze zrobić sprawdzenie. Ja zrobiłem tutaj sprawdzenie jako suma momentów w punkcie B.
+Start: 234.00, End: 245.00, Sentence: Dobrze jest zrobić sobie sprawdzenie w takim punkcie, przez który nie przechodzi żadna reakcja, którą policzyliśmy, czyli tak, żeby obie reakcje były ujęte w sprawdzeniu.
+Start: 245.00, End: 256.00, Sentence: Czyli mamy minus 16 razy 2, czyli to jest Va razy 2. Minus Vc, czyli minus 64 razy 2 plus 40 razy 4 równa się 0.
+Start: 256.00, End: 261.00, Sentence: Lewa równa się prawej, zgadza się. I teraz już możemy rysować wykresy.
+Start: 261.00, End: 271.00, Sentence: Czyli przygotowałem sobie pole pod rysowanie wykresów. No najczęściej to się robi tak, że to jest po prostu pod belką, no ale ja tutaj mam trochę inaczej.
+Start: 271.00, End: 285.00, Sentence: No i teraz mamy kilka zasad. Jeżeli na belce jest przyłożona siła tnąca, może to być też reakcja, to na wykresie sił tnących mamy skok o wartość tej reakcji.
+Start: 285.00, End: 298.00, Sentence: Jeżeli na belce jest przyłożony moment, to na wykresie momentów mamy skogo wartość tego momentu. I to musimy wiedzieć.
+Start: 299.00, End: 307.00, Sentence: Ja sobie jeszcze tutaj tą 40 od obciążenia ciągłego narysuję. No i tak.
+Start: 307.00, End: 316.00, Sentence: Najpierw mamy na początku belki skok o wartość reakcji Va. To Va nam wyszło, że jest skierowane w dół, a jego wartość to jest 16.
+Start: 316.00, End: 326.00, Sentence: Czyli najpierw mamy skok o wartość 16 w kierunku, takim jak pokazuje nam zwrot tej reakcji.
+Start: 326.00, End: 336.00, Sentence: Potem na tej części belki nie ma przyłożonej żadnej siły tnącej, więc wartość się nie zmienia. I to jest wartość ujemna.
+Start: 337.00, End: 352.00, Sentence: 16. Następnie mamy przyłożone 8. Ona też jest skierowana w dół, więc mamy teraz skok o 8 w dół. Od tego 16 jedziemy do wartości 24.
+Start: 352.00, End: 355.00, Sentence: Czyli tu jest 24.
+Start: 356.00, End: 367.00, Sentence: I na tym odcinku BC też nie ma żadnej siły tnącej, więc wartość się nie zmienia. To też jest wartość ujemna.
+Start: 367.00, End: 375.00, Sentence: No i teraz mamy tutaj podporę, na której mamy reakcję Vc równą 64.
+Start: 375.00, End: 387.00, Sentence: Czyli na wykresie sił tnących mamy skok o wartość 64 w kierunku, który pokazuje nam strzałka, czyli do góry.
+Start: 387.00, End: 394.00, Sentence: Czyli z –24 dodajemy 64, czyli lecimy do 40 dodatnich.
+Start: 394.00, End: 404.00, Sentence: Tu jest dodatnie 40. I teraz jak pojawia się obciążenie ciągłe, to wartość siły tnącej zmienia się liniowo.
+Start: 404.00, End: 414.00, Sentence: I z wartości początkowej zawsze o wartość tej wypadkowej, czyli o to 40 liniowo.
+Start: 414.00, End: 424.00, Sentence: Stąd zjeżdżamy liniowo o wartość wypadkowej obciążenia ciągłego, czyli o 40, czyli z 40 o –40 do 0.
+Start: 428.00, End: 434.00, Sentence: Tutaj była wartość dodatnia. Tak wygląda wykres sił tnących.
+Start: 434.00, End: 440.00, Sentence: No i już możemy jedną cenną informację wyciągnąć z tego wykresu sił tnących.
+Start: 440.00, End: 450.00, Sentence: Jeżeli pod obciążeniem ciągłym na wykresie sił tnących wykres zmienia tutaj znak, to na wykresie momentów byśmy mieli ekstremum.
+Start: 450.00, End: 459.00, Sentence: A ponieważ pod obciążeniem ciągłym na wykresie sił tnących wykres nie przeszedł na drugą stronę, nie zmienił znaku, to nie będzie tutaj ekstremum.
+Start: 459.00, End: 463.00, Sentence: Czyli trochę liczenia mniej.
+Start: 463.00, End: 467.00, Sentence: Ok, teraz moment. Z momentem jest troszkę ciężej.
+Start: 467.00, End: 478.00, Sentence: Możemy go liczyć na dwa sposoby. Ja pokażę wam najpierw taki sposób, że liczymy sobie moment w punkcie konkretnym.
+Start: 478.00, End: 487.00, Sentence: A potem wam pokażę taki sposób, że możemy sobie rysować wykres momentów, licząc pola wykresu sił tnących.
+Start: 487.00, End: 495.00, Sentence: Ok, ale najpierw moment w punkcie. Czyli musimy wiedzieć, że tak jak powiedziałem wcześniej, jeżeli na belce przyłożony jest moment,
+Start: 495.00, End: 503.00, Sentence: albo jest on jako reakcja w utwierdzeniu pełnym, to na wykresie momentów jest skok o wartość tego momentu.
+Start: 503.00, End: 508.00, Sentence: A jeżeli nie ma przyłożonego momentu zewnętrznego, to nie ma skoku.
+Start: 508.00, End: 515.00, Sentence: Czyli wniosek z tego taki, że moment na końcach belki, ponieważ tutaj nie ma żadnego momentu przyłożonego, musi być 0.
+Start: 516.00, End: 523.00, Sentence: Czyli z jednej i z drugiej strony, jak byśmy chcieli liczyć, to zaczynamy od wartości 0.
+Start: 523.00, End: 532.00, Sentence: No i następnie jakbyśmy sobie policzyli moment w punkcie B, czyli tutaj, to uwzględniamy tylko tą 16, która jest na belce.
+Start: 532.00, End: 539.00, Sentence: Ona kręci lewoskrętnie, czyli patrząc z lewej strony to jest ujemnie, czyli mamy minus 16 razy 2.
+Start: 539.00, End: 542.00, Sentence: Czyli moment w tym punkcie to jest minus 32.
+Start: 542.00, End: 548.00, Sentence: My plusy w momentach mamy na dole, czyli minus jest u góry i to jest minus 32.
+Start: 548.00, End: 554.00, Sentence: No i jeszcze jedna ważna zasada, na wykresie momentów mamy jeden stopień równania wyżej.
+Start: 554.00, End: 559.00, Sentence: Czyli jeżeli tutaj jest wartość stała, czyli constans, to tutaj mamy funkcję liniową.
+Start: 559.00, End: 563.00, Sentence: Jeśli tutaj jest funkcja liniowa, to tutaj mamy funkcję kwadratową, czyli parabolę.
+Start: 563.00, End: 571.00, Sentence: Jeszcze przy obciążeniach trapezowych może się zdarzyć, że na wykresie sił tnących będziemy mieli parabolę drugiego stopnia, czyli kwadratową.
+Start: 571.00, End: 577.00, Sentence: To wówczas na wykresie momentów mamy parabolę trzeciego stopnia.
+Start: 577.00, End: 583.00, Sentence: Ok, no więc tutaj była wartość 16 razy 2, czyli 32.
+Start: 583.00, End: 587.00, Sentence: To liczby były trochę koślawe, no ale niestety.
+Start: 587.00, End: 590.00, Sentence: I łączymy liniowo.
+Start: 590.00, End: 593.00, Sentence: I tutaj jest wartość ujemna.
+Start: 594.00, End: 599.00, Sentence: Ok, potem możemy sobie policzyć moment w tym punkcie.
+Start: 599.00, End: 603.00, Sentence: Możemy równie dobrze liczyć z prawej strony, jeśli nam będzie łatwiej.
+Start: 603.00, End: 610.00, Sentence: A jest to dowolne, czy z prawej czy z lewej strony też musi nam wyjść tyle samo.
+Start: 610.00, End: 614.00, Sentence: Więc policzmy tym razem z prawej strony.
+Start: 614.00, End: 619.00, Sentence: Z prawej strony jak liczymy, to musimy pamiętać o tym, że jak ucinamy belkę z prawej strony,
+Start: 619.00, End: 628.00, Sentence: to to są dodatnie siły normalne, to są dodatnie siły tnące, tzn. taki zwrot mają, a dodatnie momenty mają taki zwrot.
+Start: 628.00, End: 634.00, Sentence: Czyli ta czterdziestka, która będzie kręciła prawoskrętnie w tym punkcie C,
+Start: 634.00, End: 637.00, Sentence: ona będzie kręciła ujemnie.
+Start: 637.00, End: 645.00, Sentence: Czyli moment w tym punkcie C, patrząc z prawej strony, to jest 40 na ramieniu 2,
+Start: 645.00, End: 649.00, Sentence: czyli 40 razy 2 równa się 80 i jest to ujemne 80.
+Start: 649.00, End: 652.00, Sentence: Czyli do góry.
+Start: 652.00, End: 660.00, Sentence: Ujemne 80 i z tego 0 do tego 80 łączymy parabolą.
+Start: 666.00, End: 671.00, Sentence: 80 i jest to wartość ujemna.
+Start: 671.00, End: 674.00, Sentence: No teraz policzmy z lewej strony.
+Start: 674.00, End: 678.00, Sentence: Z lewej strony jakbyśmy liczyli w tym punkcie C, no to mamy tak.
+Start: 678.00, End: 685.00, Sentence: Minus 16 razy 4, to jest minus 64, minus 8 razy 2.
+Start: 685.00, End: 690.00, Sentence: Czyli minus 64 i jeszcze minus 16, czyli minus 80, zgadza się.
+Start: 690.00, End: 693.00, Sentence: Tą 32 z tą 80 łączymy jak?
+Start: 693.00, End: 699.00, Sentence: Jak tu jest wartość stała, to my łączymy liniowo.
+Start: 699.00, End: 702.00, Sentence: No powiem wam, że myślałem, że to będzie wyglądało gorzej.
+Start: 702.00, End: 708.00, Sentence: Na pewno nie wygląda to pięknie, ale myślę, że coś tam widać.
+Start: 708.00, End: 713.00, Sentence: Oczywiście tutaj się zmienia nachylenie tego wykresu liniowego.
+Start: 713.00, End: 720.00, Sentence: Jest takie przegięcie, tak jak ta ósemka, tak można powiedzieć przegina tutaj ten wykres momentów.
+Start: 720.00, End: 726.00, Sentence: No i tak wygląda wykres momentu i wykres sił tnących bez zapisywania funkcji.
+Start: 726.00, End: 729.00, Sentence: Wiadomo z komentarzem to trochę dłużej zajęło,
+Start: 729.00, End: 735.00, Sentence: ale tak na dobrą sprawę to ten wykres można było narysować w 3 minuty.
+Start: 735.00, End: 739.00, Sentence: Także metoda jest fajna.
+Start: 742.00, End: 748.00, Sentence: Pokażę wam jeszcze na tym przykładzie jak to liczyć właśnie polami tych wykresów sił trących.
+Start: 748.00, End: 755.00, Sentence: Moglibyśmy sobie policzyć pole, tak najpierw pole tego prostokąta
+Start: 755.00, End: 766.00, Sentence: i to pole jest równe 16 razy 2, czyli wysokość razy długość, czyli 32.
+Start: 766.00, End: 772.00, Sentence: Jak sobie policzymy wszystkie figury, to potem zobaczycie, że to też jest fajna metoda.
+Start: 772.00, End: 777.00, Sentence: 24 razy 2 to jest 48.
+Start: 777.00, End: 780.00, Sentence: 48 to jest pole tego prostokąta.
+Start: 780.00, End: 789.00, Sentence: No i jeszcze ten trójkąt, czyli jedna druga razy 40 razy 4, czyli 2 razy 40, czyli 80.
+Start: 789.00, End: 795.00, Sentence: No i teraz tak, jeżeli idziemy z lewej strony,
+Start: 795.00, End: 808.00, Sentence: To znak tego wykresu powoduje, to znaczy w tą stronę zmienia się wykres momentu w którą pokazuje znak tego wykresu sił tnących, czyli idąc z lewej strony.
+Start: 808.00, End: 811.00, Sentence: A jak idziemy z prawej strony, to jest na odwrót.
+Start: 811.00, End: 822.00, Sentence: Czyli znak tego wykresu powoduje przeciwną zmianę wartości parabolii, znaczy paraboli albo innego wykresu, zależy jaki mamy kształt.
+Start: 822.00, End: 830.00, Sentence: Czyli tak, wiedząc, że zaczynamy z 0 i musimy się poruszyć o 32 w stronę ujemną.
+Start: 830.00, End: 836.00, Sentence: Czyli kończymy na 32 i wiemy, że łączymy to liniowo, bo tu jest wartość stała.
+Start: 836.00, End: 844.00, Sentence: Potem jesteśmy na tym 32 i mamy się poruszyć o 48 znowu liniowo.
+Start: 844.00, End: 847.00, Sentence: I w tym samym kierunku, czyli też w kierunku ujemnym.
+Start: 847.00, End: 850.00, Sentence: Czyli to był minus i tu jest minus, czyli jakby to się dodaje.
+Start: 850.00, End: 857.00, Sentence: No więc 32 i jeszcze 48 jak dołożymy, to jest właśnie 80.
+Start: 857.00, End: 860.00, Sentence: No i poruszamy się do tego 80.
+Start: 860.00, End: 870.00, Sentence: A potem jesteśmy w tym 80 i znowu patrząc z lewej strony, my się mamy poruszyć w stronę plusa.
+Start: 870.00, End: 875.00, Sentence: My się mamy w stronę plusa poruszyć o 80 i mamy się poruszyć parabolą.
+Start: 875.00, End: 881.00, Sentence: Czyli, no bo tu jest liniowo, a my mamy tu mieć parabolę w takim razie.
+Start: 881.00, End: 887.00, Sentence: No i o 80 do 0 parabolą łączymy ten wykres.
+Start: 887.00, End: 893.00, Sentence: Także ja chyba nawet bardziej wolę liczyć polami niż momentem w punktach,
+Start: 893.00, End: 899.00, Sentence: bo jak jest jakaś tam dłuższa belka, no to łatwiej jest sobie spojrzeć na wykresy
+Start: 899.00, End: 904.00, Sentence: i spojrzeć w ich pola niż dla każdego punktu liczyć moment.
+Start: 904.00, End: 906.00, Sentence: Wydaje mi się, że to jest łatwiejsze.
+Start: 906.00, End: 909.00, Sentence: Ale co wy wolicie, to już sobie sami wybierzecie.
+Start: 909.00, End: 926.00, Sentence: Także dziękuję za uwagę, mam nadzieję, że pomogłem. Jeżeli macie jakieś pytania lub zastrzeżenia to zapraszam do zadawania pytań i do komentarzy pod filmikiem.
+Start: 927.00, End: 935.00, Sentence: Polecam również pozostałe produkcje, zachęcam do odwiedzenia naszej strony, do polubienia profilu na Facebooku,
+Start: 935.00, End: 943.00, Sentence: no i oczywiście do subskrybowania tego kanału, żebyście byli na bieżąco z nowymi filmikami od EduPandy.
+Start: 943.00, End: 947.00, Sentence: A tymczasem dziękuję serdecznie, pozdrawiam, cześć!

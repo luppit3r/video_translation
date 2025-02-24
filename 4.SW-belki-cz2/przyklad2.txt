@@ -1,0 +1,111 @@
+Start: 0.00, End: 4.20, Sentence: Witam, dzisiejszy temat to siły wewnętrzne w belkach i jest to część druga.
+Start: 4.20, End: 13.00, Sentence: W tej części pokażę wam jak narysować wykresy sił wewnętrznych w belkach prostych i jak to zrobić szybko i sprawnie bez pisania równań.
+Start: 13.00, End: 19.00, Sentence: Niektórzy profesorowie wymagają pisania równań do narysowania wykresów sił wewnętrznych,
+Start: 19.00, End: 25.00, Sentence: także musicie się upewnić czy dla was te równania są konieczne, czy po prostu macie narysować te wykresy i tyle.
+Start: 25.00, End: 31.00, Sentence: Bez pisania równań wykresy rysuje się o wiele szybciej.
+Start: 31.00, End: 43.00, Sentence: Przykład drugi. Trochę ciekawszy, więcej sił. Mamy też jedną siłę skupioną, dwa momenty przyłożone na belce, no i obciążenie ciągłe.
+Start: 43.00, End: 49.00, Sentence: I dwie podpory. Podporę przegubową przesuwną, podporę przegubową nieprzesuwną.
+Start: 49.00, End: 53.00, Sentence: No więc zaznaczamy sobie reakcję w podparach.
+Start: 53.00, End: 59.00, Sentence: Jedną już wiemy, że jej wartość jest 0, czyli ta składowa pozioma jest 0.
+Start: 59.00, End: 67.00, Sentence: I tutaj będzie reakcja Vd, a obok będzie reakcja Vb.
+Start: 67.00, End: 77.00, Sentence: I jak już to mamy zaznaczone, na to możemy się brać zaliczenie tych reakcji, czyli tak jak mówiłem poprzednio,
+Start: 77.00, End: 85.00, Sentence: najpierw sobie zrobimy momentów albo w punkcie B, albo w punkcie D, żeby od razu policzyć już jedną z tych reakcji.
+Start: 85.00, End: 87.00, Sentence: Więc ja zrobiłem w punkcie B.
+Start: 87.00, End: 95.00, Sentence: Teraz zrobimy sobie jeszcze wypadkową mod obciążenia ciągłego, która wynosi 15 razy 2, czyli 30 i jest w połowie,
+Start: 95.00, End: 101.00, Sentence: czyli na odległości jednego metra od tej podpory z lewej strony.
+Start: 101.00, End: 104.00, Sentence: Ile mówiłem? 30.
+Start: 104.00, End: 109.00, Sentence: No i teraz suma momentów w punkcie B równa się 0, a więc
+Start: 109.00, End: 114.00, Sentence: Minus 10 razy 2, plus 30 razy 1.
+Start: 114.00, End: 122.00, Sentence: Moment jest przyłożony jako lewoskrętny, czyli minus 10, minus Vd razy 4 i minus 15.
+Start: 122.00, End: 127.00, Sentence: Z tego wychodzi, że Vd jest równe minus 3,75.
+Start: 127.00, End: 136.00, Sentence: No więc mam ujemną reakcję, co znaczy, że źle przyjąłem zwrot, więc ja sobie zmieniam zwrot na przeciwny.
+Start: 136.00, End: 141.00, Sentence: Tak jak poprzednio i tutaj robię plusik.
+Start: 141.00, End: 144.00, Sentence: I od tej pory to wygląda tak.
+Start: 144.00, End: 153.00, Sentence: No i robimy sobie kolejne równanie: suma rzutów na oś y równa się 0, mamy: minus 10 plus Vb, minus 30, minus 3,75 równa się 0.
+Start: 153.00, End: 158.00, Sentence: Z tego Vb jest równe 43,75 kN.
+Start: 158.00, End: 163.00, Sentence: No i możemy się brać za rysowanie wykresów.
+Start: 163.00, End: 165.00, Sentence: No więc tak.
+Start: 165.00, End: 168.00, Sentence: Najpierw wykres sił tnących.
+Start: 168.00, End: 175.00, Sentence: Mamy przyłożoną siłę tutaj tnącą 10 kN, więc jest skok o wartości 10 w dół.
+Start: 175.00, End: 183.00, Sentence: Następnie na belce nie ma przyłożonej siły tnącej, więc jedziemy liniowo do następnego punktu.
+Start: 183.00, End: 189.00, Sentence: Tutaj mamy reakcję Vb. Ona wynosi 43,75 i jest do góry.
+Start: 189.00, End: 197.00, Sentence: Czyli poruszamy się do góry o 43,75 z tej minus 10, czyli do 33,75.
+Start: 200.00, End: 204.00, Sentence: Następnie mamy obciążenie ciągłe.
+Start: 204.00, End: 217.00, Sentence: Jego wypadkowa wartość to jest 30 kN, więc z wartości 33,75 mamy się poruszyć o 30 zgodnie ze zwrotem tego obciążenia.
+Start: 217.00, End: 221.00, Sentence: No, czyli ze strony ujemnej, liniowo.
+Start: 221.00, End: 226.00, Sentence: Pod obciążeniem ciągłym jesteśmy, czyli do wartości 30,75.
+Start: 226.00, End: 231.00, Sentence: 30,75 minus 30, liniowo.
+Start: 231.00, End: 234.00, Sentence: Czyli tu jest 3,75.
+Start: 234.00, End: 243.00, Sentence: Następnie na belce nie ma żadnej siły tnącej, więc poruszamy się bez zmiany do następnego punktu.
+Start: 243.00, End: 249.00, Sentence: Tu jest plus. Tu jest plus.
+Start: 249.00, End: 256.00, Sentence: No ile wynosi reakcja Vb? 3,75. Wykres schodzi nam do 0. Wiemy, że jest OK.
+Start: 256.00, End: 263.00, Sentence: Następnie nie mamy żadnej siły tnącej, więc na tej części jest 0.
+Start: 263.00, End: 267.00, Sentence: No i mamy wykres sił tnących narysowany.
+Start: 267.00, End: 273.00, Sentence: Ja sobie teraz policzę pola powierzchni tych figur, które mi tutaj powstały.
+Start: 273.00, End: 278.00, Sentence: Czyli tak: 10 razy 2 to jest 20.
+Start: 278.00, End: 281.00, Sentence: Następnie mam trapez.
+Start: 281.00, End: 285.00, Sentence: Czyli tak, a plus b razy h nad 2.
+Start: 285.00, End: 295.00, Sentence: Czyli 33,75 plus 3,75 razy 2 nad 2, więc to jest 37,5.
+Start: 295.00, End: 301.00, Sentence: 37,5.
+Start: 301.00, End: 314.00, Sentence: Tutaj też widzimy, że wykres sił tnących nie przechodzi na drugą stronę pod obciążeniem ciągłym, więc nie będzie ekstremum na wykresie momentów.
+Start: 314.00, End: 323.00, Sentence: Pole tego to jest 3,75 razy 2, czyli 7,5.
+Start: 323.00, End: 327.00, Sentence: No i rysujemy wykres.
+Start: 327.00, End: 332.00, Sentence: Czyli czy jest tu przyłożony moment? Nie. Zaczynamy od 0.
+Start: 332.00, End: 335.00, Sentence: Czy tu jest przyłożony moment? Tak, 15.
+Start: 335.00, End: 343.00, Sentence: Więc tutaj zaczynamy od 15. Ta strzałka momentu rozciąga włókna dolne, więc wykres jest po stronie włókien na dole.
+Start: 343.00, End: 348.00, Sentence: Jak jeszcze inaczej możemy do tego podejść? Ja sobie tak na to patrzę:
+Start: 348.00, End: 353.00, Sentence: Ta 15 chciałaby nam wykres wypchać tu.
+Start: 353.00, End: 361.00, Sentence: A jakby był zwrot w drugą stronę, czyli prawoskrętny, to by chciał wykres wypchać do góry.
+Start: 361.00, End: 365.00, Sentence: Ok, więc ta 15 robi nam wykres tutaj na dole. To na pewno.
+Start: 365.00, End: 369.00, Sentence: Z takich pierwszych podstawowych rzeczy możemy sobie zapisać.
+Start: 369.00, End: 371.00, Sentence: No ale liczmy z lewej strony.
+Start: 371.00, End: 377.00, Sentence: Pole 20. Jest ono ujemne, więc w stronę minusa o 20 się poruszamy, wykres Q był stały, więc M liniowo.
+Start: 377.00, End: 382.00, Sentence: Do wartości 20. Minus.
+Start: 382.00, End: 387.00, Sentence: Następnie parabolą w stronę plusa o wartość 37,5.
+Start: 387.00, End: 392.00, Sentence: Czyli przechodzimy na drugą stronę do 17,5.
+Start: 392.00, End: 399.00, Sentence: I po drodze nie ma ekstremum, czyli ten wykres nie będzie wyglądał tak.
+Start: 400.00, End: 404.00, Sentence: Tylko po prostu jest to parabola, ale ona się kończy tu.
+Start: 404.00, End: 411.00, Sentence: Nie ma tu żadnej wartości większej niż ta, na której się kończy ten wykres.
+Start: 413.00, End: 418.00, Sentence: Dobra, powiedzmy, że to tak wygląda.
+Start: 420.00, End: 423.00, Sentence: Czyli na jakiej jesteśmy wartości? 17,5.
+Start: 423.00, End: 429.00, Sentence: No nie jest to zbyt piękne.
+Start: 429.00, End: 432.00, Sentence: Następnie o wartość.
+Start: 432.00, End: 434.00, Sentence: A gdzieś tutaj mamy jeszcze moment właśnie.
+Start: 434.00, End: 438.00, Sentence: Tutaj jest moment 10 kNm, więc musimy uważać.
+Start: 438.00, End: 440.00, Sentence: Tutaj będzie skok o wartość tego momentu.
+Start: 440.00, End: 445.00, Sentence: Jeżeli na belce jest przyłożony moment, to na wykresie momentów jest skok o wartość tego momentu.
+Start: 445.00, End: 449.00, Sentence: On jest lewoskrętny, więc jak patrzymy z lewej strony, to jest dla nas ujemny.
+Start: 449.00, End: 454.00, Sentence: Bo jak ucinamy z lewej strony, to to są momenty dodatnie.
+Start: 454.00, End: 458.00, Sentence: A jak ucinamy z prawej strony, to to są momenty dodatnie.
+Start: 458.00, End: 462.00, Sentence: Czyli ta dziesiątka, jak patrzymy z lewej strony, jest ujemna.
+Start: 462.00, End: 467.00, Sentence: Czyli będzie skok w stronę wartości ujemnych.
+Start: 467.00, End: 471.00, Sentence: Czyli odejmujemy te dziesięć, bo jesteśmy na wartości dodatniej.
+Start: 471.00, End: 474.00, Sentence: Czyli do wartości 7,5 tutaj się przemieszczamy.
+Start: 474.00, End: 478.00, Sentence: Tu jest 7,5 i stąd teraz...
+Start: 482.00, End: 484.00, Sentence: Tak, dobrze? Dobrze.
+Start: 484.00, End: 490.00, Sentence: I stąd z tego 7,5 teraz o wartość tego pola w stronę dodatnią.
+Start: 490.00, End: 495.00, Sentence: Czyli jesteśmy na dodatnim 7,5 i mamy się poruszyć o 7,5 z powrotem w stronę dodatnią.
+Start: 495.00, End: 499.00, Sentence: I tutaj była wartość stała, więc my liniowo.
+Start: 499.00, End: 501.00, Sentence: To jest liniowo.
+Start: 501.00, End: 505.00, Sentence: 15, czyli 7,5 plus 7,5.
+Start: 505.00, End: 509.00, Sentence: Następnie tutaj pola żadnego nie ma, więc liniowo.
+Start: 509.00, End: 513.00, Sentence: Na tej 15, która tu jest z drugiej strony.
+Start: 513.00, End: 516.00, Sentence: Bez zmiany wartości.
+Start: 516.00, End: 519.00, Sentence: Plus i plus.
+Start: 519.00, End: 531.00, Sentence: No tak jak mówiłem, nie jest to zbyt estetyczne, ale chciałem po prostu pokazać wam jak to wygląda na żywo, rysowanie takiego wykresu bez pisania równań.
+Start: 531.00, End: 535.00, Sentence: W sensie, że nie wyświetlę wam od razu wykres i będę opowiadał o nim,
+Start: 535.00, End: 538.00, Sentence: tylko będę rysował go na bieżąco.
+Start: 538.00, End: 542.00, Sentence: Myślę, że tak jest łatwiej zrozumieć, co się dzieje i dlaczego.
+Start: 542.00, End: 550.00, Sentence: No więc widzicie, że nawet na takiej trudnej belce narysowanie wykresu nie jest jakieś strasznie trudne.
+Start: 550.00, End: 553.00, Sentence: Kiedybyśmy się mogli zorientować, że jest źle.
+Start: 553.00, End: 556.00, Sentence: Tak, rysując ten wykres z lewej strony,
+Start: 556.00, End: 561.00, Sentence: na przykład byśmy nie kończyli na wartości tej, która tutaj na pewno ma być na końcu, czyli 15.
+Start: 561.00, End: 565.00, Sentence: To wtedy źle coś policzyliśmy wcześniej.
+Start: 565.00, End: 570.00, Sentence: Albo na przykład tutaj miałoby być 0, a nam się kończy na jakiejś wartości, a tu nie ma momentu.
+Start: 570.00, End: 574.00, Sentence: Więc nie ma prawa być momentu na końcu belki, jeśli nie był przyłożony.
+Start: 574.00, End: 578.00, Sentence: Wtedy możemy wiedzieć, że się pomyliliśmy.
+Start: 578.00, End: 581.00, Sentence: Dobra, no i to tyle w tym przykładzie.
+Start: 581.00, End: 596.00, Sentence: Także dziękuję za uwagę, mam nadzieję, że pomogłem. Jeżeli macie jakieś pytania lub zastrzeżenia to zapraszam do zadawania pytań i do komentarzy pod filmikiem.
+Start: 596.00, End: 604.00, Sentence: Polecam również pozostałe produkcje, zachęcam do odwiedzenia naszych social-mediów,
+Start: 604.00, End: 612.00, Sentence: no i oczywiście do subskrybowania tego kanału, żebyście byli na bieżąco z nowymi filmikami od EduPandy.
+Start: 612.00, End: 616.00, Sentence: A tymczasem dziękuję serdecznie, pozdrawiam, cześć!

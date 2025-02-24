@@ -1,0 +1,144 @@
+Start: 0.00, End: 17.50, Sentence:   Cześć, witam was w pierwszym filmiku z serii w której będziemy się zajmowali ogólnie rzecz biorąc siłami wewnętrznymi.
+Start: 17.50, End: 27.50, Sentence:   W tym filmiku chcę wam pokazać jak liczyć belki proste i jak obliczać siły wewnętrzne w tych belkach i rysować wykresy tych sił.
+Start: 28.50, End: 39.50, Sentence:   Będzie to filmik dla osób które z belkami dopiero zaczynają swoją przygodę i które chcą się nauczyć rysować wykresy sił wewnętrznych.
+Start: 39.50, End: 51.50, Sentence:   Dlatego jest to część pierwsza, nagram jeszcze część drugą w której pokażę jak szybko liczyć belki i jak szybko rysować wykresy sił wewnętrznych.
+Start: 52.50, End: 55.50, Sentence:   Ok, no więc zaczynajmy.
+Start: 58.50, End: 73.50, Sentence:   Przykład pierwszy, obliczyć i narysować wykresy sił wewnętrznych. Mamy taką prostą belkę podpartą tutaj podporą przegubową nie przesuną, tutaj podporą przegubową przesuną i jest obciężona tylko dwoma siłami poprzecznymi do belki.
+Start: 73.50, End: 76.50, Sentence:   Mamy obliczyć i narysować wykresy sił wewnętrznych.
+Start: 76.50, End: 89.50, Sentence:   Oznaczmy sobie, tutaj już są zaznaczone długości poszczególnych przedziałów, dwa metry, trzy metry, trzy metry, oznaczmy sobie abcd.
+Start: 89.50, End: 99.50, Sentence:   No i musimy wiedzieć, że w podporze przegubowej nieprzesuwnej mamy dwie reakcje, składową poziomą, składową pionową.
+Start: 99.50, End: 105.50, Sentence:   W podporze przegubowej przesuwnej mamy jedną reakcję, która jest prostopadła do kierunku przesuwu.
+Start: 105.50, End: 113.50, Sentence:   Czyli jakby ta podpora była pod kątem powiedzmy, to reakcja jest prostopadła do kierunku przesuwu.
+Start: 113.50, End: 125.50, Sentence:   Więc u nas to wygląda tak. Ja oznaczyłem Ha i Va od horizontal i vertical, można oznaczać RAx, RAy dowolnie.
+Start: 125.50, End: 131.50, Sentence:   No więc równania równowagi statycznej.
+Start: 131.50, End: 147.50, Sentence:   Żeby policzyć reakcje w tej naszej belce, reakcje podporowe, no to skorzystamy sobie z równowagi statycznej z sumy rzutów na oś X, z sumy rzutów na oś Y i z sumy momentów w dowolnym punkcie tej naszej belki.
+Start: 148.50, End: 161.50, Sentence:   No więc możemy zacząć od sumy rzutów na oś X, czyli patrzymy sobie, które siły działają w kierunku poziomym.
+Start: 161.50, End: 170.50, Sentence:   Tutaj w tym naszym układzie jest to tylko reakcja Ha, czyli Ha równa się 0, nie ma żadnej innej siły.
+Start: 171.50, End: 178.50, Sentence:   Więc mamy już policzoną jedną składową reakcji w tej podpory przegubowej.
+Start: 178.50, End: 182.50, Sentence:   Następnie możemy sobie zrobić sumę momentów w dowolnym punkcie.
+Start: 182.50, End: 196.50, Sentence:   A w praktyce będziemy robili albo w punkcie A albo w punkcie D, ponieważ w tym punkcie, w którym zrobimy sumę momentów, no to jeżeli reakcja albo siła przechodzi przez biegun, dla którego robimy sumę momentów, to nie tworzy ona momentu, więc nie bierzemy jej do równania, ponieważ moment to jest siła razy ramie,
+Start: 196.50, End: 213.50, Sentence:   więc siły, które przechodzą przez biegun momentu nie działają na żadnym ramieniu, więc ich nie widzimy w równaniu.
+Start: 213.50, End: 222.50, Sentence:   Dlatego jeżeli zrobimy sumę momentów w punkcie A, to nie będziemy widzieli, no nie będzie w tym równaniu siły Va ani siły Ha,
+Start: 222.50, End: 227.50, Sentence:   bo przechodzą przez biegun momentu, więc będzie tylko reakcja Vd, którą mamy policzyć.
+Start: 227.50, End: 242.50, Sentence:   A jak zrobimy sumę momentów względem punktu D, no to wtedy nie będzie w tym równaniu siły Vd, będzie tylko siła Va i te dwie siły obciążające belkę.
+Start: 242.50, End: 249.50, Sentence:   Ja zrobię sumę momentów względem punktu A, a więc suma momentów względem punktu A równa się 0.
+Start: 249.50, End: 261.50, Sentence:   No i teraz tak, Va i Ha przechodzą przez biegun momentu, nie robią momentu, następnie zakładamy, przy liczeniu reakcji mamy jeszcze dowolność.
+Start: 261.50, End: 272.50, Sentence:   Ja zakładam, że dla mnie prawoskrętne momenty to są momenty dodatnie. Można założyć, że lewoskrętne to są dodatnie, tutaj jest dowolność.
+Start: 272.50, End: 283.50, Sentence:   Ja zakładam, że prawoskrętne to są dodatnie, więc ta dziesiątka względem biegunu momentu A chciałaby zakręcić prawoskrętnie, tak jak pokazuję.
+Start: 283.50, End: 291.50, Sentence:   Ta dziesiątka względem biegunu momentu A prawoskrętnie chciała zakręcić, więc jest dodatnia i działa ona na ramieniu.
+Start: 291.50, End: 300.50, Sentence:   Ramie działania siły to jest najkrótsza, czyli prostopadła odległość od kierunku działania siły, kierunek działania, do bieguna momentu.
+Start: 300.50, End: 305.50, Sentence:   Tutaj, no, w belkach jest to, tutaj nie ma nic trudnego.
+Start: 305.50, End: 321.50, Sentence:   Jak mamy jakieś takie trudniejsze układy, jakieś ramy, układy prętowo-ramowe, coś tego typu, no to wtedy, jak te siły są pod kątem, no to trzeba wtedy się tutaj trochę nagłowić,
+Start: 321.50, End: 333.50, Sentence:   ale my mamy po prostu siły tnące, więc ramię działania to jest nic innego jak te dwa metry, czyli dziesiątka prawoskrętnie razy dwa metry.
+Start: 334.50, End: 350.50, Sentence:   Dodać piętnastka też prawoskrętnie, ramię działania pięć metrów i minus reakcja Vd na ramieniu osiem metrów. Vd minus bo lewoskrętnie.
+Start: 351.50, End: 360.50, Sentence:   Równa się zero, no i z tego liczymy sobie reakcję Vd i wychodzi nam 11,875 kiloniutona.
+Start: 361.50, End: 376.50, Sentence:   Ja tutaj w treści zadania nie napisałem, że to są kiloniutony, no ale domyślnie z takimi rzędami wielkości się spotykamy w belkach, więc to są kiloniutony.
+Start: 377.50, End: 387.50, Sentence:   Ok, no więc została nam suma rzutów na oś Y, czyli na oś pionową, no i patrzymy sobie z lewej strony.
+Start: 388.50, End: 398.50, Sentence:   Siła Va działa do góry, więc dla nas jest ona dodatnia. Tutaj też możemy dowolnie przyjąć, ale zazwyczaj się przyjmuje tak jak mówię.
+Start: 398.50, End: 408.50, Sentence:   Czyli Va do góry dodatnia, dziesiątka na dół, zwrot jest do dołu, więc jest minus 10, minus 15, Vd do góry, czyli plus Vd.
+Start: 409.50, End: 420.50, Sentence:   Vd mamy policzone, więc podstawiamy sobie do równania i wyliczamy Va, które wynosi 13,125 kiloniutona.
+Start: 421.50, End: 433.50, Sentence:   No i mamy policzone reakcje podporowe, czyli możemy sobie teraz dokonać podziału belki na przedziały, tak jak zaznaczono jak rysunkiem - mamy trzy przedziały
+Start: 434.50, End: 440.50, Sentence:   i napiszemy warunki równomagi statycznej dla odciętych części belki, czyli będziemy robili takie myślowe przekroje.
+Start: 442.50, End: 448.50, Sentence:   No i dostaniemy w ten sposób równania opisujące wartości sił tnących i momentów zginających dla tej naszej belki.
+Start: 451.50, End: 456.50, Sentence:   Więc będziemy mieli trzy przedziały, tak jak zresztą jest podzielona ta belka.
+Start: 460.50, End: 464.50, Sentence:   Pierwszy przedział będzie to przedział AB.
+Start: 465.50, End: 467.50, Sentence:   A, jeszcze sprawdzenie, przepraszam Was.
+Start: 481.50, End: 484.50, Sentence:   Możemy sobie zrobić jeszcze sprawdzenie.
+Start: 485.50, End: 489.50, Sentence:   Sprawdzenie to może być suma momentów, no możemy zrobić w dowolnym punkcie.
+Start: 490.50, End: 498.50, Sentence:   No to zrobimy w punkcie, przez który nie przechodzi żadna reakcja, czyli możemy albo w punkcie B, albo w punkcie C powiedzmy, no w dowolnym punkcie zresztą możemy zrobić.
+Start: 499.50, End: 501.50, Sentence:   Ja zrobię suma momentów w punkcie B.
+Start: 502.50, End: 510.50, Sentence:   No i ta suma momentów ma być równa 0. Jeżeli nie jest równa to znaczy, że źle policzyliśmy reakcje.
+Start: 513.50, End: 520.50, Sentence:   No więc tak, siła VA działa na ramieniu 2 metrów - prawoskrętnie względem bieguna B, więc dodatnio.
+Start: 521.50, End: 530.50, Sentence:   VA raz 2 metry, następnie 15, działa prawoskrętnie, czyli też dodatnio na ramieniu 3 metrów.
+Start: 532.50, End: 538.50, Sentence:   I VD na ramieniu 6 metrów działa ujemnie, czyli minus VD razy 6 metrów.
+Start: 539.50, End: 548.50, Sentence:   Jak podstawimy policzone wartości, no to faktycznie wyjdzie nam: 0 równa się 0, czyli lewa równa się prawej, więc reakcje są policzone dobrze.
+Start: 549.50, End: 554.50, Sentence:   Czyli w tym momencie już możemy sobie sprawdzić i mieć pewność, czy reakcje są policzone dobrze, czy są policzone źle.
+Start: 554.50, End: 567.50, Sentence:   Jeśli są reakcje policzone źle, to nie ma co dalej brnąć w to zadanie, bo jeżeli reakcje są źle policzone, to reszta, czyli siły wewnętrzne będą źle policzone i źle narysowane wykresy.
+Start: 567.50, End: 569.50, Sentence:   Także tutaj warto sobie sprawdzić.
+Start: 569.50, End: 588.50, Sentence:   No i mając już tą pewność, że reakcje mamy dobrze policzone, możemy sobie dokonać podziału belki na przedziały, w których będzie zmieniać się sposób obciążenia i napiszemy warunki równowagi statycznej dla odciętych części belki.
+Start: 589.50, End: 604.50, Sentence:   No i dostaniemy w ten sposób równania opisujące wartości sił tynących i momentów zginających w konkretnych poszczególnych przedziałach i potem będziemy w stanie narysować wykresy sił tynących i momentów zginających.
+Start: 604.50, End: 616.50, Sentence:   No więc pierwszy przedział AB, to jest to przedział od 0 do 2 metrów, czyli X1 należy od 0 do 2 metrów.
+Start: 616.50, End: 633.50, Sentence:   No i możemy sobie wyobrazić, na początku możemy sobie jeszcze robić rysunki pomocnicze, ja będę na razie robił te rysunki pomocnicze, ale generalnie robimy takie myślowe przecięcie tej belki w przedziale od 0 do 2 metrów.
+Start: 633.50, End: 653.50, Sentence:   Czyli zasłaniamy sobie prawą część belki, prawej części belki nie widzimy, tylko widzimy to co jest z lewej strony, reakcja HA jest zerowa, czyli widzimy tylko reakcję VA, tej dziesiątki jeszcze nie widzimy, jesteśmy nieskończenie blisko niej, ale do niej nie dochodzimy.
+Start: 653.50, End: 661.50, Sentence:   Czyli jesteśmy na przedziale od 0 do 2 metrów, robiąc sobie przekrój myślowy, widzimy taką część belki, patrzymy z lewej strony.
+Start: 661.50, End: 669.50, Sentence:   No i dla tej odciętej części belki piszemy sobie równanie siły tnącej.
+Start: 669.50, End: 691.50, Sentence:   No więc co, jest tu tylko siła VA, więc siła tnąca ja będę oznaczał jako Q, w przedziale AB, zależnej od zmiany X1, tutaj akurat ta siła tnąca nie będzie zależna, ale tak się zapisuje, to jest po prostu VA, dodatnie, bo to działa do góry.
+Start: 691.50, End: 703.50, Sentence:   No więc teraz sprawdzamy sobie na początku przedziału, czyli za X1 podstawiamy 0 i za X1 początek przedziału podstawiamy i koniec przedziału, czyli 0 i 2.
+Start: 703.50, End: 721.50, Sentence:   No ale to równanie nie jest zależne od zmiany X1, więc jak podstawimy 0 to będzie to VA po prostu, czyli policzone wcześniej 13,125 kN, i jak podstawimy 2, czyli 2 metry, no to jest tyle samo.
+Start: 721.50, End: 741.50, Sentence:   No i teraz mamy narysować, teraz mamy napisać równanie momentu dla tej odciętej części belki, czyli dla takiego układu jaki jest narysowany, tak jakbyśmy sobie chcieli napisać równanie momentu dla tego biegunu.
+Start: 741.50, End: 763.50, Sentence:   No to mielibyśmy VA działa prawoskrętnie, na ramieniu, no i ta odcięta część belki, jej długość to jest jakby zmienna X1, czyli działa ta siła na ramieniu X1.
+Start: 763.50, End: 773.50, Sentence:   Czyli moment w przedziale AB od X1 to jest VA razy X1 dodatnie, bo prawoskrętnie.
+Start: 773.50, End: 793.50, Sentence:   No i teraz tak samo, za X1 podstawiamy raz 0 a raz 2 i liczymy wartość. Jeśli podstawimy 0, no to VA razy 0 to jest 0, a jak podstawimy 2, no to 2 razy VA to jest 26,25 kN razy metr, czyli to jest jednostka momentu.
+Start: 793.50, End: 801.50, Sentence:   No i mamy policzone wartości sił tnących i momentów w pierwszym przedziale AB.
+Start: 801.50, End: 817.50, Sentence:   No to idziemy do drugiego przedziału, czyli znowu drugi przedział jest to przedział BC od 2 do 5 metrów, czyli tak jakby nam się układ współrzędnych zaczynał tutaj z lewej strony na początku belki.
+Start: 817.50, End: 825.50, Sentence:   No i teraz przedział BC to jest od 2 do 5 metrów, czyli X2 należy od 2 do 5.
+Start: 825.50, End: 844.50, Sentence:   Czyli jesteśmy gdzieś w tym przedziale, no to idziemy z lewej strony, czyli zasłaniamy sobie znowu tę część belki, która znajduje się po prawej stronie, więc tym razem już widzimy tą 10, ale tej 15 jeszcze nie widzimy.
+Start: 844.50, End: 859.50, Sentence:   Czyli jesteśmy teraz nieskończenie blisko tej 15, ale jej nie widzimy, widzimy to co jest po lewej stronie, czyli reakcja HA jest 0, nie rysuje jej tutaj, reakcja VA działa do góry i 10 na dół.
+Start: 859.50, End: 865.50, Sentence:   No i teraz dla tego stanu mamy sobie napisać równanie sił tnących i równanie momentów.
+Start: 865.50, End: 882.50, Sentence:   No to QBC, czyli siła tnąca w przedziale BC od X2, no to mamy tutaj dwie siły, VA działa do góry, czyli dodatnio i 10 działa na dół, czyli ujemnie, czyli to jest po prostu VA-10.
+Start: 883.50, End: 903.50, Sentence:   No i podstawiając za X2 początek i koniec przedziału, czyli 2 i 5, no to jako, że to równanie nie jest zależne od zmiennej X2, no to będzie to wartość stała i jest to 13,125 minus 10, czyli 3,125 kN.
+Start: 904.50, End: 923.50, Sentence:   No i to samo z momentem, moment w przedziale BC, no to tak samo, chcielibyśmy sobie zrobić równanie momentu jakby tutaj był biegun, czyli jesteśmy na długości X2, która jest w przedziale od 2 do 5,
+Start: 924.50, End: 947.50, Sentence:   No więc reakcja VA, kręci prawoskrętnie, czyli dodatnio, na ramieniu na całej tej długości przedziału, czyli razy X2, no i teraz 10, no 10 na pewno względem tego biegunu, kręci ujemnie, znaczy lewoskrętnie, czyli ujemnie.
+Start: 948.50, End: 968.50, Sentence:   No i teraz na jakim działa przedziale, to na początku może się wydawać się trudne do zapisania, no ale spójrzmy, jeżeli cały ten przedział, który my tutaj mamy wycięty myślowo,
+Start: 968.50, End: 982.50, Sentence:   jeżeli cały ten przedział to jest długość X2, czyli zmienna, ona jest od 2 do 5 metrów, no a wiemy, że odległość między VA a 10, nawet patrząc tutaj, to są 2 metry,
+Start: 982.50, End: 1007.50, Sentence:   no to skoro to są 2 metry, a to jest jakaś zmienna X2, no to ta wartość, czyli ramie działania siły 10 względem tego biegunu tutaj, czyli ta długość, no to jest X2, czyli cała długość, minus ta 2, X2 minus 2, po prostu.
+Start: 1008.50, End: 1020.50, Sentence:   Czyli moment przedziału BC to jest VA prawoskrętnie razy X2, czyli cały przedział, minus 10 razy X2 minus 2.
+Start: 1021.50, End: 1034.50, Sentence:   No i podstawiamy początek i koniec przedziału, czyli 2 i 5 metrów za X2, jak podstawimy 2, no to tutaj nam się na raz zeruje, wychodzi nam 26,25 kNm,
+Start: 1035.50, End: 1048.50, Sentence:   jak podstawimy piątkę, no to po prostu do tego równania, które napisaliśmy, podstawiamy za X2 wartość 5 i liczymy wynik, wychodzi 35,625 kNm.
+Start: 1050.50, End: 1063.50, Sentence:   No i dwa przedziały mamy już za sobą, został nam trzeci przedział, no i teraz chciałbym wam pokazać na dwa sposoby policzenie tego trzeciego przedziału.
+Start: 1064.50, End: 1079.50, Sentence:   No tak, możemy albo trzy razy z lewej strony robić przedziały, czyli pierwszy przedział od 0 do 2, drugi przedział od 2 do 5 i trzeci przedział od 5 do 8.
+Start: 1079.50, End: 1094.50, Sentence:   Czyli raz widzimy, robimy taki przekrój, widzimy tylko reakcję VA, tak jak tutaj mieliśmy, drugi raz robimy tutaj przekrój, widzimy VA i 10 i trzeci przekrój moglibyśmy z lewej strony zrobić też.
+Start: 1094.50, End: 1115.50, Sentence:   I zaraz to zrobimy, więc widzielibyśmy te trzy siły, ale warto zrobić sobie przynajmniej raz pójść z prawej strony i zrobić sobie patrząc z prawej strony przedział, jakby tutaj nam się zaczynał układ współrzędnych, od 0 do 3.
+Start: 1115.50, End: 1134.50, Sentence:   Od 0 do 3, czyli tym razem, i zaraz to będę robił, przecielibyśmy sobie w drugą stronę tą belkę i zasłonilibyśmy sobie jej lewą część, więc będziemy widzieli tylko tą reakcję VD.
+Start: 1134.50, End: 1149.50, Sentence:   Czyli ucinamy belkę, zasłoniamy jej lewą część, ucinamy belkę gdzieś w przedziale od 0 do 3 i ucinamy, i zasłoniamy lewą część, widzimy tylko to co jest z prawej strony, to zaraz będę robił, pokaże Wam jak to w praktyce wygląda.
+Start: 1149.50, End: 1172.50, Sentence:   Więc pokażę Wam tą różnicę, dlaczego warto przynajmniej raz sobie, że nie warto czasem trzy razy liczyć z lewej strony, bo coraz więcej sił widzimy, więc coraz dłuższe są te równania i coraz więcej liczenia, a jak pójdziemy z prawej strony to będziemy mieli, myślę, że więcej niż połowę mniej liczenia.
+Start: 1172.50, End: 1186.50, Sentence:   Ok, no to najpierw zrobię sobie tak jak do tej pory, czyli z lewej strony, przedział CD z lewej strony, czyli zasłoniam znowu prawą stronę i widzę wszystkie siły, które są z lewej strony.
+Start: 1186.50, End: 1192.50, Sentence:   Czyli doszła nam ta piętnastka, ten przedział to jest z X3, należy od 5 do 8.
+Start: 1192.50, End: 1211.50, Sentence:   No to siła tnąca w przedziale CD, czyli QCD od X3, no i jakie siły mamy, VA do góry, 10 na dół, czyli minus, 15 na dół, czyli minus, no i to jest równanie siły tnącej.
+Start: 1211.50, End: 1234.50, Sentence:   Tutaj nie jest ono również zależne od zmiennej X3, więc będzie to wartość stała, czyli zarówno dla współrzędnej pięć, czyli dla piątego metra belki, jak i dla ósmego metra belki jest to wartość stała i wynosi ona minus 11,875 kN.
+Start: 1234.50, End: 1250.50, Sentence:   Jeśli będziemy chcieli napisać równanie momentu, no to tak: na pewno reakcja VA kręci prawoskrętnie, znowu względem tego bieguna, prawoskrętnie, czyli dodatnio na ramieniu X3.
+Start: 1250.50, End: 1298.50, Sentence:   No i teraz dziesiątka względem tego bieguna momentu jakby kręci lewoskrętnie, no i teraz na jakim ramieniu? Skoro cała ta długość przedziału, który wycięliśmy myślowo to jest X3, a od początku belki do tej dziesiątki są 2 metry, no to ramię działania, czyli stąd do przecięcia, to jest cała długość X3 minus te 2 metry od początku belki, czyli X3 minus 2. No i zapisujemy minus 10 razy ramię działania: X3 minus 2. No i teraz ta 15. Ona względem bieguna momentu też lewoskrętnie kręci.
+Start: 1298.50, End: 1324.50, Sentence:   No to teraz na jakim ramieniu działa? No to tak samo, patrzymy sobie na rysunek. Od początku belki do tej siły tnącej 15 mamy tak 2 i 3, czyli 5 metrów. No to reszta przekroju, skoro cała długość to jest X3, no to reszta to jest X3 minus 5 metrów.
+Start: 1325.50, End: 1348.50, Sentence:   Czyli zapisujemy minus 15 razy długość ramie działania X3 minus 5. No i to są takie rzeczy, które mogą być na początku kłopotliwe, ale z biegiem czasu, z ilością przerobionych belek, no to już to staje się bardziej intuicyjne i łatwe.
+Start: 1349.50, End: 1367.50, Sentence:   No i do tego naszego długiego równania momentu w przedziale CD, podstawiamy sobie granicę przedziałów, czyli 5 i 8 metrów i liczymy wartość liczbową. No i dla współrzędnej 8 wychodzi nam 0 kNm.
+Start: 1367.50, End: 1385.50, Sentence:   Ok, no więc teraz chciałbym wam pokazać, że o wiele prościej będzie pójść sobie z prawej strony i przedział X3 napisać z prawej strony, czyli od 0 do 3 metrów patrząc z prawej strony.
+Start: 1385.50, End: 1409.50, Sentence:   No więc jak utniemy sobie belkę idąc z prawej strony i zasłonimy jej lewą część, to będziemy, no i tak znowu przedział jest od 0 do 3, czyli znowu nieskończenie blisko tych 15 kN, ale ich jeszcze nie widzimy, więc widzimy tylko tą reakcję Vd.
+Start: 1410.50, End: 1423.50, Sentence:   No widać różnicę, tutaj są trzy siły, tu jest jedna siła. To są jeszcze proste układy, więc może tutaj nie byłoby tak, nie jest tak o wiele prościej, ale już widać, że jest prościej.
+Start: 1424.50, End: 1451.50, Sentence:   No i teraz ważna sprawa, o której tak wprost nie mówiłem wcześniej, ale jak ucinamy belkę z lewej strony, czyli tak jak robiliśmy pierwsze dwa przedziały i w sumie teraz trzeci też, no to siły tnące dodatnie są do góry, siły normalne, których my tutaj nie mieliśmy, dodatnie są od przecięcia na zewnątrz i momenty dodatnie to są momenty prawoskrętne.
+Start: 1452.50, End: 1465.50, Sentence:   Ale jak będziemy szli teraz z prawej strony, no to trzeba pamiętać, trzeba uważać, to jest bardzo ważne, no i też tutaj na początku, najczęściej chyba w tym miejscu pojawiają się błędy, że nie pamiętamy o tym znakowaniu.
+Start: 1466.50, End: 1492.50, Sentence:   No więc należy pamiętać, że jak robimy sobie z prawej strony przedział, to dodatnie siły tnące to są te siły, które mają zwrot w dół, dodatnie siły normalne to są też od przecięcia, tylko że to są przeciwne, przeciwny zwrot niż w przedziale patrząc z lewej strony i dodatnie momenty to są te momenty, które kręcą lewoskrętnie.
+Start: 1493.50, End: 1501.50, Sentence:   No i już pamiętając o tym, możemy sobie śmiało pisać równania sił tnących i równania momentów.
+Start: 1502.50, End: 1520.50, Sentence:   Więc siła tnąca w przedziale CD, teraz patrząc z prawej strony, to jest tylko, widzimy tą siłę VD, no i ona jest do góry, tak, ale patrząc z prawej strony to jest, to jest minus, siła ujemna, czyli minus VD.
+Start: 1521.50, End: 1538.50, Sentence:   No i podstawiamy sobie, nie jest zależna od zmiennej X3, więc jest to wartość stała, końce przedziałów sobie podstawiamy, więc dla 0 i dla 3 metrów jest to minus 11,875 kN, czyli wartość relacji VD.
+Start: 1538.50, End: 1566.50, Sentence:   No i teraz piszemy sobie równanie momentu, więc ta siła VD względem tego bieguna momentu, czyli względem przecięcia, kręci lewoskrętnie, a patrząc z prawej strony, lewoskrętnie to są momenty dodatnie, czyli tutaj jest plus VD razy X3, czyli ramię działania.
+Start: 1568.50, End: 1585.50, Sentence:   Podstawiamy końce przedziałów, czyli 0 i 3 metry, jeśli podstawiemy 0 do X3, no to wartość momentu jest 0, jeśli podstawiemy 3 metry, to jest to 3 razy 11,875, czyli 35,625.
+Start: 1585.50, End: 1604.50, Sentence:   No i teraz to 0 i to 3, no to jest patrząc z prawej strony, a to 5 i to 8, to jest patrząc z lewej strony, czyli wartość momentu dla współrzędnej 5 to jest w tym miejscu i ona wynosi 35,625.
+Start: 1604.50, End: 1622.50, Sentence:   A wartość momentu dla współrzędnej 3 patrząc z prawej strony to też jest to miejsce, no i ta wartość pisząc sobie równania z jednej i drugiej strony musi być taka sama, no bo to jest to samo po prostu, tylko że z drugiej strony liczone.
+Start: 1622.50, End: 1630.50, Sentence:   Więc tutaj też można sobie w ten sposób zobaczyć, czy się nie pomyliliśmy.
+Start: 1630.50, End: 1643.50, Sentence:   Ok, no więc mam nadzieję, że was przekonałem, że warto sobie przynajmniej raz zrobić przecięcie z prawej strony, a nie tylko 3 razy z lewej, czy tam ile będzie przedziałów.
+Start: 1643.50, End: 1652.50, Sentence:   Bo po prostu będziemy mieli mniej liczenia i mniej okazji do pomylenia się, tylko też kluczowa rzecz, żeby pamiętać o tych znakach.
+Start: 1652.50, End: 1660.50, Sentence:   No i teraz możemy już przejść do rysowania wykresów.
+Start: 1660.50, End: 1670.50, Sentence:   Postaram się zasymulować rysowanie wykresu sił wewnętrznych. Oczywiście przygotowujemy sobie na kartce pole pod rysowanie wykresów, najlepiej jak to będzie pod belką.
+Start: 1670.50, End: 1676.50, Sentence:   Przedłużamy sobie przedziały charakterystyczne, oznaczamy osie.
+Start: 1676.50, End: 1695.50, Sentence:   No i postaram się zasymulować rysowanie, łatwiej będzie na początku wam zrozumieć, jak powstają te wykresy, jak będziecie obserwowali na bieżąco powstające wykresy, a nie jak wrzucę wam od razu jak one mają wyglądać.
+Start: 1695.50, End: 1714.50, Sentence:   Więc mając już przygotowane pole pod rysowanie wykresów i mając przed sobą wszystkie wartości sił tnących, które do tej pory w tych przedziałach wyznaczaliśmy, możemy zacząć rysowanie wykresu.
+Start: 1714.50, End: 1738.50, Sentence:   Czyli w pierwszym przedziale AB, patrząc z lewej strony, dla wartości 0 wartość siły tnącej jest 13,125 kN, no i wartość dla współrzędnej 0, czyli na początku belki i dla dwóch metrów jest taka sama, czyli łączymy sobie, i to jest 13,125 kN,
+Start: 1738.50, End: 1753.50, Sentence:   łączymy sobie po prostu poziomą kreską i to będzie pierwszy przedział, 13,125 kN, to jest wartość dodatnia, czyli stawiamy plusik, kreskujemy, no i patrzymy dalej.
+Start: 1753.50, End: 1775.50, Sentence:   Dla wartości siły tnącej dla współrzędnej 2 i dla współrzędnej 5 również jest taka sama i to jest 3.125, no to tak samo, jakoś tam jest to na pewno wartość mniejsza, więc no to nie musi być od linijki, ale żeby proporcje mniej więcej były zachowane.
+Start: 1775.50, End: 1791.50, Sentence:   Czyli 3,125, wartość też się nie zmienia na całym przedziale, czyli pozioma kreska, no i jest to wartość dodatnia, kreskujemy, no i mamy dwa przedziały narysowane, został nam trzeci.
+Start: 1791.50, End: 1808.50, Sentence:   Wartość w trzecim przedziale zarówno, no ja tutaj przekleiłem teraz patrząc z prawej strony, czyli dla współrzędnej 0 z prawej strony to jest 11,875 kN i dla współrzędnej 3 patrząc z prawej strony.
+Start: 1808.50, End: 1825.50, Sentence:   Czyli wartość również się nie zmienia, to jest wartość ujemna, 11,875, ciach, minusik, kreskujemy, no i wykres sił tnących mamy za sobą.
+Start: 1825.50, End: 1842.50, Sentence:   No to teraz mając przed sobą wszystkie wartości momentów, które policzyliśmy do tej pory, możemy zacząć rysować wykres momentów. Ja wartości dodatnie dla momentów rysuję pod osią belki.
+Start: 1842.50, End: 1870.50, Sentence:   Musicie zobaczyć jak to jest u was na wydziale, u was na wytrzymałości materiałów, czy jak się przedmiot nazywa. Wiem, że na wydziałach mechanicznych zdarza się, że rysowane są momenty dodatnie u góry, ale na sporej części kierunków raczej momenty dodatnie są rysowane pod osią, na dole.
+Start: 1870.50, End: 1886.50, Sentence:   Więc ja będę rysował na dole momenty dodatnie. No więc dla współrzędnej 0 wartość momentu jest równa 0, dla współrzędnej 2 wartość momentu jest 26,25 dodatnio.
+Start: 1886.50, End: 1902.50, Sentence:   Zaznaczam sobie jakoś tą wartość, no i łączę liniowo, jest to wartość 26,25 kN, ona jest dodatnia, kreskujemy, no i patrzymy sobie na drugim przedziale.
+Start: 1902.50, End: 1922.50, Sentence:   W drugim przedziale dla wartości 2 też jest 26,25, czyli ta wartość, którą już mamy na wykresie dla wartości 5 metra belki jest 35,625, też wartość dodatnia, więc zaznaczamy sobie to 35, no i łączymy liniowo.
+Start: 1923.50, End: 1943.50, Sentence:   Wartość jest dodatnia, kreskujemy, no i patrzymy na ostatni przedziale też z prawej strony, patrząc z prawej strony dla współrzędnej 0 wartość momentu jest 0, dla współrzędnej 3 wartość momentu jest taka, jaką teraz widzimy na wykresie, czyli nie ma żadnego skoku na wykresie momentu.
+Start: 1944.50, End: 1953.50, Sentence:   No więc łączymy liniowo, wartość dodatnia, kreskujemy, no i mamy narysowane wykres sił tnących i wykres momentów.
+Start: 1954.50, End: 1963.50, Sentence:   Mam nadzieję, że zrobiłem to w miarę jasno i rozumiecie teraz więcej.
+Start: 1964.50, End: 1972.50, Sentence:   Jeśli macie ochotę to obejrzyjcie kolejne wideo z tego zagadnienia, link w opisie, tam też postaram się zrobić zadanie krok po kroku.
+Start: 1973.00, End: 1979.00, Sentence: Także dziękuję za uwagę. Jeżeli macie jakieś pytania lub zastrzeżenia to zapraszam do zadawania pytań i do komentarzy pod filmikiem.
+Start: 1980.00, End: 1988.00, Sentence: Polecam również pozostałe produkcje, zachęcam do odwiedzenia naszej strony, do polubienia profilu na Facebooku i Instagramie,
+Start: 1988.00, End: 1996.00, Sentence: no i oczywiście do subskrybowania tego kanału, żebyście byli na bieżąco z nowymi filmikami od EduPandy.
+Start: 1996.00, End: 2000.00, Sentence: A tymczasem dziękuję serdecznie, pozdrawiam, cześć!
+
