@@ -67,15 +67,20 @@ jobs:
           exit 1
         fi
 
-    - name: Build application
+    - name: Build application (Windows)
+      if: runner.os == 'Windows'
       run: |
-        if [ "$RUNNER_OS" = "Windows" ]; then
-          pyinstaller --onefile --windowed --icon=logo.png --name="Video_Translation_Studio" --add-data="logo.png;." --add-data="video_translation_config.json;." --add-data="Readme;." --add-data="intro_outro;intro_outro" --add-data="code/*.py;." code/video_translation_app.py
-        elif [ "$RUNNER_OS" = "macOS" ]; then
-          pyinstaller --onefile --windowed --icon=logo.png --name="Video_Translation_Studio" --add-data="logo.png:." --add-data="video_translation_config.json:." --add-data="Readme:." --add-data="intro_outro:intro_outro" --add-data="code/*.py:." code/video_translation_app.py
-        else
-          pyinstaller --onefile --windowed --icon=logo.png --name="Video_Translation_Studio" --add-data="logo.png:." --add-data="video_translation_config.json:." --add-data="Readme:." --add-data="intro_outro:intro_outro" --add-data="code/*.py:." code/video_translation_app.py
-        fi
+        pyinstaller --onefile --windowed --icon=logo.png --name="Video_Translation_Studio" --add-data="logo.png;." --add-data="video_translation_config.json;." --add-data="Readme;." --add-data="intro_outro;intro_outro" --add-data="code/*.py;." code/video_translation_app.py
+
+    - name: Build application (macOS)
+      if: runner.os == 'macOS'
+      run: |
+        pyinstaller --onefile --windowed --icon=logo.png --name="Video_Translation_Studio" --add-data="logo.png:." --add-data="video_translation_config.json:." --add-data="Readme:." --add-data="intro_outro:intro_outro" --add-data="code/*.py:." code/video_translation_app.py
+
+    - name: Build application (Linux)
+      if: runner.os == 'Linux'
+      run: |
+        pyinstaller --onefile --windowed --icon=logo.png --name="Video_Translation_Studio" --add-data="logo.png:." --add-data="video_translation_config.json:." --add-data="Readme:." --add-data="intro_outro:intro_outro" --add-data="code/*.py:." code/video_translation_app.py
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
