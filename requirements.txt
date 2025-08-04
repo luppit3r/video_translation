@@ -1,12 +1,15 @@
+# Build tools (install first)
+setuptools>=68.0.0
+wheel>=0.40.0
+
 # Core dependencies
-moviepy==1.0.3
-requests==2.31.0
-pydub==0.25.1
-numpy==1.24.4
-python-dotenv==1.0.0
+moviepy>=1.0.3
+requests>=2.31.0
+pydub>=0.25.1
+numpy>=1.26.0
+python-dotenv>=1.0.0
 yt-dlp
 ffmpeg-python
-setuptools
 
 # Computer Vision
 opencv-python>=4.5.0
