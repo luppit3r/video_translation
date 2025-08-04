@@ -1,0 +1,93 @@
+name: Build Video Translation Studio
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  release:
+    types: [ published ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+        python-version: [3.12]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+
+    - name: Create intro_outro directory
+      run: |
+        mkdir -p intro_outro
+        # Create placeholder files for intro/outro (user needs to add actual files)
+        echo "# Placeholder for intro video" > intro_outro/README_intro.txt
+        echo "# Placeholder for outro video" > intro_outro/README_outro.txt
+
+    - name: Build application
+      run: |
+        if [ "$RUNNER_OS" = "Windows" ]; then
+          pyinstaller --onefile --windowed --icon=logo.png --name="Video_Translation_Studio" --add-data="logo.png;." --add-data="video_translation_config.json;." --add-data="Readme;." --add-data="intro_outro;intro_outro" --add-data="code/*.py;." code/video_translation_app.py
+        elif [ "$RUNNER_OS" = "macOS" ]; then
+          pyinstaller --onefile --windowed --icon=logo.png --name="Video_Translation_Studio" --add-data="logo.png:." --add-data="video_translation_config.json:." --add-data="Readme:." --add-data="intro_outro:intro_outro" --add-data="code/*.py:." code/video_translation_app.py
+        else
+          pyinstaller --onefile --windowed --icon=logo.png --name="Video_Translation_Studio" --add-data="logo.png:." --add-data="video_translation_config.json:." --add-data="Readme:." --add-data="intro_outro:intro_outro" --add-data="code/*.py:." code/video_translation_app.py
+        fi
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: Video_Translation_Studio-${{ runner.os }}
+        path: dist/
+        retention-days: 30
+
+  create-release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    
+    steps:
+    - name: Download all artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: artifacts
+
+    - name: Create release package
+      run: |
+        mkdir -p release
+        cp artifacts/Video_Translation_Studio-Windows/dist/* release/ || true
+        cp artifacts/Video_Translation_Studio-macOS/dist/* release/ || true
+        cp artifacts/Video_Translation_Studio-Ubuntu/dist/* release/ || true
+        
+        # Create ZIP files for each platform
+        cd release
+        if [ -f "Video_Translation_Studio.exe" ]; then
+          zip -r Video_Translation_Studio_Windows.zip Video_Translation_Studio.exe
+        fi
+        if [ -d "Video_Translation_Studio.app" ]; then
+          zip -r Video_Translation_Studio_macOS.zip Video_Translation_Studio.app
+        fi
+        if [ -f "Video_Translation_Studio" ]; then
+          zip -r Video_Translation_Studio_Linux.zip Video_Translation_Studio
+        fi
+
+    - name: Upload release files
+      uses: actions/upload-artifact@v4
+      with:
+        name: Release-Packages
+        path: release/
+        retention-days: 90 
