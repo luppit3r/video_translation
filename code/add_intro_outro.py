@@ -58,7 +58,7 @@ class VideoIntroOutroAdder:
         print("Łączenie klipów...")
         final_clip = concatenate_videoclips(clips, method="compose")
         
-        # Zapisz wynik
+        # Zapisz wynik z zoptymalizowanymi ustawieniami
         print(f"Zapisywanie do: {output_path}")
         final_clip.write_videofile(
             str(output_path),
@@ -68,8 +68,9 @@ class VideoIntroOutroAdder:
             remove_temp=True,
             verbose=False,
             logger=None,
-            preset='ultrafast',  # Najszybsze kodowanie
-            threads=4  # Wykorzystaj więcej rdzeni
+            preset='veryfast',  # Szybsze kodowanie niż ultrafast (lepszy balans szybkość/jakość)
+            threads=8,  # Więcej wątków dla lepszej wydajności
+            ffmpeg_params=['-crf', '23', '-movflags', '+faststart']  # Optymalizacje ffmpeg
         )
         
         # Wyświetl podsumowanie
@@ -103,8 +104,8 @@ class VideoIntroOutroAdder:
 def main():
     parser = argparse.ArgumentParser(description="Dodaj intro i outro do wideo")
     parser.add_argument("video_path", help="Ścieżka do głównego pliku wideo")
-    parser.add_argument("--intro", help="Ścieżka do pliku intro (domyślnie: intro_outro/EduPanda - Intro - EN.mp4)")
-    parser.add_argument("--outro", help="Ścieżka do pliku outro (domyślnie: intro_outro/EduPanda - Outro - EN.mp4)")
+    parser.add_argument("--intro", help="Ścieżka do pliku intro (domyślnie: intro_outro/Intro_EN.mp4)")
+    parser.add_argument("--outro", help="Ścieżka do pliku outro (domyślnie: intro_outro/Outro_EN.mp4)")
     parser.add_argument("--output", help="Ścieżka do pliku wyjściowego")
     parser.add_argument("--no-intro", action="store_true", help="Nie dodawaj intro")
     parser.add_argument("--no-outro", action="store_true", help="Nie dodawaj outro")
@@ -120,9 +121,9 @@ def main():
     
     # Ustaw domyślne ścieżki intro/outro
     if not args.intro:
-        args.intro = "../intro_outro/EduPanda - Intro - EN.mp4"
+        args.intro = "../intro_outro/Intro_EN.mp4"
     if not args.outro:
-        args.outro = "../intro_outro/EduPanda - Outro - EN.mp4"
+        args.outro = "../intro_outro/Outro_EN.mp4"
     
     # Ustaw ścieżkę wyjściową
     if args.output:

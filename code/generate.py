@@ -5,7 +5,6 @@ import argparse
 from pathlib import Path
 
 # API key should be set via environment variable
-os.environ['ELEVENLABS_API_KEY'] = "sk_1f61682e0b96b0f53580d385ad097ec8ee062217127058fc"
 CHUNK_SIZE = 1024  # Size of chunks to read/write at a time
 XI_API_KEY = os.getenv('ELEVENLABS_API_KEY')  # Your API key for authentication
 VOICE_ID = "XfNU2rGpBa01ckF309OY"  # ID of the voice model to use

@@ -9,9 +9,9 @@ from typing import Optional
 import shutil
 import json
 
-# Hardcodowane klucze API, tak jak w oryginalnych skryptach
+# Klucze API z zmiennych środowiskowych
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-ELEVENLABS_API_KEY = "sk_1f61682e0b96b0f53580d385ad097ec8ee062217127058fc"
+ELEVENLABS_API_KEY = os.getenv('ELEVENLABS_API_KEY')
 
 @dataclass
 class ProcessingState:

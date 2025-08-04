@@ -1,0 +1,18 @@
+RAPORT WYKRYWANIA POLSKICH TEKSTÓW W WIDEO
+==================================================
+
+Data analizy: 2025-08-01 21:48:41
+Liczba znalezionych sekwencji: 2
+
+SEKWENCJA 1:
+  Tekst: 'NASZ KANAŁ'
+  Tłumaczenie: 'Our channel'
+  Pojawia się: 22:40:000
+  Znika: 22:40:000
+
+SEKWENCJA 2:
+  Tekst: 'WIĘCEJ ZADAŃ'
+  Tłumaczenie: 'More tasks'
+  Pojawia się: 22:40:000
+  Znika: 22:40:000
+

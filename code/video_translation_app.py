@@ -358,7 +358,7 @@ pojawia się tekst po polsku i generuje raport."""
         action_frame = ttk.Frame(parent_frame)
         action_frame.pack(fill=tk.X, pady=10)
         
-        ttk.Button(action_frame, text="Usuń ciszę i bezruch", 
+        ttk.Button(action_frame, text="Usuń ciszę i bezruch (SZYBKO)", 
                   command=self.run_step3_silence).pack(side=tk.LEFT, padx=(0, 10))
         ttk.Button(action_frame, text="Wykryj tekst polski", 
                   command=self.run_step3_detect).pack(side=tk.LEFT)
@@ -447,7 +447,9 @@ pojawia się tekst po polsku i generuje raport."""
         action_frame = ttk.Frame(social_frame)
         action_frame.pack(fill=tk.X, pady=10)
         
-        ttk.Button(action_frame, text="Dodaj intro+outro do klipu i stwórz post na social media", 
+        ttk.Button(action_frame, text="Dodaj intro+outro (SZYBKO)", 
+                  command=self.add_intro_outro_fast).pack(side=tk.LEFT, padx=(0, 10))
+        ttk.Button(action_frame, text="Dodaj intro+outro (standardowo)", 
                   command=self.add_intro_outro_and_social_post).pack(side=tk.LEFT, padx=(0, 10))
         ttk.Button(action_frame, text="Tylko post social media", 
                   command=self.generate_social_post_only).pack(side=tk.LEFT)
@@ -479,8 +481,8 @@ pojawia się tekst po polsku i generuje raport."""
         self.combo_steps = [
             ("Tłumaczenie na angielski", self.run_translate_for_combo),
             ("Generowanie audio", self.run_generate_for_combo),
-            ("Nakładanie audio na wideo", self.run_overlay_for_combo),
-            ("Usuwanie ciszy i bezruchu", self.run_delete_sm_for_combo),
+            ("Nakładanie audio na wideo (SZYBKO)", self.run_overlay_for_combo),
+            ("Usuwanie ciszy i bezruchu (SZYBKO)", self.run_delete_sm_for_combo),
             ("Wykrywanie polskiego tekstu", self.run_detect_polish_for_combo),
             ("Dodawanie intro i outro", self.run_intro_outro_for_combo),
             ("Generowanie posta social media", self.run_social_media_for_combo)
@@ -672,7 +674,7 @@ pojawia się tekst po polsku i generuje raport."""
             self.root.after(0, self.execute_next_combo_step)
         
     def run_overlay_for_combo(self):
-        """Uruchamia overlay_fixed.py dla przepływu KOMBO"""
+        """Uruchamia overlay_fast.py dla przepływu KOMBO"""
         thread = threading.Thread(target=self._run_overlay_combo_thread, daemon=False)
         thread.start()
         
@@ -700,7 +702,7 @@ pojawia się tekst po polsku i generuje raport."""
             video_file = video_files[0]
             
             python_exe = Path(__file__).parent.parent / "myenv" / "Scripts" / "python.exe"
-            overlay_script = Path(__file__).parent / "overlay_fixed.py"
+            overlay_script = Path(__file__).parent / "overlay_fast.py"
             
             result = subprocess.run([
                 str(python_exe), str(overlay_script), str(en_file), str(video_file)
@@ -713,10 +715,10 @@ pojawia się tekst po polsku i generuje raport."""
                 self.root.after(0, self.finish_current_combo_step)
             else:
                 error_msg = result.stderr.strip() if result.stderr else "Nieznany błąd"
-                self.root.after(0, lambda: self.log(f"[KOMBO] Błąd overlay_fixed.py: {error_msg}"))
+                self.root.after(0, lambda: self.log(f"[KOMBO] Błąd overlay_fast.py: {error_msg}"))
                 if result.stdout:
                     self.root.after(0, lambda: self.log(f"[KOMBO] Stdout: {result.stdout.strip()}"))
-                raise Exception(f"Błąd overlay_fixed.py: {error_msg}")
+                raise Exception(f"Błąd overlay_fast.py: {error_msg}")
                 
         except Exception as e:
             self.root.after(0, lambda: self.log(f"[KOMBO] Błąd nakładania audio: {str(e)}"))
@@ -724,7 +726,7 @@ pojawia się tekst po polsku i generuje raport."""
             self.root.after(0, self.execute_next_combo_step)
         
     def run_delete_sm_for_combo(self):
-        """Uruchamia delete_sm_improved.py dla przepływu KOMBO"""
+        """Uruchamia delete_sm_fast.py dla przepływu KOMBO"""
         thread = threading.Thread(target=self._run_delete_sm_combo_thread, daemon=False)
         thread.start()
         
@@ -757,11 +759,11 @@ pojawia się tekst po polsku i generuje raport."""
             output_file = video_file.with_name(video_file.stem + "_no_silence" + video_file.suffix)
             
             python_exe = Path(__file__).parent.parent / "myenv" / "Scripts" / "python.exe"
-            delete_sm_script = Path(__file__).parent / "delete_sm_improved.py"
+            delete_sm_script = Path(__file__).parent / "delete_sm_fast.py"
             
             result = subprocess.run([
                 str(python_exe), str(delete_sm_script),
-                str(video_file), str(translation_file), str(output_file)
+                str(video_file), str(output_file)
             ], capture_output=True, text=True, cwd=working_dir)
             
             if result.returncode == 0:
@@ -771,10 +773,10 @@ pojawia się tekst po polsku i generuje raport."""
                 self.root.after(0, self.finish_current_combo_step)
             else:
                 error_msg = result.stderr.strip() if result.stderr else "Nieznany błąd"
-                self.root.after(0, lambda: self.log(f"[KOMBO] Błąd delete_sm_improved.py: {error_msg}"))
+                self.root.after(0, lambda: self.log(f"[KOMBO] Błąd delete_sm_fast.py: {error_msg}"))
                 if result.stdout:
                     self.root.after(0, lambda: self.log(f"[KOMBO] Stdout: {result.stdout.strip()}"))
-                raise Exception(f"Błąd delete_sm_improved.py: {error_msg}")
+                raise Exception(f"Błąd delete_sm_fast.py: {error_msg}")
                 
         except Exception as e:
             self.root.after(0, lambda: self.log(f"[KOMBO] Błąd usuwania ciszy: {str(e)}"))
@@ -1571,8 +1573,8 @@ pojawia się tekst po polsku i generuje raport."""
                 # Uruchom skrypty sekwencyjnie z callbackami
                 def on_translate_complete():
                     def on_generate_complete():
-                        self.run_script("overlay_fixed.py", [str(translated_file), str(video_file)], 
-                                      f"Overlay wideo {txt_file.name}", step_key="step2")
+                        self.run_script("overlay_fast.py", [str(translated_file), str(video_file)], 
+                                      f"Szybki overlay wideo {txt_file.name}", step_key="step2")
                     
                     self.run_script("generate.py", [str(translated_file), str(video_file)], 
                                   f"Generowanie audio {txt_file.name}", step_key="step2", 
@@ -1583,18 +1585,39 @@ pojawia się tekst po polsku i generuje raport."""
                               on_success=on_translate_complete)
                 
     def run_step3_silence(self):
-        """Uruchamia usuwanie ciszy"""
+        """Uruchamia szybkie usuwanie ciszy"""
         working_dir = Path(self.working_dir.get()) if self.working_dir.get() else Path.cwd()
         video_files = list(working_dir.rglob("*_synchronized.mp4"))
         
         if not video_files:
             messagebox.showerror("Błąd", "Nie znaleziono plików *_synchronized.mp4!")
             return
+        
+        # Jeśli znaleziono więcej niż jeden plik, zapytaj użytkownika
+        if len(video_files) > 1:
+            file_names = [f.relative_to(working_dir) for f in video_files]
+            choice = messagebox.askyesnocancel(
+                "Wybór pliku", 
+                f"Znaleziono {len(video_files)} plików:\n" + 
+                "\n".join(str(f) for f in file_names) + 
+                "\n\nPrzetwarzać wszystkie? (Tak=wszystkie, Nie=tylko pierwszy, Anuluj=przerwij)"
+            )
             
-        for video_file in video_files:
+            if choice is None:  # Anuluj
+                return
+            elif choice is False:  # Nie - tylko pierwszy
+                video_files = [video_files[0]]
+        
+        # Przetwarzaj pliki sekwencyjnie (nie równolegle)
+        for i, video_file in enumerate(video_files):
             # Generuj nazwę pliku wyjściowego
             output_file = video_file.parent / f"{video_file.stem}_compressed.mp4"
-            self.run_script("delete_sm.py", [str(video_file), str(output_file)], f"Usuwanie ciszy {video_file.name}", step_key="step3")
+            
+            # Użyj szybkiej wersji (bez pliku tłumaczenia, jak oryginalna wersja)
+            self.run_script("delete_sm_fast.py", 
+                          [str(video_file), str(output_file)], 
+                          f"Szybkie usuwanie ciszy {video_file.name} ({i+1}/{len(video_files)})", 
+                          step_key=f"step3_{i}")
             
     def run_step3_detect(self):
         """Uruchamia detekcję tekstu polskiego"""
@@ -1647,6 +1670,22 @@ pojawia się tekst po polsku i generuje raport."""
             "--outro", self.outro_video_path.get()
         ]
         self.run_script("add_intro_outro.py", args, "Dodawanie intro/outro", on_success)
+        
+    def add_intro_outro_fast(self):
+        """Szybko dodaje intro i outro używając ffmpeg"""
+        if not self.main_video_path.get():
+            messagebox.showerror("Błąd", "Wybierz główne wideo!")
+            return
+        
+        args = [self.main_video_path.get()]
+        
+        # Dodaj argumenty intro/outro jeśli są dostępne
+        if self.intro_video_path.get():
+            args.extend(["--intro", self.intro_video_path.get()])
+        if self.outro_video_path.get():
+            args.extend(["--outro", self.outro_video_path.get()])
+        
+        self.run_script("add_intro_outro_fast.py", args, "Szybkie dodawanie intro/outro")
         
     def add_intro_outro_and_social_post(self):
         """Dodaje intro/outro i automatycznie generuje post social media"""
