@@ -18,6 +18,7 @@ class ProcessingState:
     translation_done: bool = False
     audio_generated: bool = False
     video_overlayed: bool = False
+    silence_removed: bool = False
     final_processed: bool = False
     
     def save(self, path: Path):
@@ -170,6 +171,32 @@ class VideoProcessor:
         self.state.video_overlayed = True
         self.state.save(self.state_file)
 
+    def remove_silence(self):
+        """Usuwa fragmenty ciszy używając ulepszonej wersji."""
+        if self.state.silence_removed:
+            logging.info("Silence removal already completed, skipping...")
+            return
+        
+        working_dir = self.txt_path.parent
+        self.output_dir = working_dir / "output"
+        input_video = self.output_dir / f"{self.video_path.stem}_synchronized.mp4"
+        output_video = self.output_dir / f"{self.video_path.stem}_synchronized_no_silence.mp4"
+        
+        # Użyj ulepszonej wersji delete_sm
+        silence_script = self.scripts_dir / "delete_sm_improved.py"
+        
+        self.run_command([
+            "python", str(silence_script),
+            str(input_video),
+            str(self.translated_txt),  # Plik z tłumaczeniem
+            str(output_video),
+            "--safety_margin", "2.0",
+            "--min_gap_duration", "3.0"
+        ], "improved silence removal", cwd=working_dir)
+        
+        self.state.silence_removed = True
+        self.state.save(self.state_file)
+
     def process_final(self):
         """Dodaje logo i białe pole."""
         if self.state.final_processed:
@@ -178,7 +205,13 @@ class VideoProcessor:
         
         working_dir = self.txt_path.parent
         self.output_dir = working_dir / "output"
-        input_video = self.output_dir / f"{self.video_path.stem}_synchronized.mp4"
+        
+        # Użyj wideo po usunięciu ciszy jeśli dostępne
+        if self.state.silence_removed:
+            input_video = self.output_dir / f"{self.video_path.stem}_synchronized_no_silence.mp4"
+        else:
+            input_video = self.output_dir / f"{self.video_path.stem}_synchronized.mp4"
+            
         output_video = self.output_dir / f"{self.video_path.stem}_synchronized_white-bottom.mp4"
         
         # Użyj bezwzględnej ścieżki do skryptu
@@ -207,6 +240,7 @@ class VideoProcessor:
             self.translate()
             self.generate_audio()
             self.overlay_video()
+            self.remove_silence()  # Dodaj usuwanie ciszy
             self.process_final()
             self.cleanup()
             logging.info(f"Processing completed successfully! Final output: {self.final_output}")

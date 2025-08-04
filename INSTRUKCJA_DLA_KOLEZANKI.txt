@@ -1,0 +1,51 @@
+🎬 Video Translation Studio - Instrukcja Użytkowania
+
+📦 Co otrzymałaś:
+- Video_Translation_Studio.exe (plik aplikacji)
+- intro_outro/ (folder z plikami intro i outro)
+
+🚀 Jak uruchomić:
+1. Kliknij dwukrotnie na plik Video_Translation_Studio.exe
+2. Aplikacja uruchomi się automatycznie
+3. Może potrwać 10-30 sekund przy pierwszym uruchomieniu
+
+⚠️ Wymagania:
+- Windows 10/11 (64-bit)
+- Minimum 4 GB RAM
+- Połączenie internetowe
+- Wolne miejsce na dysku (minimum 2 GB)
+
+🔧 Co potrafi aplikacja:
+- Pobieranie wideo z YouTube (wklej link)
+- Wybór pliku wideo z komputera
+- Automatyczna transkrypcja audio
+- Tłumaczenie na angielski
+- Dodawanie napisów do wideo
+- Dodawanie logo i intro/outro
+- Generowanie postów social media
+
+📁 Struktura plików:
+```
+Video_Translation_Studio/
+├── Video_Translation_Studio.exe    # Główna aplikacja
+├── intro_outro/                    # Pliki intro i outro
+│   ├── EduPanda - Intro - EN.mp4   # Intro video
+│   └── EduPanda - Outro - EN.mp4   # Outro video
+└── [automatycznie utworzone foldery]
+    ├── text/                       # Transkrypcje i tłumaczenia
+    ├── output/                     # Finalne wideo z napisami
+    └── generated/                  # Pliki tymczasowe
+```
+
+🎬 Funkcja Intro/Outro:
+- Aplikacja automatycznie wczyta pliki intro i outro
+- Możesz dodać je do swoich wideo w sekcji "Dodatkowe funkcje"
+- Pliki są już gotowe do użycia
+
+❓ Jeśli coś nie działa:
+1. Uruchom jako administrator (kliknij prawym na plik → Uruchom jako administrator)
+2. Sprawdź czy antywirus nie blokuje
+3. Upewnij się, że masz połączenie internetowe
+4. Sprawdź czy folder intro_outro jest w tym samym katalogu co .exe
+
+🎉 Gotowe! Możesz teraz tłumaczyć wideo bez instalowania Pythona! 

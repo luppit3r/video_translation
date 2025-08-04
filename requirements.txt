@@ -1,6 +1,30 @@
-moviepy==2.0.0
+# Core dependencies
+moviepy==1.0.3
 requests==2.31.0
-openai==1.0.0
 pydub==0.25.1
-numpy==1.23.5
+numpy==1.24.4
 python-dotenv==1.0.0
+yt-dlp
+ffmpeg-python
+setuptools
+
+# Computer Vision
+opencv-python>=4.5.0
+
+# AI/ML packages
+openai>=1.0.0
+openai-whisper==20231117
+
+# Optional for progress bars
+tqdm
+
+# System monitoring
+psutil
+
+# Translation
+deep-translator
+
+# Additional dependencies for moviepy
+imageio>=2.5.0
+imageio-ffmpeg
+decorator

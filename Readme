@@ -11,24 +11,45 @@ source myenv/Scripts/activate
 
 #Transktrypcja
 python code/video_transcription_cli.py "2. RiSO - przem w uklad stat wyz/przykład1.avi"
+# nowy skrypt
+python ../code/transcribe_improved.py Clebsch.mp4 # wywoołanie z poziomu pliku .mp4
 
 #Tłumaczenie
-python code/translate.py "5.SW-belki-cz1-bonus/Bcz1-bonus.txt" "5.SW-belki-cz1-bonus/text/Bcz1-bonus-sentences-en.txt" 
+python ../code/translate.py "text/Clebsch.txt" "text/Clebsch-en.txt" 
 
 #Genreacja
-python code/generate.py "5.SW-belki-cz1-bonus/text/Bcz1-bonus-sentences-en.txt" "5.SW-belki-cz1-bonus/Bcz1-bonus.mp4" 
+python ../code/generate.py "text/Clebsch-en.txt" "Clebsch.mp4" 
 
 #Tworzenie video
 python code/overlay.py "5.SW-belki-cz1-bonus/text/Bcz1-bonus-sentences-en.txt" "5.SW-belki-cz1-bonus/Bcz1-bonus.mp4" --audio_dir "C:\video_translation\5.SW-belki-cz1-bonus\generated\Bcz1-bonus"
+# v2
+python ../code/overlay_fixed.py text/Clebsch-en.txt Clebsch.mp4 --audio_dir generated
 
 #Czyszczenie wideo z ciszy i bezruchu
-python code/delete-silent-movement.py "4.SW-belki-cz2/output/Bcz2-4_synchronized2.mp4" "4.SW-belki-cz2/output/Bcz2-4_cleaned.mp4" --min_silence_len 1000 --min_static_duration 1 --min_duration 1
+#Tylko raport (bez video):
+python ../code/delete_sm.py \
+  output/Clebsch_synchronized.mp4 \
+  gap_report \
+  --report-only
 
-#lub Czyszczenie wideo z ciszy
-python code/delete-silent.py "5.SW-belki-cz1-bonus/output/Bcz2-4_synchronized2.mp4" "4.SW-belki-cz2/output/Bcz2-4_cleaned.mp4" --min_silence_len 1000
+# Jeśli raport OK - stwórz video
+python ../code/delete_sm.py \
+  output/Clebsch_synchronized.mp4 \
+  output/Clebsch_cleaned.mp4
+
+# Lub jeśli raport pokazał błędy - użyj reprocess
+python ../code/reprocess_delete_sm.py \
+  output/Clebsch_synchronized.mp4 \
+  output/Clebsch_final.mp4 \
+  --exclude-gaps 5,12
+
+  
 
 #usuwanie kolorwej stopki i dodanie logo
 python code/white-bottom-logo.py "5.SW-belki-cz1-bonus/output/Bcz1-bonus_synchronized.mp4" "5.SW-belki-cz1-bonus/output/Bcz1-bonus_synchronized_white-bottom.mp4" 
+
+#generator posta social media
+python ../code/social_media_post.py transkrypcja.txt
 ____________________________________________________________________________________________________________________________________________________
 # Standardowe użycie - translate+generate+overlay-white bottom logo - argumenty: plik z polską transkrypcją, plik mp4 z polskim kursem
 python code/process_video.py "5.SW-belki-cz1-bonus/Bcz1-bonus.txt" "5.SW-belki-cz1-bonus/Bcz1-bonus.mp4"
@@ -46,3 +67,22 @@ python code/echo-removal.py "4.SW-belki-cz2/output/Bcz2-2-white-bottom.mp4" "4.S
 
 #Czyszczenie wideo z ciszy
 python python code/bye-silent.py "4.SW-belki-cz2/output/test.mp4" "4.SW-belki-cz2/output/test_cleaned2.mp4" --min_silence_len 1500 --silence_padding 1
+
+
+____________________________________________________________________________________________________________________________________________________
+
+YT downloader
+
+# Podstawowe użycie
+python youtube_downloader.py "https://www.youtube.com/watch?v=VIDEO_ID"
+# -> wywołanie z poziomu innego (równoległego) folderu niż /code
+python ../code/youtube_downloader.py "URL_DO_KURSU" -o "."
+
+# Do konkretnego folderu
+python youtube_downloader.py "https://www.youtube.com/watch?v=VIDEO_ID" -o "./moje_kursy"
+
+# Konkretna jakość
+python youtube_downloader.py "https://www.youtube.com/watch?v=VIDEO_ID" -q 1080p
+
+# Zobacz dostępne formaty
+python youtube_downloader.py "https://www.youtube.com/watch?v=io0HAKV8c14&ab_channel=EduPandaPl" -l

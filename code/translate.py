@@ -6,7 +6,7 @@ print(f"Python path: {sys.path}")
 from openai import OpenAI
 
 # Hardcoded API key
-OPENAI_API_KEY = "sk-proj-HZo39yrvh8PO8C8pKWNpT3BlbkFJkZKq1l2JpV339jMUfX0p"
+OPENAI_API_KEY = "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"
 
 def read_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -38,7 +38,7 @@ def translate_text(text):
     client = OpenAI(api_key=OPENAI_API_KEY)
 
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-4o",
         messages=[
             {
                 "role": "system",

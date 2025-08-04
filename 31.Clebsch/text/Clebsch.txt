@@ -1,0 +1,410 @@
+Start: 0.00, End: 4.00, Sentence: Witam serdecznie. Policzymy sobie dzisiaj proste zadanie metodą Clebscha.
+Start: 4.00, End: 9.00, Sentence: Konkretnie będzie nam chodziło o obliczenie ugięcia w punkcie B oraz kąty obrotu w punkcie C.
+Start: 9.00, End: 11.00, Sentence: Belki takiej jak na rysunku.
+Start: 11.00, End: 18.00, Sentence: Mamy podane E czyli moduł Younga, 205 gigapaskali oraz moment bezwładności przekroju 171 cm do 4.
+Start: 18.00, End: 23.00, Sentence: Zaczniemy sobie od tego, że przeliczymy sobie moduł Younga oraz moment bezwładności na sztywność.
+Start: 23.00, End: 30.00, Sentence: To będzie potrzebne na samym końcu zadania, ale jak zrobimy to teraz to nie będziemy o tym później musieli pamiętać.
+Start: 30.00, End: 43.00, Sentence: EI równa się 205 gigapaskali, 205 giga czyli 10 do 9 razy 171 cm do 4 czyli 10 do minus 8.
+Start: 43.00, End: 48.00, Sentence: Zamieniliśmy sobie gigapaskalę na paskalę, cm do 4 na m do 4.
+Start: 48.00, End: 50.00, Sentence: Wrzucamy to wszystko w kalkulator.
+Start: 50.00, End: 57.00, Sentence: 205 razy 171 razy 10 do 9 minus 8.
+Start: 57.00, End: 62.00, Sentence: Dostajemy sobie 3, 5, 0, 5, 5, 0.
+Start: 62.00, End: 64.00, Sentence: Czego? Pytanie za 100 punktów.
+Start: 64.00, End: 66.00, Sentence: Mieliśmy gigapaskalę i metry do 4.
+Start: 66.00, End: 72.00, Sentence: Zróbmy sobie szybki rachunek jednostek, tak żeby później wiedzieć już jaką to będzie miało jednostkę.
+Start: 72.00, End: 75.00, Sentence: Paskal to newton na metr kwadrat.
+Start: 75.00, End: 79.00, Sentence: Pamiętamy albo nie pamiętamy gdzieś tam ze szkoły średniej.
+Start: 79.00, End: 84.00, Sentence: Czyli dostaliśmy 350, 5, 5, 0.
+Start: 84.00, End: 86.00, Sentence: Newton na metr kwadrat raz metr do czwartej.
+Start: 86.00, End: 92.00, Sentence: Metry się poskracają, dostajemy newton metr kwadrat.
+Start: 92.00, End: 97.00, Sentence: A newtony jak zapewne pamiętacie dużo wygodniej zapisywać w większości tych zadaniach kilonewtony.
+Start: 97.00, End: 105.00, Sentence: Więc ostatecznie przelazowałem przecinek o 3 miejsca i dostajemy 350, 55 kilonewton metr do kwadratu.
+Start: 105.00, End: 107.00, Sentence: To było takie obliczenia wstępne.
+Start: 107.00, End: 111.00, Sentence: Przechodzimy do samej treści zadania.
+Start: 111.00, End: 115.00, Sentence: Na początek musimy sobie policzyć reakcję na podporze A oraz na podporze D.
+Start: 115.00, End: 119.00, Sentence: Układ jest statycznie wyznaczalny jak widać w związku z powyższym.
+Start: 119.00, End: 123.00, Sentence: Nie będziemy się tutaj zastanawiali długo nad tym jak to zrobić.
+Start: 123.00, End: 126.00, Sentence: Teoretycznie już powinniśmy umieć.
+Start: 126.00, End: 129.00, Sentence: Wiadomo, że na podporze A mamy tylko jedną reakcję pionową.
+Start: 129.00, End: 132.00, Sentence: Na podporze D mamy pionową i poziomą.
+Start: 132.00, End: 137.00, Sentence: Ale policzymy sobie szybko sumę rzutów na osi X.
+Start: 137.00, End: 141.00, Sentence: Jak widać mamy tylko HD, w związku z tym HD jest 0.
+Start: 141.00, End: 143.00, Sentence: I teraz tak.
+Start: 143.00, End: 146.00, Sentence: Kolejnym krokiem jest policzenie reakcji.
+Start: 146.00, End: 153.00, Sentence: Powiedzmy, że policzymy sobie VA licząc moment względem punktu D.
+Start: 153.00, End: 156.00, Sentence: VA razy 4, 6, 8 metrów.
+Start: 156.00, End: 159.00, Sentence: Plus moment przyłożony w punkcie 5.
+Start: 159.00, End: 163.00, Sentence: Plus siła 20 razy odległość 6.
+Start: 163.00, End: 167.00, Sentence: Minus 10 razy 4 razy 4.
+Start: 167.00, End: 171.00, Sentence: Odległość od środka obciążenia do punktu D.
+Start: 171.00, End: 174.00, Sentence: Minus 15 równa się 0.
+Start: 174.00, End: 179.00, Sentence: Tak trochę przez to przebiegam, dlatego że to jest coś co teoretycznie wszyscy już umiemy robić.
+Start: 179.00, End: 186.00, Sentence: Jeżeli nie umiemy, no bo trzeba się cofnąć do wyznaczania reakcji podporowych.
+Start: 186.00, End: 189.00, Sentence: Wychodzi nam 6,25.
+Start: 189.00, End: 192.00, Sentence: Oczywiście kN.
+Start: 192.00, End: 193.00, Sentence: I teraz tak.
+Start: 193.00, End: 198.00, Sentence: Jeżeli jesteśmy absolutnie pewni, że to faktycznie policzyliśmy poprawnie, no to możemy już iść dalej.
+Start: 198.00, End: 207.00, Sentence: Natomiast jeżeli nie jesteśmy pewni, to dla bezpieczeństwa zróbmy sobie sumę momentu w punkcie A.
+Start: 207.00, End: 210.00, Sentence: Czyli mamy 5 minus 20 razy 2.
+Start: 210.00, End: 215.00, Sentence: Dodać 10 razy 4 razy 4.
+Start: 215.00, End: 220.00, Sentence: Minus 15 i minus Vd razy odległość do punktu padanego.
+Start: 220.00, End: 223.00, Sentence: 4, 6, 8 równa się 0.
+Start: 223.00, End: 225.00, Sentence: Vd równa się 0.
+Start: 225.00, End: 228.00, Sentence: No to wbijamy szybko w kalkulator.
+Start: 228.00, End: 239.00, Sentence: Wychodzi 13,75, co daje nam pewną nadzieję na to, że jest rozwiązane poprawnie.
+Start: 239.00, End: 251.00, Sentence: Dlatego, że jak sobie zrobimy teraz sumę rzutów na osi Y, to dostajemy Va plus Vd plus 20 minus 10 razy 4.
+Start: 251.00, End: 259.00, Sentence: No i faktycznie widzimy, że jak podstawiamy sobie Va i Vd, to daje nam tu 20 kN, plus 20 daje 40, minus 40 daje 0.
+Start: 259.00, End: 263.00, Sentence: Czyli policzyliśmy reakcję poprawnie.
+Start: 263.00, End: 267.00, Sentence: Tak, bo warto jest sobie zrobić to sprawdzenie.
+Start: 267.00, End: 270.00, Sentence: Można się jeszcze pomylić nawet w prostej matematyce.
+Start: 270.00, End: 273.00, Sentence: Okej, jak policzyliśmy sobie już reakcję, to przechodzimy dalej.
+Start: 273.00, End: 276.00, Sentence: Przechodzimy do zapisania równania momentu gnącego.
+Start: 276.00, End: 282.00, Sentence: Ponieważ posługiwaliśmy tutaj metodą Clebscha, to pamiętamy, że w metodzie Clebschaa są takie dwa magiczne triki.
+Start: 282.00, End: 286.00, Sentence: Pierwszy trik jest związany z odległościami momentu.
+Start: 286.00, End: 287.00, Sentence: Ale to za chwilę.
+Start: 287.00, End: 294.00, Sentence: A teraz drugi trik jest związany z tym, że jeżeli mamy obciążenie ciągłe, to musimy je sobie przedłużyć do końca belki.
+Start: 294.00, End: 297.00, Sentence: Przykładując to z polskiego na nasz, mamy coś takiego.
+Start: 297.00, End: 300.00, Sentence: My liczymy sobie moment względem takiego przecięcia.
+Start: 300.00, End: 303.00, Sentence: W najdalszym przedziale, czyli w przedziale c.
+Start: 303.00, End: 306.00, Sentence: To jest punkt względem, którego mamy policzyć moment.
+Start: 306.00, End: 311.00, Sentence: Ale ponieważ chcemy, żeby to równanie, które zapisujemy, było prawidliwe dla każdego przedziału,
+Start: 311.00, End: 319.00, Sentence: To musimy sobie ten moment zapisać z przedłużonym obciążeniem ciągłym.
+Start: 319.00, End: 322.00, Sentence: Przedłużamy sobie obciążenie ciągłe do końca belki.
+Start: 322.00, End: 324.00, Sentence: Ale wiemy, że jego tutaj nie ma naprawdę.
+Start: 324.00, End: 330.00, Sentence: W związku z tym z drugiej strony belki przykładamy sobie obciążenie ciągłe o tej samej wartości przeciwnie skierowanej.
+Start: 330.00, End: 335.00, Sentence: Czyli tutaj też mamy obciążenie ciągłe o wartości 10.
+Start: 335.00, End: 340.00, Sentence: Zapisuję teraz moment zginający względem tego punktu przecięcia.
+Start: 340.00, End: 343.00, Sentence: Czyli tak samo jak bym liczył sobie zwykły wykres dla belek.
+Start: 343.00, End: 344.00, Sentence: Mg to się równa.
+Start: 344.00, End: 348.00, Sentence: No to jest pierwsza sprawa. Mamy Va razy x.
+Start: 348.00, End: 353.00, Sentence: To Va, ta odległość x-owa względem punktu przecięcia.
+Start: 353.00, End: 355.00, Sentence: To jest standardowo.
+Start: 355.00, End: 356.00, Sentence: Teraz będzie pierwszy trik.
+Start: 356.00, End: 358.00, Sentence: Plus 5.
+Start: 358.00, End: 361.00, Sentence: I teraz uwaga, uwga - razy x do potęgi 0.
+Start: 361.00, End: 362.00, Sentence: Dlaczego?
+Start: 362.00, End: 364.00, Sentence: Można by powiedzieć, bo tak.
+Start: 364.00, End: 369.00, Sentence: W metodzie Clebscha, jeżeli mamy moment skupiony to w tym momencie bierzemy odległość, podnosimy do 0.
+Start: 369.00, End: 371.00, Sentence: I wpisujemy do równania momentów.
+Start: 371.00, End: 373.00, Sentence: Natomiast dlaczego my to musimy robić?
+Start: 373.00, End: 376.00, Sentence: Bo my za chwilę będziemy to równanie całkować.
+Start: 376.00, End: 381.00, Sentence: I o ile dla tej piątki, dla tego momentu naszego M1 to nie będzie miało znaczenia.
+Start: 381.00, End: 384.00, Sentence: Bo jak to zcałkujemy to i tak dostaniemy 5x.
+Start: 384.00, End: 386.00, Sentence: Potem 5x kwadrat przez 2 itd.
+Start: 386.00, End: 390.00, Sentence: Wtedy to będzie miało bardzo duże znaczenie dla momentu M2.
+Start: 390.00, End: 393.00, Sentence: Ale za chwilę do niego dojdziemy, to będziemy sobie o nim rozmawiali.
+Start: 393.00, End: 398.00, Sentence: Potem mamy 20 raz (x-2).
+Start: 398.00, End: 403.00, Sentence: To 20 ta odległość, czyli odległość x-owa odjęć 2 metry.
+Start: 403.00, End: 406.00, Sentence: Można też to sobie zapamiętać tak mnemotechnicznie.
+Start: 406.00, End: 411.00, Sentence: Tutaj zawsze mamy położenie punktu przyłożenia siły albo punktu początkowego obciążenia ciągłego.
+Start: 411.00, End: 416.00, Sentence: Czyli teraz jak mamy obciążenie ciągłe, minus.
+Start: 416.00, End: 419.00, Sentence: Wartość obciążenia, czyli 10 razy x.
+Start: 419.00, End: 422.00, Sentence: Na razie zapisaliśmy sobie wypadkową, ale właśnie.
+Start: 422.00, End: 425.00, Sentence: To nie jest razy x, tylko razy x-2.
+Start: 425.00, End: 428.00, Sentence: Dlatego, że widzimy, że to obciążenie nie zaczyna się w punkcie A.
+Start: 428.00, End: 432.00, Sentence: Nie zaczyna się dla spółrzędnej x-0, tylko ono zaczyna się na x-2.
+Start: 432.00, End: 435.00, Sentence: Dlatego, że na razie to mamy to.
+Start: 435.00, End: 437.00, Sentence: Razem z tym kawałkiem różowym.
+Start: 437.00, End: 440.00, Sentence: Zwróćcie uwagę, bo to ma być to przedłużone obciążenie.
+Start: 440.00, End: 442.00, Sentence: Czyli tutaj mamy coś takiego.
+Start: 442.00, End: 444.00, Sentence: Powiedzmy, że to jest w środku na oko.
+Start: 444.00, End: 447.00, Sentence: I tutaj mamy 10 razy x-2.
+Start: 447.00, End: 451.00, Sentence: Bo to jest ten kawałeczek.
+Start: 451.00, End: 454.00, Sentence: To jest nasze x-2.
+Start: 454.00, End: 457.00, Sentence: No i oczywiście razy x-2 przez 2.
+Start: 457.00, End: 462.00, Sentence: Bo pamiętamy, że wypadkowe obciążenie ciągłego zawsze znajduje się w środku geometrycznym obciążenia.
+Start: 462.00, End: 464.00, Sentence: Wiadomo.
+Start: 464.00, End: 468.00, Sentence: Następnie mamy moment przyłożony o wartości 15.
+Start: 468.00, End: 470.00, Sentence: Czyli minus 15.
+Start: 470.00, End: 472.00, Sentence: I tutaj zwróćcie na to uwagę.
+Start: 472.00, End: 474.00, Sentence: Mamy x-6.
+Start: 474.00, End: 478.00, Sentence: Gdybyśmy tutaj nie dopisali tego x-6 oczywiście do zerowej, bo to jest moment.
+Start: 478.00, End: 482.00, Sentence: No to wtedy przy całkowaniu to byłoby minus 15x.
+Start: 482.00, End: 484.00, Sentence: A to tak niestety nie działa.
+Start: 484.00, End: 487.00, Sentence: My musimy sobie uwzględnić to x-6 do zerowej.
+Start: 487.00, End: 495.00, Sentence: Po to, że później  w-prim, czyli kąt obrotu i w, czyli ugięcie, wyszły nam poprawnie.
+Start: 496.00, End: 499.00, Sentence: No i oczywiście bierzemy pod uwagę plus.
+Start: 499.00, End: 503.00, Sentence: Tutaj sobie pozwolę zapisać w takiej wersji skróconej już to obciążenie ciągłe.
+Start: 503.00, End: 508.00, Sentence: Jedna druga razy 10 razy x-6 do kwadratu.
+Start: 508.00, End: 511.00, Sentence: Zwróćcie uwagę, że to jest bardzo analogiczne.
+Start: 511.00, End: 520.00, Sentence: To jest tak naprawdę zapisanie 10 razy x-6 razy x-6 do kwadratu, ale w krótszej postaci.
+Start: 520.00, End: 525.00, Sentence: Dobra i teraz tak. Po pierwsze zapisaliśmy wszystkie elementy.
+Start: 525.00, End: 530.00, Sentence: Tak, vd i hd wiadomo, że są już za przecięciami, w związku z tym na nie nie patrzymy.
+Start: 530.00, End: 533.00, Sentence: Za va sobie za chwilę podstawimy to, co nam wyszło,
+Start: 533.00, End: 538.00, Sentence: Dlatego, że teraz podstawiamy sobie do równania linii ugięcia.
+Start: 538.00, End: 545.00, Sentence: W postaci różniczkowej EI razy w-bis równa się minus mg.
+Start: 545.00, End: 548.00, Sentence: Ten minus jest związany z tym, jaki przyjmujemy układ odniesienia.
+Start: 548.00, End: 552.00, Sentence: Tutaj nie będziemy się na to jakoś mocno zastanawiać, ale pamiętajmy o jednej rzeczy,
+Start: 552.00, End: 559.00, Sentence: Że to, co my policzymy, to będzie względem takiego układu.
+Start: 559.00, End: 562.00, Sentence: W pod dodatnik skierowany pionowo w dół.
+Start: 562.00, End: 565.00, Sentence: Osiksa, bo już wiemy, że jest skierowana w prawo.
+Start: 565.00, End: 570.00, Sentence: Natomiast ważne jest to, że kąt obrotu będzie skierowany zgodnie z ruchem wskazówek zegara,
+Start: 570.00, End: 576.00, Sentence: Czyli to jest nasz dodatnik kątu obrotu, nazwijmy go phi, a inaczej w'.
+Start: 576.00, End: 584.00, Sentence: Przepisuję sobie teraz to samo równanie, zamieniając znaki i podstawiając sobie to, co jestem w stanie.
+Start: 584.00, End: 599.00, Sentence: Czyli mam tak minus 6,25 razy x minus 5 razy x do 0, minus 20 razy x minus 2 plus.
+Start: 599.00, End: 604.00, Sentence: I teraz uwaga, zapiszę sobie 5 razy x minus 2 do kwadratu.
+Start: 604.00, End: 607.00, Sentence: Już sobie skróciłem, wymnożyłem to, co byłem w stanie.
+Start: 607.00, End: 611.00, Sentence: Natomiast nie należy, broń Boże, otwierać tych nawiasów.
+Start: 611.00, End: 614.00, Sentence: Czyli nie wymnażamy sobie żadnych wzorów z plusównego mnożenia, nic takiego.
+Start: 614.00, End: 618.00, Sentence: Te nawiasy mają zostać w takiej postaci w równaniu Clebscha.
+Start: 618.00, End: 626.00, Sentence: Plus 15 razy x minus 6 do potęgi 0, minus 5 razy x minus 6 do kwadratu.
+Start: 626.00, End: 629.00, Sentence: I teraz tak, są dwie szkoły.
+Start: 629.00, End: 635.00, Sentence: Ja osobiście bardzo często tłumaczę studentom, żeby niekoniecznie zapisywali, co jest którym przedziałem,
+Start: 635.00, End: 638.00, Sentence: Bo to widać po tym, co mamy w nawiasie, prawda?
+Start: 638.00, End: 644.00, Sentence: Ale tutaj, jako że niektórzy prowadzący tego wymagają, zapiszmy sobie, że te dwa człony,
+Start: 644.00, End: 650.00, Sentence: Czyli minus 6,25x minus 5x do 0, to jest zawartość przedziału AB.
+Start: 650.00, End: 655.00, Sentence: Następnie to jest zawartość przedziału BC.
+Start: 656.00, End: 658.00, Sentence: No i to jest oczywiście zawartość przedziału CD.
+Start: 658.00, End: 660.00, Sentence: Dlaczego to jest ważne?
+Start: 660.00, End: 663.00, Sentence: Dlatego, że za chwilę, zarówno jak będziemy zapisywali warunki brzegowe,
+Start: 663.00, End: 669.00, Sentence: Jak i kiedy będziemy chcieli policzyć sobie wartości ugięcia czy kąta obrotu dla konkretnego punktu,
+Start: 669.00, End: 675.00, Sentence: To będzie dla nas miało ogromne znaczenie, czy dany element równania powinniśmy brać pod uwagę.
+Start: 675.00, End: 677.00, Sentence: Za chwilę zobaczycie.
+Start: 677.00, End: 683.00, Sentence: Całkuję, co brzmi strasznie, ale wiemy, że to są banalnie proste całki.
+Start: 683.00, End: 691.00, Sentence: Czyli minus 6,25 za x mamy całkę z x, czyli x kwadrat przez 2 minus 5.
+Start: 691.00, End: 693.00, Sentence: Całka z x do 0 to jest x.
+Start: 693.00, End: 696.00, Sentence: Przedział AB zakończony.
+Start: 696.00, End: 700.00, Sentence: Minus 20 razy x minus 2 do kwadratu przez 2.
+Start: 700.00, End: 705.00, Sentence: Zwróćcie uwagę, że ja to całkuję jako całość, tak?
+Start: 705.00, End: 711.00, Sentence: Plus 5x minus 2 do potęgi trzeciej przez 3.
+Start: 711.00, End: 713.00, Sentence: Znowu przecałkowałem jako całość.
+Start: 713.00, End: 717.00, Sentence: Jeżeli macie wątpliwości, czy tak wolno, to tak wolno jak najbardziej.
+Start: 717.00, End: 723.00, Sentence: I odsyłam do literatury, żeby sprawdzić, dlaczego tak wolno.
+Start: 726.00, End: 730.00, Sentence: X minus 6 do potęgi trzeciej przez 3.
+Start: 730.00, End: 732.00, Sentence: Oznaczamy sobie CD.
+Start: 732.00, End: 736.00, Sentence: Pamiętamy o stałych całkowaniach, bo to jest całka nieoznaczona.
+Start: 738.00, End: 740.00, Sentence: Następnie mamy EI razy W.
+Start: 740.00, End: 742.00, Sentence: Kolejna całka.
+Start: 742.00, End: 745.00, Sentence: Minus 6,25x do trzeciej przez 6.
+Start: 745.00, End: 749.00, Sentence: Minus 5x kwadrat przez 2.
+Start: 749.00, End: 753.00, Sentence: Zwróćcie uwagę, ja tutaj znowu zrobiłem sobie troszeczkę za szybko może.
+Start: 753.00, End: 755.00, Sentence: Mieliśmy x do kwadratu przez 2.
+Start: 755.00, End: 756.00, Sentence: Mamy x do trzeciej przez 6.
+Start: 756.00, End: 757.00, Sentence: Czemu?
+Start: 757.00, End: 759.00, Sentence: No bo tam tak naprawdę jest 2 razy 3.
+Start: 759.00, End: 761.00, Sentence: Było x kwadrat przez 2.
+Start: 761.00, End: 762.00, Sentence: Policzyłem całkę.
+Start: 762.00, End: 765.00, Sentence: Powinno być x do trzeciej przez 2 razy 3.
+Start: 765.00, End: 767.00, Sentence: 2 razy 3 to jest 6.
+Start: 767.00, End: 769.00, Sentence: To jesteśmy w stanie policzyć w pamięci.
+Start: 770.00, End: 773.00, Sentence: Minus 20x minus 2.
+Start: 773.00, End: 776.00, Sentence: Znowu ta sama bajka tutaj rozpiszę poprawnie.
+Start: 778.00, End: 782.00, Sentence: Plus 5x minus 2 do potęgi czwartej.
+Start: 782.00, End: 784.00, Sentence: 3 razy 4.
+Start: 784.00, End: 789.00, Sentence: Równie dobrze mógłbym napisać 12, ale zapiszmy sobie tak w wersji łopatologicznej.
+Start: 789.00, End: 793.00, Sentence: X minus 6 do kwadratu przez 2.
+Start: 793.00, End: 797.00, Sentence: Minus 5x minus 6 do potęgi czwartej przez.
+Start: 797.00, End: 801.00, Sentence: A tutaj perfidnie sobie zapiszę dla odmiany 12.
+Start: 801.00, End: 803.00, Sentence: Przedział CD zakończony.
+Start: 803.00, End: 804.00, Sentence: Plus C.
+Start: 804.00, End: 806.00, Sentence: No ale C też całkowałem.
+Start: 806.00, End: 807.00, Sentence: No Cx.
+Start: 807.00, End: 810.00, Sentence: I nowa stała.
+Start: 811.00, End: 813.00, Sentence: No i mamy sobie równanie linii ugięcia.
+Start: 813.00, End: 818.00, Sentence: Mamy sobie równanie kąta obrotu dla dowolnego punktu.
+Start: 819.00, End: 822.00, Sentence: Natomiast nie mamy C i D.
+Start: 822.00, End: 825.00, Sentence: I teraz tak. Skąd wziąć sobie stałe C i D?
+Start: 825.00, End: 829.00, Sentence: Stałe C i D musimy wyliczyć z warunków brzegowych.
+Start: 829.00, End: 834.00, Sentence: No i teraz tak. Co to są warunki brzegowe w przypadku tego typu belek?
+Start: 834.00, End: 837.00, Sentence: Sprawa jest banalnie prosta.
+Start: 837.00, End: 840.00, Sentence: Potem jak sobie uzmysłowimy,
+Start: 840.00, End: 845.00, Sentence: Że my tak naprawdę intuicyjnie większość warunków brzegowych jesteśmy w stanie sobie wypisać.
+Start: 845.00, End: 851.00, Sentence: Ciekawsze warunki brzegowe, a właściwie warunek zszycia będzie występował dla belki przegubowej.
+Start: 851.00, End: 854.00, Sentence: Ale to przy innej okazji.
+Start: 854.00, End: 857.00, Sentence: I teraz tak. Co my wiemy o punkcie A?
+Start: 857.00, End: 859.00, Sentence: Tam jest podpora.
+Start: 859.00, End: 863.00, Sentence: W związku z powyższym, jeżeli mamy podporę, to ile wynosi ugięcie?
+Start: 863.00, End: 865.00, Sentence: Ugięcie jest równe 0.
+Start: 865.00, End: 867.00, Sentence: Ugięcie na podporze zawsze jest równe 0.
+Start: 867.00, End: 870.00, Sentence: Dlatego, że ugięcie to jest nic innego jak przemieszczenie pionowe.
+Start: 870.00, End: 873.00, Sentence: Tutaj dla nas i w tym konkretnym przypadku.
+Start: 873.00, End: 878.00, Sentence: W związku z powyższym widzimy, że podpora nie przesuwa się w górę, nie przesuwa się w dół.
+Start: 878.00, End: 881.00, Sentence: Podpora ma być cały czas na tym samym poziomie.
+Start: 881.00, End: 885.00, Sentence: W związku z powyższym, ugięcie na podporze jest równe 0.
+Start: 885.00, End: 890.00, Sentence: I od razu zaznaczam, nie ma znaczenia czy ta podpora jest przesuwna w poziomie czy nieprzesuwna.
+Start: 890.00, End: 893.00, Sentence: My rozmawiamy o pionowym przemieszczeniu.
+Start: 893.00, End: 896.00, Sentence: Tutaj będziemy korzystali tylko z tego warunku.
+Start: 896.00, End: 899.00, Sentence: Natomiast przy okazji pamiętajcie, że jak macie utwierdzenie,
+Start: 899.00, End: 904.00, Sentence: To tam zarówno ugięcie jest równe 0, jak i kąt obrotu jest równe 0.
+Start: 905.00, End: 908.00, Sentence: A z kolei, gdy wam się kiedyś zdarzyła łyżwa pionowa,
+Start: 908.00, End: 915.00, Sentence: Czyli mówiąc bardziej poprawnie, utwierdzenie z przesuwem,
+Start: 915.00, End: 918.00, Sentence: No to tam tylko w' (kąt obrotu) jest równy 0.
+Start: 918.00, End: 923.00, Sentence: Dlatego, że coś takiego oznacza, że to teoretycznie może się przesuwać pionowo.
+Start: 923.00, End: 928.00, Sentence: Natomiast w dalszym ciągu kąt obrotu w tym punkcie pozostaje 0.
+Start: 928.00, End: 931.00, Sentence: I teraz tak, jak użyć tych warunków brzegowych?
+Start: 931.00, End: 934.00, Sentence: Mamy podporę dla x równego 0. To jest punkt A.
+Start: 934.00, End: 937.00, Sentence: No i tam ugięcie jest równe 0.
+Start: 937.00, End: 940.00, Sentence: Ugięcie równe 0 na podporze w punkcie o współrzędnej 0
+Start: 940.00, End: 943.00, Sentence: To jest najwspanialsza rzecz, która nas może spotkać w tych zadaniach.
+Start: 943.00, End: 945.00, Sentence: Dlatego, że zobaczcie.
+Start: 945.00, End: 949.00, Sentence: Ja tak naprawdę podstawiam po pierwsze tylko do przedziału,
+Start: 949.00, End: 951.00, Sentence: W którym znajduje się dana podpora.
+Start: 951.00, End: 954.00, Sentence: Dana podpora znajduje się w przedziale AB.
+Start: 954.00, End: 957.00, Sentence: W związku z powyższym ja podstawiam tylko tu.
+Start: 958.00, End: 962.00, Sentence: Ale nawet jak podstawię tylko tu, to i tak to się zeruje, to się zeruje.
+Start: 962.00, End: 966.00, Sentence: W związku z tym mam 0 plus 0. Oczywiście nie będę tego pisał.
+Start: 966.00, End: 968.00, Sentence: Teraz tak, ten pomijamy.
+Start: 968.00, End: 972.00, Sentence: Pomijamy po pierwsze dlatego, że podpora A nie znajduje się w przedziale BC.
+Start: 972.00, End: 974.00, Sentence: Ona znajduje się przed tym przedziałem.
+Start: 974.00, End: 977.00, Sentence: W związku z tym do tego równania jej nie wstawiamy.
+Start: 977.00, End: 981.00, Sentence: Gdybyście zapomnieli tę zasadę, że nie bierzemy tego pod uwagę,
+Start: 981.00, End: 984.00, Sentence: To pamiętajcie o tym, że to co my mamy w nawiasie to jest położenie siły.
+Start: 984.00, End: 989.00, Sentence: Jak wstawicie tutaj 0, to dostaniecie 0 minus 2, minus 2 metry.
+Start: 989.00, End: 992.00, Sentence: Nie bardzo można być na minus 2 metrze.
+Start: 992.00, End: 996.00, Sentence: W związku z powyższym do tych elementów tego nie podstawiamy.
+Start: 996.00, End: 997.00, Sentence: Idziemy do stałych.
+Start: 997.00, End: 999.00, Sentence: No to dostajemy plus 0 ze 0.
+Start: 999.00, End: 1002.00, Sentence: Tego też nie będziemy pisać, bo 0 to 0.
+Start: 1002.00, End: 1004.00, Sentence: Plus D.
+Start: 1004.00, End: 1007.00, Sentence: No to dostajemy 0 równa się D.
+Start: 1008.00, End: 1011.00, Sentence: Jak to zapamiętać, jak jeszcze prościej.
+Start: 1011.00, End: 1017.00, Sentence: Jeżeli mamy ugięcie dla x równego 0 o wartości 0, to D też będzie równy 0.
+Start: 1017.00, End: 1018.00, Sentence: Bo co to jest D?
+Start: 1018.00, End: 1023.00, Sentence: D to jest właśnie wartość ugięcia dla x równego 0.
+Start: 1025.00, End: 1027.00, Sentence: A teraz drugi warunek już jest mniej sympatyczny.
+Start: 1027.00, End: 1029.00, Sentence: Mamy W od x równego...
+Start: 1030.00, End: 1031.00, Sentence: Gdzie jest druga podpora?
+Start: 1031.00, End: 1032.00, Sentence: W punkcie D.
+Start: 1032.00, End: 1035.00, Sentence: No to punkt D ma współrzędną od 0 patrząc.
+Start: 1035.00, End: 1038.00, Sentence: 2 plus 4 to 6, plus 2 to 8.
+Start: 1038.00, End: 1041.00, Sentence: Czyli mamy W dla x równego 8, też równe 0.
+Start: 1041.00, End: 1045.00, Sentence: No i niestety punkt D znajduje się w przedziale CD.
+Start: 1045.00, End: 1049.00, Sentence: Czyli bierzemy pod uwagę wszystko od początku do końca.
+Start: 1050.00, End: 1053.00, Sentence: No i trzeba by to teraz mozolnie przepisać.
+Start: 1053.00, End: 1055.00, Sentence: No i z bólem serca to właśnie uczynię.
+Start: 1055.00, End: 1060.00, Sentence: Minus 6,25, 8 do potęgi 3 przez 6.
+Start: 1061.00, End: 1063.00, Sentence: Minus 5 razy 8 do kwadratu przez 2.
+Start: 1063.00, End: 1066.00, Sentence: Oczywiście podstawiam za x, prawda?
+Start: 1067.00, End: 1074.00, Sentence: Staramy się w miarę możliwości to od razu sobie upraszczać, skracać itd.
+Start: 1074.00, End: 1076.00, Sentence: Za chwilę to będziemy wklepywać na kalkulator.
+Start: 1076.00, End: 1081.00, Sentence: W związku z tym staramy się, żeby to było jak najkrótsze do wklepania.
+Start: 1081.00, End: 1086.00, Sentence: Żeby się w mniejszym stopniu mieć możliwość pomylić na kalkulatorze.
+Start: 1092.00, End: 1094.00, Sentence: I wydaje mi się, że wpisałem to w porządku.
+Start: 1094.00, End: 1098.00, Sentence: D jest oczywiście równo 0, no to już się nie bawimy w pisanie 0, no bo bez sensu.
+Start: 1099.00, End: 1101.00, Sentence: I z tego sobie teraz liczymy C.
+Start: 1101.00, End: 1103.00, Sentence: No to wpisujemy to na kalkulator.
+Start: 1107.00, End: 1108.00, Sentence: Dostajemy tak.
+Start: 1108.00, End: 1115.00, Sentence: Minus 6,25 razy 8 do potęgi 3 przez 6.
+Start: 1115.00, End: 1125.00, Sentence: Odjąć 5 razy 8 do kwadratu przez 2.
+Start: 1125.00, End: 1130.00, Sentence: Odjąć 20 razy 6 do potęgi 3 przez 6.
+Start: 1130.00, End: 1133.00, Sentence: Dodać 5 razy 12 do potęgi 4.
+Start: 1133.00, End: 1137.00, Sentence: Dodać 15 razy 2 do kwadratu przez 2.
+Start: 1137.00, End: 1143.00, Sentence: Odjąć 5 razy 2 do potęgi 4 przez 12.
+Start: 1143.00, End: 1146.00, Sentence: Wychodzi nam minus 850.
+Start: 1146.00, End: 1148.00, Sentence: Trochę miejsca zaczyna brakować.
+Start: 1148.00, End: 1153.00, Sentence: Znaczmy sobie te równania, z których nie będziemy korzystać.
+Start: 1153.00, End: 1156.00, Sentence: Z równania momentów to na pewno nie będziemy korzystać.
+Start: 1156.00, End: 1166.00, Sentence: I z równania wobisa również raczej nie będziemy musieli już w tym zadaniu korzystać.
+Start: 1166.00, End: 1169.00, Sentence: No i teraz mamy sobie minus 850.
+Start: 1170.00, End: 1173.00, Sentence: Dodać 8C równa się 0.
+Start: 1173.00, End: 1178.00, Sentence: No to po skomplikowanych obliczeniach C równa się 850/8.
+Start: 1178.00, End: 1179.00, Sentence: Teraz tak.
+Start: 1179.00, End: 1181.00, Sentence: Nie będę robił rachunku jednostek.
+Start: 1181.00, End: 1191.00, Sentence: Przyjmijmy na wiarę, że C będzie wyrażone w kN razy m do potęgi 2.
+Start: 1191.00, End: 1193.00, Sentence: I elegancko.
+Start: 1193.00, End: 1194.00, Sentence: I teraz tak.
+Start: 1194.00, End: 1197.00, Sentence: Mamy już wszystko, co jest nam do szczęścia potrzebne.
+Start: 1197.00, End: 1201.00, Sentence: Abyśmy mogli wyliczyć ugięcie w punkcie dowolnym, kąt obrotu w punkcie dowolnym.
+Start: 1201.00, End: 1203.00, Sentence: Nas w treści zadania proszą konkretnie.
+Start: 1203.00, End: 1205.00, Sentence: Oblicz ugięcie w punkcie B.
+Start: 1205.00, End: 1211.00, Sentence: No to jeżeli oblicz ugięcie w punkcie B, no to piszemy sobie, że WB to się równa.
+Start: 1211.00, End: 1216.00, Sentence: W od X równego 2.
+Start: 1216.00, End: 1217.00, Sentence: I teraz tak.
+Start: 1217.00, End: 1219.00, Sentence: Na czym ludzie się wykładają bardzo często?
+Start: 1219.00, End: 1224.00, Sentence: Po tym, że zapominają o tym, że my tam po lewej stronie mamy jeszcze EI.
+Start: 1224.00, End: 1228.00, Sentence: Myśmy sobie o nim mogli zapomnieć w momencie, kiedy ugięcie było równe 0.
+Start: 1228.00, End: 1232.00, Sentence: A teraz tutaj już musimy pamiętać, że to EI sobie przerzucamy na prawą stronę.
+Start: 1232.00, End: 1234.00, Sentence: Mamy 1 nad EI.
+Start: 1234.00, End: 1240.00, Sentence: Gdzie EI to jest sztywność, którą policzyliśmy na samym początku i zajmuje nam tutaj miejsce w prawym górnym rogu.
+Start: 1240.00, End: 1242.00, Sentence: A teraz wstawiamy sobie.
+Start: 1242.00, End: 1243.00, Sentence: I teraz tak.
+Start: 1243.00, End: 1246.00, Sentence: Punkt B należy, jak sama nazwa wskazuje, do przedziału AB.
+Start: 1246.00, End: 1250.00, Sentence: W związku z tym wpisujemy to tutaj.
+Start: 1250.00, End: 1254.00, Sentence: No i pamiętamy o C.
+Start: 1254.00, End: 1257.00, Sentence: Minus 6, 25.
+Start: 1257.00, End: 1258.00, Sentence: X równa się 2.
+Start: 1258.00, End: 1260.00, Sentence: To 2 do 3 przez 6.
+Start: 1260.00, End: 1264.00, Sentence: Minus 5, 2 do kwadratu przez 2.
+Start: 1264.00, End: 1271.00, Sentence: No i plus 6, czyli plus 850 przez 8 razy również 2.
+Start: 1271.00, End: 1276.00, Sentence: Szybciutko wbijamy to w kalkulator.
+Start: 1276.00, End: 1280.00, Sentence: Minus 6, 25 razy 2 do potęgi trzeciej.
+Start: 1280.00, End: 1283.00, Sentence: Przez 6, minus 5 przez 2 razy 2 do kwadratu.
+Start: 1283.00, End: 1287.00, Sentence: Plus 850 od 8 razy 2.
+Start: 1287.00, End: 1292.00, Sentence: Wychodzi nam w tak zwanym międzyczasie, którego nie ma.
+Start: 1292.00, End: 1296.00, Sentence: Sobie szybko sprawdzę, czy tak samo mi wyszło, jak liczyłem to wcześniej.
+Start: 1296.00, End: 1297.00, Sentence: Wydaje mi się, że tak.
+Start: 1297.00, End: 1299.00, Sentence: 194,17.
+Start: 1299.00, End: 1300.00, Sentence: Teraz tak.
+Start: 1300.00, End: 1302.00, Sentence: Z EI też podstawimy.
+Start: 1302.00, End: 1304.00, Sentence: Podstawimy sobie 350,55.
+Start: 1304.00, End: 1306.00, Sentence: Teraz uwaga, uwaga.
+Start: 1306.00, End: 1311.00, Sentence: To co jest na górze, będzie miało jednostkę kNm do trzeciej.
+Start: 1311.00, End: 1315.00, Sentence: A tu mamy kNm kwadrat.
+Start: 1315.00, End: 1319.00, Sentence: W związku z tym elegancko nam wyjdzie wynik w metrach.
+Start: 1334.00, End: 1347.00, Sentence: Wyszło nam 0,5539 m.
+Start: 1347.00, End: 1350.00, Sentence: Oczywiście zawahałem się przed chwilą, dlatego że
+Start: 1350.00, End: 1355.00, Sentence: Te zadania, z tego co pamiętam, pisałem chyba samodzielnie.
+Start: 1355.00, End: 1358.00, Sentence: Nie ukrywam, że nie jest to najmądrzejszy wynik na świecie.
+Start: 1358.00, End: 1360.00, Sentence: Jest on mało związany z rzeczywistością.
+Start: 1360.00, End: 1363.00, Sentence: Wyszło nam ugięcie o wartości 55 cm.
+Start: 1363.00, End: 1368.00, Sentence: Wiadomo, że w praktyce inżynierskiej, jak nam wyjdzie gdzieś ugięcie 55 cm,
+Start: 1368.00, End: 1370.00, Sentence: To zaczynamy się dosyć mocno niepokoić.
+Start: 1370.00, End: 1372.00, Sentence: Tutaj wyszło, jak wyszło.
+Start: 1372.00, End: 1374.00, Sentence: Należy w takim przypadku zwiększyć przekrój.
+Start: 1374.00, End: 1377.00, Sentence: Wtedy dzieląc przez większą sztywność uzyskamy mniejsze ugięcie.
+Start: 1377.00, End: 1379.00, Sentence: Wynik jest poprawny liczbowo.
+Start: 1379.00, End: 1382.00, Sentence: W związku z tym przechodzimy sobie do kolejnej kwestii.
+Start: 1382.00, End: 1387.00, Sentence: Mamy obliczyć kąt obrotu w punkcie C.
+Start: 1387.00, End: 1391.00, Sentence: Na marginesie, gdyby takie zadanie było gdzieś tam zadane na kolokwium,
+Start: 1391.00, End: 1394.00, Sentence: Czy na egzaminie i prosili o skomentowanie wyniku,
+Start: 1394.00, End: 1397.00, Sentence: To ja bym wtedy ten wynik skomentował w ten sposób,
+Start: 1397.00, End: 1400.00, Sentence: Że należałoby przyjąć inny przekrój,
+Start: 1400.00, End: 1407.00, Sentence: Czyli na przykład zmienić sobie kształtownik na większy.
+Start: 1407.00, End: 1411.00, Sentence: Dlatego, że ta sztywność, jak widać, robi dziwne rzeczy z tym przekrojem.
+Start: 1411.00, End: 1415.00, Sentence: To jest zupełnie rzecz, której nie chcielibyśmy w praktyce inżynierskiej.
+Start: 1415.00, End: 1418.00, Sentence: Dobra, kąt obrotu w punktu C pewnie też wyjdzie śmieszny.
+Start: 1418.00, End: 1424.00, Sentence: Phi C to jest W' dla X równego, gdzie jest punkt C, X równa się 6.
+Start: 1424.00, End: 1427.00, Sentence: No to lecimy sobie w takim razie z podstawieniem.
+Start: 1427.00, End: 1430.00, Sentence: Tylko teraz uwaga, my nie podstawiamy do E i W,
+Start: 1430.00, End: 1433.00, Sentence: My podstawiamy do E i W'
+Start: 1433.00, End: 1437.00, Sentence: Dlatego, że W, to jak już sobie stwierdziliśmy, jest gięcie,
+Start: 1437.00, End: 1440.00, Sentence: A W' jest kątem obrotu.
+Start: 1440.00, End: 1444.00, Sentence: W związku z tym teraz podstawiamy do równania kąta obrotu.
+Start: 1444.00, End: 1449.00, Sentence: 1 nad E i pamiętamy dlaczego.
+Start: 1449.00, End: 1452.00, Sentence: Minus 6, 25 razy 6 kwadrat przez 2,
+Start: 1452.00, End: 1455.00, Sentence: Minus 5 razy 6,
+Start: 1455.00, End: 1459.00, Sentence: Minus 20, 4 do kwadratu przez 2,
+Start: 1459.00, End: 1462.00, Sentence: Plus 5, 4 do kwadratu,
+Start: 1462.00, End: 1466.00, Sentence: Sorry, 4 do trzeciej.
+Start: 1466.00, End: 1472.00, Sentence: I tyle, dlatego, że punkt C należy do przedziału Bc.
+Start: 1472.00, End: 1475.00, Sentence: Czyli bierzemy Bc i wszystko przed Bc.
+Start: 1475.00, End: 1478.00, Sentence: Do tego nie bierzemy, wiadomo, zresztą gdyśmy nawet podstawili,
+Start: 1478.00, End: 1483.00, Sentence: No to mamy X równego 6, 6 minus 6, 0, 6 minus 6, 0 plus C.
+Start: 1483.00, End: 1488.00, Sentence: No i bierzemy sobie plus 850/8.
+Start: 1488.00, End: 1491.00, Sentence: Wrzucamy to szybko do kalkulatora.
+Start: 1495.00, End: 1498.00, Sentence: Minus 6, 25 razy 6 do kwadratu przez 2,
+Start: 1498.00, End: 1501.00, Sentence: Minus 5 razy 6, minus 20 razy 4 do kwadratu przez 2,
+Start: 1501.00, End: 1504.00, Sentence: Plus 5 razy 4 do trzeciej przestrzeni,
+Start: 1504.00, End: 1507.00, Sentence: Plus 850/8.
+Start: 1507.00, End: 1512.00, Sentence: Wychodzi nam minus 89,58 przez EI,
+Start: 1512.00, End: 1515.00, Sentence: EI jest 350,55.
+Start: 1515.00, End: 1518.00, Sentence: Szybciutko jednostki.
+Start: 1518.00, End: 1522.00, Sentence: Kilonewton razy metr do kwadratu przez kilonewton razy metr do kwadratu.
+Start: 1522.00, End: 1525.00, Sentence: Widzi nic.
+Start: 1525.00, End: 1528.00, Sentence: W praktyce wyjdą nam radiany, bo wiemy, że to jest kąt obrotu.
+Start: 1528.00, End: 1533.00, Sentence: Czyli wychodzi nam 89,58 dzielono na 350,55,
+Start: 1533.00, End: 1540.00, Sentence: Czyli 0,255 na minusie radiana.
+Start: 1540.00, End: 1546.00, Sentence: Co też widzimy, że jest wynikiem nie bardzo takim możliwym do zaistnienia w rzeczywistości.
+Start: 1546.00, End: 1550.00, Sentence: Możemy sobie, żeby to zobrazować, bo dla większości ludzi to,
+Start: 1550.00, End: 1554.00, Sentence: Że coś wyszło 0,255 radiana to jest takie, no fajnie, że mi wyszło.
+Start: 1554.00, End: 1556.00, Sentence: Co to znaczy?
+Start: 1556.00, End: 1560.00, Sentence: Zobaczymy to sobie na stopnie, zobaczymy, dlaczego ten wynik znowu nie jest racjonalny.
+Start: 1560.00, End: 1564.00, Sentence: Zamiana na stopnie pamiętamy, jak się robi, mam nadzieję.
+Start: 1564.00, End: 1568.00, Sentence: 14,6 coś tam, coś tam stopnia.
+Start: 1568.00, End: 1574.00, Sentence: No to jeżeli nam przekrój obrócił się o 14,6 stopnia,
+Start: 1574.00, End: 1578.00, Sentence: To należy się dosyć mocno zacząć niepokoić.
+Start: 1578.00, End: 1580.00, Sentence: Tym niemniej jest to koniec zadania.
+Start: 1580.00, End: 1585.00, Sentence: Obliczyliśmy zgodnie z treścią ugięcie w punkcie B oraz kąt obrotu w punkcie C.
+Start: 1585.00, End: 1587.00, Sentence: Także dzięki serdecznie za wysłuchanie.
+Start: 1587.00, End: 1593.00, Sentence: Mam nadzieję, że uda się zrozumieć teraz lepiej, prościej, szybciej.
+Start: 1593.00, End: 1597.00, Sentence: No i jak zwykle polecamy się serdecznie. Do usłyszenia.

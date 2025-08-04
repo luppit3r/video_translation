@@ -1,0 +1,46 @@
+Raport kompresji fragmentów ciszy
+=================================
+
+Plik wejściowy: Clebsch_synchronized.mp4
+Plik wyjściowy: gap_report.txt
+
+Fragmenty ciszy znalezione: 35
+Fragmenty z ruchem (pominięte): 26
+Fragmenty skompresowane: 9
+
+Oryginalny czas: 26.6 min (1597.6s)
+Nowy czas: 25.9 min (1551.0s)
+Zaoszczędzony czas: 0.8 min (46.6s)
+Redukcja: 2.9%
+
+Skompresowane gaps (60% dominacja bezruchu):
+--------------------------------------------------------------------------------
+Gap  2: 3:03 - 3:06 ( 3.1s -> 0.5s) [68%] → w nowym video: 3:03
+Gap 17: 17:01 - 17:05 ( 3.7s -> 0.5s) [82%] → w nowym video: 16:58
+Gap 20: 18:22 - 18:27 ( 4.6s -> 0.5s) [78%] → w nowym video: 18:16
+Gap 21: 18:31 - 18:35 ( 3.2s -> 0.5s) [100%] → w nowym video: 18:22
+Gap 22: 18:37 - 18:45 ( 7.6s -> 0.5s) [61%] → w nowym video: 18:24
+Gap 27: 21:12 - 21:16 ( 3.5s -> 0.5s) [85%] → w nowym video: 20:52
+Gap 28: 21:57 - 22:14 (16.7s -> 0.5s) [64%] → w nowym video: 21:34
+Gap 34: 24:49 - 24:55 ( 5.4s -> 0.5s) [73%] → w nowym video: 24:10
+Gap 35: 26:10 - 26:14 ( 3.1s -> 0.5s) [100%] → w nowym video: 25:27
+
+Sprawdź przejścia w NOWYM video: 3:03, 16:58, 18:16, 18:22, 18:24, 20:52, 21:34, 24:10, 25:27
+
+Instrukcje cofnięcia usunięć:
+----------------------------------------
+Jeśli któreś wycięcie było błędne, możesz je cofnąć:
+
+Cofnij Gap 2: python reprocess.py "Clebsch_synchronized.mp4" "gap_report.txt" --exclude-gaps 2
+Cofnij Gap 17: python reprocess.py "Clebsch_synchronized.mp4" "gap_report.txt" --exclude-gaps 17
+Cofnij Gap 20: python reprocess.py "Clebsch_synchronized.mp4" "gap_report.txt" --exclude-gaps 20
+Cofnij Gap 21: python reprocess.py "Clebsch_synchronized.mp4" "gap_report.txt" --exclude-gaps 21
+Cofnij Gap 22: python reprocess.py "Clebsch_synchronized.mp4" "gap_report.txt" --exclude-gaps 22
+Cofnij Gap 27: python reprocess.py "Clebsch_synchronized.mp4" "gap_report.txt" --exclude-gaps 27
+Cofnij Gap 28: python reprocess.py "Clebsch_synchronized.mp4" "gap_report.txt" --exclude-gaps 28
+Cofnij Gap 34: python reprocess.py "Clebsch_synchronized.mp4" "gap_report.txt" --exclude-gaps 34
+Cofnij Gap 35: python reprocess.py "Clebsch_synchronized.mp4" "gap_report.txt" --exclude-gaps 35
+
+Cofnij kilka gaps: python reprocess.py "Clebsch_synchronized.mp4" "gap_report.txt" --exclude-gaps 5,12,18
+
+(Skrypt reprocess.py będzie dodany w przyszłej wersji)

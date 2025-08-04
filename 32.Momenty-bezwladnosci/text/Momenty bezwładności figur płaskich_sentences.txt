@@ -1,0 +1,402 @@
+Start: 0.00, End: 17.00, Sentence: Witam serdecznie, policzymy sobie dzisiaj środek ciężkości oraz momenty bezwładności główne centralne dla figury nieposiadającej osi symetrii, czyli na dzień dobry określimy sobie jakieś osie początkowe, to będą nasze osi dowolne.
+Start: 17.00, End: 21.00, Sentence: Powiedzmy, że przyłożymy je sobie tu.
+Start: 21.00, End: 27.00, Sentence: To będzie nasza oś Y, albo Y0, ale nazwijmy ją po prostu Y.
+Start: 27.00, End: 30.00, Sentence: Tu będzie nasza oś Z.
+Start: 30.00, End: 35.00, Sentence: Następnie, jesteśmy w stanie podzielić sobie tą figurę na figury proste.
+Start: 35.00, End: 38.00, Sentence: Powiedzmy, że podzielimy ją sobie w następujący sposób.
+Start: 38.00, End: 51.00, Sentence: To będzie nasza figura pierwsza, czyli ćwiartka koła, figura druga - trójkąt i figura trzecia to jest cały ten prostokąt, czyli odtąd dotąd.
+Start: 51.00, End: 60.00, Sentence: Ok, teraz zacznijmy od policzenia sobie środków ciężkości, czyli wypisujemy po kolei środki ciężkości w naszym układzie.
+Start: 60.00, End: 68.00, Sentence: Czyli teraz, kiedy będziemy mieli sobie środki ciężkości Y1, Y2, Y3 oznaczać, to my cały czas zaczynamy od tego punktu.
+Start: 68.00, End: 74.00, Sentence: Czyli teraz idziemy sobie Y1 stąd gdzieś dotąd.
+Start: 74.00, End: 82.00, Sentence: Y2 też stąd, też od naszej osi Z, na osi Y się przesuwamy.
+Start: 82.00, End: 84.00, Sentence: To jest nasze Y2.
+Start: 84.00, End: 87.00, Sentence: No i następnie przesuwamy się na naszej osi Y3.
+Start: 87.00, End: 90.00, Sentence: Tutaj jesteśmy w stanie też znaleźć sobie ten środek.
+Start: 90.00, End: 92.00, Sentence: Oczywiście środek C3 jest tutaj.
+Start: 92.00, End: 96.00, Sentence: Środek C2 jest tutaj, gdzie dokładnie jest tutaj, sobie za chwilę opowiemy.
+Start: 96.00, End: 98.00, Sentence: I C1 jest tutaj.
+Start: 98.00, End: 100.00, Sentence: Dlaczego sobie to powiemy?
+Start: 100.00, End: 105.00, Sentence: No bo niby pamiętamy ze szkoły średniej, ale z reguły bardzo dużo osób ma z tym problem.
+Start: 105.00, End: 107.00, Sentence: Jest to u nas w tablicach.
+Start: 107.00, End: 110.00, Sentence: Wyrywki z tablic mamy tutaj w prawym górnym rogu.
+Start: 110.00, End: 112.00, Sentence: W związku z powyższym co my tutaj widzimy?
+Start: 112.00, End: 122.00, Sentence: Że dla figury Y1 nie do końca jesteśmy w stanie to określić bezpośrednio, bo my tak jakby mamy tą resztkę tutaj.
+Start: 122.00, End: 131.00, Sentence: Czyli tak jak tutaj jest 4r przez 3pi, tutaj tak de facto jest nasz promień r, to my mamy to.
+Start: 131.00, End: 136.00, Sentence: A my wiemy, że stąd dotąd będziemy mieli 4r przez 3pi, czyli 4 razy...
+Start: 136.00, End: 138.00, Sentence: Z r już sobie podstawimy tą trójeczkę.
+Start: 138.00, End: 140.00, Sentence: Czyli 4 razy 3 przez 3pi.
+Start: 141.00, End: 151.00, Sentence: Ale ponieważ nas interesuje ta odległość Y1, to my to zapiszemy jako 3 odjąć 4 razy 3 przez 3pi.
+Start: 151.00, End: 154.00, Sentence: Wbijamy to sobie szybko na kalkulator.
+Start: 154.00, End: 157.00, Sentence: Wychodzi nam 1,727.
+Start: 158.00, End: 161.00, Sentence: Zwróćcie uwagę, że to wszystko jest niewymiarowe, bezwymiarowe.
+Start: 161.00, End: 165.00, Sentence: Prawdopodobnie w praktyce to byłoby w centymetrach, albo w jakiejś innej jednostce.
+Start: 165.00, End: 169.00, Sentence: Teraz my to sobie zrobimy bez jednostki, tutaj dla uproszczenia.
+Start: 169.00, End: 171.00, Sentence: Potem mamy Y2.
+Start: 171.00, End: 178.00, Sentence: I teraz tak, Y2 znowu nie mamy bezpośrednio w tablicach, bo mamy taką informację o trójkącie, zresztą też ze szkoły średniej,
+Start: 178.00, End: 181.00, Sentence: Że stąd dotąd mamy 1/3.
+Start: 181.00, End: 185.00, Sentence: A na chłopski rozum stąd dotąd byśmy mieli 2/3 tego wymiaru.
+Start: 186.00, End: 188.00, Sentence: No i tu mamy dokładnie tą sytuację.
+Start: 188.00, End: 191.00, Sentence: Zapisujemy sobie 2/3 z 3.
+Start: 191.00, End: 194.00, Sentence: Czyli to jest nasze 2/3 z 3.
+Start: 194.00, End: 197.00, Sentence: 2/3 z tych 3.
+Start: 197.00, End: 200.00, Sentence: Zapisujemy to sobie, mamy dwójeczkę.
+Start: 200.00, End: 209.00, Sentence: Y3 jest najprostsze, bo jesteśmy w środku ciężkości prostokąta o wymiarach 3x6, ale nas interesuje ta odległość.
+Start: 210.00, End: 216.00, Sentence: Czyli z jednej strony tutaj mamy już 3, a nie, wiemy z linii wymiarowej, że tutaj mamy 3.
+Start: 216.00, End: 219.00, Sentence: I dodajemy sobie jeszcze ten kawałek tutaj.
+Start: 219.00, End: 223.00, Sentence: Czyli mamy 3 plus 3/2, bo połowa z 3.
+Start: 223.00, End: 227.00, Sentence: Od tego nawet nie trzeba na kalkulatorze, wychodzi 4,5.
+Start: 227.00, End: 231.00, Sentence: Następnie wypisujemy sobie środki ciężkości na osi zetowej.
+Start: 233.00, End: 239.00, Sentence: Od razu możemy zauważyć, że dla osi z1 będziemy mieli sytuację taką.
+Start: 239.00, End: 241.00, Sentence: To jest nasze z1, no nie?
+Start: 243.00, End: 245.00, Sentence: Potem dla z2 mamy tak.
+Start: 245.00, End: 246.00, Sentence: Idziemy tak jakby pod oś.
+Start: 246.00, End: 251.00, Sentence: Zwróćcie uwagę, to będzie faktycznie uwzględnione, że to będzie szło przeciwnie do naszej osi zetowej.
+Start: 252.00, End: 255.00, Sentence: No i tutaj mamy środek ciężkości dokładnie na osi.
+Start: 255.00, End: 258.00, Sentence: W związku z tym z3 od razu sobie piszemy 0.
+Start: 260.00, End: 262.00, Sentence: I teraz dla z1 bierzemy wartość z tablic.
+Start: 262.00, End: 264.00, Sentence: To jest 4r przez 3pi.
+Start: 264.00, End: 268.00, Sentence: Czyli mamy 4 razy 3 przez 3pi.
+Start: 268.00, End: 270.00, Sentence: No jest to samo, prawda, co ostatnio.
+Start: 270.00, End: 272.00, Sentence: 4r przez 3pi.
+Start: 272.00, End: 275.00, Sentence: Ewentualnie możemy to sobie zapisać w przybliżeniu, ale to za chwilę.
+Start: 275.00, End: 280.00, Sentence: Natomiast na z2 mamy po prostu 1 trzecia z 3.
+Start: 280.00, End: 283.00, Sentence: Ale co ważne, zgodnie z tym co mówiłem, jesteśmy poniżej osi.
+Start: 283.00, End: 285.00, Sentence: Czyli piszemy sobie minus 1 trzecia z 3.
+Start: 285.00, End: 287.00, Sentence: Czyli mamy minus 1.
+Start: 288.00, End: 292.00, Sentence: Tutaj mamy w przybliżeniu 1,273.
+Start: 292.00, End: 294.00, Sentence: Na kalkulatorku przeliczone.
+Start: 295.00, End: 296.00, Sentence: Dobra. I teraz tak.
+Start: 296.00, End: 301.00, Sentence: Kolejną rzeczą, którą potrzebujemy, żeby policzyć sobie położenie środka ciężkości całej figury,
+Start: 302.00, End: 304.00, Sentence: Są pola poszczególnych figur prostych.
+Start: 304.00, End: 306.00, Sentence: Czyli piszemy sobie teraz a1.
+Start: 307.00, End: 309.00, Sentence: To pole koła pamiętamy.
+Start: 309.00, End: 314.00, Sentence: To jest nic innego jak pi r kwadrat, czyli pi 3 do kwadratu.
+Start: 314.00, End: 316.00, Sentence: Przez 4 mamy 1/4.
+Start: 318.00, End: 320.00, Sentence: 7,07.
+Start: 320.00, End: 322.00, Sentence: Potem mamy pole dwójeczki.
+Start: 322.00, End: 324.00, Sentence: No to mamy trójkąt.
+Start: 324.00, End: 327.00, Sentence: Pole trójkąt to 1/2 razy b razy h, to pamiętamy.
+Start: 327.00, End: 331.00, Sentence: 1 na 2 razy 3 razy 3, to jest 4,5.
+Start: 331.00, End: 333.00, Sentence: Ale to dało się bez kalkulatora.
+Start: 333.00, End: 335.00, Sentence: Potem mamy a3.
+Start: 336.00, End: 339.00, Sentence: No i to jest najprostsze, bo jest prostokąt w wymiarach 3x6.
+Start: 340.00, End: 342.00, Sentence: Daje nam to 18.
+Start: 342.00, End: 345.00, Sentence: Teraz podstawiamy to sobie tak naprawdę do wzorów.
+Start: 346.00, End: 350.00, Sentence: Wzór podam w takiej formie najprostszej możliwej.
+Start: 351.00, End: 353.00, Sentence: Y1 a1
+Start: 353.00, End: 355.00, Sentence: Plus y2 a2
+Start: 355.00, End: 357.00, Sentence: Plus y3 a3
+Start: 357.00, End: 359.00, Sentence: Dzielone na a1
+Start: 359.00, End: 361.00, Sentence: Plus a2
+Start: 361.00, End: 363.00, Sentence: Plus a3
+Start: 363.00, End: 365.00, Sentence: Teraz tak.
+Start: 365.00, End: 369.00, Sentence: To co myśmy tam napisali na górze, czyli te y1 raz a1, y2 raz a2
+Start: 369.00, End: 374.00, Sentence: To nie jest nic innego jak momenty statyczne względem osi zetowej.
+Start: 374.00, End: 376.00, Sentence: To jest taka informacja dodatkowa powiedzmy,
+Start: 376.00, End: 379.00, Sentence: Ale żebyście się nie zdziwili, że to jest czasem tak zapisywane.
+Start: 380.00, End: 383.00, Sentence: Teraz podstawię sobie szybciutko na kalkulator.
+Start: 383.00, End: 388.00, Sentence: No dostanę 3,457.
+Start: 388.00, End: 391.00, Sentence: Ja jeszcze nie znam położenia środka ciężkości.
+Start: 391.00, End: 393.00, Sentence: Ja znam dopiero jeden z wymiarów.
+Start: 393.00, End: 394.00, Sentence: Dlaczego?
+Start: 394.00, End: 396.00, Sentence: Dlatego, że ja teraz mogę sobie wstępnie narysować to.
+Start: 396.00, End: 398.00, Sentence: 3,457 to gdzieś tu będzie.
+Start: 398.00, End: 404.00, Sentence: 3,457, czyli gdzieś na tej prostej znajduje się środek ciężkości.
+Start: 404.00, End: 406.00, Sentence: Jeszcze nie wiemy gdzie.
+Start: 406.00, End: 408.00, Sentence: No to szukamy sobie zet-c.
+Start: 408.00, End: 415.00, Sentence: Oczywiście wzór jest identyczny.
+Start: 415.00, End: 420.00, Sentence: Tylko, że na górze mamy momenty statyczne względem osi y,
+Start: 420.00, End: 425.00, Sentence: Czyli z1 A1, z2 A2 plus z3 a3.
+Start: 425.00, End: 428.00, Sentence: Ponownie podzielone przez sumę pól.
+Start: 428.00, End: 432.00, Sentence: Kiedy to podstawimy sobie szybciutko na kalkulator,
+Start: 432.00, End: 435.00, Sentence: Dostaniemy 0,15.
+Start: 436.00, End: 440.00, Sentence: To 0,15 również sobie naniesiemy.
+Start: 440.00, End: 444.00, Sentence: Czyli jesteśmy gdzieś tam minimalnie powyżej.
+Start: 444.00, End: 448.00, Sentence: To jest nasz środek ciężkości całej figury.
+Start: 448.00, End: 451.00, Sentence: Tutaj mamy jakieś osi.
+Start: 451.00, End: 458.00, Sentence: Nazwijmy je sobie na razie y', albo yc może.
+Start: 458.00, End: 460.00, Sentence: Zetca.
+Start: 460.00, End: 462.00, Sentence: Podkreślmy to, co teraz mamy.
+Start: 462.00, End: 464.00, Sentence: To nie są jeszcze osi główne centralne.
+Start: 464.00, End: 467.00, Sentence: To są dopiero osi centralne.
+Start: 467.00, End: 468.00, Sentence: Jeszcze nie są główne.
+Start: 468.00, End: 470.00, Sentence: Do głównych przejdziemy za chwilę.
+Start: 470.00, End: 473.00, Sentence: Na razie mamy położenie osi centralnej.
+Start: 473.00, End: 478.00, Sentence: Teraz, żeby policzyć sobie momenty bezwładności względem tych osi centralnych,
+Start: 478.00, End: 481.00, Sentence: Policzymy sobie momenty bezwładności poszczególnych figur prostych
+Start: 481.00, End: 485.00, Sentence: Względem ich środków ciężkości.
+Start: 485.00, End: 488.00, Sentence: Czyli tak naprawdę będziemy mieli jakąś
+Start: 488.00, End: 504.00, Sentence: I_y2, I_y1, I_y3, I_z1, I_z2, I_z3.
+Start: 504.00, End: 507.00, Sentence: Następnie skorzystamy sobie z twierdzenia Steinera,
+Start: 507.00, End: 510.00, Sentence: Żeby to wszystko przysunąć do jednego miejsca.
+Start: 510.00, End: 512.00, Sentence: I teraz tak.
+Start: 512.00, End: 513.00, Sentence: Co nam jest niepotrzebne?
+Start: 513.00, End: 515.00, Sentence: Te wszystkie obliczenia, których żeśmy dokonali przed chwilą,
+Start: 515.00, End: 517.00, Sentence: W zasadzie są nam w tej chwili niepotrzebne,
+Start: 517.00, End: 521.00, Sentence: Więc ja je teraz perfilnie wykasuję.
+Start: 521.00, End: 524.00, Sentence: Natomiast położenia środków ciężkości poszczególnych figur
+Start: 524.00, End: 526.00, Sentence: Będą nam potrzebne do twierdzenia Steinera.
+Start: 526.00, End: 528.00, Sentence: Zacznijmy sobie wypisywać teraz.
+Start: 528.00, End: 533.00, Sentence: Mamy położenie y1, z1.
+Start: 533.00, End: 537.00, Sentence: Teraz będziemy mieli jeszcze momenty bezwładności I_y1 oraz I_z1.
+Start: 537.00, End: 540.00, Sentence: A dla y1, ponieważ mamy ćwiartkę,
+Start: 540.00, End: 542.00, Sentence: To patrzymy sobie w tablicach, co tu się dzieje.
+Start: 542.00, End: 544.00, Sentence: Mamy taki wzór.
+Start: 544.00, End: 547.00, Sentence: 0,0549 razy R do potęgi 4.
+Start: 547.00, End: 550.00, Sentence: Oczywiście to możemy wyprowadzić.
+Start: 550.00, End: 553.00, Sentence: Natomiast tutaj sobie potraktujmy, że to mamy dane.
+Start: 553.00, End: 555.00, Sentence: Czyli 0,55.
+Start: 555.00, End: 557.00, Sentence: Już nie bądźmy zbyt dokładni.
+Start: 557.00, End: 559.00, Sentence: Razy 3 do potęgi 4 to się równa.
+Start: 559.00, End: 561.00, Sentence: Szybko wbijamy w kalkulator.
+Start: 561.00, End: 564.00, Sentence: 4,447.
+Start: 564.00, End: 567.00, Sentence: Ponownie y2 również ze wzoru.
+Start: 567.00, End: 570.00, Sentence: To jest zwykły wzór dla trójkąta.
+Start: 570.00, End: 573.00, Sentence: Czyli mamy nic innego jak bh do 3 przez 36.
+Start: 573.00, End: 578.00, Sentence: To też jest oczywiście tutaj w tablicach.
+Start: 578.00, End: 580.00, Sentence: A tutaj akurat b jest równa h,
+Start: 580.00, End: 584.00, Sentence: Czyli zapiszmy sobie 3 do potęgi 4 przez 36.
+Start: 584.00, End: 588.00, Sentence: Na kalkulatorze 2,25.
+Start: 588.00, End: 590.00, Sentence: Potem mamy y3.
+Start: 590.00, End: 595.00, Sentence: Dla prostokąta luknijmy na tablicę.
+Start: 595.00, End: 599.00, Sentence: Dla prostokąta mamy bh do 3 przez 12.
+Start: 599.00, End: 602.00, Sentence: Zwróćcie uwagę na to, że tutaj są inne nazwy osi.
+Start: 602.00, End: 606.00, Sentence: Ale my nie patrzymy na to, że bo mamy osi y to weźmiemy yc.
+Start: 606.00, End: 607.00, Sentence: To byłoby głupie.
+Start: 607.00, End: 610.00, Sentence: Patrzymy na to czy ta osi jest pozioma czy pionowa.
+Start: 610.00, End: 612.00, Sentence: My badamy teraz momenty bezwładności poziome.
+Start: 612.00, End: 614.00, Sentence: U nas y jest poziomą osią,
+Start: 614.00, End: 616.00, Sentence: Czyli bierzemy sobie I_xc.
+Start: 616.00, End: 618.00, Sentence: Bh do 3 przez 12.
+Start: 618.00, End: 621.00, Sentence: To bh, wiadomo.
+Start: 621.00, End: 625.00, Sentence: Dla tego prostokąta b jest 3, a h jest 6.
+Start: 625.00, End: 630.00, Sentence: No to mamy 3 razy 6 do 3 przez 12.
+Start: 630.00, End: 632.00, Sentence: Kalkulator w rękę.
+Start: 632.00, End: 635.00, Sentence: Wychodzi nam elegancko 54.
+Start: 635.00, End: 640.00, Sentence: No i sobie zapiszmy teraz w takim razie momenty bezwładności na z.
+Start: 640.00, End: 642.00, Sentence: I_z1 to się równa.
+Start: 642.00, End: 645.00, Sentence: No to i_z1 to się równa Tyle samo.
+Start: 645.00, End: 651.00, Sentence: Zwróćcie uwagę, że ten wzór tutaj powinien być napisany wyraźnie,
+Start: 651.00, End: 653.00, Sentence: Że x równa się yc,
+Start: 653.00, End: 656.00, Sentence: Natomiast on jest dokładnie taki sam dla obu osi.
+Start: 656.00, End: 659.00, Sentence: Tutaj znowu jest to samo.
+Start: 659.00, End: 662.00, Sentence: Nasza oś pionowa jest z, w tablicach jest y.
+Start: 662.00, End: 664.00, Sentence: Natomiast nie patrzymy na oznaczenia,
+Start: 664.00, End: 667.00, Sentence: Byśmy w ogóle stwierdzili, że nie mamy takiego wzoru w tablicach,
+Start: 667.00, End: 671.00, Sentence: Tylko patrzymy sobie na to, że to jest oś pionowa.
+Start: 671.00, End: 672.00, Sentence: Teraz mamy tak.
+Start: 672.00, End: 676.00, Sentence: 0,055 razy 3 do potęgi 4.
+Start: 676.00, End: 677.00, Sentence: To się równa.
+Start: 677.00, End: 680.00, Sentence: 4,447.
+Start: 680.00, End: 684.00, Sentence: No i z2.
+Start: 684.00, End: 685.00, Sentence: Ponownie jest to samo,
+Start: 685.00, End: 688.00, Sentence: Dlatego że formalnie tutaj mamy nie bh do 3,
+Start: 688.00, End: 690.00, Sentence: Tylko hb do 3 przez 36,
+Start: 690.00, End: 691.00, Sentence: Czyli zwróćcie uwagę,
+Start: 691.00, End: 693.00, Sentence: Inny wymiar jest do potęgi trzeciej.
+Start: 693.00, End: 696.00, Sentence: Natomiast tutaj akurat mamy dokładnie taki sam wzór,
+Start: 696.00, End: 698.00, Sentence: Bo b jest równy h,
+Start: 698.00, End: 701.00, Sentence: Czyli również wychodzi 2,25.
+Start: 701.00, End: 703.00, Sentence: Następnie mamy i_z3.
+Start: 703.00, End: 705.00, Sentence: No i_z3 jest równe...
+Start: 705.00, End: 706.00, Sentence: Patrzymy do tablic,
+Start: 706.00, End: 708.00, Sentence: Ale pewnie już się domyślacie,
+Start: 708.00, End: 709.00, Sentence: Że tutaj coś się zmieni.
+Start: 709.00, End: 712.00, Sentence: Zmieni się, które wyraz jest podnoszone do trzeciej potęgi,
+Start: 712.00, End: 718.00, Sentence: Bo bh do 3 przez 12 jest b do 3 razy h przez 12.
+Start: 718.00, End: 720.00, Sentence: Jak teraz sobie spojrzymy,
+Start: 720.00, End: 722.00, Sentence: To mamy odwrócenie tej sytuacji.
+Start: 722.00, End: 724.00, Sentence: Jak to było 3 razy 6 do potęgi 3,
+Start: 724.00, End: 729.00, Sentence: To jest 3 do potęgi 3 razy 6 przez 12.
+Start: 729.00, End: 735.00, Sentence: No i to nam wyszło 13,5.
+Start: 735.00, End: 737.00, Sentence: Tak jest.
+Start: 737.00, End: 738.00, Sentence: Teraz tak.
+Start: 738.00, End: 741.00, Sentence: Ja mam poszczególne momenty bezwładności figur składowych.
+Start: 741.00, End: 745.00, Sentence: A teraz ja je muszę przenieść do środka ciężkości,
+Start: 745.00, End: 750.00, Sentence: Żeby dostać moment bezwładności centralny całej figury.
+Start: 750.00, End: 752.00, Sentence: To robimy przy użyciu twierdzenia Steinera,
+Start: 752.00, End: 754.00, Sentence: Które wygląda ogólnie tak.
+Start: 754.00, End: 756.00, Sentence: Iyc to się równa.
+Start: 756.00, End: 759.00, Sentence: Iy1 plus a1
+Start: 759.00, End: 763.00, Sentence: W nawiasie z1 minus zc do kwadratu.
+Start: 763.00, End: 764.00, Sentence: Teraz tak.
+Start: 764.00, End: 766.00, Sentence: Ten człon z1 minus zc
+Start: 766.00, End: 768.00, Sentence: To jest nic innego jak odległość,
+Start: 768.00, End: 771.00, Sentence: Zwróćcie uwagę, pomiędzy y1 i yc
+Start: 771.00, End: 774.00, Sentence: Trochę mi się chyba dostępne kolory kończą.
+Start: 774.00, End: 776.00, Sentence: Spróbujemy na zielono.
+Start: 776.00, End: 781.00, Sentence: To jest odległość między osią y1 a osią yc.
+Start: 781.00, End: 786.00, Sentence: Czyli to jest dokładnie ta odległość tutaj.
+Start: 786.00, End: 787.00, Sentence: Prawda?
+Start: 787.00, End: 788.00, Sentence: Pomiędzy tą osią a tą.
+Start: 788.00, End: 790.00, Sentence: To jest ten elemencik.
+Start: 790.00, End: 792.00, Sentence: A teraz dla nas to jest po prostu z1 minus zc.
+Start: 792.00, End: 794.00, Sentence: Mamy policzone z1 minus zc.
+Start: 794.00, End: 796.00, Sentence: Nie ma sensu w tym konkretnym zadaniu
+Start: 796.00, End: 799.00, Sentence: Szukać tego na rysunku.
+Start: 799.00, End: 802.00, Sentence: Możemy to dostać wprost z tych wzorów, których użyliśmy.
+Start: 802.00, End: 809.00, Sentence: Oczywiście dla poszczególnych członów to będzie wyglądało analogicznie.
+Start: 809.00, End: 813.00, Sentence: Ja to teraz sobie już podstawię od razu na kalkulator.
+Start: 813.00, End: 817.00, Sentence: Polecam gorąco sobie to przeliczyć.
+Start: 817.00, End: 820.00, Sentence: Prawda jest taka, że bardzo często błędy w tych zadaniach
+Start: 820.00, End: 822.00, Sentence: Nie polegają na tym, że ktoś nie zna teorii
+Start: 822.00, End: 825.00, Sentence: Tylko po prostu źle podstawi na kalkulator.
+Start: 825.00, End: 830.00, Sentence: Jak to podstawi na kalkulator wyjdzie 75,97.
+Start: 830.00, End: 834.00, Sentence: No i to już jest wartość centralna.
+Start: 834.00, End: 836.00, Sentence: Jeszcze nie główna. Centralna.
+Start: 836.00, End: 839.00, Sentence: Mamy następny Izc, który jest równy.
+Start: 839.00, End: 841.00, Sentence: Iz1 plus a1.
+Start: 841.00, End: 844.00, Sentence: W nawiasie y1 minus yc do kwadratu.
+Start: 844.00, End: 846.00, Sentence: Zwróćcie uwagę, to jest dokładnie to samo.
+Start: 846.00, End: 853.00, Sentence: Mieliśmy przesuwać względem osi zetowej momenty y-kowe.
+Start: 853.00, End: 856.00, Sentence: Teraz momenty zetowe przesuwamy na y.
+Start: 856.00, End: 861.00, Sentence: Czyli przesuwamy sobie z1 do tego położenia zc.
+Start: 861.00, End: 866.00, Sentence: Czyli teraz mamy taką odległość.
+Start: 866.00, End: 868.00, Sentence: Oczywiście dla poszczególnych członów to samo.
+Start: 868.00, End: 879.00, Sentence: Plus iz2 plus a2 y2 minus yc do kwadratu plus iz3 plus a3.
+Start: 879.00, End: 888.00, Sentence: W nawiasie y3 minus yc do kwadratu.
+Start: 888.00, End: 891.00, Sentence: To się równa. Wrzucamy to w kalkulator.
+Start: 891.00, End: 899.00, Sentence: I na kalkulatorze elegancko wychodzi nam, że to jest 70,49.
+Start: 899.00, End: 901.00, Sentence: Teraz tak.
+Start: 901.00, End: 906.00, Sentence: Jeżeli by nas pytali o oś centralną to mamy temat zamknięty.
+Start: 906.00, End: 908.00, Sentence: Z reguły w takich zadaniach nie pytają nas o osi centralne.
+Start: 908.00, End: 910.00, Sentence: Tylko pytają nas o osi główne centralne.
+Start: 910.00, End: 913.00, Sentence: A do osi głównych centralnych brakuje nam jeszcze
+Start: 913.00, End: 916.00, Sentence: Zamiany tego co dostaliśmy w centralnych
+Start: 916.00, End: 920.00, Sentence: Na takie osi, w których dewiacja jest równa 0.
+Start: 920.00, End: 922.00, Sentence: Czyli trzeba policzyć jeszcze moment dewiacji.
+Start: 922.00, End: 926.00, Sentence: Moment dewiacji najczęściej w takich tablicach dla figur prostych
+Start: 926.00, End: 929.00, Sentence: Oznaczany jest jako I_xy.
+Start: 929.00, End: 932.00, Sentence: Ja to będę oznaczył jako D.
+Start: 932.00, End: 934.00, Sentence: Teraz wiemy, że to jest dokładnie to samo.
+Start: 934.00, End: 938.00, Sentence: I muszę to wypisać dla poszczególnych figur.
+Start: 938.00, End: 943.00, Sentence: No i w takim układzie zróbmy sobie trochę miejsca tutaj bezpośrednio przy figurach.
+Start: 943.00, End: 947.00, Sentence: Z tych y1, y2 itd. będę niestety dalej korzystał.
+Start: 947.00, End: 952.00, Sentence: Ale to zakładam, że mamy gdzieś tam dostępne.
+Start: 952.00, End: 956.00, Sentence: D1 równa się. D2 równa się. D3 równa się.
+Start: 956.00, End: 958.00, Sentence: No dzień dobry patrzę w tablicę.
+Start: 958.00, End: 962.00, Sentence: Dewiacja prostokąta 0. Cudownie. Piszę 0.
+Start: 962.00, End: 965.00, Sentence: Teraz tak. Jeżeli chodzi o dewiację pozostałych dwóch figur
+Start: 965.00, End: 967.00, Sentence: To już jest niestety dużo ciekawiej.
+Start: 967.00, End: 973.00, Sentence: Dlaczego? Dlatego, że dewiacja jedynki musi być zapisana z określonym znakiem.
+Start: 973.00, End: 975.00, Sentence: W tablicach tam znalazł się minus.
+Start: 975.00, End: 978.00, Sentence: Minus 0, czyli 0, 1, 6, 5.
+Start: 978.00, End: 984.00, Sentence: No i ja napiszę 0, 0, 1, 6, 5 razy 3 do potęgi czwartej.
+Start: 984.00, End: 987.00, Sentence: Od razu napiszę...
+Start: 987.00, End: 990.00, Sentence: Za chwilę sobie wstawimy wartość przybliżoną.
+Start: 990.00, End: 993.00, Sentence: Skorzystajmy szybko z kalkulatora.
+Start: 993.00, End: 999.00, Sentence: 1, 6, 5 razy 3 do potęgi czwartej.
+Start: 999.00, End: 1003.00, Sentence: No to wyszło nam 1, 3, 3, 6, 5.
+Start: 1003.00, End: 1005.00, Sentence: A teraz patrzę, ja tu zapisałem plusa.
+Start: 1005.00, End: 1012.00, Sentence: Bo mamy taką zasadę, że jeżeli ta ćwiartka koła jest w ten sposób narysowana
+Start: 1012.00, End: 1016.00, Sentence: To w tym momencie mamy tutaj plusik.
+Start: 1016.00, End: 1023.00, Sentence: Zwróćcie uwagę, że teraz jak mamy trójkąt taki, tą naszą dwójkę, to to jest to położenie.
+Start: 1023.00, End: 1026.00, Sentence: I on będzie faktycznie miał ujemną dewiację.
+Start: 1026.00, End: 1030.00, Sentence: Czyli minus 3 do czwartej, bo tu jest b kwadrat, h kwadrat.
+Start: 1030.00, End: 1032.00, Sentence: B równa się h dla tej figury akurat.
+Start: 1032.00, End: 1034.00, Sentence: Czyli mamy 72.
+Start: 1034.00, End: 1037.00, Sentence: Minus 1,125.
+Start: 1037.00, End: 1042.00, Sentence: Temat dewiacji mamy zamknięty dla figur poszczególnych.
+Start: 1042.00, End: 1044.00, Sentence: Nie będę tego rysował na rysunku.
+Start: 1045.00, End: 1049.00, Sentence: Natomiast teraz musimy policzyć dewiację dla środka ciężkości.
+Start: 1049.00, End: 1051.00, Sentence: Mieliśmy dla figur pojedynczych.
+Start: 1051.00, End: 1053.00, Sentence: No teraz to kumulujemy.
+Start: 1053.00, End: 1058.00, Sentence: To mamy sobie d1 plus, no nie uwierzycie, kumulacja z dwóch.
+Start: 1063.00, End: 1066.00, Sentence: Czyli to jest tak, jak bym tę dewiację przesyłał na obu osiach, prawda?
+Start: 1066.00, End: 1068.00, Sentence: Zarówno na osi zetowe, jak i na osi y.
+Start: 1069.00, End: 1072.00, Sentence: Plus d2 plus a2.
+Start: 1072.00, End: 1074.00, Sentence: Już widzicie mechanizm.
+Start: 1074.00, End: 1076.00, Sentence: Z2 minus zc.
+Start: 1076.00, End: 1079.00, Sentence: Y2 minus yc.
+Start: 1079.00, End: 1081.00, Sentence: Plus a3.
+Start: 1086.00, End: 1088.00, Sentence: Przepraszam, plus d3 oczywiście.
+Start: 1088.00, End: 1090.00, Sentence: A teraz plus a3.
+Start: 1090.00, End: 1092.00, Sentence: Z3 minus zc.
+Start: 1092.00, End: 1096.00, Sentence: Y3 minus yc.
+Start: 1096.00, End: 1099.00, Sentence: To się równa, wrzucamy to na kalkulator.
+Start: 1099.00, End: 1102.00, Sentence: Wychodzi nam minus 8,8.
+Start: 1102.00, End: 1104.00, Sentence: Teraz mamy taką uwagę techniczną, słuchajcie.
+Start: 1104.00, End: 1108.00, Sentence: Dlatego, że momenty bezwładności zawsze są dodatne.
+Start: 1108.00, End: 1111.00, Sentence: Choćby się waliło, paliło, momenty bezwładności
+Start: 1111.00, End: 1115.00, Sentence: Zarówno poszczególnych figur, jak i momenty bezwładności centralne
+Start: 1115.00, End: 1117.00, Sentence: Są dodatnie.
+Start: 1117.00, End: 1118.00, Sentence: Dewiacja niekoniecznie.
+Start: 1118.00, End: 1120.00, Sentence: Moment dewiacji może być dodatni, bądź ujemny.
+Start: 1120.00, End: 1123.00, Sentence: Tutaj akurat nam wyszedł ujemny.
+Start: 1123.00, End: 1126.00, Sentence: No i tak faktycznie miało wyjść.
+Start: 1126.00, End: 1129.00, Sentence: Do policzenia pozostały nam już w tej chwili
+Start: 1129.00, End: 1132.00, Sentence: Praktycznie tylko momenty bezwładności główne centralne.
+Start: 1132.00, End: 1135.00, Sentence: No i przeliczmy to sobie w takim razie do końca.
+Start: 1135.00, End: 1137.00, Sentence: To są raptem dwa wzory.
+Start: 1137.00, End: 1140.00, Sentence: Licząc z położeniem na to cztery.
+Start: 1140.00, End: 1142.00, Sentence: Dlatego, że teraz mamy taką sytuację.
+Start: 1142.00, End: 1145.00, Sentence: Jeżeli chcemy policzyć momenty bezwładności główne centralne
+Start: 1145.00, End: 1149.00, Sentence: To jest moment obrócony o taki kąt
+Start: 1149.00, End: 1152.00, Sentence: Żeby dewiacja się nam wyzerowała.
+Start: 1152.00, End: 1153.00, Sentence: Na to jest gotowy wzór.
+Start: 1153.00, End: 1156.00, Sentence: Wyprowadzenia tego wzoru oczywiście nie będziemy pokazywali
+Start: 1156.00, End: 1159.00, Sentence: Bo to sobie możecie gdzieś tam w podręcznikach znaleźć.
+Start: 1159.00, End: 1165.00, Sentence: Zapisuję teraz moment bezwładności główny centralny pierwszy.
+Start: 1165.00, End: 1167.00, Sentence: Za chwilę policzymy sobie jeszcze drugi.
+Start: 1167.00, End: 1169.00, Sentence: On się będzie różnił tylko znakiem.
+Start: 1169.00, End: 1171.00, Sentence: Także będzie to niemal to samo.
+Start: 1171.00, End: 1175.00, Sentence: Natomiast to będą momenty bezwładności największe i najmniejsze.
+Start: 1175.00, End: 1179.00, Sentence: Ten jest największy, bo mamy tutaj plusik.
+Start: 1179.00, End: 1185.00, Sentence: Natomiast dwójeczka to będzie moment bezwładności główny centralny
+Start: 1185.00, End: 1189.00, Sentence: Minimalny, najmniejszy.
+Start: 1189.00, End: 1193.00, Sentence: Podstawiamy sobie do takiego wzoru.
+Start: 1193.00, End: 1197.00, Sentence: Oczywiście tutaj dewiacja względem środka ciężkości.
+Start: 1197.00, End: 1199.00, Sentence: I przeliczamy to na kalkulatorze.
+Start: 1199.00, End: 1201.00, Sentence: Wychodzi nam odpowiednio.
+Start: 1201.00, End: 1209.00, Sentence: 82,45 oraz 64,01 cm do potęgi...
+Start: 1209.00, End: 1211.00, Sentence: Sorry, bez jednostek.
+Start: 1211.00, End: 1215.00, Sentence: Gdyby były to w centymetrach to byłyby centymetry do potęgi czwartej.
+Start: 1215.00, End: 1218.00, Sentence: Natomiast tutaj mamy bezwymiarowe, w związku z tym zostawiamy w tej postaci.
+Start: 1218.00, End: 1221.00, Sentence: Mamy już momenty bezwładności główne centralne, ale żeby je narysować
+Start: 1221.00, End: 1226.00, Sentence: To muszę wiedzieć w jaki sposób one są obrócone względem osi centralnych.
+Start: 1226.00, End: 1228.00, Sentence: Oczywiście moglibyśmy wybrać dowolnie.
+Start: 1228.00, End: 1232.00, Sentence: Natomiast umówmy się, że policzymy sobie tangens fi maksymalnego.
+Start: 1232.00, End: 1234.00, Sentence: I to się równa.
+Start: 1234.00, End: 1240.00, Sentence: D nad izc, odjąć i1.
+Start: 1240.00, End: 1243.00, Sentence: Podstawiamy to sobie.
+Start: 1243.00, End: 1246.00, Sentence: Dostajemy 0,736.
+Start: 1246.00, End: 1249.00, Sentence: Oczywiście to jest wartość tangensa tego kąta.
+Start: 1249.00, End: 1252.00, Sentence: Czyli jak sobie zamienimy na kąt, to mamy, że fi maks to się równa
+Start: 1252.00, End: 1254.00, Sentence: Arcus tangens tej wartości.
+Start: 1254.00, End: 1259.00, Sentence: Wychodzi nam 36,36 stopni w przybliżeniu.
+Start: 1259.00, End: 1263.00, Sentence: Analogicznie możemy sobie ewentualnie wybrać tangens fi minimalnego,
+Start: 1263.00, End: 1268.00, Sentence: Ale ponieważ wiemy, że tak samo osi centralne są do siebie pod kątem 90 stopni,
+Start: 1268.00, End: 1273.00, Sentence: Tak samo osi główne centralne muszą być do siebie pod kątem 90 stopni.
+Start: 1273.00, End: 1277.00, Sentence: To jest 1,36 na minusie.
+Start: 1277.00, End: 1284.00, Sentence: I analogicznie z tego fi minimalne to się równa minus 53,64 stopnia.
+Start: 1284.00, End: 1286.00, Sentence: Teraz chcemy to sobie nanieść na rysunek.
+Start: 1286.00, End: 1290.00, Sentence: Czyli cofamy się do naszego rysunku, który troszkę już jest gęsty,
+Start: 1290.00, End: 1293.00, Sentence: Ale jakoś sobie spróbujemy dać radę.
+Start: 1293.00, End: 1296.00, Sentence: I teraz tak. Od osi poziomej w punkcie C,
+Start: 1296.00, End: 1299.00, Sentence: Którego położenie znamy, wyliczyliśmy wcześniej,
+Start: 1299.00, End: 1303.00, Sentence: Odkładamy sobie kierunek i1.
+Start: 1303.00, End: 1306.00, Sentence: I to jest nasz kąt 36,36 stopnia.
+Start: 1306.00, End: 1310.00, Sentence: I analogicznie do niego tutaj mamy i2.
+Start: 1310.00, End: 1316.00, Sentence: I po pierwsze i2 jest pod kątem 53,64.
+Start: 1316.00, End: 1318.00, Sentence: Czyli wiemy, że o tyle się mamy obrócić.
+Start: 1318.00, End: 1320.00, Sentence: Oczywiście to jest rysowane na oko.
+Start: 1320.00, End: 1323.00, Sentence: W praktyce zrobicie to poprawnie.
+Start: 1323.00, End: 1326.00, Sentence: A po drugie wiemy, że to musi być pod kątem 90 stopni
+Start: 1326.00, End: 1331.00, Sentence: I te kąty faktycznie w wartości bezwzględnej sumują się do 90.
+Start: 1331.00, End: 1333.00, Sentence: Dlaczego i1 poszło w tą stronę?
+Start: 1333.00, End: 1336.00, Sentence: Bo przy tak przyjętym układzie osi y-kowej i z-totowej
+Start: 1336.00, End: 1339.00, Sentence: Wiemy, że kąt dodatni jest kątem lewoskrednym.
+Start: 1339.00, End: 1342.00, Sentence: Dlatego 36,36 w tą stronę.
+Start: 1342.00, End: 1344.00, Sentence: Natomiast to fi było ujemne, 53,64,
+Start: 1344.00, End: 1348.00, Sentence: Dlatego poszło prawoskrednie zgodnie z ruchem wskazówek zegara.
+Start: 1348.00, End: 1351.00, Sentence: To jest koniec tego zadania.
+Start: 1351.00, End: 1353.00, Sentence: Dzięki serdeczne za wysłuchanie.
+Start: 1353.00, End: 1356.00, Sentence: Pamiętajcie aby zasubskrybować nasz kanał, natomiast jeśli macie jakieś pytania
+Start: 1356.00, End: 1358.00, Sentence: To sekcja komentarzy jest dwa was, nie krępujcie się
+Start: 1358.00, End: 1361.00, Sentence: Na naszej stronie znajdziecie jeszcze więcej zadań z tego działu
+Start: 1361.00, End: 1363.00, Sentence: Z pełnymi rozwiązaniami krok po kroku
+Start: 1363.00, End: 1365.00, Sentence: Oraz naszą ofertę korepetycji.
+Start: 1365.00, End: 1367.00, Sentence: Zachęcam do skorzystania z jednego i drugiego.
+Start: 1367.00, End: 1369.00, Sentence: Po prawej macie nasze przykładowe filmy.
+Start: 1369.00, End: 1371.00, Sentence: Zapraszam do obejrzenia.
+Start: 1371.00, End: 1373.00, Sentence: Dzięki, do usłyszenia.
