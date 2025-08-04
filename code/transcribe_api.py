@@ -192,7 +192,7 @@ def process_video_api(input_path, api_key):
 
 def main():
     # Hardkodowany klucz (taki sam jak w process_video.py)
-    OPENAI_API_KEY = "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"
+    OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
     
     parser = argparse.ArgumentParser(description="Transcribe video using OpenAI API")
     parser.add_argument("input_path", help="Path to the video file")

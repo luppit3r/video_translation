@@ -10,7 +10,7 @@ import shutil
 import json
 
 # Hardcodowane klucze API, tak jak w oryginalnych skryptach
-OPENAI_API_KEY = "sk-proj-HZo39yrvh8PO8C8pKWNpT3BlbkFJkZKq1l2JpV339jMUfX0p"
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 ELEVENLABS_API_KEY = "sk_1f61682e0b96b0f53580d385ad097ec8ee062217127058fc"
 
 @dataclass

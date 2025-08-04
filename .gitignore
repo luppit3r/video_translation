@@ -292,6 +292,10 @@ tramp
 
 # Exception for config files
 !video_translation_config.json
+
+# Environment files with API keys
+.env
+*.env
 *.sql
 *.sqlite
 *.db

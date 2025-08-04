@@ -6,7 +6,7 @@ print(f"Python path: {sys.path}")
 from openai import OpenAI
 
 # Hardcoded API key
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 def read_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:

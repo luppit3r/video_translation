@@ -1,4 +1,5 @@
 import openai
+import os
 import re
 from pathlib import Path
 import json
@@ -442,7 +443,7 @@ def main():
     args = parser.parse_args()
     
     # Twój klucz API OpenAI - wbudowany w skrypt
-    API_KEY = "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"
+    API_KEY = os.getenv('OPENAI_API_KEY')
     
     try:
         # Sprawdź czy plik istnieje

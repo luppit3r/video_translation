@@ -4,7 +4,7 @@ import requests
 import argparse
 from pathlib import Path
 
-os.environ['OPENAI_API_KEY'] = "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"
+# API key should be set via environment variable
 os.environ['ELEVENLABS_API_KEY'] = "sk_1f61682e0b96b0f53580d385ad097ec8ee062217127058fc"
 CHUNK_SIZE = 1024  # Size of chunks to read/write at a time
 XI_API_KEY = os.getenv('ELEVENLABS_API_KEY')  # Your API key for authentication
