@@ -34,18 +34,36 @@ jobs:
     - name: Verify intro_outro files
       run: |
         echo "Checking for intro_outro files..."
-        ls -la intro_outro/ || echo "intro_outro directory not found"
-        if [ -f "intro_outro/Intro_EN.mp4" ]; then
-          echo "✅ Intro file found"
+        if [ "$RUNNER_OS" = "Windows" ]; then
+          # Windows PowerShell syntax
+          dir intro_outro/ || echo "intro_outro directory not found"
+          if (Test-Path "intro_outro/Intro_EN.mp4") {
+            echo "✅ Intro file found"
+          } else {
+            echo "❌ Intro file missing"
+            exit 1
+          }
+          if (Test-Path "intro_outro/Outro_EN.mp4") {
+            echo "✅ Outro file found"
+          } else {
+            echo "❌ Outro file missing"
+            exit 1
+          }
         else
-          echo "❌ Intro file missing"
-          exit 1
-        fi
-        if [ -f "intro_outro/Outro_EN.mp4" ]; then
-          echo "✅ Outro file found"
-        else
-          echo "❌ Outro file missing"
-          exit 1
+          # Linux/macOS bash syntax
+          ls -la intro_outro/ || echo "intro_outro directory not found"
+          if [ -f "intro_outro/Intro_EN.mp4" ]; then
+            echo "✅ Intro file found"
+          else
+            echo "❌ Intro file missing"
+            exit 1
+          fi
+          if [ -f "intro_outro/Outro_EN.mp4" ]; then
+            echo "✅ Outro file found"
+          else
+            echo "❌ Outro file missing"
+            exit 1
+          fi
         fi
 
     - name: Build application
