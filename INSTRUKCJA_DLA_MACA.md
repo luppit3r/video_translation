@@ -16,19 +16,32 @@
 2. Kliknij na niego - rozpocznie się pobieranie
 3. Poczekaj na zakończenie pobierania
 
-## 🚀 Jak uruchomić aplikację
+       ## 🚀 Jak uruchomić aplikację
 
-### Krok 1: Rozpakuj plik
-1. Znajdź pobrany plik w folderze **Downloads**
-2. Kliknij dwukrotnie na plik ZIP
-3. Rozpakuj go do wybranej lokalizacji
+       ### Krok 1: Rozpakuj plik
+       1. Znajdź pobrany plik w folderze **Downloads**
+       2. Kliknij dwukrotnie na plik ZIP
+       3. Rozpakuj go do wybranej lokalizacji
 
-### Krok 2: Uruchom aplikację
-1. Znajdź plik **Video_Translation_Studio.app**
-2. Kliknij dwukrotnie na aplikację
-3. Jeśli pojawi się ostrzeżenie o nieznanym deweloperze:
-   - Kliknij **"Open Anyway"** w System Preferences > Security & Privacy
-   - Lub kliknij prawym przyciskiem myszy na aplikację i wybierz **"Open"**
+       ### Krok 2: Uruchom aplikację
+       1. Znajdź plik **Video_Translation_Studio.app**
+       2. Kliknij dwukrotnie na aplikację
+       3. Jeśli pojawi się ostrzeżenie o nieznanym deweloperze:
+          - Kliknij **"Open Anyway"** w System Preferences > Security & Privacy
+          - Lub kliknij prawym przyciskiem myszy na aplikację i wybierz **"Open"**
+
+       ### Krok 3: Skonfiguruj klucze API
+       1. Po uruchomieniu aplikacji, w sekcji **"Konfiguracja API"**:
+          - Wprowadź swój **OpenAI API Key** (wymagany)
+          - Opcjonalnie wprowadź **ElevenLabs API Key** (dla generowania głosu)
+       2. Kliknij **"Zapisz klucze"**
+       3. Aplikacja automatycznie zapisze klucze do pliku `.env`
+
+       **💡 Jak uzyskać klucz OpenAI API:**
+       1. Przejdź do: https://platform.openai.com/api-keys
+       2. Zaloguj się lub utwórz konto
+       3. Kliknij **"Create new secret key"**
+       4. Skopiuj klucz i wklej go w aplikacji
 
 ## 📁 Struktura aplikacji
 

@@ -11,6 +11,7 @@ import webbrowser
 import re
 import time
 import psutil
+from dotenv import load_dotenv
 
 class VideoTranslationApp:
     def __init__(self, root):
@@ -24,6 +25,9 @@ class VideoTranslationApp:
         self.root.option_add('*TLabelFrame*Font', ('Arial', 14, 'bold'))
         self.root.option_add('*TNotebook*Tab*Font', ('Arial', 12))
         
+        # Wczytaj zmienne środowiskowe z .env
+        load_dotenv()
+        
         # Konfiguracja
         self.config_file = "video_translation_config.json"
         self.load_config()
@@ -33,6 +37,10 @@ class VideoTranslationApp:
         self.youtube_url = tk.StringVar()
         self.video_path = tk.StringVar()
         self.current_step = tk.StringVar(value="Gotowy do rozpoczęcia")
+        
+        # Zmienne dla kluczy API
+        self.openai_api_key = tk.StringVar(value=os.getenv('OPENAI_API_KEY', ''))
+        self.elevenlabs_api_key = tk.StringVar(value=os.getenv('ELEVENLABS_API_KEY', ''))
         
         # Zmienne do śledzenia ostatnio pobranych plików
         self.last_downloaded_video = None
@@ -81,6 +89,34 @@ class VideoTranslationApp:
         except Exception as e:
             print(f"Błąd zapisywania konfiguracji: {e}")
     
+    def save_api_keys(self):
+        """Zapisuje klucze API do pliku .env"""
+        try:
+            env_content = f"""# Video Translation Studio - Environment Variables
+# This file contains API keys and should NOT be committed to Git
+
+# OpenAI API Key (required for transcription and translation)
+OPENAI_API_KEY={self.openai_api_key.get()}
+
+# ElevenLabs API Key (optional, for voice generation)
+ELEVENLABS_API_KEY={self.elevenlabs_api_key.get()}
+"""
+            
+            with open('.env', 'w', encoding='utf-8') as f:
+                f.write(env_content)
+            
+            # Ustaw zmienne środowiskowe
+            os.environ['OPENAI_API_KEY'] = self.openai_api_key.get()
+            os.environ['ELEVENLABS_API_KEY'] = self.elevenlabs_api_key.get()
+            
+            self.log("✅ Klucze API zostały zapisane do pliku .env")
+            messagebox.showinfo("Sukces", "Klucze API zostały zapisane pomyślnie!")
+            
+        except Exception as e:
+            error_msg = f"Błąd zapisywania kluczy API: {e}"
+            self.log(f"❌ {error_msg}")
+            messagebox.showerror("Błąd", error_msg)
+    
     def setup_ui(self):
         """Konfiguruje interfejs użytkownika"""
         # Główny kontener
@@ -105,9 +141,30 @@ class VideoTranslationApp:
                                 font=('Arial', 12))
         status_label.pack(pady=(5, 0))
         
+        # Panel konfiguracji API
+        api_frame = ttk.LabelFrame(main_frame, text="Konfiguracja API", padding="10")
+        api_frame.grid(row=1, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 20))
+        
+        # OpenAI API Key
+        ttk.Label(api_frame, text="OpenAI API Key:").grid(row=0, column=0, sticky=tk.W)
+        openai_entry = ttk.Entry(api_frame, textvariable=self.openai_api_key, width=60, show="*")
+        openai_entry.grid(row=0, column=1, padx=(10, 10), sticky=(tk.W, tk.E))
+        
+        # ElevenLabs API Key
+        ttk.Label(api_frame, text="ElevenLabs API Key:").grid(row=1, column=0, sticky=tk.W, pady=(10, 0))
+        elevenlabs_entry = ttk.Entry(api_frame, textvariable=self.elevenlabs_api_key, width=60, show="*")
+        elevenlabs_entry.grid(row=1, column=1, padx=(10, 10), pady=(10, 0), sticky=(tk.W, tk.E))
+        
+        # Przycisk zapisz klucze
+        save_keys_btn = ttk.Button(api_frame, text="Zapisz klucze", command=self.save_api_keys)
+        save_keys_btn.grid(row=2, column=0, columnspan=2, pady=(10, 0))
+        
+        # Konfiguracja grid dla API
+        api_frame.columnconfigure(1, weight=1)
+        
         # Panel wyboru folderu
         folder_frame = ttk.LabelFrame(main_frame, text="Folder roboczy", padding="10")
-        folder_frame.grid(row=1, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 20))
+        folder_frame.grid(row=2, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 20))
         
         ttk.Label(folder_frame, text="Folder roboczy:").grid(row=0, column=0, sticky=tk.W)
         ttk.Entry(folder_frame, textvariable=self.working_dir, width=50).grid(row=0, column=1, padx=(10, 10))
@@ -115,7 +172,7 @@ class VideoTranslationApp:
         
         # Główne okno z przewijakiem
         canvas_frame = ttk.Frame(main_frame)
-        canvas_frame.grid(row=2, column=0, columnspan=2, sticky=(tk.W, tk.E, tk.N, tk.S), pady=(0, 20))
+        canvas_frame.grid(row=3, column=0, columnspan=2, sticky=(tk.W, tk.E, tk.N, tk.S), pady=(0, 20))
         
         # Canvas z paskiem przewijania
         self.canvas = tk.Canvas(canvas_frame)
@@ -143,7 +200,7 @@ class VideoTranslationApp:
         
         # Logi
         log_frame = ttk.LabelFrame(main_frame, text="Logi", padding="10")
-        log_frame.grid(row=3, column=0, columnspan=2, sticky=(tk.W, tk.E, tk.N, tk.S))
+        log_frame.grid(row=4, column=0, columnspan=2, sticky=(tk.W, tk.E, tk.N, tk.S))
         
         self.log_text = scrolledtext.ScrolledText(log_frame, height=4, width=80)
         self.log_text.pack(fill=tk.BOTH, expand=True)
@@ -151,8 +208,8 @@ class VideoTranslationApp:
         # Konfiguracja grid dla logów
         log_frame.columnconfigure(0, weight=1)
         log_frame.rowconfigure(0, weight=1)
-        main_frame.rowconfigure(2, weight=1)
         main_frame.rowconfigure(3, weight=1)
+        main_frame.rowconfigure(4, weight=1)
         
         # Wczytaj intro/outro po utworzeniu wszystkich widgetów (na końcu)
         self.load_intro_outro_files()
