@@ -35,13 +35,13 @@ jobs:
       run: |
         echo "Checking for intro_outro files..."
         ls -la intro_outro/ || echo "intro_outro directory not found"
-        if [ -f "intro_outro/EduPanda - Intro - EN.mp4" ]; then
+        if [ -f "intro_outro/Intro_EN.mp4" ]; then
           echo "✅ Intro file found"
         else
           echo "❌ Intro file missing"
           exit 1
         fi
-        if [ -f "intro_outro/EduPanda - Outro - EN.mp4" ]; then
+        if [ -f "intro_outro/Outro_EN.mp4" ]; then
           echo "✅ Outro file found"
         else
           echo "❌ Outro file missing"
