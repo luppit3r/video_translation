@@ -19,6 +19,9 @@
 *.mts
 *.m2ts
 
+# Exception for intro/outro files
+!intro_outro/*.mp4
+
 # Audio files
 *.mp3
 *.wav
