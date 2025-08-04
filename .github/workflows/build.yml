@@ -31,12 +31,22 @@ jobs:
         pip install -r requirements.txt
         pip install pyinstaller
 
-    - name: Create intro_outro directory
+    - name: Verify intro_outro files
       run: |
-        mkdir -p intro_outro
-        # Create placeholder files for intro/outro (user needs to add actual files)
-        echo "# Placeholder for intro video" > intro_outro/README_intro.txt
-        echo "# Placeholder for outro video" > intro_outro/README_outro.txt
+        echo "Checking for intro_outro files..."
+        ls -la intro_outro/ || echo "intro_outro directory not found"
+        if [ -f "intro_outro/EduPanda - Intro - EN.mp4" ]; then
+          echo "✅ Intro file found"
+        else
+          echo "❌ Intro file missing"
+          exit 1
+        fi
+        if [ -f "intro_outro/EduPanda - Outro - EN.mp4" ]; then
+          echo "✅ Outro file found"
+        else
+          echo "❌ Outro file missing"
+          exit 1
+        fi
 
     - name: Build application
       run: |
