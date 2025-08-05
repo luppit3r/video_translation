@@ -61,10 +61,16 @@ class VideoTranslationApp:
             'generate': tk.BooleanVar(value=True), 
             'overlay': tk.BooleanVar(value=True),
             'delete_sm': tk.BooleanVar(value=True),
+            'white_logo': tk.BooleanVar(value=True),
             'detect_polish': tk.BooleanVar(value=True),
             'intro_outro': tk.BooleanVar(value=True),
             'social_media': tk.BooleanVar(value=True)
         }
+        
+        # Zmienne dla intro/outro (używane w kombo)
+        self.intro_video_path = tk.StringVar()
+        self.outro_video_path = tk.StringVar()
+        self.main_video_path = tk.StringVar()
         
         # Obsługa zamknięcia aplikacji
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
@@ -273,15 +279,7 @@ ELEVENLABS_API_KEY={self.elevenlabs_api_key.get()}
         combo_frame.pack(fill=tk.X, padx=10, pady=10)
         self.setup_combo_content(combo_frame)
         
-        # Krok 2: Tłumaczenie i generowanie wideo (pojedyncze operacje)
-        step2_frame = ttk.LabelFrame(self.scrollable_frame, text="Krok 2: Pojedyncze operacje - Tłumaczenie i generowanie", padding="10")
-        step2_frame.pack(fill=tk.X, padx=10, pady=10)
-        self.setup_step2_content(step2_frame)
-        
-        # Krok 3: Optymalizacja
-        step3_frame = ttk.LabelFrame(self.scrollable_frame, text="Krok 3: Optymalizacja", padding="10")
-        step3_frame.pack(fill=tk.X, padx=10, pady=10)
-        self.setup_step3_content(step3_frame)
+
         
         # Dodatkowe funkcje
         extra_frame = ttk.LabelFrame(self.scrollable_frame, text="Dodatkowe funkcje", padding="10")
@@ -340,9 +338,10 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
             ('generate', '2. Generowanie audio'),
             ('overlay', '3. Nakładanie audio na wideo (SZYBKO)'),
             ('delete_sm', '4. Usuwanie ciszy i bezruchu (SZYBKO)'),
-            ('detect_polish', '5. Wykrywanie polskiego tekstu'),
-            ('intro_outro', '6. Dodawanie intro i outro (SZYBKO)'),
-            ('social_media', '7. Generowanie posta na social media')
+            ('white_logo', '5. Usuń białą stopkę i dodaj logo'),
+            ('detect_polish', '6. Wykrywanie polskiego tekstu'),
+            ('intro_outro', '7. Dodawanie intro i outro (SZYBKO)'),
+            ('social_media', '8. Generowanie posta na social media')
         ]
         
         # Tworzenie checkboxów w dwóch kolumnach
@@ -398,68 +397,7 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
         for var in self.combo_steps_enabled.values():
             var.set(False)
         
-    def setup_step2_content(self, parent_frame):
-        """Konfiguruje zawartość kroku 2 - tłumaczenie"""
-        desc_text2 = """Po sprawdzeniu transkrypcji skrypt wykona tłumaczenie na język angielski, zbuduje pliki audio 
-i stworzy nowe wideo z angielskim lektorem z indeksem _synchronized."""
-        
-        ttk.Label(parent_frame, text=desc_text2, wraplength=800, justify=tk.LEFT, anchor="w").pack(anchor="w", pady=(0, 10))
-        
-        # Przycisk tłumaczenia
-        ttk.Button(parent_frame, text="Uruchom tłumaczenie i generowanie", 
-                  command=self.run_step2).pack(pady=10)
-        
-        # Progress bar dla tłumaczenia
-        translation_progress_frame = ttk.Frame(parent_frame)
-        translation_progress_frame.pack(fill=tk.X, pady=10)
-        
-        self.progress_vars['step2'] = tk.DoubleVar()
-        self.progress_labels['step2'] = tk.StringVar(value="")
-        
-        ttk.Label(translation_progress_frame, textvariable=self.progress_labels['step2']).pack(anchor=tk.W)
-        self.step2_progress = ttk.Progressbar(translation_progress_frame, mode='determinate', 
-                                             variable=self.progress_vars['step2'])
-        self.step2_progress.pack(fill=tk.X, pady=(5, 0))
-        
-        # Przycisk stop dla tłumaczenia
-        self.step2_stop_btn = ttk.Button(translation_progress_frame, text="Stop", 
-                                        command=lambda: self.stop_operation('step2'))
-        self.step2_stop_btn.pack_forget()  # Ukryj na początku
-        
-    def setup_step3_content(self, parent_frame):
-        """Konfiguruje zawartość kroku 3 - optymalizacja"""
-        # Opis
-        desc_text = """Skrypt usuwa ciszę i bezruch z klipu i generuje raport – w raporcie wskazuje które miejsca warto sprawdzić 
-w nowym wideo, czy nie ma niepokojących skoków. Dodatkowo wskazuje w których miejscach (zakres czasu) na klipie 
-pojawia się tekst po polsku i generuje raport."""
-        
-        ttk.Label(parent_frame, text=desc_text, wraplength=800, justify=tk.LEFT).pack(pady=(0, 10))
-        
-        # Przyciski akcji
-        action_frame = ttk.Frame(parent_frame)
-        action_frame.pack(fill=tk.X, pady=10)
-        
-        ttk.Button(action_frame, text="Usuń ciszę i bezruch (SZYBKO)", 
-                  command=self.run_step3_silence).pack(side=tk.LEFT, padx=(0, 10))
-        ttk.Button(action_frame, text="Wykryj tekst polski", 
-                  command=self.run_step3_detect).pack(side=tk.LEFT)
-        
-        # Progress bar bez etykiety "Gotowy"
-        progress_frame = ttk.Frame(parent_frame)
-        progress_frame.pack(fill=tk.X, pady=10)
-        
-        self.progress_vars['step3'] = tk.DoubleVar()
-        self.progress_labels['step3'] = tk.StringVar(value="")
-        
-        ttk.Label(progress_frame, textvariable=self.progress_labels['step3']).pack(anchor=tk.W)
-        self.step3_progress = ttk.Progressbar(progress_frame, mode='determinate', 
-                                             variable=self.progress_vars['step3'])
-        self.step3_progress.pack(fill=tk.X, pady=(5, 0))
-        
-        # Przycisk stop
-        self.step3_stop_btn = ttk.Button(progress_frame, text="Stop", 
-                                        command=lambda: self.stop_operation('step3'))
-        self.step3_stop_btn.pack_forget()  # Ukryj na początku
+
         
     def setup_extra_functions_content(self, parent_frame):
         """Konfiguruje dodatkowe funkcje"""
@@ -488,52 +426,7 @@ pojawia się tekst po polsku i generuje raport."""
         ttk.Button(logo_file_frame, text="Dodaj stopkę i logo", 
                   command=self.add_logo).pack(side=tk.LEFT, padx=(10, 0))
         
-        # Intro/Outro i Post social media
-        social_frame = ttk.LabelFrame(parent_frame, text="Intro/Outro i Social media", padding="10")
-        social_frame.pack(fill=tk.X, pady=10)
-        
-        # Inicjalizacja zmiennych
-        self.intro_video_path = tk.StringVar()
-        self.outro_video_path = tk.StringVar()
-        self.main_video_path = tk.StringVar()
-        
-        # Opis automatycznego wczytywania
-        ttk.Label(social_frame, text="Intro i outro wczytywane automatycznie z folderu intro_outro").pack(anchor=tk.W, pady=(0, 10))
-        
-        # Pola intro/outro
-        ttk.Label(social_frame, text="Intro video (automatyczne):").pack(anchor=tk.W, pady=(5, 0))
-        intro_frame = ttk.Frame(social_frame)
-        intro_frame.pack(fill=tk.X, pady=2)
-        self.intro_entry = ttk.Entry(intro_frame, textvariable=self.intro_video_path, width=50, state='readonly')
-        self.intro_entry.pack(side=tk.LEFT, padx=(0, 10))
-        ttk.Button(intro_frame, text="Wybierz ręcznie", 
-                  command=self.select_intro_video).pack(side=tk.LEFT)
-        
-        ttk.Label(social_frame, text="Główne wideo:").pack(anchor=tk.W, pady=(10, 0))
-        main_frame_widget = ttk.Frame(social_frame)
-        main_frame_widget.pack(fill=tk.X, pady=2)
-        ttk.Entry(main_frame_widget, textvariable=self.main_video_path, width=50).pack(side=tk.LEFT, padx=(0, 10))
-        ttk.Button(main_frame_widget, text="Wybierz", 
-                  command=self.select_main_video).pack(side=tk.LEFT)
-        
-        ttk.Label(social_frame, text="Outro video (automatyczne):").pack(anchor=tk.W, pady=(10, 0))
-        outro_frame = ttk.Frame(social_frame)
-        outro_frame.pack(fill=tk.X, pady=2)
-        self.outro_entry = ttk.Entry(outro_frame, textvariable=self.outro_video_path, width=50, state='readonly')
-        self.outro_entry.pack(side=tk.LEFT, padx=(0, 10))
-        ttk.Button(outro_frame, text="Wybierz ręcznie", 
-                  command=self.select_outro_video).pack(side=tk.LEFT)
-        
-        # Przyciski
-        action_frame = ttk.Frame(social_frame)
-        action_frame.pack(fill=tk.X, pady=10)
-        
-        ttk.Button(action_frame, text="Dodaj intro+outro (SZYBKO)", 
-                  command=self.add_intro_outro_fast).pack(side=tk.LEFT, padx=(0, 10))
-        ttk.Button(action_frame, text="Dodaj intro+outro (standardowo)", 
-                  command=self.add_intro_outro_and_social_post).pack(side=tk.LEFT, padx=(0, 10))
-        ttk.Button(action_frame, text="Tylko post social media", 
-                  command=self.generate_social_post_only).pack(side=tk.LEFT)
+
         
 
         
@@ -573,6 +466,7 @@ pojawia się tekst po polsku i generuje raport."""
             'generate': ("Generowanie audio", self.run_generate_for_combo),
             'overlay': ("Nakładanie audio na wideo (SZYBKO)", self.run_overlay_for_combo),
             'delete_sm': ("Usuwanie ciszy i bezruchu (SZYBKO)", self.run_delete_sm_for_combo),
+            'white_logo': ("Usuń białą stopkę i dodaj logo", self.run_white_logo_for_combo),
             'detect_polish': ("Wykrywanie polskiego tekstu", self.run_detect_polish_for_combo),
             'intro_outro': ("Dodawanie intro i outro (SZYBKO)", self.run_intro_outro_for_combo),
             'social_media': ("Generowanie posta social media", self.run_social_media_for_combo)
@@ -580,7 +474,7 @@ pojawia się tekst po polsku i generuje raport."""
         
         # Buduj listę kroków do wykonania na podstawie checkboxów
         self.combo_steps = []
-        for step_key in ['translate', 'generate', 'overlay', 'delete_sm', 'detect_polish', 'intro_outro', 'social_media']:
+        for step_key in ['translate', 'generate', 'overlay', 'delete_sm', 'white_logo', 'detect_polish', 'intro_outro', 'social_media']:
             if self.combo_steps_enabled[step_key].get():
                 self.combo_steps.append(all_steps[step_key])
         
@@ -878,6 +772,37 @@ pojawia się tekst po polsku i generuje raport."""
             self.root.after(0, lambda: self.log(f"[KOMBO] Błąd usuwania ciszy: {str(e)}"))
             self.combo_failed = True
             self.root.after(0, self.execute_next_combo_step)
+        
+    def run_white_logo_for_combo(self):
+        """Uruchamia white-bottom-logo.py dla przepływu KOMBO"""
+        thread = threading.Thread(target=self._run_white_logo_combo_thread, daemon=False)
+        thread.start()
+        
+    def _run_white_logo_combo_thread(self):
+        """Thread dla white-bottom-logo.py w przepływie KOMBO"""
+        try:
+            working_dir = self.working_dir.get()
+            if not working_dir:
+                self.root.after(0, lambda: self.log("[KOMBO] Błąd: Nie ustawiono folderu roboczego"))
+                self.combo_failed = True
+                self.root.after(0, self.execute_next_combo_step)
+                return
+            
+            # Uruchom skrypt w trybie KOMBO (bez argumentów)
+            self.run_script("white-bottom-logo.py", [], "Usuń białą stopkę i dodaj logo", 
+                          on_success=lambda output: self._on_white_logo_success(output))
+            
+        except Exception as e:
+            self.root.after(0, lambda: self.log(f"[KOMBO] Błąd dodawania logo: {str(e)}"))
+            self.combo_failed = True
+            self.root.after(0, self.execute_next_combo_step)
+    
+    def _on_white_logo_success(self, output):
+        """Callback po pomyślnym dodaniu logo"""
+        self.root.after(0, lambda: self.log(f"[KOMBO] Dodawanie logo zakończone pomyślnie"))
+        if output:
+            self.root.after(0, lambda: self.log(f"[KOMBO] Output: {output}"))
+        self.root.after(0, self.execute_next_combo_step)
         
     def run_detect_polish_for_combo(self):
         """Uruchamia detect_polish_text.py dla przepływu KOMBO"""
@@ -1207,36 +1132,7 @@ pojawia się tekst po polsku i generuje raport."""
         if file_path:
             self.logo_video_path.set(file_path)
             
-    def select_intro_video(self):
-        """Wybiera plik intro"""
-        file_path = filedialog.askopenfilename(
-            title="Wybierz plik intro",
-            filetypes=[("Video files", "*.mp4 *.avi *.mov *.mkv"), ("All files", "*.*")]
-        )
-        if file_path:
-            self.intro_video_path.set(file_path)
-            # Zmień pole na edytowalne po ręcznym wyborze
-            self.intro_entry.configure(state='normal')
-            
-    def select_main_video(self):
-        """Wybiera główny plik wideo"""
-        file_path = filedialog.askopenfilename(
-            title="Wybierz główny plik wideo",
-            filetypes=[("Video files", "*.mp4 *.avi *.mov *.mkv"), ("All files", "*.*")]
-        )
-        if file_path:
-            self.main_video_path.set(file_path)
-            
-    def select_outro_video(self):
-        """Wybiera plik outro"""
-        file_path = filedialog.askopenfilename(
-            title="Wybierz plik outro",
-            filetypes=[("Video files", "*.mp4 *.avi *.mov *.mkv"), ("All files", "*.*")]
-        )
-        if file_path:
-            self.outro_video_path.set(file_path)
-            # Zmień pole na edytowalne po ręcznym wyborze
-            self.outro_entry.configure(state='normal')
+
             
     def find_latest_video_file(self, directory):
         """Znajduje najnowszy plik wideo w katalogu"""

@@ -155,15 +155,45 @@ def remove_orange_bar_and_add_logo(input_file, output_file, logo_path="logo.png"
     return True
 
 def main():
-    if len(sys.argv) < 3:
-        print("Usage: python white-bottom-logo.py input.mp4 output.mp4 [logo.png]")
-        print("  input.mp4  - Input video file")
-        print("  output.mp4 - Output video file") 
-        print("  logo.png   - Logo file (optional, default: logo.png)")
-        sys.exit(1)
+    # Tryb KOMBO - automatycznie znajdź plik *_no_silence.mp4
+    if len(sys.argv) == 1:
+        print("[KOMBO] White Bottom Logo Processor - KOMBO MODE")
+        print("Szukam pliku *_no_silence.mp4...")
+        
+        # Znajdź plik *_no_silence.mp4 w bieżącym katalogu
+        import glob
+        no_silence_files = glob.glob("*_no_silence.mp4")
+        
+        if not no_silence_files:
+            print("[BLAD] Nie znaleziono pliku *_no_silence.mp4 w bieżącym katalogu")
+            sys.exit(1)
+        
+        if len(no_silence_files) > 1:
+            print(f"[OSTRZEŻENIE] Znaleziono {len(no_silence_files)} plików *_no_silence.mp4, używam pierwszego:")
+            for f in no_silence_files:
+                print(f"  - {f}")
+        
+        input_video = no_silence_files[0]
+        # Utwórz nazwę wyjściową
+        output_video = input_video.replace("_no_silence.mp4", "_no_silence_with_logo.mp4")
+        
+        print(f"[OK] Input: {input_video}")
+        print(f"[OK] Output: {output_video}")
     
-    input_video = sys.argv[1]
-    output_video = sys.argv[2]
+    # Tryb MANUAL - z argumentami jak dotychczas  
+    elif len(sys.argv) >= 3:
+        print("[MANUAL] White Bottom Logo Processor - MANUAL MODE")
+        input_video = sys.argv[1]
+        output_video = sys.argv[2]
+    
+    else:
+        print("Usage:")
+        print("  KOMBO MODE:  python white-bottom-logo.py")
+        print("  MANUAL MODE: python white-bottom-logo.py input.mp4 output.mp4 [logo.png]")
+        print("")
+        print("KOMBO MODE - automatycznie znajdzie *_no_silence.mp4 i utworzy *_no_silence_with_logo.mp4")
+        print("MANUAL MODE - jak dotychczas z podanymi argumentami")
+        sys.exit(1)
     
     # Logo path - opcjonalny trzeci argument lub default
     if len(sys.argv) >= 4:
@@ -195,7 +225,7 @@ def main():
     try:
         success = remove_orange_bar_and_add_logo(input_video, output_video, logo_path)
         if success:
-            print("\n🎉 Video processing completed successfully!")
+            print("\n[SUKCES] Video processing completed successfully!")
         else:
             print("\n[BLAD] Video processing failed!")
             sys.exit(1)
