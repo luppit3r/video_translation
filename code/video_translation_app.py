@@ -1567,99 +1567,9 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
                 return
             self.run_transcription(self.video_path.get())
             
-    def run_step2(self):
-        """Uruchamia krok 2"""
-        # Znajdź pliki do przetworzenia
-        working_dir = Path(self.working_dir.get()) if self.working_dir.get() else Path.cwd()
-        txt_files = list(working_dir.rglob("*.txt"))
-        
-        if not txt_files:
-            messagebox.showerror("Błąd", "Nie znaleziono plików .txt do przetworzenia!")
-            return
-            
-        # Uruchom tłumaczenie dla każdego pliku
-        for txt_file in txt_files:
-            if "_sentences" in txt_file.name:
-                # Znajdź odpowiadający plik wideo
-                video_name = txt_file.stem.replace("_sentences", "")
-                video_files = list(working_dir.rglob(f"{video_name}.*"))
-                video_file = None
+
                 
-                # Szukaj plików wideo (mp4, avi, mov, etc.)
-                for vf in video_files:
-                    if vf.suffix.lower() in ['.mp4', '.avi', '.mov', '.mkv', '.wmv']:
-                        video_file = vf
-                        break
-                
-                if not video_file:
-                    self.log(f"[BLAD] Nie znaleziono pliku wideo dla {txt_file.name}")
-                    continue
-                
-                # Utwórz ścieżkę dla przetłumaczonego pliku
-                translated_file = txt_file.parent / f"{video_name}_translated.txt"
-                
-                # Uruchom skrypty sekwencyjnie z callbackami
-                def on_translate_complete():
-                    def on_generate_complete():
-                        self.run_script("overlay_fast.py", [str(translated_file), str(video_file)], 
-                                      f"Szybki overlay wideo {txt_file.name}", step_key="step2")
-                    
-                    self.run_script("generate.py", [str(translated_file), str(video_file)], 
-                                  f"Generowanie audio {txt_file.name}", step_key="step2", 
-                                  on_success=on_generate_complete)
-                
-                self.run_script("translate.py", [str(txt_file), str(translated_file)], 
-                              f"Tłumaczenie {txt_file.name}", step_key="step2", 
-                              on_success=on_translate_complete)
-                
-    def run_step3_silence(self):
-        """Uruchamia szybkie usuwanie ciszy"""
-        working_dir = Path(self.working_dir.get()) if self.working_dir.get() else Path.cwd()
-        video_files = list(working_dir.rglob("*_synchronized.mp4"))
-        
-        if not video_files:
-            messagebox.showerror("Błąd", "Nie znaleziono plików *_synchronized.mp4!")
-            return
-        
-        # Jeśli znaleziono więcej niż jeden plik, zapytaj użytkownika
-        if len(video_files) > 1:
-            file_names = [f.relative_to(working_dir) for f in video_files]
-            choice = messagebox.askyesnocancel(
-                "Wybór pliku", 
-                f"Znaleziono {len(video_files)} plików:\n" + 
-                "\n".join(str(f) for f in file_names) + 
-                "\n\nPrzetwarzać wszystkie? (Tak=wszystkie, Nie=tylko pierwszy, Anuluj=przerwij)"
-            )
-            
-            if choice is None:  # Anuluj
-                return
-            elif choice is False:  # Nie - tylko pierwszy
-                video_files = [video_files[0]]
-        
-        # Przetwarzaj pliki sekwencyjnie (nie równolegle)
-        for i, video_file in enumerate(video_files):
-            # Generuj nazwę pliku wyjściowego
-            output_file = video_file.parent / f"{video_file.stem}_compressed.mp4"
-            
-            # Użyj szybkiej wersji (bez pliku tłumaczenia, jak oryginalna wersja)
-            self.run_script("delete_sm_fast.py", 
-                          [str(video_file), str(output_file)], 
-                          f"Szybkie usuwanie ciszy {video_file.name} ({i+1}/{len(video_files)})", 
-                          step_key=f"step3_{i}")
-            
-    def run_step3_detect(self):
-        """Uruchamia detekcję tekstu polskiego"""
-        working_dir = Path(self.working_dir.get()) if self.working_dir.get() else Path.cwd()
-        video_files = list(working_dir.rglob("*_synchronized.mp4"))
-        
-        if not video_files:
-            messagebox.showerror("Błąd", "Nie znaleziono plików *_synchronized.mp4!")
-            return
-            
-        for video_file in video_files:
-            # Użyj argumentu --interval zamiast --step (który nie istnieje)
-            self.run_script("detect_polish_text.py", [str(video_file), "--interval", "40"], 
-                          f"Detekcja tekstu {video_file.name}", step_key="step3")
+
             
     def revert_gap_removal(self):
         """Cofa usunięcie luki"""
@@ -1715,40 +1625,7 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
         
         self.run_script("add_intro_outro_fast.py", args, "Szybkie dodawanie intro/outro")
         
-    def add_intro_outro_and_social_post(self):
-        """Dodaje intro/outro i automatycznie generuje post social media"""
-        def on_intro_outro_complete():
-            self.log("Intro/outro dodane pomyślnie. Automatycznie generuję post social media...")
-            self.root.after(100, self.generate_social_post)
-            
-        self.add_intro_outro(on_intro_outro_complete)
-        
-    def generate_social_post(self):
-        """Generuje post social media"""
-        working_dir = Path(self.working_dir.get()) if self.working_dir.get() else Path.cwd()
-        txt_files = list(working_dir.rglob("*_sentences.txt"))
-        
-        if not txt_files:
-            messagebox.showerror("Błąd", "Nie znaleziono plików *_sentences.txt!")
-            return
-            
-        for txt_file in txt_files:
-            self.run_script("social_media_post.py", [str(txt_file), "--format", "docx"], 
-                          f"Generowanie posta {txt_file.name}")
-            
-    def generate_social_post_only(self):
-        """Generuje tylko post social media (bez intro/outro)"""
-        working_dir = Path(self.working_dir.get()) if self.working_dir.get() else Path.cwd()
-        txt_files = list(working_dir.rglob("*_sentences.txt"))
-        
-        if not txt_files:
-            messagebox.showerror("Błąd", "Nie znaleziono plików *_sentences.txt!")
-            return
-            
-        self.log("Rozpoczynam generowanie tylko postów social media...")
-        for txt_file in txt_files:
-            self.run_script("social_media_post.py", [str(txt_file), "--format", "docx"], 
-                          f"Generowanie tylko posta {txt_file.name}")
+
             
     def show_available_files(self):
         """Pokazuje dostępne pliki w folderze roboczym"""
