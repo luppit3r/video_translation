@@ -1684,26 +1684,20 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
             
             if intro_video_path:
                 self.intro_video_path.set(str(intro_video_path))
-                self.intro_entry.configure(state='readonly')
                 self.log(f"Wczytano intro video: {intro_video_path.name}")
             else:
                 self.intro_video_path.set("")
-                self.intro_entry.configure(state='readonly')
                 self.log("Nie znaleziono pliku intro w folderze intro_outro")
                 
             if outro_video_path:
                 self.outro_video_path.set(str(outro_video_path))
-                self.outro_entry.configure(state='readonly')
                 self.log(f"Wczytano outro video: {outro_video_path.name}")
             else:
                 self.outro_video_path.set("")
-                self.outro_entry.configure(state='readonly')
                 self.log("Nie znaleziono pliku outro w folderze intro_outro")
         else:
             self.intro_video_path.set("")
             self.outro_video_path.set("")
-            self.intro_entry.configure(state='readonly')
-            self.outro_entry.configure(state='readonly')
             self.log("Folder intro_outro nie istnieje. Nie można wczytać plików intro/outro.")
             self.log("Sprawdź czy folder intro_outro znajduje się w tym samym katalogu co aplikacja.")
 
