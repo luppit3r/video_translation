@@ -102,15 +102,47 @@ OPENAI_API_KEY={self.openai_api_key.get()}
 ELEVENLABS_API_KEY={self.elevenlabs_api_key.get()}
 """
             
-            with open('.env', 'w', encoding='utf-8') as f:
-                f.write(env_content)
+            # Spróbuj różne lokalizacje dla pliku .env (szczególnie ważne na macOS)
+            env_locations = [
+                '.env',  # Bieżący katalog
+                os.path.expanduser('~/.env'),  # Katalog domowy użytkownika
+                os.path.join(os.path.expanduser('~'), 'Documents', '.env'),  # Dokumenty
+                os.path.join(os.path.expanduser('~'), 'Desktop', '.env')  # Pulpit
+            ]
             
-            # Ustaw zmienne środowiskowe
+            saved = False
+            saved_location = None
+            
+            for env_path in env_locations:
+                try:
+                    # Upewnij się, że katalog istnieje
+                    dir_path = os.path.dirname(os.path.abspath(env_path))
+                    if dir_path:  # Jeśli ścieżka zawiera katalog
+                        os.makedirs(dir_path, exist_ok=True)
+                    
+                    with open(env_path, 'w', encoding='utf-8') as f:
+                        f.write(env_content)
+                    
+                    saved = True
+                    saved_location = env_path
+                    break
+                    
+                except (PermissionError, OSError):
+                    continue
+            
+            # Ustaw zmienne środowiskowe (zawsze)
             os.environ['OPENAI_API_KEY'] = self.openai_api_key.get()
             os.environ['ELEVENLABS_API_KEY'] = self.elevenlabs_api_key.get()
             
-            self.log("✅ Klucze API zostały zapisane do pliku .env")
-            messagebox.showinfo("Sukces", "Klucze API zostały zapisane pomyślnie!")
+            if saved:
+                self.log(f"✅ Klucze API zostały zapisane do: {saved_location}")
+                messagebox.showinfo("Sukces", f"Klucze API zostały zapisane pomyślnie!\nLokalizacja: {saved_location}")
+            else:
+                self.log("⚠️ Nie udało się zapisać pliku .env, ale klucze zostały ustawione tymczasowo")
+                messagebox.showwarning("Ostrzeżenie", 
+                    "Nie udało się zapisać pliku .env (brak uprawnień).\n"
+                    "Klucze zostały ustawione tymczasowo - będziesz musiał je wprowadzić ponownie po restarcie.\n\n"
+                    "Rozwiązanie: Przenieś aplikację do folderu Dokumenty lub Pulpit.")
             
         except Exception as e:
             error_msg = f"Błąd zapisywania kluczy API: {e}"
