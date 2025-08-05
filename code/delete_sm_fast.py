@@ -221,7 +221,7 @@ def check_movement_fast(video_path, gaps, movement_threshold=20, min_static_pixe
     return gaps_to_compress
 
 def generate_report_fast(all_gaps, gaps_compressed, output_path, video_path, original_video_path):
-    """Generuje raport kompresji (uproszczona wersja)."""
+    """Generuje zaawansowany raport kompresji z timestampami w nowym video."""
     if not gaps_compressed:
         print("[INFO] Brak skompresowanych fragmentów - pomijam raport")
         return
@@ -240,6 +240,26 @@ def generate_report_fast(all_gaps, gaps_compressed, output_path, video_path, ori
     time_saved = total_gap_duration  # Cały czas gap'a jest oszczędzony
     new_duration = original_duration - time_saved if original_duration > 0 else 0
     
+    # Oblicz timestampy w nowym video
+    def format_time(seconds):
+        """Formatuje sekundy na MM:SS format"""
+        minutes = int(seconds // 60)
+        secs = seconds % 60
+        return f"{minutes}:{secs:05.2f}"
+    
+    # Sortuj gap'y według czasu rozpoczęcia
+    sorted_gaps = sorted(gaps_compressed, key=lambda x: x['gap_start'])
+    
+    # Oblicz przesunięcia timestampów
+    new_video_timestamps = []
+    cumulative_removed = 0.0
+    
+    for gap in sorted_gaps:
+        # Timestamp w nowym video = oryginalny timestamp - skumulowane usunięte sekundy
+        new_timestamp = gap['gap_start'] - cumulative_removed
+        new_video_timestamps.append(new_timestamp)
+        cumulative_removed += gap['gap_duration']
+    
     with open(report_path, "w", encoding="utf-8") as f:
         f.write("Raport SZYBKIEGO usuwania ciszy\n")
         f.write("===============================\n\n")
@@ -256,20 +276,38 @@ def generate_report_fast(all_gaps, gaps_compressed, output_path, video_path, ori
             f.write(f"Zaoszczędzony czas: {time_saved/60:.1f} min ({time_saved:.1f}s)\n")
             f.write(f"Redukcja: {(time_saved/original_duration)*100:.1f}%\n\n")
         
-        f.write("Usunięte fragmenty (całkowicie):\n")
+        f.write("Usunięte fragmenty z timestampami w NOWYM video:\n")
         f.write("-" * 80 + "\n")
         
-        for gap in gaps_compressed:
+        for i, gap in enumerate(sorted_gaps):
             gap_id = gap['gap_id']
             gap_start = gap['gap_start']
             gap_end = gap['gap_end']
             gap_duration = gap['gap_duration']
+            new_timestamp = new_video_timestamps[i]
             
-            f.write(f"Gap {gap_id}: {gap_start:.2f}s - {gap_end:.2f}s "
-                   f"({gap_duration:.2f}s) → USUNIĘTY CAŁKOWICIE\n")
+            f.write(f"Gap {gap_id:2d}: {format_time(gap_start)} - {format_time(gap_end)} "
+                   f"({gap_duration:4.1f}s - DELETED) → w nowym video: {format_time(new_timestamp)}\n")
         
         f.write(f"\n[UWAGA] Fragmenty zostały USUNIĘTE CAŁKOWICIE (nie zastąpione freeze frame'ami)\n")
-        f.write(f"Timestampy w nowym video będą przesunięte!\n")
+        f.write(f"Timestampy w nowym video będą przesunięte!\n\n")
+        
+        # Dodaj listę miejsc do sprawdzenia
+        f.write("Sprawdź przejścia w NOWYM video: ")
+        timestamp_list = [format_time(ts) for ts in new_video_timestamps]
+        f.write(", ".join(timestamp_list) + "\n\n")
+        
+        # Dodaj instrukcje cofnięcia
+        f.write("Instrukcje cofnięcia usunięć:\n")
+        f.write("-" * 40 + "\n")
+        f.write("Jeśli któreś wycięcie było błędne, możesz je cofnąć:\n\n")
+        
+        input_name = Path(original_video_path).name
+        output_name = Path(output_path).name
+        
+        for gap in sorted_gaps:
+            gap_id = gap['gap_id']
+            f.write(f"Cofnij Gap {gap_id}: python reprocess.py \"{input_name}\" \"{output_name}\" --exclude-gaps {gap_id}\n")
     
     print(f"[INFO] Raport zapisany: {report_path}")
 

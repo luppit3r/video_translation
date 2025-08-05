@@ -1,0 +1,250 @@
+Start: 0.00, End: 3.20, Sentence: Witam serdecznie, dzisiaj policzymy sobie bardzo proste zadanie.
+Start: 3.20, End: 6.80, Sentence: Mamy za zadanie policzyć środek ciężkości takiej figury.
+Start: 6.80, End: 9.00, Sentence: I teraz jak do tego podejść?
+Start: 9.00, End: 11.40, Sentence: Po pierwsze zaznaczamy sobie jakiś układ osi.
+Start: 11.40, End: 15.80, Sentence: Dlatego, że tutaj akurat autor zadania nie powiedział nam w jakim układzie osi mamy liczyć.
+Start: 15.80, End: 18.40, Sentence: Więc przyjmijmy sobie, że tutaj mamy oś x-ową.
+Start: 20.40, End: 26.40, Sentence: Tutaj mamy oś y-kową i w tym układzie poszukujemy środka ciężkości figury płaskiej, figury złożonej.
+Start: 26.80, End: 30.60, Sentence: Teraz kolejnym krokiem jest podzielenie tego na figury proste.
+Start: 30.60, End: 33.80, Sentence: Figura prosta to jest na przykład ten prostokącik tutaj.
+Start: 35.80, End: 41.80, Sentence: Czyli mamy prostokąt o wymiarach 4x6 oraz trójkąt o wymiarach 6x5.
+Start: 41.80, End: 45.80, Sentence: Mniej więcej pamiętamy, gdzie znajdują się środki ciężkości figur prostych.
+Start: 45.80, End: 48.80, Sentence: Mam nadzieję, jak nie to zaraz sobie przypomnimy.
+Start: 50.80, End: 55.80, Sentence: Dla prostokąta jest to dosyć oczywiste, tym niemniej zapiszmy.
+Start: 56.20, End: 59.20, Sentence: Jeżeli tu mamy szerokość b, tu mamy wysokość h.
+Start: 59.20, End: 72.20, Sentence: Środek ciężkości znajduje się w odległościach h pół, h pół oraz w szerokości b pół, b pół.
+Start: 72.20, End: 74.20, Sentence: Na trójkącie jest minimalnie ciekawiej.
+Start: 76.20, End: 83.20, Sentence: Oczywiście rozmawiamy w tym momencie o trójkącie prostokątym, znowu o wymiarach b na h.
+Start: 83.60, End: 94.60, Sentence: I teraz tak, tutaj mamy odległość b trzecich, a tutaj mamy dwie trzecie b.
+Start: 94.60, End: 101.60, Sentence: I tutaj analogicznie będziemy mieli dwie trzecie h oraz jedna trzecia h.
+Start: 101.60, End: 105.60, Sentence: Oczywiście te informacje znajdują się w tablicach.
+Start: 106.60, End: 111.60, Sentence: I teraz tak, jak mamy tą informację, to teraz zapiszmy sobie, może w tabeli.
+Start: 112.00, End: 121.00, Sentence: Dla dwóch figur, położenie środków ciężkości na osi x, y oraz pola.
+Start: 121.00, End: 129.00, Sentence: Czyli teraz tak, jeżeli chodzi o figurę pierwszą, to odległość od osi do środka ciężkości...
+Start: 129.00, End: 135.00, Sentence: Mierząc na osi x jest to x1, a dla figury drugiej jest to x2.
+Start: 135.40, End: 140.40, Sentence: No to mamy dla x1 wiemy, że to jest połowa, więc to jest po prostu 3.
+Start: 140.40, End: 145.40, Sentence: Dla x2 wiemy, że to jest uwaga, uwaga, w dwóch trzecich, czyli mamy dwie trzecie z sześciu.
+Start: 147.40, End: 150.40, Sentence: Dwie trzecie z sześciu to bodajże jest cztery.
+Start: 150.40, End: 152.40, Sentence: Idziemy sobie teraz na oś y.
+Start: 152.40, End: 156.40, Sentence: Na y mamy to dla figury pierwszej y1.
+Start: 158.40, End: 160.40, Sentence: Dla figury drugiej y2.
+Start: 161.40, End: 163.40, Sentence: Czyli analogicznie.
+Start: 163.80, End: 169.80, Sentence: Teraz znowu jest minimalnie ciekawiej, bo o ile y1 jest banalnie prosty, to jest połowa z 4, czyli 2.
+Start: 169.80, End: 173.80, Sentence: No teraz zwróćcie uwagę, że y2 to jest ten kawałek, czyli 4.
+Start: 174.80, End: 175.80, Sentence: To 4.
+Start: 176.80, End: 177.80, Sentence: Dodać ten kawałek.
+Start: 177.80, End: 180.80, Sentence: No a ten kawałek, no to wiemy, stąd.
+Start: 181.80, End: 185.80, Sentence: Tutaj powinna być 1/3 h. Oczywiście powiedziałem dobrze zapisałem źle.
+Start: 185.80, End: 186.80, Sentence: Przepraszam.
+Start: 187.80, End: 190.80, Sentence: Tutaj mamy wysokość 1 trzecia z 5.
+Start: 193.80, End: 197.80, Sentence: I teraz tak. 4 plus 5 trzecich.
+Start: 200.80, End: 204.80, Sentence: Albo sobie to robimy ręcznie, albo wrzucamy w kalkulator.
+Start: 205.80, End: 207.80, Sentence: Wychodzi nam 17 trzecich.
+Start: 208.80, End: 210.80, Sentence: No i krok kolejny.
+Start: 210.80, End: 212.80, Sentence: Obliczamy sobie pola tych figur.
+Start: 213.80, End: 216.80, Sentence: Wzór na pole prostokątne to już może nie będę zapisywał.
+Start: 217.20, End: 219.20, Sentence: To b razy h, 6 razy 4.
+Start: 219.20, End: 223.20, Sentence: 6 razy 4 daje nam 24.
+Start: 226.20, End: 228.20, Sentence: Następnie zór na pola trójkąta.
+Start: 228.20, End: 232.20, Sentence: To jest 1 druga razy b razy h, czyli 1 druga razy 6 razy 5.
+Start: 232.20, End: 235.20, Sentence: To się równa 15.
+Start: 239.20, End: 240.20, Sentence: Teraz tak.
+Start: 240.20, End: 246.20, Sentence: Kolejnym krokiem będzie policzenie wyrażeń x razy A.
+Start: 246.60, End: 248.60, Sentence: Oraz y razy A.
+Start: 249.60, End: 255.60, Sentence: Tak na marginesie te wyrażenia to są momenty statyczne względem osi y.
+Start: 256.60, End: 259.60, Sentence: Oraz względem osi x.
+Start: 261.60, End: 264.60, Sentence: Natomiast będziemy to po prostu liczyć jako x razy A.
+Start: 264.60, End: 267.60, Sentence: No to x1 razy A1 jest 3 razy 24.
+Start: 271.60, End: 273.60, Sentence: To jest 72.
+Start: 274.00, End: 277.00, Sentence: Teraz mamy 4 razy 15.
+Start: 279.00, End: 281.00, Sentence: O to jest 60.
+Start: 281.00, End: 284.00, Sentence: Następnie mamy 2 razy 24.
+Start: 286.00, End: 288.00, Sentence: Y razy a, prawda?
+Start: 289.00, End: 290.00, Sentence: Y razy a.
+Start: 291.00, End: 293.00, Sentence: To jest 48.
+Start: 294.00, End: 297.00, Sentence: Następnie mamy 17 trzecich razy 15.
+Start: 297.00, End: 299.00, Sentence: To się równa.
+Start: 299.40, End: 304.40, Sentence: No i też sobie wyjmujemy kalkulator, ale wychodzi elegancko 85.
+Start: 305.40, End: 309.40, Sentence: Robimy sobie sumę pól, czyli 24 plus 15.
+Start: 314.40, End: 316.40, Sentence: To jest 39.
+Start: 316.40, End: 320.40, Sentence: Momentów statycznych, czyli 72 plus 60.
+Start: 324.40, End: 326.40, Sentence: 132.
+Start: 326.80, End: 331.80, Sentence: Momenty statyczne względem osi x to jest 48 plus 85.
+Start: 334.80, End: 336.80, Sentence: To jest 133.
+Start: 337.80, End: 340.80, Sentence: I w zasadzie praktycznie już koniec.
+Start: 340.80, End: 349.80, Sentence: Dlatego, że z definicji wiemy, że położenie środka ciężkości xc to jest suma x razy A przez sumę A.
+Start: 350.20, End: 358.20, Sentence: Czyli tak naprawdę można powiedzieć, że suma poszczególnych momentów statycznych względem osi y przez sumę pól.
+Start: 358.20, End: 364.20, Sentence: Czyli mamy 132 przez 39.
+Start: 366.20, End: 372.20, Sentence: I to nam daje, zapiszmy w przybliżeniu, 3,385.
+Start: 373.20, End: 378.20, Sentence: I analogicznie yc, suma y razy A przez sumę A.
+Start: 380.20, End: 382.20, Sentence: To się równa.
+Start: 382.20, End: 386.20, Sentence: Suma momentów statycznych x przez sumę pól A.
+Start: 386.20, End: 391.20, Sentence: Czyli 133 przez 39.
+Start: 391.20, End: 394.20, Sentence: 133 przez 39.
+Start: 394.20, End: 397.20, Sentence: To będzie równe 3,41.
+Start: 397.20, End: 399.20, Sentence: To jest koniec tego zadania.
+Start: 399.20, End: 401.20, Sentence: ALE zrobimy je sobie drugi raz.
+Start: 402.20, End: 407.20, Sentence: W takim samym układzie odniesienia, czyli tak samo sobie zaznaczamy osi xy.
+Start: 407.60, End: 413.60, Sentence: Żebyśmy mogli porównać wyniki, ale inaczej sobie podzielimy figury.
+Start: 413.60, End: 416.60, Sentence: Zróbmy sobie taką dużą figurę, duży prostokąt.
+Start: 418.60, End: 421.60, Sentence: O wymiarach, uwaga, uwaga, 6x9.
+Start: 421.60, End: 424.60, Sentence: To wszystko jest nasza figura pierwsza.
+Start: 424.60, End: 429.60, Sentence: I odejmiemy od niego ten mały trójkąt o wymiarach 5x6.
+Start: 429.60, End: 432.60, Sentence: W tym konkretnym zadaniu to pamiętajmy, że nic nie upraszcza.
+Start: 433.00, End: 438.00, Sentence: Pokazujemy to tylko w celach, nazwijmy to, dydaktycznych.
+Start: 438.00, End: 446.00, Sentence: Natomiast jest wiele zadniach, w których wycięcie figur bardzo upraszcza sposób postępowania.
+Start: 448.00, End: 455.00, Sentence: Zróbmy sobie taki trochę śmieszny zapis, bo przyjmijmy sobie, że pola tych figur wyciętych są ujemne.
+Start: 455.00, End: 461.00, Sentence: Ale będziemy to rozumieć nie jako ujemne pole, bo ujemnego pola, wiadomo, ideowo nie ma.
+Start: 461.40, End: 464.40, Sentence: Natomiast  będziemy to rozumieć jako wycięcie tych figur.
+Start: 464.40, End: 467.40, Sentence: Czyli dla figury pierwszej mamy położenie x-owe.
+Start: 467.40, End: 469.40, Sentence: Zaznaczmy pro forma.
+Start: 469.40, End: 472.40, Sentence: Tak na oko to będzie gdzieś tu, prawda?
+Start: 474.40, End: 478.40, Sentence: C1, tutaj gdzieś będzie C2.
+Start: 479.40, End: 484.40, Sentence: No i oczywiście tak samo jak ostatnio mamy x1, x2.
+Start: 484.40, End: 488.40, Sentence: No to x1, prosta sprawa, to jest połowa z 6, czyli 3.
+Start: 488.80, End: 492.80, Sentence: A x2 to jest podobnie jak ostatnio, jedna trzecia z 6.
+Start: 492.80, End: 495.80, Sentence: Podobnie, podkreślam, tak samo, czyli 2.
+Start: 495.80, End: 499.80, Sentence: Bo teraz idziemy od tej strony, tak jakby, gdzie jest większa część figury, prawda?
+Start: 502.80, End: 504.80, Sentence: Proporcjonalnie większa.
+Start: 504.80, End: 506.80, Sentence: Y1 to się równa.
+Start: 508.80, End: 510.80, Sentence: Y1 jest tutaj.
+Start: 510.80, End: 514.80, Sentence: No czyli nasz y1 to będzie połowa z 9, czyli 4 i pół.
+Start: 515.20, End: 517.20, Sentence: A nasz y2 będzie znowu ciekawy.
+Start: 517.20, End: 520.20, Sentence: I teraz możemy to zapisać najprościej.
+Start: 520.20, End: 523.20, Sentence: Zwróćcie uwagę, staramy się sobie życie upraszczać.
+Start: 523.20, End: 525.20, Sentence: Bierzemy sobie 9.
+Start: 526.20, End: 528.20, Sentence: I odejmujemy ten kawałek.
+Start: 528.20, End: 531.20, Sentence: A ten kawałek to jest nic innego jak jedna trzecia z 5.
+Start: 533.20, End: 536.20, Sentence: O tak, sobie mało miejsca zostawiłem.
+Start: 536.20, End: 538.20, Sentence: No i 9 minus 5/3.
+Start: 540.20, End: 542.20, Sentence: Wychodzi 22/3.
+Start: 542.60, End: 544.60, Sentence: Pola broń  Boże, nie są te same.
+Start: 544.60, End: 546.60, Sentence: Przynajmniej jedno jest inne.
+Start: 546.60, End: 548.60, Sentence: Mamy 9 razy 6.
+Start: 550.60, End: 553.60, Sentence: To jest pole całego tego dużego prostokąta.
+Start: 553.60, End: 559.60, Sentence: Tutaj ma, podkreślmy raz jeszcze, minus 1/2 razy 5 razy 6.
+Start: 559.60, End: 561.60, Sentence: Tu się równa.
+Start: 562.60, End: 564.60, Sentence: Minus 15.
+Start: 564.60, End: 567.60, Sentence: Co do to wartości te same, ale to jest wycięte pole, prawda?
+Start: 567.60, End: 571.60, Sentence: Przemnażamy sobie x razy A, czyli 3 razy 54.
+Start: 572.60, End: 574.60, Sentence: 106, prawda?
+Start: 575.60, End: 578.60, Sentence: Od razu zwykły 4,5 razy 54.
+Start: 578.60, End: 580.60, Sentence: 243.
+Start: 582.60, End: 590.60, Sentence: I tu mamy 2 razy 15 na minusie, czyli minus 30.
+Start: 590.60, End: 599.60, Sentence: Zwróćcie uwagę, że przecież jak my to będziemy sumować, to tutaj dostajemy 54 minus 15, czyli 39.
+Start: 600.00, End: 602.00, Sentence: To nie mogło być inaczej, prawda?
+Start: 602.00, End: 604.00, Sentence: Bo pole figury całkowitej nie mogło się zmienić.
+Start: 604.00, End: 607.00, Sentence: Co lepsze, to jest 132.
+Start: 608.00, End: 615.00, Sentence: Tutaj mamy z kolei 22/3 razy 15 na minusie.
+Start: 619.00, End: 621.00, Sentence: Czyli mamy minus 110.
+Start: 621.00, End: 625.00, Sentence: No 243 minus 110 daje nam 133.
+Start: 625.40, End: 627.40, Sentence: No to, zobaczmy.
+Start: 627.40, End: 633.40, Sentence: 39, 39, 132, 132, 133, 133.
+Start: 633.40, End: 637.40, Sentence: Chodzi nam dokładnie to samo, tylko jak podzielimy tą figurę?
+Start: 637.40, End: 640.40, Sentence: Podziałów teoretycznie jest nieskończenie wiele.
+Start: 640.40, End: 643.40, Sentence: Sensownych z reguły znacznie mniej.
+Start: 644.40, End: 647.40, Sentence: Staramy się zawsze to robić tak, żeby to było łatwe, proste.
+Start: 647.40, End: 649.40, Sentence: Już nie będę liczył.
+Start: 649.40, End: 652.40, Sentence: Teraz sobie zaznaczmy jeszcze na pierwotnym.
+Start: 652.80, End: 655.80, Sentence: Gdzie w zasadzie znajduje się C?
+Start: 655.80, End: 657.80, Sentence: Bo nam to umknęło ostatnią.
+Start: 658.80, End: 662.80, Sentence: Czyli teraz tak, C ma współrzędną x-ową 3,385,
+Start: 662.80, End: 664.80, Sentence: Czyli jesteśmy gdzieś tu.
+Start: 666.80, End: 668.80, Sentence: Zaznaczmy to na oko.
+Start: 669.80, End: 673.80, Sentence: Tutaj możecie to odmierzyć od linijki.
+Start: 673.80, End: 678.80, Sentence: A na Y mamy 3,41, czyli jesteśmy gdzieś, powiedzmy... tu
+Start: 679.20, End: 683.20, Sentence: Oczywiście też ja zaznaczam na oko, wy sobie odmierzycie od linijki.
+Start: 685.20, End: 689.20, Sentence: No i na przecięciu położeń to jest C.
+Start: 690.20, End: 693.20, Sentence: To można sobie napisać, że to jest xc, yc.
+Start: 695.20, End: 698.20, Sentence: Czyli wyznaczyliśmy sobą położenie środka ciężkości
+Start: 700.20, End: 703.20, Sentence: I zarazem położenie osi centralnych.
+Start: 704.20, End: 706.20, Sentence: No i super.
+Start: 706.60, End: 709.60, Sentence: Teoretycznie moglibyśmy się pokusić o to, żeby to policzyć jeszcze raz.
+Start: 709.60, End: 712.60, Sentence: Na przykład moglibyśmy przyjąć inny układ odniesienia.
+Start: 713.60, End: 715.60, Sentence: Tak żeby było jeszcze zabawniej.
+Start: 715.60, End: 717.60, Sentence: Oczywiście figurę cały czas zaznaczam.
+Start: 718.60, End: 720.60, Sentence: A teraz sobie z kolei przyjmujemy,
+Start: 722.60, End: 724.60, Sentence: Że jesteśmy tutaj.
+Start: 726.60, End: 729.60, Sentence: A, żeby było jeszcze śmieszniej, to będzie osi X i będzie osi Y.
+Start: 729.60, End: 731.60, Sentence: Tu ja zaznaczam 0.
+Start: 732.00, End: 737.00, Sentence: Tutaj podział na figurę proste jest taki, może nienarzucony,
+Start: 737.00, End: 740.00, Sentence: Ale właśnie sam, że się tak wyrażę, narzucam.
+Start: 741.00, End: 743.00, Sentence: C1, C2.
+Start: 743.00, End: 745.00, Sentence: No i analogicznie jako ostatnia tabeleczka,
+Start: 745.00, End: 747.00, Sentence: Liczba porządkowa 1, 2.
+Start: 747.00, End: 754.00, Sentence: To będzie suma X, Y, A, X, A, Y.
+Start: 755.00, End: 757.00, Sentence: No to mamy tak X1.
+Start: 757.00, End: 761.00, Sentence: Teraz zwróćcie uwagę na to, że to X1 jest tutaj.
+Start: 761.40, End: 765.40, Sentence: Ale my z tym idziemy przeciwnie do osi.
+Start: 765.40, End: 767.40, Sentence: Tak jakby cofamy.
+Start: 767.40, End: 770.40, Sentence: Czyli mamy X1 równe minus 3.
+Start: 771.40, End: 777.40, Sentence: A X2 jest równe minus 1/3 z sześciu,, czyli minus 2.
+Start: 783.40, End: 786.40, Sentence: Dla Y mamy z kolei też bardzo prostą sytuację,
+Start: 786.40, End: 790.40, Sentence: Bo jedziemy od tej osi Y w górę, Y1 w dół.
+Start: 790.80, End: 793.80, Sentence: Czyli znowu Y1 idzie przeciwnie do osi,
+Start: 793.80, End: 797.80, Sentence: Czyli mamy minus - już chcialem napisać 4 - minus 2 oczywiście.
+Start: 799.80, End: 801.80, Sentence: Natomiast jeżeli chodzi o Y2,
+Start: 801.80, End: 803.80, Sentence: To mamy dodatnią wartość,
+Start: 803.80, End: 805.80, Sentence: To będzie 1/3 z 5.
+Start: 805.80, End: 807.80, Sentence: To jest 5/3
+Start: 808.80, End: 810.80, Sentence: Pola figur oczywiście się nie zmienią.
+Start: 810.80, End: 812.80, Sentence: 4 razy 6, 24.
+Start: 812.80, End: 815.80, Sentence: I jedna druga razy 5, razy 6 to 15.
+Start: 815.80, End: 817.80, Sentence: To jest to samo co ostatnio.
+Start: 817.80, End: 819.80, Sentence: No i przemnażamy sobie.
+Start: 820.20, End: 823.20, Sentence: Mamy minus 3 razy 24, zwróćcie uwagę.
+Start: 823.20, End: 825.20, Sentence: Minus 72.
+Start: 825.20, End: 830.20, Sentence: Oraz minus 2 razy 15, czyli minus 30.
+Start: 831.20, End: 833.20, Sentence: Tutaj już wyjdą zupełnie inne wartości.
+Start: 833.20, End: 838.20, Sentence: Minus 72, minus 30, to jest oczywiście minus 102.
+Start: 839.20, End: 840.20, Sentence: Następnie mamy tak.
+Start: 840.20, End: 843.20, Sentence: Minus 2 razy 24, to jest minus 48.
+Start: 843.20, End: 845.20, Sentence: I 5 trzecich.
+Start: 845.20, End: 847.20, Sentence: Pamiętajmy, że to jest dodatnie.
+Start: 847.60, End: 849.60, Sentence: 5/3 razy 15.
+Start: 849.60, End: 852.60, Sentence: 5/3 razy 15, to jest 25.
+Start: 853.60, End: 857.60, Sentence: Minus 48, to daje minus 23.
+Start: 857.60, End: 859.60, Sentence: Z tego liczymy sobie Xa oraz Yc.
+Start: 860.60, End: 862.60, Sentence: Korzystamy z tych samych wyborów.
+Start: 862.60, End: 864.60, Sentence: Oczywiście, czyli Xa przez A, sumo, sumo.
+Start: 865.60, End: 868.60, Sentence: To jest 102 na 39.
+Start: 868.60, End: 873.60, Sentence: To jest minus 2,615.
+Start: 874.60, End: 876.60, Sentence: Zwróćcie uwagę, to jest ten kawałeczek.
+Start: 877.00, End: 879.00, Sentence: 2,615.
+Start: 879.00, End: 883.00, Sentence: Teraz tak, skoro wiemy, że wynik jest tożsamy z tym, z którym liczyliśmy wcześniej,
+Start: 883.00, End: 886.00, Sentence: To policzmy sobie ten wynik, jak pamiętasz, to jest 6.
+Start: 886.00, End: 890.00, Sentence: No to jest 6 minus 2,615.
+Start: 893.00, End: 897.00, Sentence: To nam daje 3,385.
+Start: 897.00, End: 899.00, Sentence: Sprawdźmy, czy przypadkowo jest to to samo.
+Start: 899.00, End: 900.00, Sentence: Patrzmy.
+Start: 900.00, End: 903.00, Sentence: Dokładnie to jest to samo, co nam wyszło poprzednią metodą.
+Start: 903.00, End: 905.00, Sentence: Musiało być to samo.
+Start: 905.40, End: 907.40, Sentence: Możemy wykonać kolejne obliczenie.
+Start: 907.40, End: 909.40, Sentence: Yc, analogicznie.
+Start: 909.40, End: 911.40, Sentence: Minus 23 przez 39.
+Start: 911.40, End: 913.40, Sentence: To się równa.
+Start: 914.40, End: 918.40, Sentence: Dostajemy minus 0,59.
+Start: 918.40, End: 922.40, Sentence: Teraz to 0,59 jest tu, na minusie.
+Start: 922.40, End: 924.40, Sentence: 0,59.
+Start: 925.40, End: 928.40, Sentence: No, czyli ten punkt, oczywiście nie jest w skali.
+Start: 928.40, End: 930.40, Sentence: Jest tutaj.
+Start: 931.40, End: 934.40, Sentence: To są nasze osi X centralna i Y centralna.
+Start: 935.40, End: 937.40, Sentence: Ale pamiętamy jeszcze o jednej bardzo ważnej rzeczy.
+Start: 937.40, End: 939.40, Sentence: Tak? Możemy to sprawdzić.
+Start: 939.40, End: 942.40, Sentence: No bo tutaj mamy 4 minus 0,59.
+Start: 942.40, End: 944.40, Sentence: Mamy 4 minus 0,59.
+Start: 944.40, End: 949.40, Sentence: To wychodzi dokładnie 3,41 z tego co widzę.
+Start: 949.40, End: 951.40, Sentence: No i porównajmy.
+Start: 951.40, End: 953.40, Sentence: Idealnie tem sam wynik.
+Start: 954.40, End: 956.40, Sentence: Policzyliśmy to samo zadanie.
+Start: 956.40, End: 960.40, Sentence: Trzema rożnymi metodami, wyszło dokładnie to samo.
+Start: 960.40, End: 962.40, Sentence: Dzięki serdeczne za wysłuchanie.
+Start: 962.40, End: 964.40, Sentence: Pojawiła się ikonka, dzięki której możecie zasubskrybować.
+Start: 964.80, End: 967.80, Sentence: Nasz kanał oraz ikona prowadząca do naszej strony.
+Start: 967.80, End: 969.80, Sentence: Na której znajdziecie jeszcze więcej zadań z tego działu.
+Start: 969.80, End: 971.80, Sentence: Z pełnymi rozwiązaniami krok po kroku.
+Start: 971.80, End: 973.80, Sentence: Oraz naszą ofertę korepetycji.
+Start: 973.80, End: 975.80, Sentence: Zachęcam do skorzystania z jednego i drugiego.
+Start: 975.80, End: 977.80, Sentence: Po prawej macie nasze przykładowe filmy.
+Start: 977.80, End: 979.80, Sentence: Zapraszam do obejrzenia.
+Start: 979.80, End: 981.80, Sentence: Dzięki, do usłyszenia.

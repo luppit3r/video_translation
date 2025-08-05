@@ -53,7 +53,40 @@ def generate_audio(text, api_key, voice_id, output_path):
         return output_path
     else:
         print(f"Failed to generate audio for text: {text}")
-        raise Exception(f"Failed to generate audio: {response.text}")
+        print(f"ElevenLabs error: {response.text}")
+        
+        # Sprawdź czy to problem z limitem lub kluczem API
+        try:
+            error_data = response.json()
+            if "detail" in error_data:
+                detail = error_data["detail"]
+                if isinstance(detail, dict):
+                    status = detail.get("status", "unknown")
+                    message = detail.get("message", "Unknown error")
+                    
+                    if "quota" in message.lower() or "limit" in message.lower():
+                        print("❌ BŁĄD: Przekroczony limit ElevenLabs API")
+                        print("💡 Rozwiązanie: Sprawdź swój plan ElevenLabs lub poczekaj do następnego miesiąca")
+                    elif "unauthorized" in message.lower() or "invalid" in message.lower():
+                        print("❌ BŁĄD: Nieprawidłowy klucz ElevenLabs API")
+                        print("💡 Rozwiązanie: Sprawdź klucz API w konfiguracji")
+                    else:
+                        print(f"❌ BŁĄD ElevenLabs: {status} - {message}")
+        except:
+            pass
+        
+        # Fallback - utwórz pusty plik audio żeby nie przerywać całego procesu
+        print("⚠️ Tworzę pusty plik audio jako fallback...")
+        try:
+            # Utwórz krótki plik audio z ciszą (1 sekunda)
+            from pydub import AudioSegment
+            silence = AudioSegment.silent(duration=1000)  # 1 sekunda ciszy
+            silence.export(output_path, format="mp3")
+            print(f"✅ Utworzono pusty plik audio: {output_path}")
+            return output_path
+        except Exception as e:
+            print(f"❌ Nie udało się utworzyć fallback audio: {e}")
+            raise Exception(f"Failed to generate audio: {response.text}")
 
 def main():
     parser = argparse.ArgumentParser(description="Generate audio files from translated text file.")

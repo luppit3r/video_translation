@@ -516,7 +516,7 @@ pojawia się tekst po polsku i generuje raport."""
             ("Nakładanie audio na wideo (SZYBKO)", self.run_overlay_for_combo),
             ("Usuwanie ciszy i bezruchu (SZYBKO)", self.run_delete_sm_for_combo),
             ("Wykrywanie polskiego tekstu", self.run_detect_polish_for_combo),
-            ("Dodawanie intro i outro", self.run_intro_outro_for_combo),
+            ("Dodawanie intro i outro (SZYBKO)", self.run_intro_outro_for_combo),
             ("Generowanie posta social media", self.run_social_media_for_combo)
         ]
         
@@ -889,7 +889,7 @@ pojawia się tekst po polsku i generuje raport."""
                 raise Exception("Nie znaleziono pliku wideo")
             
             python_exe = Path(__file__).parent.parent / "myenv" / "Scripts" / "python.exe"
-            intro_outro_script = Path(__file__).parent / "add_intro_outro.py"
+            intro_outro_script = Path(__file__).parent / "add_intro_outro_fast.py"  # Użyj szybkiej wersji
             
             # Podstawowe wywołanie - skrypt używa domyślnych ścieżek dla intro/outro
             result = subprocess.run([

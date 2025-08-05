@@ -1,0 +1,250 @@
+Start: 0.00, End: 3.20, Sentence: Welcome warmly, today we will calculate a very simple task.
+Start: 3.20, End: 6.80, Sentence: Our task is to calculate the center of gravity of such a figure.
+Start: 6.80, End: 9.00, Sentence: And now how to approach this?
+Start: 9.00, End: 11.40, Sentence: First, let's mark some axes system.
+Start: 11.40, End: 15.80, Sentence: Because the task's author did not specify in which axes system we should calculate.
+Start: 15.80, End: 18.40, Sentence: So let's assume here we have the x-axis.
+Start: 20.40, End: 26.40, Sentence: Here we have the y-axis, and in this system, we are looking for the center of gravity of a flat, composite figure.
+Start: 26.80, End: 30.60, Sentence: Now the next step is to divide this into simple figures.
+Start: 30.60, End: 33.80, Sentence: A simple figure is, for example, this little rectangle here.
+Start: 35.80, End: 41.80, Sentence: So we have a rectangle with dimensions 4x6 and a triangle with dimensions 6x5.
+Start: 41.80, End: 45.80, Sentence: We roughly remember where the centers of gravity of simple figures are located.
+Start: 45.80, End: 48.80, Sentence: I hope so, if not, we'll remind ourselves soon.
+Start: 50.80, End: 55.80, Sentence: For the rectangle, it is quite obvious, nonetheless, let's write it down.
+Start: 56.20, End: 59.20, Sentence: If we have width b here, and height h here.
+Start: 59.20, End: 72.20, Sentence: The center of gravity is located at distances of h over two, h over two, and at width b over two, b over two.
+Start: 72.20, End: 74.20, Sentence: With the triangle, it's slightly more interesting.
+Start: 76.20, End: 83.20, Sentence: Of course, at this point, we're discussing a right-angled triangle, again with dimensions b by h.
+Start: 83.60, End: 94.60, Sentence: And now, here we have a distance of b over three, and here we have two-thirds b.
+Start: 94.60, End: 101.60, Sentence: And here, similarly, we will have two-thirds h and one-third h.
+Start: 101.60, End: 105.60, Sentence: Of course, this information is found in tables.
+Start: 106.60, End: 111.60, Sentence: And now, with this information, let's write it down, perhaps in a table.
+Start: 112.00, End: 121.00, Sentence: For two figures, the position of centers of gravity on the x, y axis, and the area.
+Start: 121.00, End: 129.00, Sentence: So now, for the first figure, the distance from the axis to the center of gravity...
+Start: 129.00, End: 135.00, Sentence: Measured on the x-axis is x1, and for the second figure, it is x2.
+Start: 135.40, End: 140.40, Sentence: So for x1, we know it's half, so it's simply 3.
+Start: 140.40, End: 145.40, Sentence: For x2, we know it's, attention, attention, two-thirds, which means two-thirds of six.
+Start: 147.40, End: 150.40, Sentence: Two-thirds of six is, supposedly, four.
+Start: 150.40, End: 152.40, Sentence: Now let's move to the y-axis.
+Start: 152.40, End: 156.40, Sentence: On y, we have it for the first figure y1.
+Start: 158.40, End: 160.40, Sentence: For the second figure y2.
+Start: 161.40, End: 163.40, Sentence: So similarly.
+Start: 163.80, End: 169.80, Sentence: Now it's slightly more interesting because while y1 is trivially simple, it's half of 4, which is 2.
+Start: 169.80, End: 173.80, Sentence: Now note that y2 is this part, which is 4.
+Start: 174.80, End: 175.80, Sentence: That's 4.
+Start: 176.80, End: 177.80, Sentence: Add this part.
+Start: 177.80, End: 180.80, Sentence: Now this part, well, we know from here.
+Start: 181.80, End: 185.80, Sentence: It should be 1/3 h. Of course, I said it right but wrote it wrong.
+Start: 185.80, End: 186.80, Sentence: Sorry.
+Start: 187.80, End: 190.80, Sentence: Here we have the height 1 third of 5.
+Start: 193.80, End: 197.80, Sentence: And now, 4 plus 5 thirds.
+Start: 200.80, End: 204.80, Sentence: Either we do it manually, or we enter it into a calculator.
+Start: 205.80, End: 207.80, Sentence: We get 17 thirds.
+Start: 208.80, End: 210.80, Sentence: And the next step.
+Start: 210.80, End: 212.80, Sentence: We calculate the areas of these figures.
+Start: 213.80, End: 216.80, Sentence: The formula for the rectangle area, I might not need to write down.
+Start: 217.20, End: 219.20, Sentence: It's b times h, 6 times 4.
+Start: 219.20, End: 223.20, Sentence: 6 times 4 gives us 24.
+Start: 226.20, End: 228.20, Sentence: Next, the formula for the triangle area.
+Start: 228.20, End: 232.20, Sentence: It is 1/2 times b times h, which is 1/2 times 6 times 5.
+Start: 232.20, End: 235.20, Sentence: That equals 15.
+Start: 239.20, End: 240.20, Sentence: Now then.
+Start: 240.20, End: 246.20, Sentence: The next step will be calculating expressions x times A.
+Start: 246.60, End: 248.60, Sentence: And y times A.
+Start: 249.60, End: 255.60, Sentence: By the way, these expressions are static moments concerning the y-axis.
+Start: 256.60, End: 259.60, Sentence: And concerning the x-axis.
+Start: 261.60, End: 264.60, Sentence: However, we will simply count it as x times A.
+Start: 264.60, End: 267.60, Sentence: Well, x1 times A1 is 3 times 24.
+Start: 271.60, End: 273.60, Sentence: That is 72.
+Start: 274.00, End: 277.00, Sentence: Now we have 4 times 15.
+Start: 279.00, End: 281.00, Sentence: Oh, that's 60.
+Start: 281.00, End: 284.00, Sentence: Next, we have 2 times 24.
+Start: 286.00, End: 288.00, Sentence: Y times a, right?
+Start: 289.00, End: 290.00, Sentence: Y times a.
+Start: 291.00, End: 293.00, Sentence: That's 48.
+Start: 294.00, End: 297.00, Sentence: Next, we have 17 thirds times 15.
+Start: 297.00, End: 299.00, Sentence: That equals.
+Start: 299.40, End: 304.40, Sentence: And we also take out the calculator, but it elegantly comes out to 85.
+Start: 305.40, End: 309.40, Sentence: We make an area sum, which is 24 plus 15.
+Start: 314.40, End: 316.40, Sentence: That is 39.
+Start: 316.40, End: 320.40, Sentence: Static moments, which is 72 plus 60.
+Start: 324.40, End: 326.40, Sentence: 132.
+Start: 326.80, End: 331.80, Sentence: Static moments concerning the x-axis are 48 plus 85.
+Start: 334.80, End: 336.80, Sentence: That is 133.
+Start: 337.80, End: 340.80, Sentence: And that's practically almost the end.
+Start: 340.80, End: 349.80, Sentence: Because, by definition, we know that the position of the center of gravity xc is the sum of x times A divided by the sum of A.
+Start: 350.20, End: 358.20, Sentence: Which essentially means the sum of individual static moments concerning the y-axis divided by the sum of areas.
+Start: 358.20, End: 364.20, Sentence: So we have 132 divided by 39.
+Start: 366.20, End: 372.20, Sentence: And that gives us, let's write it approximately, 3.385.
+Start: 373.20, End: 378.20, Sentence: And similarly, yc, sum of y times A divided by the sum of A.
+Start: 380.20, End: 382.20, Sentence: That equals.
+Start: 382.20, End: 386.20, Sentence: Sum of static moments x divided by the sum of areas A.
+Start: 386.20, End: 391.20, Sentence: Which is 133 divided by 39.
+Start: 391.20, End: 394.20, Sentence: 133 divided by 39.
+Start: 394.20, End: 397.20, Sentence: That will be equal to 3.41.
+Start: 397.20, End: 399.20, Sentence: That is the end of this task.
+Start: 399.20, End: 401.20, Sentence: BUT we'll do it again.
+Start: 402.20, End: 407.20, Sentence: In the same reference system, so we mark the xy axes the same way.
+Start: 407.60, End: 413.60, Sentence: So we can compare the results, but we will divide the figures differently.
+Start: 413.60, End: 416.60, Sentence: Let's make a large figure, a large rectangle.
+Start: 418.60, End: 421.60, Sentence: With dimensions, attention, attention, 6x9.
+Start: 421.60, End: 424.60, Sentence: This is all our first figure.
+Start: 424.60, End: 429.60, Sentence: And we will subtract this small triangle with dimensions 5x6 from it.
+Start: 429.60, End: 432.60, Sentence: In this particular task, remember that nothing simplifies.
+Start: 433.00, End: 438.00, Sentence: We show this only for, let's call it, educational purposes.
+Start: 438.00, End: 446.00, Sentence: However, there are many tasks where cutting out shapes greatly simplifies the procedure.
+Start: 448.00, End: 455.00, Sentence: Let's make a somewhat funny notation, because let's assume that the areas of these cut-out figures are negative.
+Start: 455.00, End: 461.00, Sentence: But we'll understand this not as negative area, because obviously, ideologically, there is no negative area.
+Start: 461.40, End: 464.40, Sentence: Instead, we will understand this as cutting out these figures.
+Start: 464.40, End: 467.40, Sentence: So for the first figure, we have the x-position.
+Start: 467.40, End: 469.40, Sentence: Mark it pro forma.
+Start: 469.40, End: 472.40, Sentence: Just by sight, it will be somewhere here, right?
+Start: 474.40, End: 478.40, Sentence: C1, somewhere here will be C2.
+Start: 479.40, End: 484.40, Sentence: And of course, just like last time, we have x1, x2.
+Start: 484.40, End: 488.40, Sentence: So x1, simple matter, is half of 6, which is 3.
+Start: 488.80, End: 492.80, Sentence: And x2 is similar to last time, one third of 6.
+Start: 492.80, End: 495.80, Sentence: Similarly, I emphasize, exactly the same, which is 2.
+Start: 495.80, End: 499.80, Sentence: Because now we go from this side, so to speak, where there is a larger part of the figure, right?
+Start: 502.80, End: 504.80, Sentence: Proportionally larger.
+Start: 504.80, End: 506.80, Sentence: Y1 equals.
+Start: 508.80, End: 510.80, Sentence: Y1 is here.
+Start: 510.80, End: 514.80, Sentence: So our y1 will be half of 9, which is 4.5.
+Start: 515.20, End: 517.20, Sentence: And our y2 will be interesting again.
+Start: 517.20, End: 520.20, Sentence: And now we can write it the simplest way.
+Start: 520.20, End: 523.20, Sentence: Notice, we are trying to simplify our life.
+Start: 523.20, End: 525.20, Sentence: We take 9.
+Start: 526.20, End: 528.20, Sentence: And we subtract this piece.
+Start: 528.20, End: 531.20, Sentence: And this piece is nothing other than one third of 5.
+Start: 533.20, End: 536.20, Sentence: Oh yes, I left myself little space.
+Start: 536.20, End: 538.20, Sentence: Well, 9 minus 5/3.
+Start: 540.20, End: 542.20, Sentence: Turns out to be 22/3.
+Start: 542.60, End: 544.60, Sentence: Heaven forbid, the areas are not the same.
+Start: 544.60, End: 546.60, Sentence: At least one is different.
+Start: 546.60, End: 548.60, Sentence: We have 9 times 6.
+Start: 550.60, End: 553.60, Sentence: This is the area of the entire large rectangle.
+Start: 553.60, End: 559.60, Sentence: Here it has, let's emphasize once again, minus 1/2 times 5 times 6.
+Start: 559.60, End: 561.60, Sentence: Here it equals.
+Start: 562.60, End: 564.60, Sentence: Minus 15.
+Start: 564.60, End: 567.60, Sentence: Regarding values, the same, but this is the cut out area, right?
+Start: 567.60, End: 571.60, Sentence: We multiply x by A, which is 3 times 54.
+Start: 572.60, End: 574.60, Sentence: 106, right?
+Start: 575.60, End: 578.60, Sentence: Immediately, plain 4.5 times 54.
+Start: 578.60, End: 580.60, Sentence: 243.
+Start: 582.60, End: 590.60, Sentence: And here we have 2 times 15 in the negative, which is minus 30.
+Start: 590.60, End: 599.60, Sentence: Notice that when we will sum it, we get 54 minus 15, which is 39.
+Start: 600.00, End: 602.00, Sentence: It couldn't be otherwise, right?
+Start: 602.00, End: 604.00, Sentence: Because the area of the entire figure couldn't change.
+Start: 604.00, End: 607.00, Sentence: What's better, this is 132.
+Start: 608.00, End: 615.00, Sentence: Here we have in turn 22/3 times 15 in the negative.
+Start: 619.00, End: 621.00, Sentence: So we have minus 110. 
+Start: 621.00, End: 625.00, Sentence: 243 minus 110 gives us 133. 
+Start: 625.40, End: 627.40, Sentence: So, let's see. 
+Start: 627.40, End: 633.40, Sentence: 39, 39, 132, 132, 133, 133. 
+Start: 633.40, End: 637.40, Sentence: We're looking for exactly the same thing, just how do we divide this figure? 
+Start: 637.40, End: 640.40, Sentence: Theoretically, there are infinitely many divisions. 
+Start: 640.40, End: 643.40, Sentence: Sensible ones are usually considerably fewer. 
+Start: 644.40, End: 647.40, Sentence: We always try to do it in a way that is easy and simple. 
+Start: 647.40, End: 649.40, Sentence: I won't calculate now. 
+Start: 649.40, End: 652.40, Sentence: Let's mark it on the original again. 
+Start: 652.80, End: 655.80, Sentence: Where exactly is C located? 
+Start: 655.80, End: 657.80, Sentence: Because we missed this last time. 
+Start: 658.80, End: 662.80, Sentence: So now, C has an x-coordinate of 3.385, 
+Start: 662.80, End: 664.80, Sentence: So we are somewhere here. 
+Start: 666.80, End: 668.80, Sentence: Let's mark it by eye. 
+Start: 669.80, End: 673.80, Sentence: Here you can measure it with a ruler. 
+Start: 673.80, End: 678.80, Sentence: And on Y we have 3.41, so we are somewhere, let's say... here 
+Start: 679.20, End: 683.20, Sentence: Of course, I'm also marking by eye, you will measure it with a ruler. 
+Start: 685.20, End: 689.20, Sentence: And at the intersection of positions, that's C. 
+Start: 690.20, End: 693.20, Sentence: You can write it down as xc, yc. 
+Start: 695.20, End: 698.20, Sentence: So we determined the center of gravity 
+Start: 700.20, End: 703.20, Sentence: And at the same time the position of the central axes.
+Start: 704.20, End: 706.20, Sentence: Awesome. 
+Start: 706.60, End: 709.60, Sentence: Theoretically, we could try to calculate it again. 
+Start: 709.60, End: 712.60, Sentence: For example, we could choose a different reference system. 
+Start: 713.60, End: 715.60, Sentence: Just to make it more fun. 
+Start: 715.60, End: 717.60, Sentence: Of course, I'm continuously marking the figure. 
+Start: 718.60, End: 720.60, Sentence: And now we assume, in turn, 
+Start: 722.60, End: 724.60, Sentence: That we are here. 
+Start: 726.60, End: 729.60, Sentence: To make it even funnier, this will be the X axis and this will be the Y axis. 
+Start: 729.60, End: 731.60, Sentence: Here I marked 0. 
+Start: 732.00, End: 737.00, Sentence: Here the division into simple figures is, maybe not imposed, 
+Start: 737.00, End: 740.00, Sentence: But I'm imposing it myself, so to speak. 
+Start: 741.00, End: 743.00, Sentence: C1, C2. 
+Start: 743.00, End: 745.00, Sentence: And similarly, as the last little table, 
+Start: 745.00, End: 747.00, Sentence: Order number 1, 2. 
+Start: 747.00, End: 754.00, Sentence: This will be the sum of X, Y, A, X, A, Y. 
+Start: 755.00, End: 757.00, Sentence: Now we have X1. 
+Start: 757.00, End: 761.00, Sentence: Now notice that this X1 is here. 
+Start: 761.40, End: 765.40, Sentence: But we are going against the axis with this. 
+Start: 765.40, End: 767.40, Sentence: As if we are going backwards. 
+Start: 767.40, End: 770.40, Sentence: So we have X1 equal to minus 3. 
+Start: 771.40, End: 777.40, Sentence: And X2 is equal to minus 1/3 of six, so minus 2. 
+Start: 783.40, End: 786.40, Sentence: For Y, we have a very simple situation, too, 
+Start: 786.40, End: 790.40, Sentence: Because we are going from this Y axis upward, Y1 downward. 
+Start: 790.80, End: 793.80, Sentence: So again, Y1 goes against the axis, 
+Start: 793.80, End: 797.80, Sentence: So we have minus - I almost wrote 4 - minus 2, of course. 
+Start: 799.80, End: 801.80, Sentence: As for Y2, 
+Start: 801.80, End: 803.80, Sentence: We have a positive value,
+Start: 803.80, End: 805.80, Sentence: This will be 1/3 of 5.
+Start: 805.80, End: 807.80, Sentence: This is 5/3.
+Start: 808.80, End: 810.80, Sentence: The areas of the shapes obviously will not change.
+Start: 810.80, End: 812.80, Sentence: 4 times 6, 24.
+Start: 812.80, End: 815.80, Sentence: And one-half times 5, times 6 is 15.
+Start: 815.80, End: 817.80, Sentence: This is the same as last time.
+Start: 817.80, End: 819.80, Sentence: So, we multiply it out.
+Start: 820.20, End: 823.20, Sentence: We have minus 3 times 24, take note.
+Start: 823.20, End: 825.20, Sentence: Minus 72.
+Start: 825.20, End: 830.20, Sentence: And minus 2 times 15, which is minus 30.
+Start: 831.20, End: 833.20, Sentence: Here completely different values will come out.
+Start: 833.20, End: 838.20, Sentence: Minus 72, minus 30, this is obviously minus 102.
+Start: 839.20, End: 840.20, Sentence: Then we have like this.
+Start: 840.20, End: 843.20, Sentence: Minus 2 times 24, that is minus 48.
+Start: 843.20, End: 845.20, Sentence: And 5 thirds.
+Start: 845.20, End: 847.20, Sentence: Remember that this is positive.
+Start: 847.60, End: 849.60, Sentence: 5/3 times 15.
+Start: 849.60, End: 852.60, Sentence: 5/3 times 15, that is 25.
+Start: 853.60, End: 857.60, Sentence: Minus 48, which gives minus 23.
+Start: 857.60, End: 859.60, Sentence: From this we calculate Xa and Yc.
+Start: 860.60, End: 862.60, Sentence: We use the same choices.
+Start: 862.60, End: 864.60, Sentence: Of course, which is Xa over A, sumo, sumo.
+Start: 865.60, End: 868.60, Sentence: It is 102 over 39.
+Start: 868.60, End: 873.60, Sentence: That is minus 2.615.
+Start: 874.60, End: 876.60, Sentence: Notice, this is that little piece.
+Start: 877.00, End: 879.00, Sentence: 2.615.
+Start: 879.00, End: 883.00, Sentence: Now then, since we know the result is identical to the one we calculated earlier,
+Start: 883.00, End: 886.00, Sentence: Let's calculate that result, as you remember, it is 6.
+Start: 886.00, End: 890.00, Sentence: Well, it is 6 minus 2.615.
+Start: 893.00, End: 897.00, Sentence: That gives us 3.385.
+Start: 897.00, End: 899.00, Sentence: Let's check if by chance it is the same.
+Start: 899.00, End: 900.00, Sentence: Let's see.
+Start: 900.00, End: 903.00, Sentence: Exactly the same result as we got by the previous method.
+Start: 903.00, End: 905.00, Sentence: It had to be the same.
+Start: 905.40, End: 907.40, Sentence: We can perform another calculation.
+Start: 907.40, End: 909.40, Sentence: Yc, similarly.
+Start: 909.40, End: 911.40, Sentence: Minus 23 over 39.
+Start: 911.40, End: 913.40, Sentence: That equals.
+Start: 914.40, End: 918.40, Sentence: We get minus 0.59.
+Start: 918.40, End: 922.40, Sentence: Now this 0.59 is here, in the negative.
+Start: 922.40, End: 924.40, Sentence: 0.59.
+Start: 925.40, End: 928.40, Sentence: Well, this point, of course, is not to scale.
+Start: 928.40, End: 930.40, Sentence: It is here.
+Start: 931.40, End: 934.40, Sentence: These are our central X axis and central Y axis.
+Start: 935.40, End: 937.40, Sentence: But we still remember one very important thing.
+Start: 937.40, End: 939.40, Sentence: Right? We can check this.
+Start: 939.40, End: 942.40, Sentence: Because here we have 4 minus 0.59.
+Start: 942.40, End: 944.40, Sentence: We have 4 minus 0.59.
+Start: 944.40, End: 949.40, Sentence: That comes out exactly to be 3.41 from what I see.
+Start: 949.40, End: 951.40, Sentence: Well, let's compare.
+Start: 951.40, End: 953.40, Sentence: Exactly the same result.
+Start: 954.40, End: 956.40, Sentence: We calculated the same task.
+Start: 956.40, End: 960.40, Sentence: With three different methods, it came out exactly the same.
+Start: 960.40, End: 962.40, Sentence: Thanks so much for listening.
+Start: 962.40, End: 964.40, Sentence: An icon appeared, with which you can subscribe.
+Start: 964.80, End: 967.80, Sentence: Our channel and the icon leading to our website.
+Start: 967.80, End: 969.80, Sentence: Where you will find even more tasks from this section.
+Start: 969.80, End: 971.80, Sentence: With full step-by-step solutions.
+Start: 971.80, End: 973.80, Sentence: And our tutoring offers.
+Start: 973.80, End: 975.80, Sentence: I encourage you to take advantage of both.
+Start: 975.80, End: 977.80, Sentence: On the right, you have our sample videos.
+Start: 977.80, End: 979.80, Sentence: Feel free to watch them.
+Start: 979.80, End: 981.80, Sentence: Thanks, see you soon.
