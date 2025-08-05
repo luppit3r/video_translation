@@ -444,8 +444,9 @@ def compress_video_fast(video_path, gaps_to_compress, output_path):
     segment_refs = []
     
     for i, (start, end) in enumerate(segments):
-        filter_parts.append(f"[0:v]trim=start={start:.3f}:end={end:.3f},setpts=PTS-STARTPTS[v{i}]")
-        filter_parts.append(f"[0:a]atrim=start={start:.3f}:end={end:.3f},asetpts=PTS-STARTPTS[a{i}]")
+        # Resetujemy PTS ale z lepszą synchronizacją
+        filter_parts.append(f"[0:v]trim=start={start:.6f}:end={end:.6f},setpts=PTS-STARTPTS[v{i}]")
+        filter_parts.append(f"[0:a]atrim=start={start:.6f}:end={end:.6f},asetpts=PTS-STARTPTS[a{i}]")
         segment_refs.append(f"[v{i}][a{i}]")
     
     # Połącz wszystkie segmenty
@@ -454,7 +455,7 @@ def compress_video_fast(video_path, gaps_to_compress, output_path):
     
     filter_complex = ';'.join(filter_parts)
     
-    # Komenda ffmpeg
+    # Komenda ffmpeg z poprawkami dla timestamp'ów
     cmd = [
         'ffmpeg',
         *inputs,
@@ -465,6 +466,8 @@ def compress_video_fast(video_path, gaps_to_compress, output_path):
         '-preset', 'veryfast',
         '-crf', '23',
         '-c:a', 'aac',
+        '-avoid_negative_ts', 'make_zero',  # Napraw problemy z timestamp'ami
+        '-fflags', '+genpts',  # Regeneruj timestamp'y
         '-movflags', '+faststart',
         '-y',
         str(output_path)
