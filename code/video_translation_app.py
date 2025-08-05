@@ -1278,14 +1278,40 @@ pojawia się tekst po polsku i generuje raport."""
                 if hasattr(sys, '_MEIPASS'):
                     # Uruchomione z .exe - skrypt jest w bundled resources
                     bundled_script_path = Path(sys._MEIPASS) / script_name
-                    # Skopiuj skrypt do katalogu roboczego gdzie Python może go znaleźć
-                    working_script_path = Path.cwd() / script_name
                     
                     if bundled_script_path.exists():
                         import shutil
-                        shutil.copy2(bundled_script_path, working_script_path)
-                        script_path = working_script_path
-                        self.log(f"Skopiowano skrypt z bundled resources: {script_name}")
+                        
+                        # Spróbuj różne lokalizacje do skopiowania skryptu (macOS compatibility)
+                        copy_locations = [
+                            Path.cwd() / script_name,  # Bieżący katalog
+                            Path.home() / "Documents" / script_name,  # Dokumenty użytkownika
+                            Path.home() / "Desktop" / script_name,  # Pulpit użytkownika
+                            Path("/tmp") / script_name if Path("/tmp").exists() else None,  # /tmp na macOS/Linux
+                        ]
+                        
+                        script_path = None
+                        copied = False
+                        
+                        for working_script_path in copy_locations:
+                            if working_script_path is None:
+                                continue
+                                
+                            try:
+                                # Upewnij się, że katalog istnieje
+                                working_script_path.parent.mkdir(parents=True, exist_ok=True)
+                                shutil.copy2(bundled_script_path, working_script_path)
+                                script_path = working_script_path
+                                self.log(f"Skopiowano skrypt do: {working_script_path}")
+                                copied = True
+                                break
+                            except (OSError, PermissionError):
+                                continue
+                        
+                        if not copied:
+                            # Jeśli nie udało się skopiować, spróbuj uruchomić bezpośrednio z bundled
+                            script_path = bundled_script_path
+                            self.log(f"⚠️ Nie udało się skopiować skryptu - używam bezpośrednio z bundle: {script_name}")
                     else:
                         self.log(f"⚠️ Nie znaleziono skryptu w bundled resources: {bundled_script_path}")
                         script_path = Path(__file__).parent / script_name
@@ -1482,11 +1508,21 @@ pojawia się tekst po polsku i generuje raport."""
                 # Wyczyść skopiowane pliki jeśli uruchomiono z .exe
                 if hasattr(sys, '_MEIPASS'):
                     try:
-                        # Usuń skopiowany skrypt
-                        working_script_path = Path.cwd() / script_name
-                        if working_script_path.exists():
-                            working_script_path.unlink()
-                            self.log(f"Usunięto tymczasowy skrypt: {script_name}")
+                        # Usuń skopiowany skrypt z różnych możliwych lokalizacji
+                        cleanup_locations = [
+                            Path.cwd() / script_name,
+                            Path.home() / "Documents" / script_name,
+                            Path.home() / "Desktop" / script_name,
+                            Path("/tmp") / script_name if Path("/tmp").exists() else None,
+                        ]
+                        
+                        for script_path in cleanup_locations:
+                            if script_path and script_path.exists():
+                                try:
+                                    script_path.unlink()
+                                    self.log(f"Usunięto tymczasowy skrypt: {script_path}")
+                                except Exception as e:
+                                    self.log(f"⚠️ Nie udało się usunąć {script_path}: {e}")
                         
                         # Usuń skopiowane pliki intro/outro jeśli to był add_intro_outro.py
                         if script_name == "add_intro_outro.py":

@@ -169,7 +169,22 @@ def main():
     if len(sys.argv) >= 4:
         logo_path = sys.argv[3]
     else:
-        logo_path = "logo.png"
+        # Spróbuj znaleźć logo.png w różnych lokalizacjach
+        logo_locations = [
+            "logo.png",  # Bieżący katalog
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "logo.png"),  # Folder nadrzędny
+            os.path.join(os.path.expanduser("~"), "Documents", "logo.png"),  # Dokumenty
+            os.path.join(os.path.expanduser("~"), "Desktop", "logo.png"),  # Pulpit
+        ]
+        
+        logo_path = None
+        for path in logo_locations:
+            if os.path.isfile(path):
+                logo_path = path
+                break
+        
+        if logo_path is None:
+            logo_path = "logo.png"  # Fallback do oryginalnej ścieżki
     
     print("🎨 White Bottom Logo Processor")
     print(f"Input: {input_video}")
