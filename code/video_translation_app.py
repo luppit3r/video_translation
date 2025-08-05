@@ -864,18 +864,32 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
         try:
             working_dir = Path(self.working_dir.get()) if self.working_dir.get() else Path.cwd()
             
-            # Znajdź najnowszy plik wideo (powinien być po detect_polish)
-            video_extensions = ['.mp4', '.avi', '.mov', '.mkv']
-            video_files = []
-            for ext in video_extensions:
-                video_files.extend(working_dir.rglob(f"*{ext}"))
+            # Szukaj pliku po dodaniu logo (krok 5)
+            logo_files = list(working_dir.rglob("*_with_logo.mp4"))
             
-            # Sortuj według czasu modyfikacji - najnowszy najprawdopodobniej po detect_polish
-            if video_files:
-                video_files.sort(key=lambda x: x.stat().st_mtime, reverse=True)
-                video_file = video_files[0]
+            if logo_files:
+                # Użyj pliku po dodaniu logo
+                video_file = logo_files[0]
+                self.root.after(0, lambda: self.log(f"[KOMBO] Używam pliku po dodaniu logo: {video_file.name}"))
             else:
-                raise Exception("Nie znaleziono pliku wideo")
+                # Fallback - szukaj pliku po detect_polish (jeśli krok logo był wyłączony)
+                polish_files = list(working_dir.rglob("*_polish_text_detection.mp4"))
+                if polish_files:
+                    video_file = polish_files[0]
+                    self.root.after(0, lambda: self.log(f"[KOMBO] Używam pliku po detect_polish: {video_file.name}"))
+                else:
+                    # Ostatni fallback - najnowszy plik
+                    video_extensions = ['.mp4', '.avi', '.mov', '.mkv']
+                    video_files = []
+                    for ext in video_extensions:
+                        video_files.extend(working_dir.rglob(f"*{ext}"))
+                    
+                    if video_files:
+                        video_files.sort(key=lambda x: x.stat().st_mtime, reverse=True)
+                        video_file = video_files[0]
+                        self.root.after(0, lambda: self.log(f"[KOMBO] Używam najnowszy plik: {video_file.name}"))
+                    else:
+                        raise Exception("Nie znaleziono pliku wideo")
             
             python_exe = Path(__file__).parent.parent / "myenv" / "Scripts" / "python.exe"
             intro_outro_script = Path(__file__).parent / "add_intro_outro_fast.py"  # Użyj szybkiej wersji
