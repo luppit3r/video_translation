@@ -55,6 +55,17 @@ class VideoTranslationApp:
         self.progress_labels = {}
         self.stop_flags = {}
         
+        # Zmienne dla checkboxów KOMBO (domyślnie wszystkie zaznaczone)
+        self.combo_steps_enabled = {
+            'translate': tk.BooleanVar(value=True),
+            'generate': tk.BooleanVar(value=True), 
+            'overlay': tk.BooleanVar(value=True),
+            'delete_sm': tk.BooleanVar(value=True),
+            'detect_polish': tk.BooleanVar(value=True),
+            'intro_outro': tk.BooleanVar(value=True),
+            'social_media': tk.BooleanVar(value=True)
+        }
+        
         # Obsługa zamknięcia aplikacji
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
         
@@ -315,21 +326,49 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
         
     def setup_combo_content(self, parent_frame):
         """Konfiguruje zawartość kroku KOMBO - pełny automatyczny przepływ"""
-        desc_text = """Ten krok wykona automatycznie wszystkie operacje po kolei:
-1. Tłumaczenie na angielski
-2. Generowanie audio
-3. Nakładanie audio na wideo  
-4. Usuwanie ciszy i bezruchu
-5. Wykrywanie polskiego tekstu
-6. Dodawanie intro i outro
-7. Generowanie posta na social media
-
-Upewnij się, że masz gotową transkrypcję z Kroku 1."""
+        desc_text = """Wybierz które kroki mają być wykonane w przepływie KOMBO:"""
         
         ttk.Label(parent_frame, text=desc_text, wraplength=800, justify=tk.LEFT, anchor="w").pack(anchor="w", pady=(0, 10))
         
-        # Przycisk uruchamiający pełny przepływ
-        ttk.Button(parent_frame, text="URUCHOM PEŁNY PRZEPŁYW KOMBO", 
+        # Frame dla checkboxów
+        checkboxes_frame = ttk.LabelFrame(parent_frame, text="Kroki do wykonania", padding="10")
+        checkboxes_frame.pack(fill=tk.X, pady=(0, 10))
+        
+        # Lista kroków z opisami
+        combo_steps_info = [
+            ('translate', '1. Tłumaczenie na angielski'),
+            ('generate', '2. Generowanie audio'),
+            ('overlay', '3. Nakładanie audio na wideo (SZYBKO)'),
+            ('delete_sm', '4. Usuwanie ciszy i bezruchu (SZYBKO)'),
+            ('detect_polish', '5. Wykrywanie polskiego tekstu'),
+            ('intro_outro', '6. Dodawanie intro i outro (SZYBKO)'),
+            ('social_media', '7. Generowanie posta na social media')
+        ]
+        
+        # Tworzenie checkboxów w dwóch kolumnach
+        for i, (step_key, step_desc) in enumerate(combo_steps_info):
+            row = i // 2
+            col = i % 2
+            
+            checkbox = ttk.Checkbutton(checkboxes_frame, text=step_desc, 
+                                     variable=self.combo_steps_enabled[step_key])
+            checkbox.grid(row=row, column=col, sticky="w", padx=(0, 20), pady=2)
+        
+        # Przyciski "Zaznacz wszystkie" / "Odznacz wszystkie"
+        buttons_frame = ttk.Frame(checkboxes_frame)
+        buttons_frame.grid(row=len(combo_steps_info)//2 + 1, column=0, columnspan=2, pady=(10, 0))
+        
+        ttk.Button(buttons_frame, text="Zaznacz wszystkie", 
+                  command=self.select_all_combo_steps).pack(side=tk.LEFT, padx=(0, 10))
+        ttk.Button(buttons_frame, text="Odznacz wszystkie", 
+                  command=self.deselect_all_combo_steps).pack(side=tk.LEFT)
+        
+        # Dodatkowa informacja
+        info_text = "\nUpewnij się, że masz gotową transkrypcję z Kroku 1."
+        ttk.Label(parent_frame, text=info_text, wraplength=800, justify=tk.LEFT, anchor="w").pack(anchor="w", pady=(10, 0))
+        
+        # Przycisk uruchamiający wybrany przepływ
+        ttk.Button(parent_frame, text="URUCHOM WYBRANY PRZEPŁYW KOMBO", 
                   command=self.run_combo_workflow).pack(pady=10)
         
         # Progress bar dla combo
@@ -348,6 +387,16 @@ Upewnij się, że masz gotową transkrypcję z Kroku 1."""
         self.combo_stop_btn = ttk.Button(combo_progress_frame, text="Stop", 
                                         command=lambda: self.stop_operation('combo'))
         self.combo_stop_btn.pack_forget()  # Ukryj na początku
+    
+    def select_all_combo_steps(self):
+        """Zaznacza wszystkie kroki KOMBO"""
+        for var in self.combo_steps_enabled.values():
+            var.set(True)
+    
+    def deselect_all_combo_steps(self):
+        """Odznacza wszystkie kroki KOMBO"""
+        for var in self.combo_steps_enabled.values():
+            var.set(False)
         
     def setup_step2_content(self, parent_frame):
         """Konfiguruje zawartość kroku 2 - tłumaczenie"""
@@ -500,25 +549,40 @@ pojawia się tekst po polsku i generuje raport."""
         # Usunięto self.root.update_idletasks() - może powodować problemy z GUI
         
     def run_combo_workflow(self):
-        """Uruchamia pełny przepływ KOMBO: translate → generate → overlay → delete_sm → detect_polish → intro_outro → social_media"""
+        """Uruchamia wybrany przepływ KOMBO na podstawie zaznaczonych checkboxów"""
         from datetime import datetime
+        
+        # Sprawdź czy jakikolwiek krok jest zaznaczony
+        enabled_steps = [key for key, var in self.combo_steps_enabled.items() if var.get()]
+        
+        if not enabled_steps:
+            messagebox.showwarning("Brak kroków", "Nie wybrano żadnego kroku do wykonania!")
+            return
         
         self.combo_start_time = datetime.now()
         self.combo_step_times = {}  # Słownik na czasy kroków
         
-        self.log(f"[KOMBO] Rozpoczynam pełny przepływ KOMBO o {self.combo_start_time.strftime('%H:%M:%S')}")
+        enabled_steps_text = ", ".join(enabled_steps)
+        self.log(f"[KOMBO] Rozpoczynam wybrany przepływ KOMBO o {self.combo_start_time.strftime('%H:%M:%S')}")
+        self.log(f"[KOMBO] Wybrane kroki: {enabled_steps_text}")
         self.show_stop_button('combo')
         
-        # Lista kroków do wykonania
-        self.combo_steps = [
-            ("Tłumaczenie na angielski", self.run_translate_for_combo),
-            ("Generowanie audio", self.run_generate_for_combo),
-            ("Nakładanie audio na wideo (SZYBKO)", self.run_overlay_for_combo),
-            ("Usuwanie ciszy i bezruchu (SZYBKO)", self.run_delete_sm_for_combo),
-            ("Wykrywanie polskiego tekstu", self.run_detect_polish_for_combo),
-            ("Dodawanie intro i outro (SZYBKO)", self.run_intro_outro_for_combo),
-            ("Generowanie posta social media", self.run_social_media_for_combo)
-        ]
+        # Wszystkie dostępne kroki z mapowaniem
+        all_steps = {
+            'translate': ("Tłumaczenie na angielski", self.run_translate_for_combo),
+            'generate': ("Generowanie audio", self.run_generate_for_combo),
+            'overlay': ("Nakładanie audio na wideo (SZYBKO)", self.run_overlay_for_combo),
+            'delete_sm': ("Usuwanie ciszy i bezruchu (SZYBKO)", self.run_delete_sm_for_combo),
+            'detect_polish': ("Wykrywanie polskiego tekstu", self.run_detect_polish_for_combo),
+            'intro_outro': ("Dodawanie intro i outro (SZYBKO)", self.run_intro_outro_for_combo),
+            'social_media': ("Generowanie posta social media", self.run_social_media_for_combo)
+        }
+        
+        # Buduj listę kroków do wykonania na podstawie checkboxów
+        self.combo_steps = []
+        for step_key in ['translate', 'generate', 'overlay', 'delete_sm', 'detect_polish', 'intro_outro', 'social_media']:
+            if self.combo_steps_enabled[step_key].get():
+                self.combo_steps.append(all_steps[step_key])
         
         self.current_combo_step = 0
         self.combo_failed = False
