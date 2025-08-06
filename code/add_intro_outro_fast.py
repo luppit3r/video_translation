@@ -8,17 +8,46 @@ import os
 def add_intro_outro_fast(video_path, intro_path=None, outro_path=None, output_path=None):
     """
     Szybka wersja dodawania intro/outro używająca bezpośrednio ffmpeg.
-    Znacznie szybsza od MoviePy bo używa stream copy zamiast rekodowania.
+    Używa filter_complex dla stabilnego łączenia plików.
     """
     print(f"Szybkie przetwarzanie wideo: {video_path}")
     
     video_path = Path(video_path)
     
-    # Ustaw domyślne ścieżki intro/outro
+    # Ustaw domyślne ścieżki intro/outro - szukaj w różnych lokalizacjach
     if not intro_path:
-        intro_path = "../intro_outro/Intro_EN.mp4"
+        # Możliwe lokalizacje intro/outro
+        possible_intro_paths = [
+            "../intro_outro/Intro_EN.mp4",  # Standardowa ścieżka
+            "../../intro_outro/Intro_EN.mp4",  # Z podfolderu output
+            "../../../intro_outro/Intro_EN.mp4",  # Z głębszego poziomu
+            Path(__file__).parent.parent / "intro_outro" / "Intro_EN.mp4",  # Względem skryptu
+            Path(__file__).parent.parent.parent / "intro_outro" / "Intro_EN.mp4",  # Z folderu głównego projektu
+        ]
+        intro_path = None
+        for path in possible_intro_paths:
+            if Path(path).exists():
+                intro_path = str(path)
+                break
+        if not intro_path:
+            intro_path = "../intro_outro/Intro_EN.mp4"  # Fallback
+    
     if not outro_path:
-        outro_path = "../intro_outro/Outro_EN.mp4"
+        # Możliwe lokalizacje intro/outro
+        possible_outro_paths = [
+            "../intro_outro/Outro_EN.mp4",  # Standardowa ścieżka
+            "../../intro_outro/Outro_EN.mp4",  # Z podfolderu output
+            "../../../intro_outro/Outro_EN.mp4",  # Z głębszego poziomu
+            Path(__file__).parent.parent / "intro_outro" / "Outro_EN.mp4",  # Względem skryptu
+            Path(__file__).parent.parent.parent / "intro_outro" / "Outro_EN.mp4",  # Z folderu głównego projektu
+        ]
+        outro_path = None
+        for path in possible_outro_paths:
+            if Path(path).exists():
+                outro_path = str(path)
+                break
+        if not outro_path:
+            outro_path = "../intro_outro/Outro_EN.mp4"  # Fallback
     
     intro_path = Path(intro_path)
     outro_path = Path(outro_path)
@@ -31,92 +60,87 @@ def add_intro_outro_fast(video_path, intro_path=None, outro_path=None, output_pa
         if not output_path.suffix:
             output_path = output_path.with_suffix('.mp4')
     
-    # Sprawdź czy pliki intro/outro istnieją
-    files_to_concat = []
+    # Sprawdź które pliki istnieją
+    input_files = []
+    filter_inputs = []
     
     if intro_path.exists():
-        files_to_concat.append(str(intro_path))
+        input_files.append(str(intro_path))
+        filter_inputs.append("[0:v][0:a]")
         print(f"[OK] Znaleziono intro: {intro_path.name}")
     else:
         print(f"[UWAGA] Brak pliku intro: {intro_path}")
     
     # Główne wideo (zawsze)
-    files_to_concat.append(str(video_path))
+    input_files.append(str(video_path))
+    current_index = len(input_files) - 1
+    filter_inputs.append(f"[{current_index}:v][{current_index}:a]")
     print(f"[OK] Główne wideo: {video_path.name}")
     
     if outro_path.exists():
-        files_to_concat.append(str(outro_path))
+        input_files.append(str(outro_path))
+        current_index = len(input_files) - 1
+        filter_inputs.append(f"[{current_index}:v][{current_index}:a]")
         print(f"[OK] Znaleziono outro: {outro_path.name}")
     else:
         print(f"[UWAGA] Brak pliku outro: {outro_path}")
     
-    if len(files_to_concat) == 1:
+    if len(input_files) == 1:
         print("[BLAD] Brak plików intro/outro do dodania!")
         return None
     
-    # Utwórz plik z listą plików do łączenia
-    concat_file = video_path.parent / "concat_list.txt"
+    # Buduj komendę ffmpeg z filter_complex
+    cmd = ['ffmpeg']
     
-    try:
-        with open(concat_file, 'w', encoding='utf-8') as f:
-            for file_path in files_to_concat:
-                # Konwertuj ścieżki na absolutne i escape'uj je
-                abs_path = Path(file_path).resolve()
-                # W ffmpeg concat file format używamy forward slashes nawet w Windows
-                escaped_path = str(abs_path).replace('\\', '/')
-                f.write(f"file '{escaped_path}'\n")
+    # Dodaj wszystkie pliki wejściowe
+    for file_path in input_files:
+        cmd.extend(['-i', file_path])
+    
+    # Utwórz filter_complex
+    filter_complex = "".join(filter_inputs) + f"concat=n={len(input_files)}:v=1:a=1[outv][outa]"
+    
+    cmd.extend([
+        '-filter_complex', filter_complex,
+        '-map', '[outv]',
+        '-map', '[outa]',
+        '-c:v', 'libx264',  # Rekodowanie potrzebne dla filter_complex
+        '-c:a', 'aac',
+        '-crf', '23',  # Dobra jakość
+        '-preset', 'fast',  # Szybkie kodowanie
+        '-avoid_negative_ts', 'make_zero',
+        '-y',  # Nadpisz plik wyjściowy
+        str(output_path)
+    ])
+    
+    print("Uruchamianie ffmpeg z filter_complex...")
+    print(f"Komenda: {' '.join(cmd)}")
+    
+    start_time = datetime.now()
+    
+    # Uruchom ffmpeg
+    result = subprocess.run(cmd, 
+                          capture_output=True, 
+                          text=True, 
+                          cwd=str(video_path.parent))
+    
+    end_time = datetime.now()
+    duration = (end_time - start_time).total_seconds()
+    
+    if result.returncode == 0:
+        print(f"\n[SUKCES] Wideo zostało pomyślnie utworzone w {duration:.1f} sekund!")
+        print(f"[INFO] Plik zapisany: {output_path}")
         
-        print(f"Utworzono listę plików: {concat_file}")
+        # Pokaż rozmiar pliku
+        if output_path.exists():
+            size_mb = output_path.stat().st_size / (1024 * 1024)
+            print(f"[INFO] Rozmiar pliku: {size_mb:.1f} MB")
         
-        # Komenda ffmpeg z concat demuxer (najszybsza metoda)
-        cmd = [
-            'ffmpeg',
-            '-f', 'concat',
-            '-safe', '0',
-            '-i', str(concat_file),
-            '-c', 'copy',  # Kopiuj strumienie bez rekodowania (bardzo szybkie!)
-            '-avoid_negative_ts', 'make_zero',
-            '-y',  # Nadpisz plik wyjściowy
-            str(output_path)
-        ]
-        
-        print("Uruchamianie ffmpeg...")
-        print(f"Komenda: {' '.join(cmd)}")
-        
-        start_time = datetime.now()
-        
-        # Uruchom ffmpeg
-        result = subprocess.run(cmd, 
-                              capture_output=True, 
-                              text=True, 
-                              cwd=str(video_path.parent))
-        
-        end_time = datetime.now()
-        duration = (end_time - start_time).total_seconds()
-        
-        if result.returncode == 0:
-            print(f"\n[SUKCES] Wideo zostało pomyślnie utworzone w {duration:.1f} sekund!")
-            print(f"[INFO] Plik zapisany: {output_path}")
-            
-            # Pokaż rozmiar pliku
-            if output_path.exists():
-                size_mb = output_path.stat().st_size / (1024 * 1024)
-                print(f"[INFO] Rozmiar pliku: {size_mb:.1f} MB")
-            
-            return str(output_path)
-        else:
-            print(f"[BLAD] Błąd ffmpeg:")
-            print(result.stderr)
-            
-            # Fallback do wolniejszej metody z rekodowaniem
-            print("[INFO] Próbuję alternatywną metodę z rekodowaniem...")
-            return add_intro_outro_with_reencoding(files_to_concat, output_path)
-            
-    finally:
-        # Usuń tymczasowy plik
-        if concat_file.exists():
-            concat_file.unlink()
-            print(f"[INFO] Usunięto tymczasowy plik: {concat_file.name}")
+        return str(output_path)
+    else:
+        print(f"[BLAD] Błąd ffmpeg:")
+        print(result.stderr)
+        print(f"[BLAD] Stdout: {result.stdout}")
+        return None
 
 def add_intro_outro_with_reencoding(files_to_concat, output_path):
     """

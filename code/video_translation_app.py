@@ -53,6 +53,7 @@ class VideoTranslationApp:
         self.current_process = None
         self.progress_vars = {}
         self.progress_labels = {}
+        self.progress_bars = {}
         self.stop_flags = {}
         
         # Zmienne dla checkboxów KOMBO (domyślnie wszystkie zaznaczone)
@@ -71,6 +72,9 @@ class VideoTranslationApp:
         self.intro_video_path = tk.StringVar()
         self.outro_video_path = tk.StringVar()
         self.main_video_path = tk.StringVar()
+        
+        # Zmienne dla dodatkowych funkcji
+        self.gap_numbers = tk.StringVar()
         
         # Obsługa zamknięcia aplikacji
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
@@ -167,9 +171,12 @@ ELEVENLABS_API_KEY={self.elevenlabs_api_key.get()}
             messagebox.showerror("Błąd", error_msg)
     
     def setup_ui(self):
-        """Konfiguruje interfejs użytkownika"""
+        """Konfiguruje interfejs użytkownika z nowoczesnym wyglądem"""
+        # Ustaw nowoczesny styl
+        self.setup_modern_style()
+        
         # Główny kontener
-        main_frame = ttk.Frame(self.root, padding="10")
+        main_frame = ttk.Frame(self.root, padding="15")
         main_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
         
         # Konfiguracja grid
@@ -177,215 +184,268 @@ ELEVENLABS_API_KEY={self.elevenlabs_api_key.get()}
         self.root.rowconfigure(0, weight=1)
         main_frame.columnconfigure(1, weight=1)
         
-        # Nagłówek
+        # Nagłówek z nowoczesnym designem
         header_frame = ttk.Frame(main_frame)
-        header_frame.grid(row=0, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 20))
+        header_frame.grid(row=0, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 15))
         
-        title_label = ttk.Label(header_frame, text="Video Translation Studio", 
-                               font=('Arial', 20, 'bold'))
+        title_label = ttk.Label(header_frame, text="🎬 Video Translation Studio", 
+                               font=('Segoe UI', 24, 'bold'), foreground='#2c3e50')
         title_label.pack()
         
-        # Status
+        # Status z nowoczesnym stylem
         status_label = ttk.Label(header_frame, textvariable=self.current_step, 
-                                font=('Arial', 12))
+                                font=('Segoe UI', 11), foreground='#7f8c8d')
         status_label.pack(pady=(5, 0))
         
-        # Panel konfiguracji API
-        api_frame = ttk.LabelFrame(main_frame, text="Konfiguracja API", padding="10")
-        api_frame.grid(row=1, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 20))
+        # Panel wyboru folderu z nowoczesnym stylem
+        folder_frame = ttk.LabelFrame(main_frame, text="📁 Folder roboczy (folder główny procesowanego wideo)", padding="12")
+        folder_frame.grid(row=1, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 15))
         
-        # OpenAI API Key
-        ttk.Label(api_frame, text="OpenAI API Key:").grid(row=0, column=0, sticky=tk.W)
-        openai_entry = ttk.Entry(api_frame, textvariable=self.openai_api_key, width=60, show="*")
-        openai_entry.grid(row=0, column=1, padx=(10, 10), sticky=(tk.W, tk.E))
+        ttk.Label(folder_frame, text="Folder roboczy:", font=('Segoe UI', 10)).grid(row=0, column=0, sticky=tk.W)
+        folder_entry = ttk.Entry(folder_frame, textvariable=self.working_dir, width=50, font=('Segoe UI', 10))
+        folder_entry.grid(row=0, column=1, padx=(10, 10))
+        select_btn = ttk.Button(folder_frame, text="📂 Wybierz", command=self.select_working_dir, style='Accent.TButton')
+        select_btn.grid(row=0, column=2)
         
-        # ElevenLabs API Key
-        ttk.Label(api_frame, text="ElevenLabs API Key:").grid(row=1, column=0, sticky=tk.W, pady=(10, 0))
-        elevenlabs_entry = ttk.Entry(api_frame, textvariable=self.elevenlabs_api_key, width=60, show="*")
-        elevenlabs_entry.grid(row=1, column=1, padx=(10, 10), pady=(10, 0), sticky=(tk.W, tk.E))
+        # Notebook (zakładki) z nowoczesnym stylem
+        self.notebook = ttk.Notebook(main_frame)
+        self.notebook.grid(row=2, column=0, columnspan=2, sticky=(tk.W, tk.E, tk.N, tk.S), pady=(0, 15))
         
-        # Przycisk zapisz klucze
-        save_keys_btn = ttk.Button(api_frame, text="Zapisz klucze", command=self.save_api_keys)
-        save_keys_btn.grid(row=2, column=0, columnspan=2, pady=(10, 0))
+        # Zakładka 1: Konfiguracja API
+        self.api_tab = ttk.Frame(self.notebook, padding="15")
+        self.notebook.add(self.api_tab, text="🔑 Konfiguracja API")
+        self.setup_api_tab()
         
-        # Konfiguracja grid dla API
-        api_frame.columnconfigure(1, weight=1)
+        # Zakładka 2: Krok 1
+        self.step1_tab = ttk.Frame(self.notebook, padding="15")
+        self.notebook.add(self.step1_tab, text="🎯 Krok 1")
+        self.setup_step1_tab()
         
-        # Panel wyboru folderu
-        folder_frame = ttk.LabelFrame(main_frame, text="Folder roboczy", padding="10")
-        folder_frame.grid(row=2, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 20))
+        # Zakładka 3: KOMBO
+        self.combo_tab = ttk.Frame(self.notebook, padding="15")
+        self.notebook.add(self.combo_tab, text="⚡ KOMBO")
+        self.setup_combo_tab()
         
-        ttk.Label(folder_frame, text="Folder roboczy:").grid(row=0, column=0, sticky=tk.W)
-        ttk.Entry(folder_frame, textvariable=self.working_dir, width=50).grid(row=0, column=1, padx=(10, 10))
-        ttk.Button(folder_frame, text="Wybierz", command=self.select_working_dir).grid(row=0, column=2)
+        # Zakładka 4: Dodatkowe funkcje
+        self.extra_tab = ttk.Frame(self.notebook, padding="15")
+        self.notebook.add(self.extra_tab, text="🔧 Dodatkowe funkcje")
+        self.setup_extra_tab()
         
-        # Główne okno z przewijakiem
-        canvas_frame = ttk.Frame(main_frame)
-        canvas_frame.grid(row=3, column=0, columnspan=2, sticky=(tk.W, tk.E, tk.N, tk.S), pady=(0, 20))
+        # Zakładka 5: Logi
+        self.logs_tab = ttk.Frame(self.notebook, padding="15")
+        self.notebook.add(self.logs_tab, text="📋 Logi")
+        self.setup_logs_tab()
         
-        # Canvas z paskiem przewijania
-        self.canvas = tk.Canvas(canvas_frame)
-        scrollbar = ttk.Scrollbar(canvas_frame, orient="vertical", command=self.canvas.yview)
-        self.scrollable_frame = ttk.Frame(self.canvas)
+        # Konfiguracja grid
+        main_frame.rowconfigure(2, weight=1)
         
-        self.scrollable_frame.bind(
-            "<Configure>",
-            lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all"))
-        )
-        
-        self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
-        self.canvas.configure(yscrollcommand=scrollbar.set)
-        
-        self.canvas.pack(side="left", fill="both", expand=True)
-        scrollbar.pack(side="right", fill="y")
-        
-        # Bind mousewheel for scrolling
-        def _on_mousewheel(event):
-            self.canvas.yview_scroll(int(-1*(event.delta/120)), "units")
-        self.canvas.bind("<MouseWheel>", _on_mousewheel)
-        
-        # Wszystkie sekcje w jednej zakładce
-        self.setup_all_sections()
-        
-        # Logi
-        log_frame = ttk.LabelFrame(main_frame, text="Logi", padding="10")
-        log_frame.grid(row=4, column=0, columnspan=2, sticky=(tk.W, tk.E, tk.N, tk.S))
-        
-        self.log_text = scrolledtext.ScrolledText(log_frame, height=4, width=80)
-        self.log_text.pack(fill=tk.BOTH, expand=True)
-        
-        # Konfiguracja grid dla logów
-        log_frame.columnconfigure(0, weight=1)
-        log_frame.rowconfigure(0, weight=1)
-        main_frame.rowconfigure(3, weight=1)
-        main_frame.rowconfigure(4, weight=1)
-        
-        # Wczytaj intro/outro po utworzeniu wszystkich widgetów (na końcu)
+        # Wczytaj intro/outro po utworzeniu wszystkich widgetów
         self.load_intro_outro_files()
         
-
+    def setup_modern_style(self):
+        """Ustawia nowoczesny styl aplikacji"""
+        try:
+            # Próbuj użyć nowoczesnego stylu
+            style = ttk.Style()
+            
+            # Ustaw nowoczesny motyw
+            available_themes = style.theme_names()
+            if 'clam' in available_themes:
+                style.theme_use('clam')
+            elif 'vista' in available_themes:
+                style.theme_use('vista')
+            
+            # Konfiguruj kolory i style
+            style.configure('TLabel', font=('Segoe UI', 10))
+            style.configure('TButton', font=('Segoe UI', 10), padding=6)
+            style.configure('TEntry', font=('Segoe UI', 10), padding=4)
+            style.configure('TNotebook', font=('Segoe UI', 10))
+            style.configure('TNotebook.Tab', font=('Segoe UI', 10), padding=[12, 6])
+            style.configure('TLabelframe', font=('Segoe UI', 10, 'bold'))
+            style.configure('TLabelframe.Label', font=('Segoe UI', 10, 'bold'))
+            
+            # Styl dla przycisków akcji
+            style.configure('Accent.TButton', 
+                          background='#3498db', 
+                          foreground='white',
+                          font=('Segoe UI', 10, 'bold'))
+            
+            # Styl dla czerwonego przycisku
+            style.configure('Red.TButton', 
+                          background='#e74c3c', 
+                          foreground='white',
+                          font=('Segoe UI', 10, 'bold'))
+            
+            # Styl dla checkboxów
+            style.configure('TCheckbutton', font=('Segoe UI', 10))
+            
+        except Exception as e:
+            print(f"Nie udało się ustawić nowoczesnego stylu: {e}")
         
-
+    def setup_api_tab(self):
+        """Konfiguruje zakładkę Konfiguracja API"""
+        # OpenAI API Key
+        ttk.Label(self.api_tab, text="OpenAI API Key:", font=('Segoe UI', 11, 'bold')).grid(row=0, column=0, sticky=tk.W, pady=(0, 5))
+        openai_entry = ttk.Entry(self.api_tab, textvariable=self.openai_api_key, width=70, show="*", font=('Segoe UI', 10))
+        openai_entry.grid(row=1, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 15))
         
-    def setup_all_sections(self):
-        """Konfiguruje wszystkie sekcje w jednej przewijalnej zakładce"""
-        # Krok 1: Pobieranie i transkrypcja
-        step1_frame = ttk.LabelFrame(self.scrollable_frame, text="Krok 1: Pobieranie i transkrypcja", padding="10")
-        step1_frame.pack(fill=tk.X, padx=10, pady=10)
-        self.setup_step1_content(step1_frame)
+        # ElevenLabs API Key
+        ttk.Label(self.api_tab, text="ElevenLabs API Key:", font=('Segoe UI', 11, 'bold')).grid(row=2, column=0, sticky=tk.W, pady=(0, 5))
+        elevenlabs_entry = ttk.Entry(self.api_tab, textvariable=self.elevenlabs_api_key, width=70, show="*", font=('Segoe UI', 10))
+        elevenlabs_entry.grid(row=3, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 20))
         
-        # Krok KOMBO: Automatyczny przepływ wszystkich operacji
-        combo_frame = ttk.LabelFrame(self.scrollable_frame, text="Krok KOMBO: Pełny automatyczny przepływ", padding="10")
-        combo_frame.pack(fill=tk.X, padx=10, pady=10)
-        self.setup_combo_content(combo_frame)
+        # Przycisk zapisz klucze
+        save_keys_btn = ttk.Button(self.api_tab, text="💾 Zapisz klucze", command=self.save_api_keys, style='Accent.TButton')
+        save_keys_btn.grid(row=4, column=0, columnspan=2, pady=(0, 10))
         
-
+        # Informacja
+        info_text = "💡 Wprowadź swoje klucze API i kliknij 'Zapisz klucze'. Klucze zostaną zapisane lokalnie i będą automatycznie ładowane przy następnym uruchomieniu."
+        info_label = ttk.Label(self.api_tab, text=info_text, wraplength=600, justify=tk.LEFT, 
+                              font=('Segoe UI', 9), foreground='#7f8c8d')
+        info_label.grid(row=5, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(10, 0))
         
-        # Dodatkowe funkcje
-        extra_frame = ttk.LabelFrame(self.scrollable_frame, text="Dodatkowe funkcje", padding="10")
-        extra_frame.pack(fill=tk.X, padx=10, pady=10)
-        self.setup_extra_functions_content(extra_frame)
+        # Konfiguracja grid
+        self.api_tab.columnconfigure(0, weight=1)
         
-    def setup_step1_content(self, parent_frame):
-        """Konfiguruje zawartość kroku 1"""
+    def setup_combo_tab(self):
+        """Konfiguruje zakładkę KOMBO"""
+        # Checkboxy kroków
+        steps_frame = ttk.LabelFrame(self.combo_tab, text="📋 Wybierz kroki do wykonania", padding="15")
+        steps_frame.pack(fill=tk.X, pady=(0, 20))
+        
+        # Grid dla checkboxów (2 kolumny)
+        steps_frame.columnconfigure(0, weight=1)
+        steps_frame.columnconfigure(1, weight=1)
+        
+        step_descriptions = {
+            'translate': "1. 🌐 Tłumaczenie na angielski",
+            'generate': "2. 🎵 Generowanie audio",
+            'overlay': "3. 🎬 Nakładanie audio na wideo (STABILNIE)",
+            'delete_sm': "4. 🔇 Usuwanie ciszy i bezruchu (STABILNIE)",
+            'white_logo': "5. 🖼️ Usuń białą stopkę i dodaj logo",
+            'detect_polish': "6. 🔍 Wykrywanie polskiego tekstu",
+            'intro_outro': "7. 🎬 Dodawanie intro i outro (SZYBKO)",
+            'social_media': "8. 📱 Generowanie posta social media"
+        }
+        
+        row = 0
+        col = 0
+        for step_key, description in step_descriptions.items():
+            cb = ttk.Checkbutton(steps_frame, text=description, variable=self.combo_steps_enabled[step_key])
+            cb.grid(row=row, column=col, sticky=tk.W, padx=(0, 20), pady=2)
+            
+            if col == 0:
+                col = 1
+            else:
+                col = 0
+                row += 1
+        
+        # Przyciski kontrolne
+        buttons_frame = ttk.Frame(self.combo_tab)
+        buttons_frame.pack(fill=tk.X, pady=(0, 20))
+        
+        ttk.Button(buttons_frame, text="✅ Zaznacz wszystkie", 
+                  command=self.select_all_combo_steps, style='Accent.TButton').pack(side=tk.LEFT, padx=(0, 10))
+        ttk.Button(buttons_frame, text="❌ Odznacz wszystkie", 
+                  command=self.deselect_all_combo_steps).pack(side=tk.LEFT, padx=(0, 20))
+        
+        # Przyciski uruchom/stop
+        run_btn = ttk.Button(buttons_frame, text="🚀 Uruchom KOMBO", 
+                           command=self.run_combo_workflow, style='Accent.TButton')
+        run_btn.pack(side=tk.RIGHT, padx=(10, 0))
+        
+        stop_btn = ttk.Button(buttons_frame, text="⏹️ STOP", 
+                             command=lambda: self.stop_operation('combo'), style='Red.TButton')
+        stop_btn.pack(side=tk.RIGHT)
+        
+        # Postęp
+        self.progress_vars['combo'] = tk.DoubleVar()
+        self.progress_labels['combo'] = tk.StringVar(value="Gotowy do uruchomienia")
+        
+        progress_frame = ttk.LabelFrame(self.combo_tab, text="📊 Postęp", padding="10")
+        progress_frame.pack(fill=tk.X, pady=(0, 10))
+        
+        self.progress_bars['combo'] = ttk.Progressbar(progress_frame, variable=self.progress_vars['combo'], 
+                                                    maximum=100, length=400)
+        self.progress_bars['combo'].pack(fill=tk.X, pady=(0, 5))
+        
+        ttk.Label(progress_frame, textvariable=self.progress_labels['combo'], 
+                font=('Segoe UI', 9)).pack(anchor=tk.W)
+        
+    def setup_step1_tab(self):
+        """Konfiguruje zakładkę Krok 1"""
         # Opis
-        desc_text = """Aplikacja pobierze wideo z YouTube (ew. wskaż plik na dysku), wykona transkrypcję polskiego tekstu 
-do pliku z odpowiednią strukturą sentencji, który następnie należy przejrzeć i ewentualnie poprawić."""
-        
-        ttk.Label(parent_frame, text=desc_text, wraplength=800, justify=tk.LEFT, anchor="w").pack(anchor="w", pady=(0, 10))
+        desc_text = """🎯 Krok 1: Pobieranie i transkrypcja. Aplikacja pobierze wideo z YouTube (ew. wskaż plik na dysku), wykona transkrypcję polskiego tekstu do pliku z odpowiednią strukturą sentencji, który następnie należy przejrzeć i ewentualnie poprawić."""
+        ttk.Label(self.step1_tab, text=desc_text, wraplength=700, justify=tk.LEFT, 
+                font=('Segoe UI', 10), foreground='#2c3e50').pack(anchor=tk.W, pady=(0, 20))
         
         # Input frame
-        input_frame = ttk.LabelFrame(parent_frame, text="Źródło wideo", padding="10")
-        input_frame.pack(fill=tk.X, pady=10)
+        input_frame = ttk.LabelFrame(self.step1_tab, text="📹 Źródło wideo", padding="15")
+        input_frame.pack(fill=tk.X, pady=(0, 20))
         
         # YouTube URL
-        ttk.Label(input_frame, text="Link do YouTube:").grid(row=0, column=0, sticky=tk.W, pady=5)
-        ttk.Entry(input_frame, textvariable=self.youtube_url, width=60).grid(row=0, column=1, padx=(10, 10), pady=5)
+        youtube_frame = ttk.Frame(input_frame)
+        youtube_frame.pack(fill=tk.X, pady=(0, 10))
         
-        # Local file
-        ttk.Label(input_frame, text="Lub plik z dysku:").grid(row=1, column=0, sticky=tk.W, pady=5)
+        ttk.Label(youtube_frame, text="YouTube URL:", font=('Segoe UI', 10, 'bold')).pack(anchor=tk.W)
+        ttk.Entry(youtube_frame, textvariable=self.youtube_url, width=60, font=('Segoe UI', 10)).pack(anchor=tk.W, pady=(5, 0))
+        ttk.Button(youtube_frame, text="📥 Pobierz z YouTube i transkrybuj", 
+                  command=lambda: self.run_step1("youtube"), style='Red.TButton').pack(anchor=tk.W, pady=(10, 0))
+        
+        # Separator
+        separator1 = ttk.Separator(input_frame, orient='horizontal')
+        separator1.pack(fill=tk.X, pady=15)
+        
+        # Plik wideo
         file_frame = ttk.Frame(input_frame)
-        file_frame.grid(row=1, column=1, sticky=(tk.W, tk.E), padx=(10, 10), pady=5)
-        ttk.Entry(file_frame, textvariable=self.video_path, width=50).pack(side=tk.LEFT, padx=(0, 10))
-        ttk.Button(file_frame, text="Wybierz", command=self.select_video_file).pack(side=tk.LEFT)
+        file_frame.pack(fill=tk.X)
         
-        # Przyciski akcji
-        action_frame = ttk.Frame(parent_frame)
-        action_frame.pack(fill=tk.X, pady=10)
+        ttk.Label(file_frame, text="Plik wideo:", font=('Segoe UI', 10, 'bold')).pack(anchor=tk.W)
+        file_select_frame = ttk.Frame(file_frame)
+        file_select_frame.pack(fill=tk.X, pady=(5, 0))
         
-        ttk.Button(action_frame, text="Pobierz z YouTube i transkrybuj", 
-                  command=lambda: self.run_step1('youtube')).pack(side=tk.LEFT, padx=(0, 10))
-        ttk.Button(action_frame, text="Transkrybuj plik z dysku", 
-                  command=lambda: self.run_step1('file')).pack(side=tk.LEFT, padx=(0, 10))
+        ttk.Entry(file_select_frame, textvariable=self.video_path, width=50, font=('Segoe UI', 10)).pack(side=tk.LEFT, padx=(0, 10))
+        ttk.Button(file_select_frame, text="📂 Wybierz plik", 
+                  command=self.select_video_file).pack(side=tk.LEFT, padx=(0, 10))
+        ttk.Button(file_select_frame, text="🎬 Transkrybuj plik", 
+                  command=lambda: self.run_step1("file"), style='Accent.TButton').pack(side=tk.LEFT)
         
-        # Inicjalizacja zmiennych postępu (potrzebne dla innych funkcji)
-        self.progress_vars['step1'] = tk.DoubleVar()
-        self.progress_labels['step1'] = tk.StringVar(value="")
+    def setup_extra_tab(self):
+        """Konfiguruje zakładkę Dodatkowe funkcje"""
+        # Cofnij usunięcie luki
+        gap_frame = ttk.LabelFrame(self.extra_tab, text="🔄 Cofnij usunięcie luki", padding="15")
+        gap_frame.pack(fill=tk.X, pady=(0, 20))
         
-    def setup_combo_content(self, parent_frame):
-        """Konfiguruje zawartość kroku KOMBO - pełny automatyczny przepływ"""
-        desc_text = """Wybierz które kroki mają być wykonane w przepływie KOMBO:"""
+        ttk.Label(gap_frame, text="Wprowadź numer lub numery luk:", font=('Segoe UI', 10)).pack(anchor=tk.W)
+        ttk.Entry(gap_frame, textvariable=self.gap_numbers, width=30, font=('Segoe UI', 10)).pack(anchor=tk.W, pady=5)
+        ttk.Button(gap_frame, text="↩️ Cofnij usunięcie", 
+                  command=self.revert_gap_removal, style='Accent.TButton').pack(anchor=tk.W, pady=5)
         
-        ttk.Label(parent_frame, text=desc_text, wraplength=800, justify=tk.LEFT, anchor="w").pack(anchor="w", pady=(0, 10))
+    def setup_logs_tab(self):
+        """Konfiguruje zakładkę Logi"""
+        # Logi z nowoczesnym stylem
+        log_frame = ttk.LabelFrame(self.logs_tab, text="📋 Logi operacji", padding="12")
+        log_frame.pack(fill=tk.BOTH, expand=True)
         
-        # Frame dla checkboxów
-        checkboxes_frame = ttk.LabelFrame(parent_frame, text="Kroki do wykonania", padding="10")
-        checkboxes_frame.pack(fill=tk.X, pady=(0, 10))
+        self.log_text = scrolledtext.ScrolledText(log_frame, height=20, width=80, 
+                                                font=('Consolas', 9), 
+                                                bg='#f8f9fa', fg='#2c3e50',
+                                                insertbackground='#3498db')
+        self.log_text.pack(fill=tk.BOTH, expand=True)
         
-        # Lista kroków z opisami
-        combo_steps_info = [
-            ('translate', '1. Tłumaczenie na angielski'),
-            ('generate', '2. Generowanie audio'),
-            ('overlay', '3. Nakładanie audio na wideo (SZYBKO)'),
-            ('delete_sm', '4. Usuwanie ciszy i bezruchu (SZYBKO)'),
-            ('white_logo', '5. Usuń białą stopkę i dodaj logo'),
-            ('detect_polish', '6. Wykrywanie polskiego tekstu'),
-            ('intro_outro', '7. Dodawanie intro i outro (SZYBKO)'),
-            ('social_media', '8. Generowanie posta na social media')
-        ]
+        # Przycisk czyszczenia logów
+        clear_btn = ttk.Button(self.logs_tab, text="🗑️ Wyczyść logi", 
+                              command=self.clear_logs, style='Accent.TButton')
+        clear_btn.pack(anchor=tk.W, pady=(10, 0))
         
-        # Tworzenie checkboxów w dwóch kolumnach
-        for i, (step_key, step_desc) in enumerate(combo_steps_info):
-            row = i // 2
-            col = i % 2
-            
-            checkbox = ttk.Checkbutton(checkboxes_frame, text=step_desc, 
-                                     variable=self.combo_steps_enabled[step_key])
-            checkbox.grid(row=row, column=col, sticky="w", padx=(0, 20), pady=2)
+        # Konfiguracja grid
+        log_frame.columnconfigure(0, weight=1)
+        log_frame.rowconfigure(0, weight=1)
+        self.logs_tab.columnconfigure(0, weight=1)
+        self.logs_tab.rowconfigure(0, weight=1)
         
-        # Przyciski "Zaznacz wszystkie" / "Odznacz wszystkie"
-        buttons_frame = ttk.Frame(checkboxes_frame)
-        buttons_frame.grid(row=len(combo_steps_info)//2 + 1, column=0, columnspan=2, pady=(10, 0))
-        
-        ttk.Button(buttons_frame, text="Zaznacz wszystkie", 
-                  command=self.select_all_combo_steps).pack(side=tk.LEFT, padx=(0, 10))
-        ttk.Button(buttons_frame, text="Odznacz wszystkie", 
-                  command=self.deselect_all_combo_steps).pack(side=tk.LEFT)
-        
-        # Dodatkowa informacja
-        info_text = "\nUpewnij się, że masz gotową transkrypcję z Kroku 1."
-        ttk.Label(parent_frame, text=info_text, wraplength=800, justify=tk.LEFT, anchor="w").pack(anchor="w", pady=(10, 0))
-        
-        # Przycisk uruchamiający wybrany przepływ
-        ttk.Button(parent_frame, text="URUCHOM WYBRANY PRZEPŁYW KOMBO", 
-                  command=self.run_combo_workflow).pack(pady=10)
-        
-        # Progress bar dla combo
-        combo_progress_frame = ttk.Frame(parent_frame)
-        combo_progress_frame.pack(fill=tk.X, pady=10)
-        
-        self.progress_vars['combo'] = tk.DoubleVar()
-        self.progress_labels['combo'] = tk.StringVar(value="")
-        
-        ttk.Label(combo_progress_frame, textvariable=self.progress_labels['combo']).pack(anchor=tk.W)
-        self.combo_progress = ttk.Progressbar(combo_progress_frame, mode='determinate', 
-                                             variable=self.progress_vars['combo'])
-        self.combo_progress.pack(fill=tk.X, pady=(5, 0))
-        
-        # Przycisk stop dla combo
-        self.combo_stop_btn = ttk.Button(combo_progress_frame, text="Stop", 
-                                        command=lambda: self.stop_operation('combo'))
-        self.combo_stop_btn.pack_forget()  # Ukryj na początku
+    # Usunięto setup_combo_content - zastąpione przez setup_combo_tab
+    # Usunięto setup_extra_functions_content - zastąpione przez setup_extra_tab
     
     def select_all_combo_steps(self):
         """Zaznacza wszystkie kroki KOMBO"""
@@ -396,35 +456,6 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
         """Odznacza wszystkie kroki KOMBO"""
         for var in self.combo_steps_enabled.values():
             var.set(False)
-        
-
-        
-    def setup_extra_functions_content(self, parent_frame):
-        """Konfiguruje dodatkowe funkcje"""
-        # Cofnij usunięcie luki
-        gap_frame = ttk.LabelFrame(parent_frame, text="Cofnij usunięcie luki", padding="10")
-        gap_frame.pack(fill=tk.X, pady=10)
-        
-        ttk.Label(gap_frame, text="Wprowadź numer lub numery luk:").pack(anchor=tk.W)
-        self.gap_numbers = tk.StringVar()
-        ttk.Entry(gap_frame, textvariable=self.gap_numbers, width=30).pack(anchor=tk.W, pady=5)
-        ttk.Button(gap_frame, text="Cofnij usunięcie", 
-                  command=self.revert_gap_removal).pack(anchor=tk.W, pady=5)
-        
-        # Dodaj białą stopkę i logo
-        logo_frame = ttk.LabelFrame(parent_frame, text="Dodaj białą stopkę i logo", padding="10")
-        logo_frame.pack(fill=tk.X, pady=10)
-        
-        self.logo_video_path = tk.StringVar()
-        ttk.Label(logo_frame, text="Plik wideo:").pack(anchor=tk.W)
-        logo_file_frame = ttk.Frame(logo_frame)
-        logo_file_frame.pack(fill=tk.X, pady=5)
-        
-        ttk.Entry(logo_file_frame, textvariable=self.logo_video_path, width=50).pack(side=tk.LEFT, padx=(0, 10))
-        ttk.Button(logo_file_frame, text="Wybierz", 
-                  command=self.select_logo_video).pack(side=tk.LEFT)
-        ttk.Button(logo_file_frame, text="Dodaj stopkę i logo", 
-                  command=self.add_logo).pack(side=tk.LEFT, padx=(10, 0))
         
 
         
@@ -445,6 +476,9 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
         """Uruchamia wybrany przepływ KOMBO na podstawie zaznaczonych checkboxów"""
         from datetime import datetime
         
+        # Reset flagi stop
+        self.stop_flags['combo'] = False
+        
         # Sprawdź czy jakikolwiek krok jest zaznaczony
         enabled_steps = [key for key, var in self.combo_steps_enabled.items() if var.get()]
         
@@ -464,8 +498,8 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
         all_steps = {
             'translate': ("Tłumaczenie na angielski", self.run_translate_for_combo),
             'generate': ("Generowanie audio", self.run_generate_for_combo),
-            'overlay': ("Nakładanie audio na wideo (SZYBKO)", self.run_overlay_for_combo),
-            'delete_sm': ("Usuwanie ciszy i bezruchu (SZYBKO)", self.run_delete_sm_for_combo),
+            'overlay': ("Nakładanie audio na wideo (STABILNIE)", self.run_overlay_for_combo),
+            'delete_sm': ("Usuwanie ciszy i bezruchu (STABILNIE)", self.run_delete_sm_for_combo),
             'white_logo': ("Usuń białą stopkę i dodaj logo", self.run_white_logo_for_combo),
             'detect_polish': ("Wykrywanie polskiego tekstu", self.run_detect_polish_for_combo),
             'intro_outro': ("Dodawanie intro i outro (SZYBKO)", self.run_intro_outro_for_combo),
@@ -485,6 +519,14 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
     def execute_next_combo_step(self):
         """Wykonuje następny krok w przepływie KOMBO"""
         from datetime import datetime
+        
+        # Sprawdź czy użytkownik zatrzymał proces
+        if self.stop_flags.get('combo', False):
+            self.log("[KOMBO] Przepływ KOMBO zatrzymany przez użytkownika")
+            self.update_progress('combo', 0, "Zatrzymano")
+            self.hide_stop_button('combo')
+            self.stop_flags['combo'] = False  # Reset flagi
+            return
         
         if self.combo_failed or self.current_combo_step >= len(self.combo_steps):
             if self.combo_failed:
@@ -664,12 +706,12 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
             self.root.after(0, self.execute_next_combo_step)
         
     def run_overlay_for_combo(self):
-        """Uruchamia overlay_fast.py dla przepływu KOMBO"""
+        """Uruchamia overlay_fixed.py dla przepływu KOMBO"""
         thread = threading.Thread(target=self._run_overlay_combo_thread, daemon=False)
         thread.start()
         
     def _run_overlay_combo_thread(self):
-        """Thread dla overlay w przepływie KOMBO"""
+        """Thread dla overlay_fixed w przepływie KOMBO"""
         try:
             working_dir = Path(self.working_dir.get()) if self.working_dir.get() else Path.cwd()
             
@@ -692,7 +734,7 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
             video_file = video_files[0]
             
             python_exe = Path(__file__).parent.parent / "myenv" / "Scripts" / "python.exe"
-            overlay_script = Path(__file__).parent / "overlay_fast.py"
+            overlay_script = Path(__file__).parent / "overlay_fixed.py"
             
             result = subprocess.run([
                 str(python_exe), str(overlay_script), str(en_file), str(video_file)
@@ -705,10 +747,10 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
                 self.root.after(0, self.finish_current_combo_step)
             else:
                 error_msg = result.stderr.strip() if result.stderr else "Nieznany błąd"
-                self.root.after(0, lambda: self.log(f"[KOMBO] Błąd overlay_fast.py: {error_msg}"))
+                self.root.after(0, lambda: self.log(f"[KOMBO] Błąd overlay_fixed.py: {error_msg}"))
                 if result.stdout:
                     self.root.after(0, lambda: self.log(f"[KOMBO] Stdout: {result.stdout.strip()}"))
-                raise Exception(f"Błąd overlay_fast.py: {error_msg}")
+                raise Exception(f"Błąd overlay_fixed.py: {error_msg}")
                 
         except Exception as e:
             self.root.after(0, lambda: self.log(f"[KOMBO] Błąd nakładania audio: {str(e)}"))
@@ -716,7 +758,7 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
             self.root.after(0, self.execute_next_combo_step)
         
     def run_delete_sm_for_combo(self):
-        """Uruchamia delete_sm_fast.py dla przepływu KOMBO"""
+        """Uruchamia delete_sm.py dla przepływu KOMBO"""
         thread = threading.Thread(target=self._run_delete_sm_combo_thread, daemon=False)
         thread.start()
         
@@ -725,37 +767,36 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
         try:
             working_dir = Path(self.working_dir.get()) if self.working_dir.get() else Path.cwd()
             
-            # Znajdź plik _en.txt (przetłumaczony)
-            en_files = list(working_dir.rglob("*_en.txt"))
-            if not en_files:
-                raise Exception("Nie znaleziono pliku *_en.txt")
-                
-            translation_file = en_files[0]
+            # Oryginalny delete_sm.py nie wymaga pliku tłumaczenia
             
-            # Znajdź najnowszy plik wideo (powinien być po overlay)
+            # Znajdź plik *_synchronized.* (po overlay, przed usuwaniem ciszy)
             video_extensions = ['.mp4', '.avi', '.mov', '.mkv']
             video_files = []
             for ext in video_extensions:
-                video_files.extend(working_dir.rglob(f"*{ext}"))
+                # Szukaj konkretnie plików *_synchronized.* (nie *_no_silence.*)
+                pattern = f"*_synchronized{ext}"
+                video_files.extend(working_dir.rglob(pattern))
             
-            # Sortuj według czasu modyfikacji - najnowszy najprawdopodobniej po overlay
             if video_files:
+                # Jeśli jest kilka, weź najnowszy
                 video_files.sort(key=lambda x: x.stat().st_mtime, reverse=True)
                 video_file = video_files[0]
             else:
-                raise Exception("Nie znaleziono pliku wideo")
+                raise Exception("Nie znaleziono pliku *_synchronized.* - uruchom najpierw overlay audio")
             
             # Wygeneruj nazwę pliku wyjściowego
             output_file = video_file.with_name(video_file.stem + "_no_silence" + video_file.suffix)
             
             python_exe = Path(__file__).parent.parent / "myenv" / "Scripts" / "python.exe"
-            delete_sm_script = Path(__file__).parent / "delete_sm_fast.py"
+            delete_sm_script = Path(__file__).parent / "delete_sm.py" # Używamy stabilnej wersji
             
+            # Uruchom delete_sm.py (bez logowania w czasie rzeczywistym)
             result = subprocess.run([
                 str(python_exe), str(delete_sm_script),
                 str(video_file), str(output_file)
             ], capture_output=True, text=True, cwd=working_dir)
             
+            # Sprawdź wynik
             if result.returncode == 0:
                 self.root.after(0, lambda: self.log("[KOMBO] Usuwanie ciszy i bezruchu zakończone pomyślnie"))
                 if result.stdout:
@@ -763,10 +804,10 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
                 self.root.after(0, self.finish_current_combo_step)
             else:
                 error_msg = result.stderr.strip() if result.stderr else "Nieznany błąd"
-                self.root.after(0, lambda: self.log(f"[KOMBO] Błąd delete_sm_fast.py: {error_msg}"))
+                self.root.after(0, lambda: self.log(f"[KOMBO] Błąd delete_sm.py: {error_msg}"))
                 if result.stdout:
                     self.root.after(0, lambda: self.log(f"[KOMBO] Stdout: {result.stdout.strip()}"))
-                raise Exception(f"Błąd delete_sm_fast.py: {error_msg}")
+                raise Exception(f"Błąd delete_sm.py: {error_msg}")
                 
         except Exception as e:
             self.root.after(0, lambda: self.log(f"[KOMBO] Błąd usuwania ciszy: {str(e)}"))
@@ -895,9 +936,11 @@ do pliku z odpowiednią strukturą sentencji, który następnie należy przejrze
             intro_outro_script = Path(__file__).parent / "add_intro_outro_fast.py"  # Użyj szybkiej wersji
             
             # Podstawowe wywołanie - skrypt używa domyślnych ścieżek dla intro/outro
+            # Uruchom z folderu głównego projektu, żeby znaleźć intro_outro
+            project_root = Path(__file__).parent.parent
             result = subprocess.run([
                 str(python_exe), str(intro_outro_script), str(video_file)
-            ], capture_output=True, text=True, cwd=working_dir)
+            ], capture_output=True, text=True, cwd=project_root)
             
             if result.returncode == 0:
                 self.root.after(0, lambda: self.log("[KOMBO] Dodawanie intro i outro zakończone pomyślnie"))

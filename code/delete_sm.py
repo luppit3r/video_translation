@@ -321,6 +321,9 @@ def generate_report(all_gaps, gaps_compressed, output_path, original_duration, r
         print(f"\n[SPRAWDZ] Sprawdź przejścia w nowym video: {', '.join(new_video_timestamps)}")
 
 def main():
+    import time
+    start_time = time.time()
+    
     parser = argparse.ArgumentParser(description="Silence-based gap detection and compression")
     parser.add_argument("video_file", help="Input video file")
     parser.add_argument("output_file", help="Output video file (ignored if --report-only)")
@@ -366,6 +369,12 @@ def main():
     
     if not silent_gaps:
         print("No silent segments found!")
+        # Pomiar czasu dla przypadku bez fragmentów ciszy
+        end_time = time.time()
+        total_time = end_time - start_time
+        minutes = int(total_time // 60)
+        seconds = int(total_time % 60)
+        print(f"\n[CZAS] Całkowity czas procesu: {minutes}m {seconds}s ({total_time:.1f}s)")
         return
     
     # 2. Sprawdź ruch w fragmentach ciszy
@@ -383,11 +392,23 @@ def main():
         report_path = Path(args.output_file).with_suffix('.txt') if args.output_file else Path("silence_analysis_report.txt") 
         generate_report(silent_gaps, gaps_to_compress, str(report_path), original_duration, args.replacement_duration, str(video_path))
         print(f"[OK] Report generated: {report_path}")
+        # Pomiar czasu dla trybu report-only
+        end_time = time.time()
+        total_time = end_time - start_time
+        minutes = int(total_time // 60)
+        seconds = int(total_time % 60)
+        print(f"\n[CZAS] Całkowity czas procesu: {minutes}m {seconds}s ({total_time:.1f}s)")
         return
     
     # 4. Kompresja video
     if not gaps_to_compress:
         print("All silent segments have movement - nothing to compress!")
+        # Pomiar czasu dla przypadku gdy wszystkie fragmenty mają ruch
+        end_time = time.time()
+        total_time = end_time - start_time
+        minutes = int(total_time // 60)
+        seconds = int(total_time % 60)
+        print(f"\n[CZAS] Całkowity czas procesu: {minutes}m {seconds}s ({total_time:.1f}s)")
         return
     
     compressed_count = compress_video_gaps(
@@ -402,6 +423,13 @@ def main():
     
     print(f"\n[SUKCES] Success! Compressed {compressed_count} gaps")
     print(f"Output: {args.output_file}")
+    
+    # Pomiar czasu całego procesu
+    end_time = time.time()
+    total_time = end_time - start_time
+    minutes = int(total_time // 60)
+    seconds = int(total_time % 60)
+    print(f"\n[CZAS] Całkowity czas procesu: {minutes}m {seconds}s ({total_time:.1f}s)")
     
     # Dźwięk zakończenia
     try:

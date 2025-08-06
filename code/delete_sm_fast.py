@@ -492,6 +492,9 @@ def compress_video_fast(video_path, gaps_to_compress, output_path):
         return False
 
 def main():
+    import time
+    start_time = time.time()
+    
     parser = argparse.ArgumentParser(description="Szybkie usuwanie ciszy z wideo")
     parser.add_argument("video_file", help="Input video file")
     parser.add_argument("output_file", help="Output video file")
@@ -537,6 +540,13 @@ def main():
             
             # Generuj raport - nawet gdy nie ma fragmentów ciszy
             generate_report_no_silence(str(output_path), str(video_path))
+            
+            # Pomiar czasu dla przypadku bez fragmentów ciszy
+            end_time = time.time()
+            total_time = end_time - start_time
+            minutes = int(total_time // 60)
+            seconds = int(total_time % 60)
+            print(f"\n[CZAS] Całkowity czas procesu: {minutes}m {seconds}s ({total_time:.1f}s)")
             return
         
         # 2. Sprawdź ruch w fragmentach ciszy (szybko)
@@ -566,8 +576,21 @@ def main():
                                        str(video_path), str(video_path))
                 except Exception as e:
                     print(f"[BLAD] Nie udało się wygenerować raportu: {e}")
+                
+                # Pomiar czasu dla pomyślnej kompresji
+                end_time = time.time()
+                total_time = end_time - start_time
+                minutes = int(total_time // 60)
+                seconds = int(total_time % 60)
+                print(f"\n[CZAS] Całkowity czas procesu: {minutes}m {seconds}s ({total_time:.1f}s)")
             else:
                 print(f"\n[BLAD] Błąd podczas kompresji!")
+                # Pomiar czasu dla błędu kompresji
+                end_time = time.time()
+                total_time = end_time - start_time
+                minutes = int(total_time // 60)
+                seconds = int(total_time % 60)
+                print(f"\n[CZAS] Całkowity czas procesu: {minutes}m {seconds}s ({total_time:.1f}s)")
         else:
             print("[INFO] Wszystkie fragmenty ciszy mają ruch - kopiuję plik bez zmian")
             # Skopiuj oryginalny plik jako wynik
@@ -577,9 +600,22 @@ def main():
             
             # Generuj raport - nawet gdy nie ma kompresji
             generate_report_no_compression(silent_gaps, str(output_path), str(video_path))
+            
+            # Pomiar czasu dla przypadku gdy wszystkie fragmenty mają ruch
+            end_time = time.time()
+            total_time = end_time - start_time
+            minutes = int(total_time // 60)
+            seconds = int(total_time % 60)
+            print(f"\n[CZAS] Całkowity czas procesu: {minutes}m {seconds}s ({total_time:.1f}s)")
     
     except Exception as e:
         print(f"[BLAD] Nieoczekiwany błąd: {e}")
+        # Pomiar czasu dla błędu
+        end_time = time.time()
+        total_time = end_time - start_time
+        minutes = int(total_time // 60)
+        seconds = int(total_time % 60)
+        print(f"\n[CZAS] Całkowity czas procesu: {minutes}m {seconds}s ({total_time:.1f}s)")
 
 if __name__ == "__main__":
     main()
