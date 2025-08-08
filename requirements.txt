@@ -31,3 +31,5 @@ deep-translator
 imageio>=2.5.0
 imageio-ffmpeg
 decorator
+facebook-sdk
+python-docx

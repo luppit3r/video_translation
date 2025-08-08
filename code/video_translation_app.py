@@ -13,6 +13,30 @@ import time
 import psutil
 from dotenv import load_dotenv
 
+# Import do obsługi plików Word
+try:
+    from docx import Document
+    DOCX_AVAILABLE = True
+except ImportError:
+    DOCX_AVAILABLE = False
+    print("⚠️ python-docx nie jest dostępne. Zainstaluj: pip install python-docx")
+
+def safe_read_docx(file_path):
+    """Bezpiecznie wczytuje plik .docx z obsługą błędów"""
+    try:
+        # Sprawdź czy plik nie jest tymczasowy (z prefiksem ~)
+        if file_path.name.startswith('~'):
+            return None, f"Plik {file_path.name} jest plikiem tymczasowym/zablokowanym. Spróbuj ponownie za chwilę."
+        
+        doc = Document(file_path)
+        content = '\n'.join([paragraph.text for paragraph in doc.paragraphs])
+        return content, None
+    except Exception as e:
+        if "File is not a zip file" in str(e):
+            return None, f"Plik {file_path.name} nie jest w formacie .docx (prawdopodobnie stary format .doc)"
+        else:
+            return None, f"Błąd wczytywania pliku .docx: {str(e)}"
+
 class VideoTranslationApp:
     def __init__(self, root):
         self.root = root
@@ -41,6 +65,12 @@ class VideoTranslationApp:
         # Zmienne dla kluczy API
         self.openai_api_key = tk.StringVar(value=os.getenv('OPENAI_API_KEY', ''))
         self.elevenlabs_api_key = tk.StringVar(value=os.getenv('ELEVENLABS_API_KEY', ''))
+        
+        # Zmienne dla Facebook API (tymczasowo zahardkodowane na potrzeby testu)
+        self.facebook_app_id = tk.StringVar(value='1839264433470173')
+        self.facebook_app_secret = tk.StringVar(value='0f50c2f3c36c9eafe6767a3f6a9fa761')
+        # PAGE ACCESS TOKEN (EduPandeEn)
+        self.facebook_access_token = tk.StringVar(value='EAAaIzR80et0BPLJQqutgrSqT6PAF4HqCNBXFfioVDYvaHRXZBkFXNExYfHXmbd8gSL6AKlWE0OBswZANYiZCzlPeswaFB0TuWdtpnZAGHZAaE5ZAu2h0sxZCI4fy6ZAi0Imjr6vB94KF6EfcOFPZCBw8WwNw4eMehpmBSQfYZBWgI1ZBhatH1IBrKYiipKQZCbSStp96a8kRgo9WuMEimMJ9qhgFkXeNC9W4sIgct6pxSSdxIyIz10IZD')
         
         # Zmienne do śledzenia ostatnio pobranych plików
         self.last_downloaded_video = None
@@ -75,6 +105,19 @@ class VideoTranslationApp:
         
         # Zmienne dla dodatkowych funkcji
         self.gap_numbers = tk.StringVar()
+        
+        # Zmienne dla YouTube upload
+        self.youtube_title = tk.StringVar()
+        self.youtube_description_part1 = tk.StringVar()  # Część 1 opisu
+        self.youtube_description_part2 = tk.StringVar()  # Część 2 opisu
+        self.youtube_tags = tk.StringVar()
+        self.youtube_category = tk.StringVar(value="Education")
+        self.youtube_privacy = tk.StringVar(value="private")
+        self.youtube_thumbnail_path = tk.StringVar()
+        
+        # Zmienne dla listy wideo z kanału
+        self.channel_videos = []
+        self.selected_video_for_copy = None
         
         # Obsługa zamknięcia aplikacji
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
@@ -121,6 +164,11 @@ OPENAI_API_KEY={self.openai_api_key.get()}
 
 # ElevenLabs API Key (optional, for voice generation)
 ELEVENLABS_API_KEY={self.elevenlabs_api_key.get()}
+
+# Facebook API Keys (optional, for social media posting)
+FACEBOOK_APP_ID={self.facebook_app_id.get()}
+FACEBOOK_APP_SECRET={self.facebook_app_secret.get()}
+FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
 """
             
             # Spróbuj różne lokalizacje dla pliku .env (szczególnie ważne na macOS)
@@ -154,6 +202,9 @@ ELEVENLABS_API_KEY={self.elevenlabs_api_key.get()}
             # Ustaw zmienne środowiskowe (zawsze)
             os.environ['OPENAI_API_KEY'] = self.openai_api_key.get()
             os.environ['ELEVENLABS_API_KEY'] = self.elevenlabs_api_key.get()
+            os.environ['FACEBOOK_APP_ID'] = self.facebook_app_id.get()
+            os.environ['FACEBOOK_APP_SECRET'] = self.facebook_app_secret.get()
+            os.environ['FACEBOOK_ACCESS_TOKEN'] = self.facebook_access_token.get()
             
             if saved:
                 self.log(f"✅ Klucze API zostały zapisane do: {saved_location}")
@@ -226,12 +277,22 @@ ELEVENLABS_API_KEY={self.elevenlabs_api_key.get()}
         self.notebook.add(self.combo_tab, text="⚡ KOMBO")
         self.setup_combo_tab()
         
-        # Zakładka 4: Dodatkowe funkcje
+        # Zakładka 4: Upload na YT
+        self.upload_tab = ttk.Frame(self.notebook, padding="15")
+        self.notebook.add(self.upload_tab, text="📤 Upload na YT")
+        self.setup_upload_tab()
+        
+        # Zakładka 5: Post na social media
+        self.social_media_tab = ttk.Frame(self.notebook, padding="15")
+        self.notebook.add(self.social_media_tab, text="📱 Post na social media")
+        self.setup_social_media_tab()
+        
+        # Zakładka 6: Dodatkowe funkcje
         self.extra_tab = ttk.Frame(self.notebook, padding="15")
         self.notebook.add(self.extra_tab, text="🔧 Dodatkowe funkcje")
         self.setup_extra_tab()
         
-        # Zakładka 5: Logi
+        # Zakładka 7: Logi
         self.logs_tab = ttk.Frame(self.notebook, padding="15")
         self.notebook.add(self.logs_tab, text="📋 Logi")
         self.setup_logs_tab()
@@ -276,6 +337,11 @@ ELEVENLABS_API_KEY={self.elevenlabs_api_key.get()}
                           foreground='white',
                           font=('Segoe UI', 10, 'bold'))
             
+            # Styl dla małych przycisków
+            style.configure('Small.TButton', 
+                          font=('Segoe UI', 9),
+                          padding=4)
+            
             # Styl dla checkboxów
             style.configure('TCheckbutton', font=('Segoe UI', 10))
             
@@ -292,7 +358,20 @@ ELEVENLABS_API_KEY={self.elevenlabs_api_key.get()}
         # ElevenLabs API Key
         ttk.Label(self.api_tab, text="ElevenLabs API Key:", font=('Segoe UI', 11, 'bold')).grid(row=2, column=0, sticky=tk.W, pady=(0, 5))
         elevenlabs_entry = ttk.Entry(self.api_tab, textvariable=self.elevenlabs_api_key, width=70, show="*", font=('Segoe UI', 10))
-        elevenlabs_entry.grid(row=3, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 20))
+        elevenlabs_entry.grid(row=3, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 15))
+        
+        # Facebook API Keys
+        ttk.Label(self.api_tab, text="Facebook App ID:", font=('Segoe UI', 11, 'bold')).grid(row=4, column=0, sticky=tk.W, pady=(0, 5))
+        facebook_app_id_entry = ttk.Entry(self.api_tab, textvariable=self.facebook_app_id, width=70, font=('Segoe UI', 10))
+        facebook_app_id_entry.grid(row=5, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 5))
+        
+        ttk.Label(self.api_tab, text="Facebook App Secret:", font=('Segoe UI', 11, 'bold')).grid(row=6, column=0, sticky=tk.W, pady=(0, 5))
+        facebook_app_secret_entry = ttk.Entry(self.api_tab, textvariable=self.facebook_app_secret, width=70, show="*", font=('Segoe UI', 10))
+        facebook_app_secret_entry.grid(row=7, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 5))
+        
+        ttk.Label(self.api_tab, text="Facebook Access Token:", font=('Segoe UI', 11, 'bold')).grid(row=8, column=0, sticky=tk.W, pady=(0, 5))
+        facebook_token_entry = ttk.Entry(self.api_tab, textvariable=self.facebook_access_token, width=70, show="*", font=('Segoe UI', 10))
+        facebook_token_entry.grid(row=9, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 20))
         
         # Przycisk zapisz klucze
         save_keys_btn = ttk.Button(self.api_tab, text="💾 Zapisz klucze", command=self.save_api_keys, style='Accent.TButton')
@@ -421,6 +500,114 @@ ELEVENLABS_API_KEY={self.elevenlabs_api_key.get()}
         ttk.Button(gap_frame, text="↩️ Cofnij usunięcie", 
                   command=self.revert_gap_removal, style='Accent.TButton').pack(anchor=tk.W, pady=5)
         
+    def setup_social_media_tab(self):
+        """Konfiguruje zakładkę Post na social media"""
+        # Główny kontener z dwoma kolumnami
+        main_container = ttk.Frame(self.social_media_tab)
+        main_container.pack(fill=tk.BOTH, expand=True)
+        
+        # Konfiguracja kolumn i wierszy
+        main_container.columnconfigure(0, weight=1)  # Lewa kolumna - Facebook
+        main_container.columnconfigure(1, weight=1)  # Prawa kolumna - Instagram
+        main_container.rowconfigure(0, weight=1)     # Wiersz - 100% wysokości
+        
+        # ===== LEWA KOLUMNA - FACEBOOK =====
+        facebook_frame = ttk.LabelFrame(main_container, text="📘 Facebook", padding="15")
+        facebook_frame.grid(row=0, column=0, sticky="nsew", padx=(0, 10))
+        
+        # Wybór wideo
+        video_frame = ttk.LabelFrame(facebook_frame, text="Wybór wideo", padding="10")
+        video_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        self.facebook_video_path = tk.StringVar()
+        ttk.Label(video_frame, text="Wideo do posta:").pack(anchor=tk.W)
+        video_select_frame = ttk.Frame(video_frame)
+        video_select_frame.pack(fill=tk.X, pady=(5, 0))
+        
+        ttk.Button(video_select_frame, text="Wybierz wideo", command=self.select_facebook_video, style='Accent.TButton').pack(side=tk.LEFT)
+        ttk.Label(video_select_frame, textvariable=self.facebook_video_path, text="Nie wybrano wideo").pack(side=tk.LEFT, padx=(10, 0))
+
+        # Wybór zdjęcia
+        image_frame = ttk.LabelFrame(facebook_frame, text="Wybór zdjęcia", padding="10")
+        image_frame.pack(fill=tk.X, pady=(0, 15))
+
+        self.facebook_image_path = tk.StringVar()
+        ttk.Label(image_frame, text="Zdjęcie do posta (opcjonalnie):").pack(anchor=tk.W)
+        image_select_frame = ttk.Frame(image_frame)
+        image_select_frame.pack(fill=tk.X, pady=(5, 0))
+
+        ttk.Button(image_select_frame, text="Wybierz zdjęcie", command=self.select_facebook_image, style='Accent.TButton').pack(side=tk.LEFT)
+        ttk.Label(image_select_frame, textvariable=self.facebook_image_path, text="Nie wybrano zdjęcia").pack(side=tk.LEFT, padx=(10, 0))
+        
+        # Treść posta
+        content_frame = ttk.LabelFrame(facebook_frame, text="Treść posta", padding="10")
+        content_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 15))
+        
+        ttk.Label(content_frame, text="Tekst posta:").pack(anchor=tk.W)
+        self.facebook_post_text = tk.Text(content_frame, height=8, width=50, font=('Segoe UI', 10), wrap=tk.WORD)
+        facebook_scrollbar = ttk.Scrollbar(content_frame, orient=tk.VERTICAL, command=self.facebook_post_text.yview)
+        self.facebook_post_text.configure(yscrollcommand=facebook_scrollbar.set)
+        
+        text_container = ttk.Frame(content_frame)
+        text_container.pack(fill=tk.BOTH, expand=True, pady=(5, 0))
+        self.facebook_post_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        facebook_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        
+        # Przycisk "Podczytaj z raportu"
+        ttk.Button(content_frame, text="📄 Podczytaj z raportu", command=self.load_facebook_post_from_report, style='Small.TButton').pack(anchor=tk.W, pady=(10, 0))
+
+        # Komentarz po publikacji (np. link do YouTube)
+        ttk.Label(content_frame, text="Komentarz po publikacji (opcjonalnie, np. link do YouTube):").pack(anchor=tk.W, pady=(10, 2))
+        self.facebook_comment_var = tk.StringVar()
+        ttk.Entry(content_frame, textvariable=self.facebook_comment_var, font=('Segoe UI', 10)).pack(fill=tk.X)
+        
+        # Przyciski akcji
+        actions_frame = ttk.Frame(facebook_frame)
+        actions_frame.pack(fill=tk.X, pady=(0, 10))
+        
+        ttk.Button(actions_frame, text="📋 Kopiuj tekst", command=self.copy_facebook_post, style='Small.TButton').pack(side=tk.LEFT, padx=(0, 10))
+        ttk.Button(actions_frame, text="📤 Opublikuj na Facebook", command=self.publish_facebook_post, style='Accent.TButton').pack(side=tk.RIGHT)
+        
+        # ===== PRAWA KOLUMNA - INSTAGRAM =====
+        instagram_frame = ttk.LabelFrame(main_container, text="📷 Instagram", padding="15")
+        instagram_frame.grid(row=0, column=1, sticky="nsew", padx=(10, 0))
+        
+        # Wybór wideo
+        insta_video_frame = ttk.LabelFrame(instagram_frame, text="Wybór wideo", padding="10")
+        insta_video_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        self.instagram_video_path = tk.StringVar()
+        ttk.Label(insta_video_frame, text="Wideo do posta:").pack(anchor=tk.W)
+        insta_video_select_frame = ttk.Frame(insta_video_frame)
+        insta_video_select_frame.pack(fill=tk.X, pady=(5, 0))
+        
+        ttk.Button(insta_video_select_frame, text="Wybierz wideo", command=self.select_instagram_video, style='Accent.TButton').pack(side=tk.LEFT)
+        ttk.Label(insta_video_select_frame, textvariable=self.instagram_video_path, text="Nie wybrano wideo").pack(side=tk.LEFT, padx=(10, 0))
+        
+        # Treść posta
+        insta_content_frame = ttk.LabelFrame(instagram_frame, text="Treść posta", padding="10")
+        insta_content_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 15))
+        
+        ttk.Label(insta_content_frame, text="Tekst posta:").pack(anchor=tk.W)
+        self.instagram_post_text = tk.Text(insta_content_frame, height=8, width=50, font=('Segoe UI', 10), wrap=tk.WORD)
+        insta_scrollbar = ttk.Scrollbar(insta_content_frame, orient=tk.VERTICAL, command=self.instagram_post_text.yview)
+        self.instagram_post_text.configure(yscrollcommand=insta_scrollbar.set)
+        
+        insta_text_container = ttk.Frame(insta_content_frame)
+        insta_text_container.pack(fill=tk.BOTH, expand=True, pady=(5, 0))
+        self.instagram_post_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        insta_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        
+        # Przycisk "Podczytaj z raportu"
+        ttk.Button(insta_content_frame, text="📄 Podczytaj z raportu", command=self.load_instagram_post_from_report, style='Small.TButton').pack(anchor=tk.W, pady=(10, 0))
+        
+        # Przyciski akcji
+        insta_actions_frame = ttk.Frame(instagram_frame)
+        insta_actions_frame.pack(fill=tk.X, pady=(0, 10))
+        
+        ttk.Button(insta_actions_frame, text="📋 Kopiuj tekst", command=self.copy_instagram_post, style='Small.TButton').pack(side=tk.LEFT, padx=(0, 10))
+        ttk.Button(insta_actions_frame, text="📤 Opublikuj na Instagram", command=self.publish_instagram_post, style='Accent.TButton').pack(side=tk.RIGHT)
+        
     def setup_logs_tab(self):
         """Konfiguruje zakładkę Logi"""
         # Logi z nowoczesnym stylem
@@ -443,6 +630,248 @@ ELEVENLABS_API_KEY={self.elevenlabs_api_key.get()}
         log_frame.rowconfigure(0, weight=1)
         self.logs_tab.columnconfigure(0, weight=1)
         self.logs_tab.rowconfigure(0, weight=1)
+    
+    def setup_upload_tab(self):
+        """Konfiguruje zakładkę Upload na YT"""
+        # Główny kontener z dwoma kolumnami
+        main_container = ttk.Frame(self.upload_tab)
+        main_container.pack(fill=tk.BOTH, expand=True)
+        
+        # Konfiguracja kolumn i wierszy
+        main_container.columnconfigure(0, weight=7)  # Lewa kolumna - Upload na YouTube
+        main_container.columnconfigure(1, weight=3)  # Prawa kolumna - Materiały na kanale
+        main_container.rowconfigure(0, weight=1)     # Wiersz - 100% wysokości
+        
+        # ===== LEWA KOLUMNA - UPLOAD NA YOUTUBE =====
+        left_frame = ttk.LabelFrame(main_container, text="📤 Upload na YouTube", padding="15")
+        left_frame.grid(row=0, column=0, sticky="nsew", padx=(0, 10))
+        
+        # Canvas i scrollbar dla lewej kolumny
+        left_canvas = tk.Canvas(left_frame)
+        left_scrollbar = ttk.Scrollbar(left_frame, orient="vertical", command=left_canvas.yview)
+        left_scrollable_frame = ttk.Frame(left_canvas)
+        
+        left_scrollable_frame.bind(
+            "<Configure>",
+            lambda e: left_canvas.configure(scrollregion=left_canvas.bbox("all"))
+        )
+        
+        left_canvas.create_window((0, 0), window=left_scrollable_frame, anchor="nw")
+        left_canvas.configure(yscrollcommand=left_scrollbar.set)
+        
+        # Wybór wideo
+        video_frame = ttk.LabelFrame(left_scrollable_frame, text="🎬 Wybór wideo do uploadu", padding="10")
+        video_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        select_video_btn = ttk.Button(video_frame, text="📁 Wybierz wideo", command=self.select_upload_video, style='Accent.TButton')
+        select_video_btn.pack(anchor=tk.W, pady=(0, 10))
+        
+        self.upload_video_path_label = ttk.Label(video_frame, text="Nie wybrano wideo", font=('Segoe UI', 9), foreground='#e74c3c')
+        self.upload_video_path_label.pack(anchor=tk.W)
+        
+        # Sekcja: Metadane wideo
+        metadata_frame = ttk.LabelFrame(left_scrollable_frame, text="📝 Metadane wideo", padding="10")
+        metadata_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        # Tytuł
+        ttk.Label(metadata_frame, text="Tytuł wideo:", font=('Segoe UI', 10, 'bold')).pack(anchor=tk.W, pady=(0, 5))
+        title_entry = ttk.Entry(metadata_frame, textvariable=self.youtube_title, width=60, font=('Segoe UI', 10))
+        title_entry.pack(fill=tk.X, pady=(0, 15))
+        
+        # Opis - Część 1
+        desc1_frame = ttk.Frame(metadata_frame)
+        desc1_frame.pack(fill=tk.X, pady=(0, 10))
+        
+        desc1_label_frame = ttk.Frame(desc1_frame)
+        desc1_label_frame.pack(fill=tk.X)
+        
+        ttk.Label(desc1_label_frame, text="Opis wideo - Część 1:", font=('Segoe UI', 10, 'bold')).pack(side=tk.LEFT)
+        load_from_report_btn = ttk.Button(desc1_label_frame, text="📄 Podczytaj z raportu", 
+                                        command=self.load_description_from_report, style='Small.TButton')
+        load_from_report_btn.pack(side=tk.RIGHT, padx=(10, 0))
+        
+        self.desc_part1_text = tk.Text(metadata_frame, height=4, width=60, font=('Segoe UI', 10), wrap=tk.WORD)
+        self.desc_part1_text.pack(fill=tk.X, pady=(0, 10))
+        
+        # Opis - Część 2 (rozciągalne)
+        desc2_frame = ttk.Frame(metadata_frame)
+        desc2_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 15))
+        
+        ttk.Label(desc2_frame, text="Opis wideo - Część 2 (opcjonalnie):", font=('Segoe UI', 10, 'bold')).pack(anchor=tk.W, pady=(0, 5))
+        
+        # Kontener z przewijaniem dla części 2
+        desc2_container = ttk.Frame(desc2_frame)
+        desc2_container.pack(fill=tk.BOTH, expand=True)
+        
+        self.desc_part2_text = tk.Text(desc2_container, height=9, width=60, font=('Segoe UI', 10), wrap=tk.WORD)
+        desc2_scrollbar = ttk.Scrollbar(desc2_container, orient=tk.VERTICAL, command=self.desc_part2_text.yview)
+        self.desc_part2_text.configure(yscrollcommand=desc2_scrollbar.set)
+        
+        self.desc_part2_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        desc2_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        
+        # Tagi
+        tags_frame = ttk.Frame(metadata_frame)
+        tags_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        tags_label_frame = ttk.Frame(tags_frame)
+        tags_label_frame.pack(fill=tk.X)
+        
+        ttk.Label(tags_label_frame, text="Tagi (oddzielone przecinkami):", font=('Segoe UI', 10, 'bold')).pack(side=tk.LEFT)
+        load_tags_btn = ttk.Button(tags_label_frame, text="🏷️ Podczytaj tagi z raportu", 
+                                  command=self.load_tags_from_report, style='Small.TButton')
+        load_tags_btn.pack(side=tk.RIGHT, padx=(10, 0))
+        
+        tags_entry = ttk.Entry(tags_frame, textvariable=self.youtube_tags, width=60, font=('Segoe UI', 10))
+        tags_entry.pack(fill=tk.X, pady=(5, 0))
+        
+        # Kategoria i prywatność
+        settings_frame = ttk.Frame(metadata_frame)
+        settings_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        # Kategoria
+        ttk.Label(settings_frame, text="Kategoria:", font=('Segoe UI', 10, 'bold')).pack(anchor=tk.W, pady=(0, 5))
+        category_combo = ttk.Combobox(settings_frame, textvariable=self.youtube_category, 
+                                     values=["Education", "Science & Technology", "Howto & Style", "Entertainment", "People & Blogs"],
+                                     state="readonly", font=('Segoe UI', 10))
+        category_combo.pack(anchor=tk.W, pady=(0, 15))
+        
+        # Prywatność
+        ttk.Label(settings_frame, text="Prywatność:", font=('Segoe UI', 10, 'bold')).pack(anchor=tk.W, pady=(0, 5))
+        privacy_frame = ttk.Frame(settings_frame)
+        privacy_frame.pack(anchor=tk.W, pady=(0, 15))
+        
+        ttk.Radiobutton(privacy_frame, text="Prywatne", variable=self.youtube_privacy, value="private").pack(side=tk.LEFT, padx=(0, 20))
+        ttk.Radiobutton(privacy_frame, text="Niepubliczne", variable=self.youtube_privacy, value="unlisted").pack(side=tk.LEFT, padx=(0, 20))
+        ttk.Radiobutton(privacy_frame, text="Publiczne", variable=self.youtube_privacy, value="public").pack(side=tk.LEFT)
+        
+        # Sekcja: Miniaturka
+        thumbnail_frame = ttk.LabelFrame(left_scrollable_frame, text="🖼️ Miniaturka (opcjonalnie)", padding="10")
+        thumbnail_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        select_thumbnail_btn = ttk.Button(thumbnail_frame, text="🖼️ Wybierz miniaturkę", command=self.select_thumbnail, style='Accent.TButton')
+        select_thumbnail_btn.pack(anchor=tk.W, pady=(0, 10))
+        
+        self.thumbnail_path_label = ttk.Label(thumbnail_frame, text="Nie wybrano miniaturki", font=('Segoe UI', 9), foreground='#7f8c8d')
+        self.thumbnail_path_label.pack(anchor=tk.W)
+        
+        # Sekcja: Upload
+        upload_frame = ttk.LabelFrame(left_scrollable_frame, text="🚀 Upload", padding="10")
+        upload_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        upload_btn = ttk.Button(upload_frame, text="📤 Upload na YouTube", command=self.upload_to_youtube, style='Red.TButton')
+        upload_btn.pack(anchor=tk.W, pady=(0, 10))
+        
+        info_text = "⚠️ Wymagane: Konto Google z dostępem do YouTube API. Pierwszy upload może wymagać autoryzacji."
+        info_label = ttk.Label(upload_frame, text=info_text, wraplength=400, justify=tk.LEFT, 
+                              font=('Segoe UI', 9), foreground='#e67e22')
+        info_label.pack(anchor=tk.W)
+        
+        # Konfiguracja scrollbara dla lewej kolumny
+        left_canvas.pack(side="left", fill="both", expand=True)
+        left_scrollbar.pack(side="right", fill="y")
+        
+        # ===== PRAWA KOLUMNA - MATERIAŁY NA KANALE =====
+        right_frame = ttk.LabelFrame(main_container, text="📋 Materiały na kanale", padding="15")
+        right_frame.grid(row=0, column=1, sticky="nsew", padx=(10, 0))
+        
+        # Canvas i scrollbar dla prawej kolumny
+        right_canvas = tk.Canvas(right_frame)
+        right_scrollbar = ttk.Scrollbar(right_frame, orient="vertical", command=right_canvas.yview)
+        right_scrollable_frame = ttk.Frame(right_canvas)
+        
+        right_scrollable_frame.bind(
+            "<Configure>",
+            lambda e: right_canvas.configure(scrollregion=right_canvas.bbox("all"))
+        )
+        
+        right_canvas.create_window((0, 0), window=right_scrollable_frame, anchor="nw")
+        right_canvas.configure(yscrollcommand=right_scrollbar.set)
+        
+        # Tytuł prawej kolumny
+        right_title = ttk.Label(right_scrollable_frame, text="📺 Materiały na kanale", font=('Segoe UI', 14, 'bold'))
+        right_title.pack(anchor=tk.W, pady=(0, 20))
+        
+        # Przycisk odświeżania listy wideo
+        refresh_btn = ttk.Button(right_scrollable_frame, text="🔄 Odśwież listę wideo", 
+                                command=self.refresh_channel_videos, style='Accent.TButton')
+        refresh_btn.pack(anchor=tk.W, pady=(0, 15))
+        
+        # Sekcja: Lista wideo
+        videos_frame = ttk.LabelFrame(right_scrollable_frame, text="🎬 Ostatnie 3 wideo", padding="15")
+        videos_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        # Lista wideo (zmniejszona wysokość)
+        self.videos_listbox = tk.Listbox(videos_frame, height=4, font=('Segoe UI', 10))
+        self.videos_listbox.pack(fill=tk.X, pady=(0, 10))
+        
+        # Sekcja: Szczegóły wybranego wideo
+        details_frame = ttk.LabelFrame(right_scrollable_frame, text="📋 Szczegóły wybranego wideo", padding="15")
+        details_frame.pack(fill=tk.BOTH, expand=True)
+        
+        # Tytuł wideo
+        title_frame = ttk.Frame(details_frame)
+        title_frame.pack(fill=tk.X, pady=(0, 10))
+        
+        ttk.Label(title_frame, text="Tytuł wideo:", font=('Segoe UI', 10, 'bold')).pack(anchor=tk.W)
+        self.selected_video_title = ttk.Label(title_frame, text="Wybierz wideo z listy powyżej", 
+                                            font=('Segoe UI', 9), foreground='#7f8c8d', wraplength=400)
+        self.selected_video_title.pack(anchor=tk.W, pady=(2, 5))
+        
+        copy_title_btn = ttk.Button(title_frame, text="📋 Kopiuj tytuł", 
+                                   command=self.copy_video_title, style='Small.TButton')
+        copy_title_btn.pack(anchor=tk.W)
+        
+        # Opis wideo
+        desc_frame = ttk.Frame(details_frame)
+        desc_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 10))
+        
+        ttk.Label(desc_frame, text="Opis wideo:", font=('Segoe UI', 10, 'bold')).pack(anchor=tk.W)
+        
+        # Kontener z przewijaniem dla opisu
+        desc_container = ttk.Frame(desc_frame)
+        desc_container.pack(fill=tk.BOTH, expand=True, pady=(2, 5))
+        
+        self.selected_video_description = tk.Text(desc_container, height=6, width=50, font=('Segoe UI', 9), 
+                                                wrap=tk.WORD, state=tk.DISABLED)
+        desc_scrollbar = ttk.Scrollbar(desc_container, orient=tk.VERTICAL, command=self.selected_video_description.yview)
+        self.selected_video_description.configure(yscrollcommand=desc_scrollbar.set)
+        
+        self.selected_video_description.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        desc_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        
+        copy_desc_btn = ttk.Button(desc_frame, text="📋 Kopiuj opis", 
+                                  command=self.copy_video_description, style='Small.TButton')
+        copy_desc_btn.pack(anchor=tk.W)
+        
+        # Tagi wideo
+        tags_frame = ttk.Frame(details_frame)
+        tags_frame.pack(fill=tk.X, pady=(0, 10))
+        
+        ttk.Label(tags_frame, text="Tagi wideo:", font=('Segoe UI', 10, 'bold')).pack(anchor=tk.W)
+        self.selected_video_tags = ttk.Label(tags_frame, text="Brak tagów", 
+                                           font=('Segoe UI', 9), foreground='#7f8c8d', wraplength=400)
+        self.selected_video_tags.pack(anchor=tk.W, pady=(2, 5))
+        
+        copy_tags_btn = ttk.Button(tags_frame, text="📋 Kopiuj tagi", 
+                                  command=self.copy_video_tags, style='Small.TButton')
+        copy_tags_btn.pack(anchor=tk.W)
+        
+        # Konfiguracja przewijania dla prawej kolumny
+        right_canvas.pack(side="left", fill="both", expand=True)
+        right_scrollbar.pack(side="right", fill="y")
+        
+        # Bind dla przewijania myszką
+        def _on_mousewheel(event):
+            right_canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        
+        right_canvas.bind_all("<MouseWheel>", _on_mousewheel)
+        
+        # Bind dla wyboru wideo z listy
+        self.videos_listbox.bind('<<ListboxSelect>>', self.on_video_selection_change)
+        
+        # Automatyczne załadowanie listy wideo przy starcie - WYŁĄCZONE
+        # self.root.after(1000, self.refresh_channel_videos)
         
     # Usunięto setup_combo_content - zastąpione przez setup_combo_tab
     # Usunięto setup_extra_functions_content - zastąpione przez setup_extra_tab
@@ -1757,6 +2186,970 @@ ELEVENLABS_API_KEY={self.elevenlabs_api_key.get()}
             self.outro_video_path.set("")
             self.log("Folder intro_outro nie istnieje. Nie można wczytać plików intro/outro.")
             self.log("Sprawdź czy folder intro_outro znajduje się w tym samym katalogu co aplikacja.")
+
+    def select_upload_video(self):
+        """Wybiera wideo do uploadu na YouTube"""
+        video_path = filedialog.askopenfilename(
+            title="Wybierz wideo do uploadu na YouTube",
+            filetypes=[
+                ("Pliki wideo", "*.mp4 *.avi *.mov *.mkv *.wmv"),
+                ("Wszystkie pliki", "*.*")
+            ]
+        )
+        
+        if video_path:
+            self.upload_video_path = video_path
+            # Skróć ścieżkę do wyświetlenia
+            display_path = Path(video_path).name
+            self.upload_video_path_label.config(text=f"✅ {display_path}", foreground='#27ae60')
+            
+            # Automatycznie wypełnij tytuł na podstawie nazwy pliku
+            if not self.youtube_title.get():
+                title = Path(video_path).stem.replace('_', ' ').title()
+                self.youtube_title.set(title)
+    
+    def select_thumbnail(self):
+        """Wybiera miniaturkę dla wideo"""
+        thumbnail_path = filedialog.askopenfilename(
+            title="Wybierz miniaturkę (obrazek)",
+            filetypes=[
+                ("Obrazki", "*.jpg *.jpeg *.png *.bmp"),
+                ("Wszystkie pliki", "*.*")
+            ]
+        )
+        
+        if thumbnail_path:
+            self.youtube_thumbnail_path.set(thumbnail_path)
+            # Skróć ścieżkę do wyświetlenia
+            display_path = Path(thumbnail_path).name
+            self.thumbnail_path_label.config(text=f"✅ {display_path}", foreground='#27ae60')
+    
+    def upload_to_youtube(self):
+        """Uploaduje wideo na YouTube"""
+        # Sprawdź czy wybrano wideo
+        if not hasattr(self, 'upload_video_path') or not self.upload_video_path:
+            messagebox.showerror("Błąd", "Nie wybrano wideo do uploadu!")
+            return
+        
+        # Sprawdź czy wypełniono wymagane pola
+        if not self.youtube_title.get().strip():
+            messagebox.showerror("Błąd", "Wprowadź tytuł wideo!")
+            return
+        
+        # Pobierz opis z dwóch części
+        desc_part1 = self.desc_part1_text.get("1.0", tk.END).strip()
+        desc_part2 = self.desc_part2_text.get("1.0", tk.END).strip()
+        
+        # Połącz opisy z dwoma enterami między nimi
+        if desc_part1 and desc_part2:
+            description = f"{desc_part1}\n\n{desc_part2}"
+        elif desc_part1:
+            description = desc_part1
+        elif desc_part2:
+            description = desc_part2
+        else:
+            description = ""
+        
+        # Przygotuj dane do uploadu
+        upload_data = {
+            'video_path': self.upload_video_path,
+            'title': self.youtube_title.get().strip(),
+            'description': description,
+            'tags': [tag.strip() for tag in self.youtube_tags.get().split(',') if tag.strip()],
+            'category': self.youtube_category.get(),
+            'privacy': self.youtube_privacy.get(),
+            'thumbnail_path': self.youtube_thumbnail_path.get() if self.youtube_thumbnail_path.get() else None
+        }
+        
+        # Uruchom upload w osobnym wątku
+        self.log("[YOUTUBE] Rozpoczynam upload wideo na YouTube...")
+        threading.Thread(target=self._upload_to_youtube_thread, args=(upload_data,), daemon=True).start()
+    
+    def _upload_to_youtube_thread(self, upload_data):
+        """Wykonuje upload na YouTube w osobnym wątku"""
+        try:
+            # Import YouTube uploader
+            try:
+                from youtube_uploader import YouTubeUploader
+            except ImportError:
+                self.log("[YOUTUBE] ❌ YouTube API nie jest dostępne. Zainstaluj wymagane biblioteki.")
+                self.root.after(0, lambda: messagebox.showerror("Błąd", 
+                    "YouTube API nie jest dostępne.\n\nZainstaluj wymagane biblioteki:\n"
+                    "pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib"))
+                return
+            
+            # Sprawdź czy istnieje plik client_secrets.json
+            client_secrets_file = Path(__file__).parent / "client_secrets.json"
+            if not client_secrets_file.exists():
+                self.log("[YOUTUBE] ❌ Brak pliku client_secrets.json")
+                self.root.after(0, lambda: messagebox.showerror("Błąd", 
+                    "Brak pliku client_secrets.json\n\n"
+                    "1. Przejdź do Google Cloud Console\n"
+                    "2. Utwórz OAuth 2.0 Client ID\n"
+                    "3. Pobierz plik JSON\n"
+                    "4. Zapisz jako 'client_secrets.json' w folderze 'code/'"))
+                return
+            
+            self.log("[YOUTUBE] Inicjalizacja YouTube Uploader...")
+            
+            # Utwórz uploader
+            uploader = YouTubeUploader(str(client_secrets_file))
+            
+            # Funkcja callback do raportowania postępu
+            def progress_callback(progress, message):
+                self.log(f"[YOUTUBE] {message}")
+                # Można tu dodać aktualizację progress bar w GUI
+            
+            self.log("[YOUTUBE] Autoryzacja z YouTube...")
+            
+            # Autoryzuj
+            if not uploader.authenticate():
+                self.log("[YOUTUBE] ❌ Błąd autoryzacji z YouTube")
+                self.root.after(0, lambda: messagebox.showerror("Błąd", "Nie udało się autoryzować z YouTube API"))
+                return
+            
+            self.log("[YOUTUBE] ✅ Autoryzacja udana!")
+            self.log(f"[YOUTUBE] Tytuł: {upload_data['title']}")
+            self.log(f"[YOUTUBE] Kategoria: {upload_data['category']}")
+            self.log(f"[YOUTUBE] Prywatność: {upload_data['privacy']}")
+            
+            if upload_data['tags']:
+                self.log(f"[YOUTUBE] Tagi: {', '.join(upload_data['tags'])}")
+            
+            if upload_data['thumbnail_path']:
+                self.log(f"[YOUTUBE] Miniaturka: {Path(upload_data['thumbnail_path']).name}")
+            
+            # Wykonaj upload
+            self.log("[YOUTUBE] Rozpoczynam upload wideo...")
+            result = uploader.upload_video(
+                video_path=upload_data['video_path'],
+                title=upload_data['title'],
+                description=upload_data['description'],
+                tags=upload_data['tags'],
+                category=upload_data['category'],
+                privacy=upload_data['privacy'],
+                thumbnail_path=upload_data['thumbnail_path'],
+                progress_callback=progress_callback
+            )
+            
+            if result['success']:
+                self.log("[YOUTUBE] ✅ Upload zakończony pomyślnie!")
+                self.log(f"[YOUTUBE] ID wideo: {result['video_id']}")
+                self.log(f"[YOUTUBE] URL: {result['video_url']}")
+                
+                # Pokaż komunikat o sukcesie z linkiem
+                success_msg = f"Wideo zostało pomyślnie opublikowane na YouTube!\n\n"
+                success_msg += f"Tytuł: {result['title']}\n"
+                success_msg += f"Prywatność: {result['privacy']}\n"
+                success_msg += f"URL: {result['video_url']}"
+                
+                self.root.after(0, lambda: messagebox.showinfo("Sukces", success_msg))
+                
+                # Otwórz wideo w przeglądarce
+                try:
+                    import webbrowser
+                    webbrowser.open(result['video_url'])
+                except:
+                    pass
+                    
+            else:
+                error_msg = f"Błąd podczas uploadu: {result['error']}"
+                self.log(f"[YOUTUBE] ❌ {error_msg}")
+                self.root.after(0, lambda: messagebox.showerror("Błąd", error_msg))
+            
+        except Exception as e:
+            error_msg = f"Błąd podczas uploadu na YouTube: {str(e)}"
+            self.log(f"[YOUTUBE] ❌ {error_msg}")
+            self.root.after(0, lambda: messagebox.showerror("Błąd", error_msg))
+
+    def refresh_channel_videos(self):
+        """Odświeża listę wideo z kanału YouTube"""
+        try:
+            self.log("[YOUTUBE] Odświeżanie listy wideo z kanału...")
+            
+            # Sprawdź czy istnieje plik client_secrets.json
+            client_secrets_file = Path(__file__).parent / "client_secrets.json"
+            if not client_secrets_file.exists():
+                self.log("[YOUTUBE] ❌ Brak pliku client_secrets.json")
+                messagebox.showerror("Błąd", "Brak pliku client_secrets.json w folderze code/")
+                return
+            
+            # Utwórz uploader
+            try:
+                from youtube_uploader import YouTubeUploader
+                uploader = YouTubeUploader(str(client_secrets_file))
+            except ImportError as e:
+                self.log(f"[YOUTUBE] ❌ Błąd importu YouTubeUploader: {e}")
+                messagebox.showerror("Błąd", "Nie można zaimportować YouTubeUploader. Sprawdź czy plik youtube_uploader.py istnieje.")
+                return
+            
+            # Autoryzuj
+            self.log("[YOUTUBE] Autoryzacja z YouTube...")
+            if not uploader.authenticate():
+                self.log("[YOUTUBE] ❌ Błąd autoryzacji z YouTube")
+                messagebox.showerror("Błąd", "Nie udało się autoryzować z YouTube API")
+                return
+            
+            self.log("[YOUTUBE] ✅ Autoryzacja udana!")
+            
+            # Pobierz wideo z kanału
+            self.log("[YOUTUBE] Pobieranie listy wideo...")
+            result = uploader.get_channel_videos(max_results=3)
+            
+            if result.get('success'):
+                self.channel_videos = result['videos']
+                self.update_videos_listbox()
+                self.log(f"[YOUTUBE] ✅ Pobrano {len(self.channel_videos)} wideo z kanału")
+                
+                # Komunikaty sukcesu usunięte - tylko logi
+                if len(self.channel_videos) > 0:
+                    self.log(f"[YOUTUBE] ✅ Pobrano {len(self.channel_videos)} wideo z kanału YouTube")
+                else:
+                    self.log(f"[YOUTUBE] ℹ️ Nie znaleziono wideo na kanale")
+            else:
+                error_msg = f"Błąd pobierania wideo: {result.get('error')}"
+                self.log(f"[YOUTUBE] ❌ {error_msg}")
+                messagebox.showerror("Błąd", error_msg)
+                
+        except Exception as e:
+            error_msg = f"Błąd odświeżania listy wideo: {str(e)}"
+            self.log(f"[YOUTUBE] ❌ {error_msg}")
+            messagebox.showerror("Błąd", error_msg)
+
+    def update_videos_listbox(self):
+        """Aktualizuje listę wideo w listbox"""
+        self.videos_listbox.delete(0, tk.END)
+        
+        if not self.channel_videos:
+            self.videos_listbox.insert(tk.END, "Brak wideo do wyświetlenia")
+            return
+        
+        for i, video in enumerate(self.channel_videos, 1):
+            # Skróć tytuł jeśli jest za długi
+            title = video['title']
+            if len(title) > 50:
+                title = title[:47] + "..."
+            
+            # Dodaj informacje o wyświetleniach
+            views = video['view_count']
+            list_item = f"{i}. {title} ({views} wyświetleń)"
+            self.videos_listbox.insert(tk.END, list_item)
+            
+        self.log(f"[YOUTUBE] Zaktualizowano listę: {len(self.channel_videos)} wideo")
+
+    def on_video_selection_change(self, event):
+        """Obsługuje zmianę wyboru wideo w listbox"""
+        selection = self.videos_listbox.curselection()
+        if selection:
+            index = selection[0]
+            if index < len(self.channel_videos):
+                self.selected_video_for_copy = self.channel_videos[index]
+                video = self.selected_video_for_copy
+                
+                # Aktualizuj tytuł
+                self.selected_video_title.config(text=video['title'])
+                
+                # Aktualizuj opis
+                self.selected_video_description.config(state=tk.NORMAL)
+                self.selected_video_description.delete(1.0, tk.END)
+                self.selected_video_description.insert(1.0, video['description'])
+                self.selected_video_description.config(state=tk.DISABLED)
+                
+                # Aktualizuj tagi
+                tags = video.get('tags', [])
+                if tags:
+                    tags_text = ', '.join(tags)
+                    self.selected_video_tags.config(text=tags_text)
+                else:
+                    self.selected_video_tags.config(text="Brak tagów")
+                    
+            else:
+                self.selected_video_for_copy = None
+                self.selected_video_title.config(text="Wybierz wideo z listy powyżej")
+                self.selected_video_description.config(state=tk.NORMAL)
+                self.selected_video_description.delete(1.0, tk.END)
+                self.selected_video_description.config(state=tk.DISABLED)
+                self.selected_video_tags.config(text="Brak tagów")
+
+    def copy_video_description(self):
+        """Kopiuje opis wybranego wideo do schowka"""
+        if not self.selected_video_for_copy:
+            messagebox.showwarning("Ostrzeżenie", "Najpierw wybierz wideo z listy")
+            return
+        
+        description = self.selected_video_for_copy['description']
+        self.root.clipboard_clear()
+        self.root.clipboard_append(description)
+        
+        self.log(f"[YOUTUBE] Skopiowano opis wideo: {self.selected_video_for_copy['title']}")
+
+    def copy_video_title(self):
+        """Kopiuje tytuł wybranego wideo do schowka"""
+        if not self.selected_video_for_copy:
+            messagebox.showwarning("Ostrzeżenie", "Najpierw wybierz wideo z listy")
+            return
+        
+        title = self.selected_video_for_copy['title']
+        self.root.clipboard_clear()
+        self.root.clipboard_append(title)
+        
+        self.log(f"[YOUTUBE] Skopiowano tytuł wideo: {title}")
+
+    def copy_video_tags(self):
+        """Kopiuje tagi wybranego wideo do schowka"""
+        if not self.selected_video_for_copy:
+            messagebox.showwarning("Ostrzeżenie", "Najpierw wybierz wideo z listy")
+            return
+        
+        tags = self.selected_video_for_copy.get('tags', [])
+        if tags:
+            tags_text = ', '.join(tags)
+            self.root.clipboard_clear()
+            self.root.clipboard_append(tags_text)
+            
+            self.log(f"[YOUTUBE] Skopiowano tagi wideo: {self.selected_video_for_copy['title']}")
+        else:
+            self.log(f"[YOUTUBE] Wideo nie ma tagów: {self.selected_video_for_copy['title']}")
+
+    def load_description_from_report(self):
+        """Ładuje opis z raportu social media do części 1 opisu"""
+        try:
+            # Znajdź najnowszy raport social media
+            working_dir = Path(self.working_dir.get())
+            if not working_dir.exists():
+                messagebox.showerror("Błąd", "Nie wybrano folderu roboczego")
+                return
+            
+            # Szukaj plików raportu (różne wzorce)
+            report_patterns = [
+                "*raport*.docx",
+                "*social*.docx", 
+                "*post*.docx",
+                "*report*.docx",
+                "*generated*.docx",
+                "*raport*.txt",
+                "*social*.txt", 
+                "*post*.txt",
+                "*report*.txt",
+                "*generated*.txt"
+            ]
+            
+            report_files = []
+            for pattern in report_patterns:
+                report_files.extend(list(working_dir.rglob(pattern)))
+            
+            # Usuń duplikaty
+            report_files = list(set(report_files))
+            
+            if not report_files:
+                # Spróbuj znaleźć pliki w podfolderach
+                all_docx_files = list(working_dir.rglob("*.docx"))
+                all_txt_files = list(working_dir.rglob("*.txt"))
+                all_files = all_docx_files + all_txt_files
+                
+                if all_files:
+                    # Pokaż dialog wyboru pliku
+                    file_path = filedialog.askopenfilename(
+                        title="Wybierz plik raportu social media",
+                        initialdir=str(working_dir),
+                        filetypes=[
+                            ("Pliki Word", "*.docx"), 
+                            ("Pliki tekstowe", "*.txt"), 
+                            ("Wszystkie pliki", "*.*")
+                        ]
+                    )
+                    if file_path:
+                        report_files = [Path(file_path)]
+                    else:
+                        return
+                else:
+                    messagebox.showwarning("Ostrzeżenie", 
+                        "Nie znaleziono plików raportu social media.\n\n"
+                        "Szukane wzorce:\n" + "\n".join(report_patterns))
+                    return
+            
+            # Wybierz najnowszy plik
+            latest_report = max(report_files, key=lambda x: x.stat().st_mtime)
+            
+            self.log(f"[YOUTUBE] Znaleziono {len(report_files)} plików raportu")
+            self.log(f"[YOUTUBE] Wybrano najnowszy: {latest_report.name}")
+            self.log(f"[YOUTUBE] Ścieżka: {latest_report}")
+            
+            # Wczytaj zawartość pliku
+            if latest_report.suffix.lower() == '.docx':
+                if not DOCX_AVAILABLE:
+                    messagebox.showerror("Błąd", 
+                        "Nie można wczytać pliku .docx\n\n"
+                        "Zainstaluj bibliotekę:\n"
+                        "pip install python-docx")
+                    return
+                
+                content, error = safe_read_docx(latest_report)
+                if error:
+                    self.log(f"[YOUTUBE] ❌ {error}")
+                    messagebox.showerror("Błąd", error)
+                    return
+                self.log(f"[YOUTUBE] Wczytano plik .docx: {len(content)} znaków")
+            else:
+                # Plik .txt
+                with open(latest_report, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                self.log(f"[YOUTUBE] Wczytano plik .txt: {len(content)} znaków")
+            
+            # Znajdź sekcję "POST PO ANGIELSKU"
+            lines = content.split('\n')
+            post_start = None
+            post_end = None
+            
+            # Szukaj różnych wariantów nazwy sekcji
+            search_terms = ["POST PO ANGIELSKU", "POST IN ENGLISH", "ENGLISH POST", "POST ANGIELSKI"]
+            
+            for i, line in enumerate(lines):
+                for term in search_terms:
+                    if term in line.upper():
+                        post_start = i + 1
+                        self.log(f"[YOUTUBE] Znaleziono sekcję: '{line.strip()}' w linii {i+1}")
+                        break
+                if post_start is not None:
+                    break
+            
+            if post_start is None:
+                # Pokaż pierwsze 10 linii pliku dla debugowania
+                preview = "\n".join(lines[:10])
+                self.log(f"[YOUTUBE] Nie znaleziono sekcji. Pierwsze 10 linii:\n{preview}")
+                messagebox.showwarning("Ostrzeżenie", 
+                    "Nie znaleziono sekcji 'POST PO ANGIELSKU' w raporcie.\n\n"
+                    "Szukane sekcje:\n" + "\n".join(search_terms))
+                return
+            
+            # Znajdź koniec posta (następna sekcja lub koniec pliku)
+            for i in range(post_start, len(lines)):
+                if lines[i].strip() and not lines[i].startswith(' ') and ':' in lines[i]:
+                    post_end = i
+                    break
+            
+            if post_end is None:
+                post_end = len(lines)
+            
+            # Wyciągnij post
+            post_lines = lines[post_start:post_end]
+            post_text = '\n'.join(post_lines).strip()
+            
+            if post_text:
+                # Wyczyść pole i wstaw tekst
+                self.desc_part1_text.delete(1.0, tk.END)
+                self.desc_part1_text.insert(1.0, post_text)
+                
+                self.log(f"[YOUTUBE] ✅ Załadowano opis z raportu: {latest_report.name} ({len(post_text)} znaków)")
+            else:
+                messagebox.showwarning("Ostrzeżenie", "Nie znaleziono treści posta w raporcie")
+                
+        except Exception as e:
+            error_msg = f"Błąd podczas ładowania opisu z raportu: {str(e)}"
+            self.log(f"[YOUTUBE] ❌ {error_msg}")
+            messagebox.showerror("Błąd", error_msg)
+
+    def load_tags_from_report(self):
+        """Ładuje tagi z raportu social media"""
+        try:
+            # Znajdź najnowszy raport social media
+            working_dir = Path(self.working_dir.get())
+            if not working_dir.exists():
+                messagebox.showerror("Błąd", "Nie wybrano folderu roboczego")
+                return
+            
+            # Szukaj plików raportu (różne wzorce)
+            report_patterns = [
+                "*raport*.docx",
+                "*social*.docx", 
+                "*post*.docx",
+                "*report*.docx",
+                "*generated*.docx",
+                "*raport*.txt",
+                "*social*.txt", 
+                "*post*.txt",
+                "*report*.txt",
+                "*generated*.txt"
+            ]
+            
+            report_files = []
+            for pattern in report_patterns:
+                report_files.extend(list(working_dir.rglob(pattern)))
+            
+            # Usuń duplikaty
+            report_files = list(set(report_files))
+            
+            if not report_files:
+                # Spróbuj znaleźć pliki w podfolderach
+                all_docx_files = list(working_dir.rglob("*.docx"))
+                all_txt_files = list(working_dir.rglob("*.txt"))
+                all_files = all_docx_files + all_txt_files
+                
+                if all_files:
+                    # Pokaż dialog wyboru pliku
+                    file_path = filedialog.askopenfilename(
+                        title="Wybierz plik raportu social media",
+                        initialdir=str(working_dir),
+                        filetypes=[
+                            ("Pliki Word", "*.docx"), 
+                            ("Pliki tekstowe", "*.txt"), 
+                            ("Wszystkie pliki", "*.*")
+                        ]
+                    )
+                    if file_path:
+                        report_files = [Path(file_path)]
+                    else:
+                        return
+                else:
+                    messagebox.showwarning("Ostrzeżenie", 
+                        "Nie znaleziono plików raportu social media.\n\n"
+                        "Szukane wzorce:\n" + "\n".join(report_patterns))
+                    return
+            
+            # Wybierz najnowszy plik
+            latest_report = max(report_files, key=lambda x: x.stat().st_mtime)
+            
+            self.log(f"[YOUTUBE] Znaleziono {len(report_files)} plików raportu")
+            self.log(f"[YOUTUBE] Wybrano najnowszy: {latest_report.name}")
+            self.log(f"[YOUTUBE] Ścieżka: {latest_report}")
+            
+            # Wczytaj zawartość pliku
+            if latest_report.suffix.lower() == '.docx':
+                if not DOCX_AVAILABLE:
+                    messagebox.showerror("Błąd", 
+                        "Nie można wczytać pliku .docx\n\n"
+                        "Zainstaluj bibliotekę:\n"
+                        "pip install python-docx")
+                    return
+                
+                content, error = safe_read_docx(latest_report)
+                if error:
+                    self.log(f"[YOUTUBE] ❌ {error}")
+                    messagebox.showerror("Błąd", error)
+                    return
+                self.log(f"[YOUTUBE] Wczytano plik .docx: {len(content)} znaków")
+            else:
+                # Plik .txt
+                with open(latest_report, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                self.log(f"[YOUTUBE] Wczytano plik .txt: {len(content)} znaków")
+            
+            # Znajdź sekcję "POST PO ANGIELSKU" i z niej wyciągnij hashtags
+            lines = content.split('\n')
+            english_section_start = None
+            
+            # Szukaj sekcji angielskiej
+            search_terms = ["POST PO ANGIELSKU", "POST IN ENGLISH", "ENGLISH POST", "POST ANGIELSKI"]
+            
+            for i, line in enumerate(lines):
+                for term in search_terms:
+                    if term in line.upper():
+                        english_section_start = i + 1
+                        self.log(f"[YOUTUBE] Znaleziono sekcję angielską: '{line.strip()}' w linii {i+1}")
+                        break
+                if english_section_start is not None:
+                    break
+            
+            if english_section_start is None:
+                # Pokaż pierwsze 10 linii pliku dla debugowania
+                preview = "\n".join(lines[:10])
+                self.log(f"[YOUTUBE] Nie znaleziono sekcji angielskiej. Pierwsze 10 linii:\n{preview}")
+                messagebox.showwarning("Ostrzeżenie", 
+                    "Nie znaleziono sekcji angielskiej w raporcie.\n\n"
+                    "Szukane sekcje:\n" + "\n".join(search_terms))
+                return
+            
+            # Znajdź koniec sekcji angielskiej
+            english_section_end = len(lines)
+            for i in range(english_section_start, len(lines)):
+                if lines[i].strip() and not lines[i].startswith(' ') and ':' in lines[i]:
+                    english_section_end = i
+                    break
+            
+            # Wyciągnij całą sekcję angielską
+            english_section_lines = lines[english_section_start:english_section_end]
+            english_section_text = '\n'.join(english_section_lines)
+            
+            # Znajdź linię z hashtags w sekcji angielskiej
+            hashtags_line = None
+            for line in english_section_lines:
+                if any(term in line.upper() for term in ["HASHTAGS:", "HASHTAGS", "TAGS:", "TAGS"]):
+                    hashtags_line = line
+                    break
+            
+            # Wyciągnij hashtagi z linii (usuń [PIN] i inne oznaczenia)
+            import re
+            hashtags = []
+            if hashtags_line:
+                hashtags = re.findall(r'#\w+', hashtags_line)
+            
+            if hashtags:
+                # Usuń # z początku każdego tagu
+                tags = [tag[1:] for tag in hashtags]
+                tags_text = ', '.join(tags)
+                
+                # Wstaw tagi do pola
+                self.youtube_tags.set(tags_text)
+                
+                self.log(f"[YOUTUBE] ✅ Załadowano {len(tags)} angielskich tagów z raportu: {latest_report.name}")
+                self.log(f"[YOUTUBE] Angielskie tagi: {tags_text}")
+            else:
+                messagebox.showwarning("Ostrzeżenie", "Nie znaleziono angielskich tagów w sekcji POST PO ANGIELSKU")
+                
+        except Exception as e:
+            error_msg = f"Błąd podczas ładowania tagów z raportu: {str(e)}"
+            self.log(f"[YOUTUBE] ❌ {error_msg}")
+            messagebox.showerror("Błąd", error_msg)
+
+    # ===== FUNKCJE SOCIAL MEDIA =====
+    
+    def select_facebook_video(self):
+        """Wybiera wideo dla posta na Facebook"""
+        file_path = filedialog.askopenfilename(
+            title="Wybierz wideo dla posta na Facebook",
+            filetypes=[
+                ("Pliki wideo", "*.mp4 *.avi *.mov *.mkv"),
+                ("Wszystkie pliki", "*.*")
+            ]
+        )
+        if file_path:
+            # Zapisujemy pełną ścieżkę, aby nie zależeć od working_dir
+            self.facebook_video_path.set(file_path)
+            self.log(f"[SOCIAL] Wybrano wideo dla Facebook: {Path(file_path).name}")
+    
+    def select_facebook_image(self):
+        """Wybiera obraz dla posta na Facebook"""
+        file_path = filedialog.askopenfilename(
+            title="Wybierz obraz do posta na Facebook",
+            filetypes=[
+                ("Obrazy", "*.jpg *.jpeg *.png *.bmp"),
+                ("Wszystkie pliki", "*.*")
+            ]
+        )
+        if file_path:
+            # Zapisujemy pełną ścieżkę, aby nie zależeć od working_dir
+            self.facebook_image_path.set(file_path)
+            self.log(f"[SOCIAL] Wybrano obraz dla Facebook: {Path(file_path).name}")
+
+    def select_instagram_video(self):
+        """Wybiera wideo dla posta na Instagram"""
+        file_path = filedialog.askopenfilename(
+            title="Wybierz wideo dla posta na Instagram",
+            filetypes=[
+                ("Pliki wideo", "*.mp4 *.avi *.mov *.mkv"),
+                ("Wszystkie pliki", "*.*")
+            ]
+        )
+        if file_path:
+            self.instagram_video_path.set(Path(file_path).name)
+            self.log(f"[SOCIAL] Wybrano wideo dla Instagram: {Path(file_path).name}")
+    
+    def load_facebook_post_from_report(self):
+        """Ładuje treść posta na Facebook z raportu"""
+        try:
+            # Znajdź najnowszy raport social media
+            working_dir = Path(self.working_dir.get())
+            if not working_dir.exists():
+                messagebox.showerror("Błąd", "Nie wybrano folderu roboczego")
+                return
+            
+            # Szukaj plików raportu
+            report_patterns = [
+                "*raport*.docx", "*social*.docx", "*post*.docx", "*report*.docx",
+                "*raport*.txt", "*social*.txt", "*post*.txt", "*report*.txt"
+            ]
+            
+            report_files = []
+            for pattern in report_patterns:
+                report_files.extend(list(working_dir.rglob(pattern)))
+            
+            if not report_files:
+                messagebox.showwarning("Ostrzeżenie", "Nie znaleziono plików raportu social media")
+                return
+            
+            # Wybierz najnowszy plik
+            latest_report = max(report_files, key=lambda x: x.stat().st_mtime)
+            
+            # Wczytaj zawartość pliku
+            if latest_report.suffix.lower() == '.docx':
+                content, error = safe_read_docx(latest_report)
+                if error:
+                    self.log(f"[SOCIAL] ❌ {error}")
+                    messagebox.showerror("Błąd", error)
+                    return
+            else:
+                with open(latest_report, 'r', encoding='utf-8') as f:
+                    content = f.read()
+            
+            # Znajdź sekcję "POST PO ANGIELSKU" (taka sama jak w YouTube)
+            lines = content.split('\n')
+            post_start = None
+            
+            search_terms = ["POST PO ANGIELSKU", "POST IN ENGLISH", "ENGLISH POST", "POST ANGIELSKI"]
+            
+            for i, line in enumerate(lines):
+                for term in search_terms:
+                    if term in line.upper():
+                        post_start = i + 1
+                        self.log(f"[SOCIAL] Znaleziono sekcję Facebook: '{line.strip()}' w linii {i+1}")
+                        break
+                if post_start is not None:
+                    break
+            
+            if post_start is None:
+                messagebox.showwarning("Ostrzeżenie", 
+                    "Nie znaleziono sekcji angielskiej w raporcie.\n\n"
+                    "Szukane sekcje:\n" + "\n".join(search_terms))
+                return
+            
+            # Znajdź koniec posta
+            post_end = len(lines)
+            for i in range(post_start, len(lines)):
+                if lines[i].strip() and not lines[i].startswith(' ') and ':' in lines[i]:
+                    post_end = i
+                    break
+            
+            # Wyciągnij post
+            post_lines = lines[post_start:post_end]
+            post_text = '\n'.join(post_lines).strip()
+            
+            if post_text:
+                self.facebook_post_text.delete(1.0, tk.END)
+                self.facebook_post_text.insert(1.0, post_text)
+                self.log(f"[SOCIAL] ✅ Załadowano angielski post Facebook z raportu: {latest_report.name}")
+            else:
+                messagebox.showwarning("Ostrzeżenie", "Nie znaleziono treści angielskiego posta w raporcie")
+                
+        except Exception as e:
+            error_msg = f"Błąd podczas ładowania posta Facebook: {str(e)}"
+            self.log(f"[SOCIAL] ❌ {error_msg}")
+            messagebox.showerror("Błąd", error_msg)
+    
+    def load_instagram_post_from_report(self):
+        """Ładuje treść posta na Instagram z raportu"""
+        try:
+            # Znajdź najnowszy raport social media
+            working_dir = Path(self.working_dir.get())
+            if not working_dir.exists():
+                messagebox.showerror("Błąd", "Nie wybrano folderu roboczego")
+                return
+            
+            # Szukaj plików raportu
+            report_patterns = [
+                "*raport*.docx", "*social*.docx", "*post*.docx", "*report*.docx",
+                "*raport*.txt", "*social*.txt", "*post*.txt", "*report*.txt"
+            ]
+            
+            report_files = []
+            for pattern in report_patterns:
+                report_files.extend(list(working_dir.rglob(pattern)))
+            
+            if not report_files:
+                messagebox.showwarning("Ostrzeżenie", "Nie znaleziono plików raportu social media")
+                return
+            
+            # Wybierz najnowszy plik
+            latest_report = max(report_files, key=lambda x: x.stat().st_mtime)
+            
+            # Wczytaj zawartość pliku
+            if latest_report.suffix.lower() == '.docx':
+                content, error = safe_read_docx(latest_report)
+                if error:
+                    self.log(f"[SOCIAL] ❌ {error}")
+                    messagebox.showerror("Błąd", error)
+                    return
+            else:
+                with open(latest_report, 'r', encoding='utf-8') as f:
+                    content = f.read()
+            
+            # Znajdź sekcję "POST PO ANGIELSKU" (taka sama jak w YouTube)
+            lines = content.split('\n')
+            post_start = None
+            
+            search_terms = ["POST PO ANGIELSKU", "POST IN ENGLISH", "ENGLISH POST", "POST ANGIELSKI"]
+            
+            for i, line in enumerate(lines):
+                for term in search_terms:
+                    if term in line.upper():
+                        post_start = i + 1
+                        self.log(f"[SOCIAL] Znaleziono sekcję Instagram: '{line.strip()}' w linii {i+1}")
+                        break
+                if post_start is not None:
+                    break
+            
+            if post_start is None:
+                messagebox.showwarning("Ostrzeżenie", 
+                    "Nie znaleziono sekcji angielskiej w raporcie.\n\n"
+                    "Szukane sekcje:\n" + "\n".join(search_terms))
+                return
+            
+            # Znajdź koniec posta
+            post_end = len(lines)
+            for i in range(post_start, len(lines)):
+                if lines[i].strip() and not lines[i].startswith(' ') and ':' in lines[i]:
+                    post_end = i
+                    break
+            
+            # Wyciągnij post
+            post_lines = lines[post_start:post_end]
+            post_text = '\n'.join(post_lines).strip()
+            
+            if post_text:
+                self.instagram_post_text.delete(1.0, tk.END)
+                self.instagram_post_text.insert(1.0, post_text)
+                self.log(f"[SOCIAL] ✅ Załadowano angielski post Instagram z raportu: {latest_report.name}")
+            else:
+                messagebox.showwarning("Ostrzeżenie", "Nie znaleziono treści angielskiego posta w raporcie")
+                
+        except Exception as e:
+            error_msg = f"Błąd podczas ładowania posta Instagram: {str(e)}"
+            self.log(f"[SOCIAL] ❌ {error_msg}")
+            messagebox.showerror("Błąd", error_msg)
+    
+    def copy_facebook_post(self):
+        """Kopiuje tekst posta Facebook do schowka"""
+        text = self.facebook_post_text.get("1.0", tk.END).strip()
+        if text:
+            self.root.clipboard_clear()
+            self.root.clipboard_append(text)
+            self.log(f"[SOCIAL] Skopiowano post Facebook ({len(text)} znaków)")
+        else:
+            messagebox.showwarning("Ostrzeżenie", "Brak tekstu do skopiowania")
+    
+    def copy_instagram_post(self):
+        """Kopiuje tekst posta Instagram do schowka"""
+        text = self.instagram_post_text.get("1.0", tk.END).strip()
+        if text:
+            self.root.clipboard_clear()
+            self.root.clipboard_append(text)
+            self.log(f"[SOCIAL] Skopiowano post Instagram ({len(text)} znaków)")
+        else:
+            messagebox.showwarning("Ostrzeżenie", "Brak tekstu do skopiowania")
+    
+    def publish_facebook_post(self):
+        """Publikuje post na Facebook"""
+        try:
+            text = self.facebook_post_text.get("1.0", tk.END).strip()
+            if not text:
+                messagebox.showwarning("Ostrzeżenie", "Brak tekstu do publikacji")
+                return
+            
+            # Sprawdź czy są skonfigurowane klucze API
+            app_id = self.facebook_app_id.get().strip()
+            app_secret = self.facebook_app_secret.get().strip()
+            access_token = self.facebook_access_token.get().strip()
+            
+            if not all([app_id, app_secret, access_token]):
+                messagebox.showerror("Błąd", 
+                    "Brak kluczy Facebook API.\n\n"
+                    "Przejdź do zakładki 'Konfiguracja API' i wprowadź:\n"
+                    "- Facebook App ID\n"
+                    "- Facebook App Secret\n"
+                    "- Facebook Access Token")
+                return
+            
+            # Importuj Facebook SDK
+            try:
+                import facebook
+            except ImportError:
+                messagebox.showerror("Błąd", 
+                    "Brak biblioteki Facebook SDK.\n\n"
+                    "Zainstaluj: pip install facebook-sdk")
+                return
+            
+            # Utwórz obiekt Graph API
+            graph = facebook.GraphAPI(access_token=access_token, version="3.1")
+
+            # Weryfikacja: na jaką stronę/konto pójdzie post
+            try:
+                me_obj = graph.get_object(id='me', fields='id,name')
+                target_name = me_obj.get('name', 'unknown')
+                self.log(f"[SOCIAL] Używany token publikuje jako: {target_name}")
+            except Exception:
+                # Brakujące uprawnienia nie powinny blokować dalszej próby publikacji
+                pass
+            
+            # Publikuj post
+            self.log(f"[SOCIAL] 📤 Publikowanie posta na Facebook ({len(text)} znaków)")
+            
+            # Ścieżki multimediów
+            working_dir = Path(self.working_dir.get()) if self.working_dir.get() else Path.cwd()
+            video_path = self.facebook_video_path.get().strip()
+            image_path = getattr(self, 'facebook_image_path', tk.StringVar()).get().strip()
+
+            response = None
+            # 1) Priorytet: jeśli wybrano wideo – publikuj wideo
+            if video_path:
+                full_video_path = Path(video_path)
+                if not full_video_path.is_absolute():
+                    full_video_path = working_dir / video_path
+                if full_video_path.exists():
+                    with open(full_video_path, 'rb') as video_file:
+                        response = graph.put_video(
+                            video=video_file,
+                            title="Nowe wideo edukacyjne",
+                            description=text,
+                            privacy={'value': 'EVERYONE'}
+                        )
+                    self.log(f"[SOCIAL] ✅ Wideo opublikowane na Facebook: {response.get('id', 'N/A')}")
+                    messagebox.showinfo("Sukces", "Wideo zostało opublikowane na Facebook!")
+                else:
+                    messagebox.showerror("Błąd", f"Nie znaleziono pliku wideo: {full_video_path}")
+                    return
+            # 2) W przeciwnym razie, jeśli wybrano obraz – publikuj zdjęcie z podpisem
+            elif image_path:
+                full_image_path = Path(image_path)
+                if not full_image_path.is_absolute():
+                    full_image_path = working_dir / image_path
+                if full_image_path.exists():
+                    with open(full_image_path, 'rb') as image_file:
+                        response = graph.put_photo(image=image_file, message=text)
+                    self.log(f"[SOCIAL] ✅ Zdjęcie opublikowane na Facebook: {response.get('post_id', response.get('id', 'N/A'))}")
+                    messagebox.showinfo("Sukces", "Zdjęcie zostało opublikowane na Facebook!")
+                else:
+                    messagebox.showerror("Błąd", f"Nie znaleziono pliku obrazu: {full_image_path}")
+                    return
+            # 3) Brak multimediów – publikuj sam tekst
+            else:
+                response = graph.put_object(
+                    parent_object='me',
+                    connection_name='feed',
+                    message=text
+                )
+                self.log(f"[SOCIAL] ✅ Post opublikowany na Facebook: {response.get('id', 'N/A')}")
+                messagebox.showinfo("Sukces", "Post został opublikowany na Facebook!")
+
+            # Opcjonalny komentarz (np. link do YouTube)
+            comment_text = getattr(self, 'facebook_comment_var', tk.StringVar()).get().strip()
+            if response and comment_text:
+                # Uzyskaj ID obiektu do komentowania
+                object_id = response.get('post_id') or response.get('id')
+                if object_id:
+                    try:
+                        graph.put_object(object_id, 'comments', message=comment_text)
+                        self.log("[SOCIAL] 💬 Dodano komentarz pod postem")
+                    except Exception as ce:
+                        self.log(f"[SOCIAL] ⚠️ Nie udało się dodać komentarza: {ce}")
+                
+        except facebook.GraphAPIError as e:
+            error_msg = f"Błąd Facebook API: {str(e)}"
+            self.log(f"[SOCIAL] ❌ {error_msg}")
+            messagebox.showerror("Błąd Facebook", error_msg)
+        except Exception as e:
+            error_msg = f"Błąd podczas publikacji na Facebook: {str(e)}"
+            self.log(f"[SOCIAL] ❌ {error_msg}")
+            messagebox.showerror("Błąd", error_msg)
+    
+    def publish_instagram_post(self):
+        """Publikuje post na Instagram (placeholder)"""
+        text = self.instagram_post_text.get("1.0", tk.END).strip()
+        if not text:
+            messagebox.showwarning("Ostrzeżenie", "Brak tekstu do publikacji")
+            return
+        
+        # TODO: Implementacja API Instagram
+        self.log(f"[SOCIAL] 📤 Publikowanie posta na Instagram ({len(text)} znaków)")
+        messagebox.showinfo("Informacja", "Funkcja publikacji na Instagram będzie dostępna wkrótce")
 
     def on_closing(self):
         """Obsługuje zamknięcie aplikacji"""

@@ -1,0 +1,5 @@
+[33mbbf414c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m 🎉 Nowoczesny interfejs z zakadkami i naprawione cieki intro/outro
+[33m6b7619a[m Naprawa problemu z intro/outro: krok 7 teraz szuka pliku po dodaniu logo (*_with_logo.mp4) zamiast uszkodzonego pliku *_no_silence.mp4
+[33m081af3f[m Naprawa bdu AttributeError: usunito odwoania do nieistniejcych intro_entry i outro_entry w load_intro_outro_files()
+[33m16bb983[m Dokoczenie przebudowy aplikacji: usunito wszystkie niepotrzebne funkcje (run_step2, run_step3_*, add_intro_outro_and_social_post, generate_social_post_only). Aplikacja teraz ma tylko Krok 1 (transkrypcja) i KOMBO (wszystkie pozostae operacje)
+[33m0f22c8f[m Przebudowa aplikacji: dodano krok 'Usu bia stopk i logo' do kombo, usunito Krok 2 i Krok 3, usunito sekcj Intro/Outro - wszystko jest teraz w przepywie KOMBO
