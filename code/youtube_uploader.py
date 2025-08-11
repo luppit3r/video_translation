@@ -115,6 +115,7 @@ class YouTubeUploader:
                     category: str = "Education",
                     privacy: str = "private",
                     thumbnail_path: str = None,
+                    publish_at_iso: Optional[str] = None,
                     progress_callback=None) -> Dict:
         """
         Uploaduje wideo na YouTube
@@ -154,6 +155,13 @@ class YouTubeUploader:
                     'selfDeclaredMadeForKids': False
                 }
             }
+
+            # Planowanie publikacji: jeśli podano publish_at_iso, YouTube wymaga privacyStatus="private"
+            # oraz ustawienia pola status.publishAt (RFC3339). Film zostanie opublikowany automatycznie o tej dacie.
+            if publish_at_iso:
+                # Wymuś private dla harmonogramu (API tak oczekuje)
+                body['status']['privacyStatus'] = 'private'
+                body['status']['publishAt'] = publish_at_iso
             
             # Utwórz MediaFileUpload
             media = MediaFileUpload(
@@ -221,7 +229,8 @@ class YouTubeUploader:
                 'video_id': response['id'],
                 'video_url': video_url,
                 'title': response['snippet']['title'],
-                'privacy': response['status']['privacyStatus']
+                'privacy': response['status']['privacyStatus'],
+                'publishAt': body['status'].get('publishAt')
             }
             
         except Exception as e:

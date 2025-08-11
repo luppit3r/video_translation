@@ -7,6 +7,11 @@ import json
 from pathlib import Path
 import sys
 from datetime import datetime
+try:
+    from tkcalendar import Calendar
+    TKCAL_AVAILABLE = True
+except Exception:
+    TKCAL_AVAILABLE = False
 import webbrowser
 import re
 import time
@@ -69,8 +74,8 @@ class VideoTranslationApp:
         # Zmienne dla Facebook API (tymczasowo zahardkodowane na potrzeby testu)
         self.facebook_app_id = tk.StringVar(value='1839264433470173')
         self.facebook_app_secret = tk.StringVar(value='0f50c2f3c36c9eafe6767a3f6a9fa761')
-        # PAGE ACCESS TOKEN (EduPandeEn)
-        self.facebook_access_token = tk.StringVar(value='EAAaIzR80et0BPLJQqutgrSqT6PAF4HqCNBXFfioVDYvaHRXZBkFXNExYfHXmbd8gSL6AKlWE0OBswZANYiZCzlPeswaFB0TuWdtpnZAGHZAaE5ZAu2h0sxZCI4fy6ZAi0Imjr6vB94KF6EfcOFPZCBw8WwNw4eMehpmBSQfYZBWgI1ZBhatH1IBrKYiipKQZCbSStp96a8kRgo9WuMEimMJ9qhgFkXeNC9W4sIgct6pxSSdxIyIz10IZD')
+        # PAGE ACCESS TOKEN (EduPanda En)
+        self.facebook_access_token = tk.StringVar(value='EAAaIzR80et0BPGZBV6g8w86BFvSC7vhsY772DQTUSPdrjdss6kBOca6Oe7JMZBliGd2wtpXFXzADSdUZBfBX7fZBySDwuQxN5W6SH0Dpat2jAXSIEu62RZC4pRz4ZAr1v6DSSG2tVOHBsSU3abndSjuya6p349TBGsZCh6yxGPJnCdXov826eGvRWdsUBrUCBXS2VIZD')
         
         # Zmienne do śledzenia ostatnio pobranych plików
         self.last_downloaded_video = None
@@ -78,6 +83,10 @@ class VideoTranslationApp:
         
         # Lista aktywnych wątków
         self.active_threads = []
+
+        # Prosta pamięć zadań zaplanowanych (persist między uruchomieniami)
+        self.tasks_file = Path(__file__).parent / 'scheduled_tasks.json'
+        self.scheduled_tasks = self.load_scheduled_tasks()
         
         # Zmienne do postępu
         self.current_process = None
@@ -515,27 +524,29 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
         facebook_frame = ttk.LabelFrame(main_container, text="📘 Facebook", padding="15")
         facebook_frame.grid(row=0, column=0, sticky="nsew", padx=(0, 10))
         
-        # Wybór wideo
-        video_frame = ttk.LabelFrame(facebook_frame, text="Wybór wideo", padding="10")
-        video_frame.pack(fill=tk.X, pady=(0, 15))
-        
+        # Sekcja wyboru mediów: wideo i zdjęcie obok siebie
+        media_frame = ttk.LabelFrame(facebook_frame, text="Media do posta", padding="10")
+        media_frame.pack(fill=tk.X, pady=(0, 15))
+        media_frame.columnconfigure(0, weight=1)
+        media_frame.columnconfigure(1, weight=1)
+
+        # Wideo po lewej
+        video_col = ttk.Frame(media_frame)
+        video_col.grid(row=0, column=0, sticky="nsew", padx=(0, 8))
         self.facebook_video_path = tk.StringVar()
-        ttk.Label(video_frame, text="Wideo do posta:").pack(anchor=tk.W)
-        video_select_frame = ttk.Frame(video_frame)
+        ttk.Label(video_col, text="Wideo do posta:").pack(anchor=tk.W)
+        video_select_frame = ttk.Frame(video_col)
         video_select_frame.pack(fill=tk.X, pady=(5, 0))
-        
         ttk.Button(video_select_frame, text="Wybierz wideo", command=self.select_facebook_video, style='Accent.TButton').pack(side=tk.LEFT)
         ttk.Label(video_select_frame, textvariable=self.facebook_video_path, text="Nie wybrano wideo").pack(side=tk.LEFT, padx=(10, 0))
 
-        # Wybór zdjęcia
-        image_frame = ttk.LabelFrame(facebook_frame, text="Wybór zdjęcia", padding="10")
-        image_frame.pack(fill=tk.X, pady=(0, 15))
-
+        # Zdjęcie po prawej
+        image_col = ttk.Frame(media_frame)
+        image_col.grid(row=0, column=1, sticky="nsew", padx=(8, 0))
         self.facebook_image_path = tk.StringVar()
-        ttk.Label(image_frame, text="Zdjęcie do posta (opcjonalnie):").pack(anchor=tk.W)
-        image_select_frame = ttk.Frame(image_frame)
+        ttk.Label(image_col, text="Zdjęcie do posta (opcjonalnie):").pack(anchor=tk.W)
+        image_select_frame = ttk.Frame(image_col)
         image_select_frame.pack(fill=tk.X, pady=(5, 0))
-
         ttk.Button(image_select_frame, text="Wybierz zdjęcie", command=self.select_facebook_image, style='Accent.TButton').pack(side=tk.LEFT)
         ttk.Label(image_select_frame, textvariable=self.facebook_image_path, text="Nie wybrano zdjęcia").pack(side=tk.LEFT, padx=(10, 0))
         
@@ -560,13 +571,38 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
         ttk.Label(content_frame, text="Komentarz po publikacji (opcjonalnie, np. link do YouTube):").pack(anchor=tk.W, pady=(10, 2))
         self.facebook_comment_var = tk.StringVar()
         ttk.Entry(content_frame, textvariable=self.facebook_comment_var, font=('Segoe UI', 10)).pack(fill=tk.X)
+        yt_comment_frame = ttk.Frame(content_frame)
+        yt_comment_frame.pack(fill=tk.X, pady=(4, 8))
+        self.facebook_comment_use_youtube = tk.BooleanVar(value=False)
+        ttk.Checkbutton(yt_comment_frame, text="Użyj URL filmu z YouTube (jeśli dostępny)", variable=self.facebook_comment_use_youtube).pack(side=tk.LEFT)
+
+        # Planowanie publikacji
+        schedule_frame = ttk.Frame(content_frame)
+        schedule_frame.pack(fill=tk.X, pady=(12, 0))
+        self.facebook_schedule_enabled = tk.BooleanVar(value=False)
+        self.facebook_schedule_time = tk.StringVar(value="")
+        ttk.Checkbutton(schedule_frame, text="Zaplanuj publikację", variable=self.facebook_schedule_enabled).pack(side=tk.LEFT)
+        ttk.Label(schedule_frame, text="Data i godzina (YYYY-MM-DD HH:MM)").pack(side=tk.LEFT, padx=(12, 6))
+        ttk.Entry(schedule_frame, textvariable=self.facebook_schedule_time, width=22).pack(side=tk.LEFT)
+        ttk.Button(schedule_frame, text="📅", width=3, command=lambda: self.open_calendar_dialog(self.facebook_schedule_time)).pack(side=tk.LEFT, padx=(6,0))
         
         # Przyciski akcji
         actions_frame = ttk.Frame(facebook_frame)
         actions_frame.pack(fill=tk.X, pady=(0, 10))
         
         ttk.Button(actions_frame, text="📋 Kopiuj tekst", command=self.copy_facebook_post, style='Small.TButton').pack(side=tk.LEFT, padx=(0, 10))
-        ttk.Button(actions_frame, text="📤 Opublikuj na Facebook", command=self.publish_facebook_post, style='Accent.TButton').pack(side=tk.RIGHT)
+        ttk.Button(actions_frame, text="🗓️ Zaplanowane posty", command=self.show_facebook_scheduled_posts, style='Small.TButton').pack(side=tk.LEFT)
+        self.fb_publish_btn = ttk.Button(actions_frame, text="📤 Opublikuj na Facebook", command=self.publish_facebook_post, style='Accent.TButton')
+        self.fb_publish_btn.pack(side=tk.RIGHT)
+        # Dynamiczna zmiana etykiety przy planowaniu
+        def _update_fb_btn(*_):
+            txt = "🗓️ Zaplanuj publikację posta" if self.facebook_schedule_enabled.get() else "📤 Opublikuj na Facebook"
+            try:
+                self.fb_publish_btn.config(text=txt)
+            except Exception:
+                pass
+        self.facebook_schedule_enabled.trace_add('write', _update_fb_btn)
+        _update_fb_btn()
         
         # ===== PRAWA KOLUMNA - INSTAGRAM =====
         instagram_frame = ttk.LabelFrame(main_container, text="📷 Instagram", padding="15")
@@ -744,6 +780,16 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
         ttk.Radiobutton(privacy_frame, text="Prywatne", variable=self.youtube_privacy, value="private").pack(side=tk.LEFT, padx=(0, 20))
         ttk.Radiobutton(privacy_frame, text="Niepubliczne", variable=self.youtube_privacy, value="unlisted").pack(side=tk.LEFT, padx=(0, 20))
         ttk.Radiobutton(privacy_frame, text="Publiczne", variable=self.youtube_privacy, value="public").pack(side=tk.LEFT)
+
+        # Planowanie publikacji YouTube
+        yt_sched_frame = ttk.Frame(settings_frame)
+        yt_sched_frame.pack(fill=tk.X, pady=(5, 0))
+        self.youtube_schedule_enabled = tk.BooleanVar(value=False)
+        self.youtube_schedule_time = tk.StringVar(value="")
+        ttk.Checkbutton(yt_sched_frame, text="Zaplanuj publikację na YouTube", variable=self.youtube_schedule_enabled).pack(side=tk.LEFT)
+        ttk.Label(yt_sched_frame, text="Data i godzina (YYYY-MM-DD HH:MM, UTC)").pack(side=tk.LEFT, padx=(12, 6))
+        ttk.Entry(yt_sched_frame, textvariable=self.youtube_schedule_time, width=22).pack(side=tk.LEFT)
+        ttk.Button(yt_sched_frame, text="📅", width=3, command=lambda: self.open_calendar_dialog(self.youtube_schedule_time)).pack(side=tk.LEFT, padx=(6,0))
         
         # Sekcja: Miniaturka
         thumbnail_frame = ttk.LabelFrame(left_scrollable_frame, text="🖼️ Miniaturka (opcjonalnie)", padding="10")
@@ -759,8 +805,16 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
         upload_frame = ttk.LabelFrame(left_scrollable_frame, text="🚀 Upload", padding="10")
         upload_frame.pack(fill=tk.X, pady=(0, 15))
         
-        upload_btn = ttk.Button(upload_frame, text="📤 Upload na YouTube", command=self.upload_to_youtube, style='Red.TButton')
-        upload_btn.pack(anchor=tk.W, pady=(0, 10))
+        self.yt_upload_btn = ttk.Button(upload_frame, text="📤 Upload na YouTube", command=self.upload_to_youtube, style='Red.TButton')
+        self.yt_upload_btn.pack(anchor=tk.W, pady=(0, 10))
+        def _update_yt_btn(*_):
+            txt = "🗓️ Zaplanuj publikację na YouTube" if self.youtube_schedule_enabled.get() else "📤 Upload na YouTube"
+            try:
+                self.yt_upload_btn.config(text=txt)
+            except Exception:
+                pass
+        self.youtube_schedule_enabled.trace_add('write', _update_yt_btn)
+        _update_yt_btn()
         
         info_text = "⚠️ Wymagane: Konto Google z dostępem do YouTube API. Pierwszy upload może wymagać autoryzacji."
         info_label = ttk.Label(upload_frame, text=info_text, wraplength=400, justify=tk.LEFT, 
@@ -2321,6 +2375,20 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
             
             # Wykonaj upload
             self.log("[YOUTUBE] Rozpoczynam upload wideo...")
+            # Obsługa planowania YT
+            publish_at_iso = None
+            if getattr(self, 'youtube_schedule_enabled', tk.BooleanVar(value=False)).get():
+                raw_dt = getattr(self, 'youtube_schedule_time', tk.StringVar(value='')).get().strip()
+                if raw_dt:
+                    from datetime import datetime, timezone
+                    try:
+                        dt = datetime.strptime(raw_dt, "%Y-%m-%d %H:%M").replace(tzinfo=timezone.utc)
+                        publish_at_iso = dt.isoformat().replace('+00:00', 'Z')
+                        # YouTube wymaga private dla publishAt
+                        upload_data['privacy'] = 'private'
+                    except Exception as pe:
+                        self.log(f"[YOUTUBE] ⚠️ Nieprawidłowy format daty planowania: {pe}")
+
             result = uploader.upload_video(
                 video_path=upload_data['video_path'],
                 title=upload_data['title'],
@@ -2329,6 +2397,7 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
                 category=upload_data['category'],
                 privacy=upload_data['privacy'],
                 thumbnail_path=upload_data['thumbnail_path'],
+                publish_at_iso=publish_at_iso,
                 progress_callback=progress_callback
             )
             
@@ -2336,9 +2405,14 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
                 self.log("[YOUTUBE] ✅ Upload zakończony pomyślnie!")
                 self.log(f"[YOUTUBE] ID wideo: {result['video_id']}")
                 self.log(f"[YOUTUBE] URL: {result['video_url']}")
+                try:
+                    # Zapamiętaj URL, aby komentarz FB mógł go użyć automatycznie
+                    self.youtube_url.set(result['video_url'])
+                except Exception:
+                    pass
                 
                 # Pokaż komunikat o sukcesie z linkiem
-                success_msg = f"Wideo zostało pomyślnie opublikowane na YouTube!\n\n"
+                success_msg = f"Wideo zostało pomyślnie przesłane na YouTube!\n\n"
                 success_msg += f"Tytuł: {result['title']}\n"
                 success_msg += f"Prywatność: {result['privacy']}\n"
                 success_msg += f"URL: {result['video_url']}"
@@ -3096,31 +3170,128 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
                 else:
                     messagebox.showerror("Błąd", f"Nie znaleziono pliku wideo: {full_video_path}")
                     return
-            # 2) W przeciwnym razie, jeśli wybrano obraz – publikuj zdjęcie z podpisem
+            # 2) W przeciwnym razie, jeśli wybrano obraz – publikuj lub zaplanuj zdjęcie
             elif image_path:
                 full_image_path = Path(image_path)
                 if not full_image_path.is_absolute():
                     full_image_path = working_dir / image_path
                 if full_image_path.exists():
-                    with open(full_image_path, 'rb') as image_file:
-                        response = graph.put_photo(image=image_file, message=text)
-                    self.log(f"[SOCIAL] ✅ Zdjęcie opublikowane na Facebook: {response.get('post_id', response.get('id', 'N/A'))}")
-                    messagebox.showinfo("Sukces", "Zdjęcie zostało opublikowane na Facebook!")
+                    # Czy planowanie włączone?
+                    schedule_on = getattr(self, 'facebook_schedule_enabled', tk.BooleanVar(value=False)).get()
+                    schedule_raw = getattr(self, 'facebook_schedule_time', tk.StringVar(value='')).get().strip()
+                    if schedule_on and schedule_raw:
+                        import requests
+                        from datetime import datetime, timezone
+                        # 2-krokowe planowanie zdjęcia
+                        # Krok 1: upload nieopublikowany /photos
+                        files = { 'source': open(full_image_path, 'rb') }
+                        params = {
+                            'published': 'false',
+                            'access_token': access_token,
+                        }
+                        upload_url = f"https://graph.facebook.com/v20.0/me/photos"
+                        up_res = requests.post(upload_url, files=files, data=params)
+                        up_json = up_res.json()
+                        if up_res.ok and up_json.get('id'):
+                            photo_id = up_json['id']
+                            # Krok 2: feed z object_attachment + scheduled_publish_time
+                            try:
+                                dt = datetime.strptime(schedule_raw, "%Y-%m-%d %H:%M").replace(tzinfo=timezone.utc)
+                                schedule_ts = int(dt.timestamp())
+                            except Exception as pe:
+                                self.log(f"[SOCIAL] ⚠️ Nieprawidłowy format daty planowania: {pe}")
+                                return
+                            feed_url = f"https://graph.facebook.com/v20.0/me/feed"
+                            feed_data = {
+                                'message': text,
+                                'published': 'false',
+                                'scheduled_publish_time': str(schedule_ts),
+                                'object_attachment': photo_id,
+                                'access_token': access_token,
+                            }
+                            feed_res = requests.post(feed_url, data=feed_data)
+                            response = feed_res.json()
+                            if feed_res.ok:
+                                self.log(f"[SOCIAL] ✅ Zaplanowano post ze zdjęciem: {response.get('id','N/A')}")
+                                # Powiąż automatyczny komentarz z URL YT, jeśli użytkownik tego chce i poda plan publikacji YT
+                                try:
+                                    if getattr(self, 'facebook_comment_use_youtube', tk.BooleanVar(value=False)).get():
+                                        # Jeżeli mamy zachowany publishAt z YT w polu daty YT, użyj go; inaczej użyj schedule_ts FB
+                                        yt_raw = getattr(self, 'youtube_schedule_time', tk.StringVar(value='')).get().strip()
+                                        when_epoch = schedule_ts
+                                        if yt_raw:
+                                            try:
+                                                dt_yt = datetime.strptime(yt_raw, "%Y-%m-%d %H:%M").replace(tzinfo=timezone.utc)
+                                                yt_epoch = int(dt_yt.timestamp())
+                                                # Komentarz po opublikowaniu OBU: max(FB_publish, YT_publish)
+                                                when_epoch = max(schedule_ts, yt_epoch)
+                                            except Exception:
+                                                pass
+                                        post_id = response.get('id')
+                                        if post_id:
+                                            self.schedule_youtube_comment(post_id, when_epoch)
+                                            # Zapisz do persistent store
+                                            self.scheduled_tasks['facebook'].append({
+                                                'post_id': post_id,
+                                                'type': 'photo_scheduled',
+                                                'scheduled_publish_time': schedule_ts,
+                                                'comment_from_youtube_url': True,
+                                                'youtube_publish_at': when_epoch if yt_raw else None
+                                            })
+                                            self.save_scheduled_tasks()
+                                except Exception as _e:
+                                    self.log(f"[SOCIAL] ⚠️ Nie udało się zaplanować komentarza YT: {_e}")
+                                messagebox.showinfo("Sukces", "Zaplanowano post ze zdjęciem na Facebook!")
+                            else:
+                                raise Exception(response)
+                        else:
+                            raise Exception(up_json)
+                    else:
+                        # Natychmiastowa publikacja zdjęcia
+                        with open(full_image_path, 'rb') as image_file:
+                            response = graph.put_photo(image=image_file, message=text)
+                        self.log(f"[SOCIAL] ✅ Zdjęcie opublikowane na Facebook: {response.get('post_id', response.get('id', 'N/A'))}")
+                        messagebox.showinfo("Sukces", "Zdjęcie zostało opublikowane na Facebook!")
                 else:
                     messagebox.showerror("Błąd", f"Nie znaleziono pliku obrazu: {full_image_path}")
                     return
-            # 3) Brak multimediów – publikuj sam tekst
+            # 3) Brak multimediów – publikuj sam tekst lub zaplanuj
             else:
+                publish_args = { 'message': text }
+                # Obsługa planowania: published=false + scheduled_publish_time (unix)
+                try:
+                    if getattr(self, 'facebook_schedule_enabled', tk.BooleanVar(value=False)).get():
+                        raw_dt = getattr(self, 'facebook_schedule_time', tk.StringVar(value='')).get().strip()
+                        if raw_dt:
+                            from datetime import datetime, timezone
+                            try:
+                                dt = datetime.strptime(raw_dt, "%Y-%m-%d %H:%M").replace(tzinfo=timezone.utc)
+                                # Facebook wymaga czasu w przyszłości i w sekundach (UTC)
+                                publish_args['published'] = False
+                                publish_args['scheduled_publish_time'] = int(dt.timestamp())
+                            except Exception as pe:
+                                self.log(f"[SOCIAL] ⚠️ Nieprawidłowy format daty planowania: {pe}")
+                except Exception:
+                    pass
+
                 response = graph.put_object(
                     parent_object='me',
                     connection_name='feed',
-                    message=text
+                    **publish_args
                 )
                 self.log(f"[SOCIAL] ✅ Post opublikowany na Facebook: {response.get('id', 'N/A')}")
                 messagebox.showinfo("Sukces", "Post został opublikowany na Facebook!")
 
             # Opcjonalny komentarz (np. link do YouTube)
+            # Obsługa komentarza: ręczny tekst lub URL YT (jeśli wybrano)
             comment_text = getattr(self, 'facebook_comment_var', tk.StringVar()).get().strip()
+            use_yt = getattr(self, 'facebook_comment_use_youtube', tk.BooleanVar(value=False)).get()
+            if use_yt and not comment_text:
+                # Jeśli zaznaczono „Użyj URL z YouTube” i brak ręcznego tekstu – zbuduj URL
+                yt_url = self.youtube_url.get().strip()
+                if yt_url:
+                    comment_text = yt_url
+                # Jeśli nie mamy URL teraz (np. film zaplanowany) – zaplanuj zadanie dopisania komentarza
             if response and comment_text:
                 # Uzyskaj ID obiektu do komentowania
                 object_id = response.get('post_id') or response.get('id')
@@ -3129,6 +3300,7 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
                         graph.put_object(object_id, 'comments', message=comment_text)
                         self.log("[SOCIAL] 💬 Dodano komentarz pod postem")
                     except Exception as ce:
+                        # Częsty przypadek: brak uprawnień do komentowania jako strona
                         self.log(f"[SOCIAL] ⚠️ Nie udało się dodać komentarza: {ce}")
                 
         except facebook.GraphAPIError as e:
@@ -3139,6 +3311,109 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
             error_msg = f"Błąd podczas publikacji na Facebook: {str(e)}"
             self.log(f"[SOCIAL] ❌ {error_msg}")
             messagebox.showerror("Błąd", error_msg)
+
+    def show_facebook_scheduled_posts(self):
+        """Pokazuje listę zaplanowanych postów strony (status=SCHEDULED)"""
+        try:
+            import facebook
+            access_token = self.facebook_access_token.get().strip()
+            if not access_token:
+                messagebox.showwarning("Brak tokenu", "Uzupełnij Facebook Access Token w ustawieniach API")
+                return
+            graph = facebook.GraphAPI(access_token=access_token, version="3.1")
+            # Pobierz zaplanowane (unpublished) posty z feed (promotable_posts bywa niedostępne)
+            data = graph.get_connections(id='me', connection_name='feed', fields='id,message,created_time,scheduled_publish_time,is_published')
+            items = [it for it in data.get('data', []) if not it.get('is_published', True)]
+            if not items:
+                # Pokaż to, co zapisaliśmy lokalnie (persist), jeśli API nie zwróci nic
+                local_items = self.scheduled_tasks.get('facebook', [])
+                if local_items:
+                    items = [{'id': it.get('post_id'), 'message': '(lokalnie zapamiętane)', 'scheduled_publish_time': it.get('scheduled_publish_time')}
+                             for it in local_items]
+                else:
+                    messagebox.showinfo("Zaplanowane posty", "Brak zaplanowanych postów")
+                    return
+
+            # Prosty popup z listą
+            top = tk.Toplevel(self.root)
+            top.title("Zaplanowane posty Facebook")
+            top.geometry("700x400")
+            tree = ttk.Treeview(top, columns=("id","message","scheduled"), show='headings')
+            tree.heading("id", text="ID")
+            tree.heading("message", text="Treść")
+            tree.heading("scheduled", text="Data publikacji (UTC)")
+            tree.pack(fill=tk.BOTH, expand=True)
+
+            from datetime import datetime
+            for it in items:
+                msg = (it.get('message') or '').replace('\n',' ')[:80]
+                sched_ts = it.get('scheduled_publish_time')
+                sched = datetime.utcfromtimestamp(sched_ts).strftime('%Y-%m-%d %H:%M') if sched_ts else ''
+                tree.insert('', tk.END, values=(it.get('id',''), msg, sched))
+        except Exception as e:
+            self.log(f"[SOCIAL] ❌ Błąd pobierania zaplanowanych postów: {e}")
+            messagebox.showerror("Błąd", f"Nie udało się pobrać zaplanowanych postów:\n{e}")
+
+    # Proste planowanie dodania komentarza z URL YT po czasie (gdy post/film zaplanowany)
+    def schedule_youtube_comment(self, object_id: str, when_epoch: int):
+        try:
+            delay_ms = max(0, (when_epoch - int(time.time()) + 180) * 1000)  # +3 min buforu
+            def _post_comment_later():
+                try:
+                    import facebook
+                    access_token = self.facebook_access_token.get().strip()
+                    graph = facebook.GraphAPI(access_token=access_token, version="3.1")
+                    yt_url = self.youtube_url.get().strip()
+                    if yt_url:
+                        graph.put_object(object_id, 'comments', message=yt_url)
+                        self.log("[SOCIAL] 💬 Dodano opóźniony komentarz z URL YT")
+                except Exception as e:
+                    self.log(f"[SOCIAL] ⚠️ Nie udało się dodać opóźnionego komentarza: {e}")
+            self.root.after(delay_ms, _post_comment_later)
+        except Exception as e:
+            self.log(f"[SOCIAL] ⚠️ Błąd harmonogramu komentarza YT: {e}")
+
+    def open_calendar_dialog(self, target_var: tk.StringVar):
+        """Prosty dialog wyboru daty i godziny. Wpisuje wynik do target_var (YYYY-MM-DD HH:MM)."""
+        top = tk.Toplevel(self.root)
+        top.title("Wybierz datę i godzinę")
+        top.grab_set()
+        frame = ttk.Frame(top, padding=10)
+        frame.pack(fill=tk.BOTH, expand=True)
+        # Kalendarz
+        if TKCAL_AVAILABLE:
+            cal = Calendar(frame, selectmode='day')
+            cal.pack(pady=(0,10))
+        else:
+            ttk.Label(frame, text="tkcalendar nie jest zainstalowany. Wpisz ręcznie datę (YYYY-MM-DD)").pack()
+            cal = None
+        # Godzina
+        time_frame = ttk.Frame(frame)
+        time_frame.pack(pady=(4,10))
+        hour_var = tk.StringVar(value="12")
+        minute_var = tk.StringVar(value="00")
+        ttk.Label(time_frame, text="Godzina:").pack(side=tk.LEFT, padx=(0,6))
+        ttk.Spinbox(time_frame, from_=0, to=23, width=3, textvariable=hour_var, wrap=True).pack(side=tk.LEFT)
+        ttk.Label(time_frame, text=":").pack(side=tk.LEFT)
+        ttk.Spinbox(time_frame, from_=0, to=59, width=3, textvariable=minute_var, wrap=True).pack(side=tk.LEFT)
+        # Przyciski
+        btns = ttk.Frame(frame)
+        btns.pack()
+        def apply_date():
+            date_str = cal.get_date() if cal else ''
+            # tkcalendar zwraca np. '08/10/2025'; konwersja do YYYY-MM-DD
+            try:
+                from datetime import datetime
+                dt = datetime.strptime(date_str, '%m/%d/%y') if len(date_str.split('/')[2])==2 else datetime.strptime(date_str, '%m/%d/%Y')
+                ymd = dt.strftime('%Y-%m-%d')
+            except Exception:
+                ymd = date_str
+            hh = hour_var.get().zfill(2)
+            mm = minute_var.get().zfill(2)
+            target_var.set(f"{ymd} {hh}:{mm}")
+            top.destroy()
+        ttk.Button(btns, text="OK", command=apply_date).pack(side=tk.LEFT, padx=6)
+        ttk.Button(btns, text="Anuluj", command=top.destroy).pack(side=tk.LEFT)
     
     def publish_instagram_post(self):
         """Publikuje post na Instagram (placeholder)"""
@@ -3160,6 +3435,23 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
                 if thread.is_alive():
                     thread.join(timeout=5) # Poczekaj na zakończenie wątku
             sys.exit(0)
+
+    # ===== PERSISTENCJA ZADAŃ =====
+    def load_scheduled_tasks(self):
+        try:
+            if self.tasks_file.exists():
+                with open(self.tasks_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+        except Exception:
+            pass
+        return { 'facebook': [], 'youtube': [] }
+
+    def save_scheduled_tasks(self):
+        try:
+            with open(self.tasks_file, 'w', encoding='utf-8') as f:
+                json.dump(self.scheduled_tasks, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            self.log(f"[APP] ⚠️ Nie udało się zapisać scheduled_tasks.json: {e}")
 
 def main():
     root = tk.Tk()

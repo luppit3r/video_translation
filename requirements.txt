@@ -33,3 +33,4 @@ imageio-ffmpeg
 decorator
 facebook-sdk
 python-docx
+tkcalendar
