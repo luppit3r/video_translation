@@ -6,7 +6,7 @@ import os
 import json
 from pathlib import Path
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 try:
     from tkcalendar import Calendar
     TKCAL_AVAILABLE = True
@@ -25,6 +25,12 @@ try:
 except ImportError:
     DOCX_AVAILABLE = False
     print("⚠️ python-docx nie jest dostępne. Zainstaluj: pip install python-docx")
+
+try:
+    from playwright.sync_api import sync_playwright
+    PLAYWRIGHT_AVAILABLE = True
+except ImportError:
+    PLAYWRIGHT_AVAILABLE = False
 
 def safe_read_docx(file_path):
     """Bezpiecznie wczytuje plik .docx z obsługą błędów"""
@@ -75,7 +81,9 @@ class VideoTranslationApp:
         self.facebook_app_id = tk.StringVar(value='1839264433470173')
         self.facebook_app_secret = tk.StringVar(value='0f50c2f3c36c9eafe6767a3f6a9fa761')
         # PAGE ACCESS TOKEN (EduPanda En)
-        self.facebook_access_token = tk.StringVar(value='EAAaIzR80et0BPGZBV6g8w86BFvSC7vhsY772DQTUSPdrjdss6kBOca6Oe7JMZBliGd2wtpXFXzADSdUZBfBX7fZBySDwuQxN5W6SH0Dpat2jAXSIEu62RZC4pRz4ZAr1v6DSSG2tVOHBsSU3abndSjuya6p349TBGsZCh6yxGPJnCdXov826eGvRWdsUBrUCBXS2VIZD')
+        self.facebook_access_token = tk.StringVar(value=os.getenv('FACEBOOK_ACCESS_TOKEN', ''))
+        # Optional: Page ID (for REST fallback)
+        self.facebook_page_id = tk.StringVar(value=os.getenv('FACEBOOK_PAGE_ID', ''))
         
         # Zmienne do śledzenia ostatnio pobranych plików
         self.last_downloaded_video = None
@@ -124,12 +132,37 @@ class VideoTranslationApp:
         self.youtube_privacy = tk.StringVar(value="private")
         self.youtube_thumbnail_path = tk.StringVar()
         
+        # Zmienne dla generatora miniatur
+        self.thumb_main = tk.StringVar()            # Główny dział
+        self.thumb_secondary = tk.StringVar()       # Szczegółowy dział
+        self.thumb_detail = tk.StringVar()          # Detal
+        self.thumb_platform = tk.StringVar(value="youtube")
+        self.thumb_frame_color = tk.StringVar(value="none")
+        self.thumb_frame_size = tk.IntVar(value=8)
+        # Domyślne tło miniatury
+        self.thumb_background_path = tk.StringVar(value=str((Path(__file__).parent.parent / "intro_outro" / "mini_fb.png")))
+        self.thumb_output_path = tk.StringVar(value="")
+        # Rozmiary czcionek i marginesy
+        self.thumb_size1 = tk.IntVar(value=115)
+        self.thumb_size2 = tk.IntVar(value=100)
+        self.thumb_size3 = tk.IntVar(value=77)
+        self.thumb_left_pct = tk.IntVar(value=8)
+        self.thumb_right_pct = tk.IntVar(value=8)
+        self.thumb_top_pct = tk.IntVar(value=37)
+        self.thumb_bottom_pct = tk.IntVar(value=18)  # niewykorzystywane przez generator, tylko dla GUI
+        self.thumb_line_gap_pct = tk.IntVar(value=3)
+        self.thumb_darken = tk.DoubleVar(value=0.0)
+        
         # Zmienne dla listy wideo z kanału
         self.channel_videos = []
         self.selected_video_for_copy = None
         
         # Obsługa zamknięcia aplikacji
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
+        
+        # Playwright fallback variables
+        self.facebook_browser_session_path = Path.home() / ".playwright_sessions" / "facebook_session.json"
+        self.facebook_browser_session_path.parent.mkdir(exist_ok=True)
         
         self.setup_ui()
         
@@ -296,12 +329,17 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
         self.notebook.add(self.social_media_tab, text="📱 Post na social media")
         self.setup_social_media_tab()
         
-        # Zakładka 6: Dodatkowe funkcje
+        # Zakładka 6: Miniatura
+        self.thumbnail_tab = ttk.Frame(self.notebook, padding="15")
+        self.notebook.add(self.thumbnail_tab, text="🖼️ Miniatura")
+        self.setup_thumbnail_tab()
+        
+        # Zakładka 7: Dodatkowe funkcje
         self.extra_tab = ttk.Frame(self.notebook, padding="15")
         self.notebook.add(self.extra_tab, text="🔧 Dodatkowe funkcje")
         self.setup_extra_tab()
         
-        # Zakładka 7: Logi
+        # Zakładka 8: Logi
         self.logs_tab = ttk.Frame(self.notebook, padding="15")
         self.notebook.add(self.logs_tab, text="📋 Logi")
         self.setup_logs_tab()
@@ -548,6 +586,7 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
         image_select_frame = ttk.Frame(image_col)
         image_select_frame.pack(fill=tk.X, pady=(5, 0))
         ttk.Button(image_select_frame, text="Wybierz zdjęcie", command=self.select_facebook_image, style='Accent.TButton').pack(side=tk.LEFT)
+        ttk.Button(image_select_frame, text="Miniatura z aplikacji", command=self.use_generated_thumbnail_for_facebook, style='Small.TButton').pack(side=tk.LEFT, padx=(10, 0))
         ttk.Label(image_select_frame, textvariable=self.facebook_image_path, text="Nie wybrano zdjęcia").pack(side=tk.LEFT, padx=(10, 0))
         
         # Treść posta
@@ -592,6 +631,15 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
         
         ttk.Button(actions_frame, text="📋 Kopiuj tekst", command=self.copy_facebook_post, style='Small.TButton').pack(side=tk.LEFT, padx=(0, 10))
         ttk.Button(actions_frame, text="🗓️ Zaplanowane posty", command=self.show_facebook_scheduled_posts, style='Small.TButton').pack(side=tk.LEFT)
+        
+        # Playwright fallback button
+        if PLAYWRIGHT_AVAILABLE:
+            ttk.Button(actions_frame, text="🌐 Publikuj przez przeglądarkę (fallback)", 
+                      command=self.publish_facebook_post_playwright, style='Small.TButton').pack(side=tk.LEFT, padx=(10, 0))
+        else:
+            ttk.Label(actions_frame, text="⚠️ Playwright nie zainstalowany", 
+                     foreground='red', font=('Segoe UI', 8)).pack(side=tk.LEFT, padx=(10, 0))
+        
         self.fb_publish_btn = ttk.Button(actions_frame, text="📤 Opublikuj na Facebook", command=self.publish_facebook_post, style='Accent.TButton')
         self.fb_publish_btn.pack(side=tk.RIGHT)
         # Dynamiczna zmiana etykiety przy planowaniu
@@ -667,6 +715,159 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
         self.logs_tab.columnconfigure(0, weight=1)
         self.logs_tab.rowconfigure(0, weight=1)
     
+    def setup_thumbnail_tab(self):
+        """Konfiguruje zakładkę generowania miniatur"""
+        frame = self.thumbnail_tab
+        frame.columnconfigure(0, weight=1)
+        frame.columnconfigure(1, weight=1)
+        
+        # Lewa kolumna: pola i ustawienia
+        left = ttk.Frame(frame)
+        left.grid(row=0, column=0, sticky="nsew", padx=(0, 12))
+        
+        fields = ttk.LabelFrame(left, text="Tekst (zgodnie z Twoim szablonem)", padding=10)
+        fields.pack(fill=tk.X)
+        ttk.Label(fields, text="1) Główny dział").grid(row=0, column=0, sticky=tk.W)
+        ttk.Entry(fields, textvariable=self.thumb_main).grid(row=0, column=1, sticky=tk.EW, padx=(8,0))
+        ttk.Label(fields, text="2) Szczegółowy dział").grid(row=1, column=0, sticky=tk.W, pady=(6,0))
+        ttk.Entry(fields, textvariable=self.thumb_secondary).grid(row=1, column=1, sticky=tk.EW, padx=(8,0), pady=(6,0))
+        ttk.Label(fields, text="3) Detal").grid(row=2, column=0, sticky=tk.W, pady=(6,0))
+        ttk.Entry(fields, textvariable=self.thumb_detail).grid(row=2, column=1, sticky=tk.EW, padx=(8,0), pady=(6,0))
+        fields.columnconfigure(1, weight=1)
+        
+        opts = ttk.LabelFrame(left, text="Ustawienia", padding=10)
+        opts.pack(fill=tk.X, pady=(12,0))
+        ttk.Label(opts, text="Platforma").grid(row=0, column=0, sticky=tk.W)
+        ttk.Combobox(opts, textvariable=self.thumb_platform, values=["youtube","instagram"], state="readonly", width=12).grid(row=0, column=1, sticky=tk.W, padx=(8,0))
+        ttk.Label(opts, text="Kolor ramki").grid(row=1, column=0, sticky=tk.W, pady=(6,0))
+        colors = ["none", "#FFFFFF", "#00BFFF", "#FF3B30", "#34C759", "#FFCC00"]
+        self.thumb_frame_color_cb = ttk.Combobox(opts, values=colors, textvariable=self.thumb_frame_color, width=14)
+        self.thumb_frame_color_cb.grid(row=1, column=1, sticky=tk.W, padx=(8,0), pady=(6,0))
+        ttk.Label(opts, text="Grubość ramki [px]").grid(row=2, column=0, sticky=tk.W, pady=(6,0))
+        ttk.Spinbox(opts, from_=0, to=40, textvariable=self.thumb_frame_size, width=6).grid(row=2, column=1, sticky=tk.W, padx=(8,0), pady=(6,0))
+        
+        sizes = ttk.LabelFrame(left, text="Rozmiary i marginesy", padding=10)
+        sizes.pack(fill=tk.X, pady=(12,0))
+        ttk.Label(sizes, text="1) Główny dział").grid(row=0, column=0, sticky=tk.W)
+        ttk.Spinbox(sizes, from_=40, to=220, textvariable=self.thumb_size1, width=6).grid(row=0, column=1, sticky=tk.W, padx=(8,0))
+        # Linia 2 rozmiar + styl
+        ttk.Label(sizes, text="2) Szczegółowy dział").grid(row=1, column=0, sticky=tk.W, pady=(6,0))
+        ttk.Spinbox(sizes, from_=40, to=220, textvariable=self.thumb_size2, width=6).grid(row=1, column=1, sticky=tk.W, padx=(8,0), pady=(6,0))
+        self.thumb_highlight_bold = tk.BooleanVar(value=True)
+        self.thumb_highlight_underline = tk.BooleanVar(value=False)
+        ttk.Checkbutton(sizes, text="B", variable=self.thumb_highlight_bold).grid(row=1, column=2, padx=(10,0), sticky=tk.W)
+        ttk.Checkbutton(sizes, text="U", variable=self.thumb_highlight_underline).grid(row=1, column=3, padx=(6,0), sticky=tk.W)
+        # Linia 3 rozmiar + styl
+        ttk.Label(sizes, text="3) Detal").grid(row=2, column=0, sticky=tk.W, pady=(6,0))
+        ttk.Spinbox(sizes, from_=40, to=220, textvariable=self.thumb_size3, width=6).grid(row=2, column=1, sticky=tk.W, padx=(8,0), pady=(6,0))
+        self.thumb_subtitle_bold = tk.BooleanVar(value=False)
+        self.thumb_subtitle_underline = tk.BooleanVar(value=True)
+        ttk.Checkbutton(sizes, text="B", variable=self.thumb_subtitle_bold).grid(row=2, column=2, padx=(10,0), sticky=tk.W)
+        ttk.Checkbutton(sizes, text="U", variable=self.thumb_subtitle_underline).grid(row=2, column=3, padx=(6,0), sticky=tk.W)
+        ttk.Label(sizes, text="Lewy [%]").grid(row=3, column=0, sticky=tk.W, pady=(6,0))
+        ttk.Spinbox(sizes, from_=0, to=40, textvariable=self.thumb_left_pct, width=4).grid(row=3, column=1, sticky=tk.W, padx=(8,0), pady=(6,0))
+        ttk.Label(sizes, text="Prawy [%]").grid(row=3, column=2, sticky=tk.W)
+        ttk.Spinbox(sizes, from_=0, to=40, textvariable=self.thumb_right_pct, width=4).grid(row=3, column=3, sticky=tk.W, padx=(8,0))
+        ttk.Label(sizes, text="Górny [%]").grid(row=4, column=0, sticky=tk.W, pady=(6,0))
+        ttk.Spinbox(sizes, from_=0, to=60, textvariable=self.thumb_top_pct, width=4).grid(row=4, column=1, sticky=tk.W, padx=(8,0))
+        ttk.Label(sizes, text="Odstęp między liniami [%]").grid(row=4, column=2, sticky=tk.W)
+        ttk.Spinbox(sizes, from_=0, to=10, textvariable=self.thumb_line_gap_pct, width=4).grid(row=4, column=3, sticky=tk.W, padx=(8,0))
+        ttk.Label(sizes, text="Przyciemnienie tła 0..0.8").grid(row=5, column=0, sticky=tk.W, pady=(6,0))
+        ttk.Spinbox(sizes, from_=0.0, to=0.8, increment=0.1, textvariable=self.thumb_darken, width=5).grid(row=5, column=1, sticky=tk.W, padx=(8,0))
+        
+        filebox = ttk.LabelFrame(left, text="Pliki", padding=10)
+        filebox.pack(fill=tk.X, pady=(12,0))
+        ttk.Label(filebox, text="Tło (opcjonalnie)").grid(row=0, column=0, sticky=tk.W)
+        ttk.Entry(filebox, textvariable=self.thumb_background_path).grid(row=0, column=1, sticky=tk.EW, padx=(8,6))
+        ttk.Button(filebox, text="Wybierz", command=self._select_thumb_bg, style='Small.TButton').grid(row=0, column=2)
+        ttk.Label(filebox, text="Zapisz jako").grid(row=1, column=0, sticky=tk.W, pady=(6,0))
+        ttk.Entry(filebox, textvariable=self.thumb_output_path).grid(row=1, column=1, sticky=tk.EW, padx=(8,6), pady=(6,0))
+        ttk.Button(filebox, text="📄", width=3, command=self._select_thumb_output, style='Small.TButton').grid(row=1, column=2, pady=(6,0))
+        filebox.columnconfigure(1, weight=1)
+        
+        actions = ttk.Frame(left)
+        actions.pack(fill=tk.X, pady=(12,0))
+        ttk.Button(actions, text="👁️ Podgląd", command=lambda: self._generate_thumbnail(preview_only=True), style='Small.TButton').pack(side=tk.LEFT)
+        ttk.Button(actions, text="🎨 Generuj miniaturę", command=self._generate_thumbnail, style='Accent.TButton').pack(side=tk.LEFT, padx=(10,0))
+        
+        # Prawa kolumna: podgląd
+        right = ttk.LabelFrame(frame, text="Podgląd", padding=10)
+        right.grid(row=0, column=1, sticky="nsew")
+        frame.rowconfigure(0, weight=1)
+        frame.columnconfigure(1, weight=1)
+        self.thumb_preview = tk.Label(right)
+        self.thumb_preview.pack(expand=True, fill=tk.BOTH)
+        
+    def _select_thumb_bg(self):
+        path = filedialog.askopenfilename(title="Wybierz tło", filetypes=[["Obrazy","*.png;*.jpg;*.jpeg"]])
+        if path:
+            self.thumb_background_path.set(path)
+    
+    def _select_thumb_output(self):
+        initial = Path(self.working_dir.get() or Path.cwd()) / "generated" / "thumbnails"
+        initial.mkdir(parents=True, exist_ok=True)
+        path = filedialog.asksaveasfilename(title="Zapisz miniaturę jako", defaultextension=".jpg", initialdir=str(initial), filetypes=[["JPEG","*.jpg"]])
+        if path:
+            self.thumb_output_path.set(path)
+    
+    def _generate_thumbnail(self, preview_only: bool = False):
+        try:
+            output = self.thumb_output_path.get().strip()
+            if not output:
+                default_dir = Path(self.working_dir.get() or Path.cwd()) / "generated" / "thumbnails"
+                default_dir.mkdir(parents=True, exist_ok=True)
+                safe_name = re.sub(r"[^A-Za-z0-9_-]", "_", (self.thumb_secondary.get() or "thumbnail"))
+                output = str(default_dir / f"{safe_name}.jpg")
+                self.thumb_output_path.set(output)
+            
+            gen_path = Path(__file__).parent / 'thumbnail_generator.py'
+            args = [sys.executable, str(gen_path),
+                    '--preset', 'edupanda',
+                    '--platform', self.thumb_platform.get(),
+                    '--output', output,
+                    '--title', self.thumb_main.get(),
+                    '--highlight', self.thumb_secondary.get(),
+                    '--subtitle', self.thumb_detail.get(),
+                    '--title_size', str(self.thumb_size1.get()),
+                    '--highlight_size', str(self.thumb_size2.get()),
+                    '--subtitle_size', str(self.thumb_size3.get()),
+                    '--left_pct', str(self.thumb_left_pct.get()),
+                    '--right_pct', str(self.thumb_right_pct.get()),
+                    '--top_pct', str(self.thumb_top_pct.get()),
+                    '--bottom_pct', str(self.thumb_bottom_pct.get()),
+                    '--line_gap_pct', str(self.thumb_line_gap_pct.get()),
+                    '--darken', str(self.thumb_darken.get())]
+            # Flagi stylów
+            args += ['--highlight_bold', 'true' if self.thumb_highlight_bold.get() else 'false']
+            args += ['--subtitle_bold', 'true' if self.thumb_subtitle_bold.get() else 'false']
+            args += ['--highlight_underline', 'true' if self.thumb_highlight_underline.get() else 'false']
+            args += ['--subtitle_underline', 'true' if self.thumb_subtitle_underline.get() else 'false']
+            
+            if self.thumb_background_path.get().strip():
+                args += ['--background', self.thumb_background_path.get().strip()]
+            
+            if self.thumb_frame_color.get().strip().lower() not in ('', 'none'):
+                args += ['--frame_color', self.thumb_frame_color.get().strip(), '--frame_size', str(max(0, self.thumb_frame_size.get()))]
+            
+            self.log(f"[THUMBNAIL] Generuję miniaturę: {' '.join(args)}")
+            subprocess.run(args, check=True)
+            
+            try:
+                from PIL import Image, ImageTk
+                img = Image.open(output)
+                img.thumbnail((900, 520))
+                self._thumb_preview_img = ImageTk.PhotoImage(img)
+                self.thumb_preview.configure(image=self._thumb_preview_img)
+            except Exception as e:
+                self.log(f"[THUMBNAIL] Nie udało się wczytać podglądu: {e}")
+            
+            if not preview_only:
+                self.log(f"[THUMBNAIL] Miniatura zapisana: {output}")
+                # Zapisz ostatnią ścieżkę, aby inne zakładki mogły ją wykorzystać
+                self.last_generated_thumbnail = output
+        except subprocess.CalledProcessError as e:
+            self.log(f"[THUMBNAIL] ❌ Błąd generowania miniatury: {e}")
+            messagebox.showerror("Błąd", "Nie udało się wygenerować miniatury. Szczegóły w logach.")
     def setup_upload_tab(self):
         """Konfiguruje zakładkę Upload na YT"""
         # Główny kontener z dwoma kolumnami
@@ -1251,7 +1452,7 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
             working_dir = Path(self.working_dir.get()) if self.working_dir.get() else Path.cwd()
             
             # Oryginalny delete_sm.py nie wymaga pliku tłumaczenia
-            
+                
             # Znajdź plik *_synchronized.* (po overlay, przed usuwaniem ciszy)
             video_extensions = ['.mp4', '.avi', '.mov', '.mkv']
             video_files = []
@@ -1326,7 +1527,7 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
         self.root.after(0, lambda: self.log(f"[KOMBO] Dodawanie logo zakończone pomyślnie"))
         if output:
             self.root.after(0, lambda: self.log(f"[KOMBO] Output: {output}"))
-        self.root.after(0, self.execute_next_combo_step)
+            self.root.after(0, self.execute_next_combo_step)
         
     def run_detect_polish_for_combo(self):
         """Uruchamia detect_polish_text.py dla przepływu KOMBO"""
@@ -1750,58 +1951,51 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
                             self.log(f"⚠️ Nie udało się skopiować skryptu - używam bezpośrednio z bundle: {script_name}")
                     else:
                         self.log(f"⚠️ Nie znaleziono skryptu w bundled resources: {bundled_script_path}")
-                        script_path = Path(__file__).parent / script_name
-                    
-                    # Jeśli to add_intro_outro.py, musimy też skopiować pliki intro/outro
-                    if script_name == "add_intro_outro.py" and args:
-                        # Znajdź argumenty --intro i --outro i zamień ścieżki
-                        new_args = []
-                        i = 0
-                        # Utwórz unikalny folder tymczasowy dla intro/outro
-                        temp_intro_outro_dir = None
-                        
-                        while i < len(args):
-                            if args[i] == "--intro" and i + 1 < len(args):
-                                # Skopiuj plik intro do dostępnej lokalizacji
-                                bundled_intro = Path(args[i + 1])
-                                if bundled_intro.exists() and "_MEI" in str(bundled_intro):
-                                    # Utwórz unikalny folder tymczasowy
-                                    if temp_intro_outro_dir is None:
-                                        temp_intro_outro_dir = Path.cwd() / f"intro_outro_temp_{int(time.time())}"
-                                        temp_intro_outro_dir.mkdir(exist_ok=True)
-                                        self.log(f"Utworzono tymczasowy folder: {temp_intro_outro_dir.name}")
-                                    
-                                    local_intro = temp_intro_outro_dir / bundled_intro.name
-                                    shutil.copy2(bundled_intro, local_intro)
-                                    new_args.extend(["--intro", str(local_intro)])
-                                    self.log(f"Skopiowano intro: {bundled_intro.name}")
-                                else:
-                                    new_args.extend([args[i], args[i + 1]])
-                                i += 2
-                            elif args[i] == "--outro" and i + 1 < len(args):
-                                # Skopiuj plik outro do dostępnej lokalizacji
-                                bundled_outro = Path(args[i + 1])
-                                if bundled_outro.exists() and "_MEI" in str(bundled_outro):
-                                    # Użyj tego samego folderu tymczasowego
-                                    if temp_intro_outro_dir is None:
-                                        temp_intro_outro_dir = Path.cwd() / f"intro_outro_temp_{int(time.time())}"
-                                        temp_intro_outro_dir.mkdir(exist_ok=True)
-                                        self.log(f"Utworzono tymczasowy folder: {temp_intro_outro_dir.name}")
-                                    
-                                    local_outro = temp_intro_outro_dir / bundled_outro.name
-                                    shutil.copy2(bundled_outro, local_outro)
-                                    new_args.extend(["--outro", str(local_outro)])
-                                    self.log(f"Skopiowano outro: {bundled_outro.name}")
-                                else:
-                                    new_args.extend([args[i], args[i + 1]])
-                                i += 2
-                            else:
-                                new_args.append(args[i])
-                                i += 1
-                        args = new_args
                 else:
                     # Uruchomione z kodu źródłowego
                     script_path = Path(__file__).parent / script_name
+                
+                # Jeśli to add_intro_outro.py, musimy też skopiować pliki intro/outro (tylko gdy ścieżki wskazują na bundle)
+                if script_name == "add_intro_outro.py" and args:
+                    # Znajdź argumenty --intro i --outro i zamień ścieżki
+                    new_args = []
+                    i = 0
+                    # Utwórz unikalny folder tymczasowy dla intro/outro
+                    temp_intro_outro_dir = None
+                
+                while i < len(args):
+                    if args[i] == "--intro" and i + 1 < len(args):
+                        bundled_intro = Path(args[i + 1])
+                        if bundled_intro.exists() and "_MEI" in str(bundled_intro):
+                            if temp_intro_outro_dir is None:
+                                temp_intro_outro_dir = Path.cwd() / f"intro_outro_temp_{int(time.time())}"
+                                temp_intro_outro_dir.mkdir(exist_ok=True)
+                                self.log(f"Utworzono tymczasowy folder: {temp_intro_outro_dir.name}")
+                            local_intro = temp_intro_outro_dir / bundled_intro.name
+                            shutil.copy2(bundled_intro, local_intro)
+                            new_args.extend(["--intro", str(local_intro)])
+                            self.log(f"Skopiowano intro: {bundled_intro.name}")
+                        else:
+                            new_args.extend([args[i], args[i + 1]])
+                        i += 2
+                    elif args[i] == "--outro" and i + 1 < len(args):
+                        bundled_outro = Path(args[i + 1])
+                        if bundled_outro.exists() and "_MEI" in str(bundled_outro):
+                            if temp_intro_outro_dir is None:
+                                temp_intro_outro_dir = Path.cwd() / f"intro_outro_temp_{int(time.time())}"
+                                temp_intro_outro_dir.mkdir(exist_ok=True)
+                                self.log(f"Utworzono tymczasowy folder: {temp_intro_outro_dir.name}")
+                            local_outro = temp_intro_outro_dir / bundled_outro.name
+                            shutil.copy2(bundled_outro, local_outro)
+                            new_args.extend(["--outro", str(local_outro)])
+                            self.log(f"Skopiowano outro: {bundled_outro.name}")
+                        else:
+                            new_args.extend([args[i], args[i + 1]])
+                        i += 2
+                    else:
+                        new_args.append(args[i])
+                        i += 1
+                    args = new_args
                 
                 # Sprawdź czy jesteśmy w środowisku wirtualnym lub .exe
                 if hasattr(sys, '_MEIPASS'):
@@ -2154,7 +2348,7 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
         if not self.main_video_path.get():
             messagebox.showerror("Błąd", "Wybierz główne wideo!")
             return
-        
+            
         args = [self.main_video_path.get()]
         
         # Dodaj argumenty intro/outro jeśli są dostępne
@@ -2905,6 +3099,18 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
             self.facebook_image_path.set(file_path)
             self.log(f"[SOCIAL] Wybrano obraz dla Facebook: {Path(file_path).name}")
 
+    def use_generated_thumbnail_for_facebook(self):
+        """Ustawia zdjęcie do posta na ostatnio wygenerowaną miniaturę z zakładki Miniatura."""
+        thumb = getattr(self, 'last_generated_thumbnail', None)
+        try:
+            if not thumb or not os.path.exists(thumb):
+                messagebox.showwarning("Brak miniatury", "Aplikacja nie wygenerowała jeszcze miniatury lub plik nie istnieje.")
+                return
+            self.facebook_image_path.set(thumb)
+            self.log(f"[SOCIAL] Użyto miniatury z aplikacji jako zdjęcia do posta: {Path(thumb).name}")
+        except Exception as e:
+            self.log(f"[SOCIAL] Błąd podczas ustawiania miniatury: {e}")
+
     def select_instagram_video(self):
         """Wybiera wideo dla posta na Instagram"""
         file_path = filedialog.askopenfilename(
@@ -3135,9 +3341,12 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
             graph = facebook.GraphAPI(access_token=access_token, version="3.1")
 
             # Weryfikacja: na jaką stronę/konto pójdzie post
+            page_id = (self.facebook_page_id.get().strip() or None)
             try:
                 me_obj = graph.get_object(id='me', fields='id,name')
                 target_name = me_obj.get('name', 'unknown')
+                if not page_id:
+                    page_id = me_obj.get('id')
                 self.log(f"[SOCIAL] Używany token publikuje jako: {target_name}")
             except Exception:
                 # Brakujące uprawnienia nie powinny blokować dalszej próby publikacji
@@ -3274,11 +3483,27 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
                 except Exception:
                     pass
 
-                response = graph.put_object(
-                    parent_object='me',
-                    connection_name='feed',
-                    **publish_args
-                )
+                # Spróbuj SDK
+                try:
+                    response = graph.put_object(
+                        parent_object=page_id or 'me',
+                        connection_name='feed',
+                        **publish_args
+                    )
+                except Exception as e_sdk:
+                    # Fallback: bezpośrednie wywołanie REST na ID strony (nie 'me') – część środowisk myli uprawnienia z publish_actions
+                    try:
+                        import requests
+                        target_id = page_id or 'me'
+                        api_ver = 'v20.0'
+                        feed_url = f"https://graph.facebook.com/{api_ver}/{target_id}/feed"
+                        data = { 'access_token': access_token }
+                        data.update(publish_args)
+                        res = requests.post(feed_url, data=data)
+                        res.raise_for_status()
+                        response = res.json()
+                    except Exception as e_rest:
+                        raise e_sdk
                 self.log(f"[SOCIAL] ✅ Post opublikowany na Facebook: {response.get('id', 'N/A')}")
                 messagebox.showinfo("Sukces", "Post został opublikowany na Facebook!")
 
@@ -3287,7 +3512,7 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
             comment_text = getattr(self, 'facebook_comment_var', tk.StringVar()).get().strip()
             use_yt = getattr(self, 'facebook_comment_use_youtube', tk.BooleanVar(value=False)).get()
             if use_yt and not comment_text:
-                # Jeśli zaznaczono „Użyj URL z YouTube” i brak ręcznego tekstu – zbuduj URL
+                # Jeśli zaznaczono „Użyj URL z YouTube" i brak ręcznego tekstu – zbuduj URL
                 yt_url = self.youtube_url.get().strip()
                 if yt_url:
                     comment_text = yt_url
@@ -3302,6 +3527,19 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
                     except Exception as ce:
                         # Częsty przypadek: brak uprawnień do komentowania jako strona
                         self.log(f"[SOCIAL] ⚠️ Nie udało się dodać komentarza: {ce}")
+                        # Fallback REST
+                        try:
+                            import requests
+                            api_ver = 'v20.0'
+                            url = f"https://graph.facebook.com/{api_ver}/{object_id}/comments"
+                            data = { 'message': comment_text, 'access_token': access_token }
+                            r = requests.post(url, data=data)
+                            if r.ok:
+                                self.log("[SOCIAL] 💬 Dodano komentarz (REST)")
+                            else:
+                                self.log(f"[SOCIAL] ⚠️ REST comment fail: {r.text}")
+                        except Exception as _e2:
+                            self.log(f"[SOCIAL] ⚠️ REST comment exception: {_e2}")
                 
         except facebook.GraphAPIError as e:
             error_msg = f"Błąd Facebook API: {str(e)}"
@@ -3425,6 +3663,353 @@ FACEBOOK_ACCESS_TOKEN={self.facebook_access_token.get()}
         # TODO: Implementacja API Instagram
         self.log(f"[SOCIAL] 📤 Publikowanie posta na Instagram ({len(text)} znaków)")
         messagebox.showinfo("Informacja", "Funkcja publikacji na Instagram będzie dostępna wkrótce")
+
+    def publish_facebook_post_playwright(self):
+        """Publikuje post na Facebook przez automatyzację przeglądarki (Playwright fallback)"""
+        if not PLAYWRIGHT_AVAILABLE:
+            messagebox.showerror("Błąd", "Playwright nie jest zainstalowany. Zainstaluj: pip install playwright")
+            return
+        
+        # Sprawdź czy mamy tekst do publikacji
+        post_text = self.facebook_post_text.get("1.0", tk.END).strip()
+        if not post_text:
+            messagebox.showwarning("Ostrzeżenie", "Brak tekstu do publikacji")
+            return
+        
+        # Sprawdź czy mamy zdjęcie/wideo
+        image_path = self.facebook_image_path.get().strip()
+        video_path = self.facebook_video_path.get().strip()
+        
+        if not image_path and not video_path:
+            messagebox.showwarning("Ostrzeżenie", "Wybierz zdjęcie lub wideo do posta")
+            return
+        
+        # Uruchom w osobnym wątku
+        thread = threading.Thread(target=self._publish_facebook_post_playwright_thread, 
+                                args=(post_text, image_path, video_path), daemon=True)
+        thread.start()
+        self.active_threads.append(thread)
+    
+    def _publish_facebook_post_playwright_thread(self, post_text: str, image_path: str, video_path: str):
+        """Thread dla publikacji Facebook przez Playwright"""
+        try:
+            self.log("[SOCIAL] 🌐 Rozpoczynam publikację przez przeglądarkę (Playwright)")
+            
+            with sync_playwright() as p:
+                # Użyj istniejącej sesji lub utwórz nową
+                browser_type = p.chromium
+                browser = browser_type.launch_persistent_context(
+                    user_data_dir=str(self.facebook_browser_session_path.parent / "browser_data"),
+                    headless=False,  # Pokaż przeglądarkę użytkownikowi
+                    args=['--no-sandbox', '--disable-dev-shm-usage']
+                )
+                
+                page = browser.new_page()
+                
+                # Przejdź do Facebook
+                self.log("[SOCIAL] 🌐 Przechodzę do Facebook...")
+                page.goto("https://www.facebook.com/")
+                
+                # Sprawdź czy jesteśmy zalogowani
+                if page.locator("text=Zaloguj się").count() > 0:
+                    self.log("[SOCIAL] 🌐 Wymagane logowanie do Facebook")
+                    messagebox.showinfo("Logowanie", 
+                        "Zaloguj się do Facebook w otwartej przeglądarce.\n"
+                        "Po zalogowaniu zamknij to okno i spróbuj ponownie.")
+                    browser.close()
+                    return
+                
+                # Przejdź do strony EduPanda En
+                self.log("[SOCIAL] 🌐 Przechodzę do strony EduPanda En...")
+                page.goto("https://www.facebook.com/EduPandaEn")
+                
+                # Poczekaj na załadowanie strony
+                page.wait_for_load_state("networkidle", timeout=30000)
+                self.log("[SOCIAL] 🌐 Strona załadowana")
+                
+                # Debug: sprawdź co widzi strona
+                try:
+                    page_title = page.title()
+                    self.log(f"[SOCIAL] 🌐 Tytuł strony: {page_title}")
+                    
+                    # Sprawdź czy jesteśmy na właściwej stronie
+                    if "EduPanda" not in page_title and "EduPanda" not in page.content():
+                        self.log("[SOCIAL] ⚠️ Nie jesteśmy na stronie EduPanda, próbuję alternatywną ścieżkę...")
+                        # Spróbuj przejść przez Facebook Pages
+                        page.goto("https://www.facebook.com/pages/")
+                        page.wait_for_load_state("networkidle", timeout=15000)
+                        
+                        # Szukaj linku do EduPanda
+                        edu_link = page.locator("a[href*='EduPanda']").first
+                        if edu_link.count() > 0:
+                            edu_link.click()
+                            page.wait_for_load_state("networkidle", timeout=15000)
+                            self.log("[SOCIAL] 🌐 Przeszedłem przez Facebook Pages")
+                        else:
+                            self.log("[SOCIAL] ⚠️ Nie znalazłem linku do EduPanda w Pages")
+                except Exception as e:
+                    self.log(f"[SOCIAL] ⚠️ Błąd podczas sprawdzania strony: {e}")
+                
+                # Kliknij "Dodaj do historii" lub "Utwórz post"
+                try:
+                    # Spróbuj różne selektory dla przycisku tworzenia posta
+                    create_post_selectors = [
+                        "text=Dodaj do historii",
+                        "text=Utwórz post", 
+                        "text=Co słychać?",
+                        "text=Napisz coś...",
+                        "text=Co się dzieje?",
+                        "[aria-label='Co słychać?']",
+                        "[aria-label='Co się dzieje?']",
+                        "[aria-label='Napisz coś...']",
+                        "[data-testid='post-composer']",
+                        "[data-testid='composer']",
+                        "[data-testid='composer-text-input']",
+                        "div[role='textbox']",
+                        "[contenteditable='true']"
+                    ]
+                    
+                    post_button = None
+                    for selector in create_post_selectors:
+                        try:
+                            if page.locator(selector).count() > 0:
+                                post_button = page.locator(selector).first
+                                self.log(f"[SOCIAL] 🌐 Znaleziono element: {selector}")
+                                break
+                        except Exception:
+                            continue
+                    
+                    if post_button:
+                        # Jeśli to pole tekstowe, kliknij w nie
+                        if selector in ["div[role='textbox']", "[contenteditable='true']", "[data-testid='composer-text-input']"]:
+                            post_button.click()
+                            self.log("[SOCIAL] 🌐 Kliknięto w pole tekstowe")
+                        else:
+                            post_button.click()
+                            self.log("[SOCIAL] 🌐 Kliknięto przycisk tworzenia posta")
+                    else:
+                        # Ostatnia szansa - spróbuj znaleźć pole tekstowe bezpośrednio
+                        self.log("[SOCIAL] 🌐 Próba bezpośredniego znalezienia pola tekstowego...")
+                        text_input = page.locator("[data-testid='composer-text-input']").first
+                        if text_input.count() > 0:
+                            text_input.click()
+                            self.log("[SOCIAL] 🌐 Znaleziono i kliknięto pole tekstowe")
+                        else:
+                            raise Exception("Nie znaleziono przycisku tworzenia posta ani pola tekstowego")
+                    
+                    # Poczekaj na pojawienie się pola tekstu - spróbuj różne selektory
+                    text_input_selectors = [
+                        "[data-testid='post-composer-text-input']",
+                        "[data-testid='composer-text-input']",
+                        "[data-testid='composer']",
+                        "div[role='textbox']",
+                        "[contenteditable='true']",
+                        "[aria-label*='post']",
+                        "[aria-label*='composer']"
+                    ]
+                    
+                    text_input = None
+                    for selector in text_input_selectors:
+                        try:
+                            if page.locator(selector).count() > 0:
+                                text_input = page.locator(selector).first
+                                self.log(f"[SOCIAL] 🌐 Znaleziono pole tekstowe: {selector}")
+                                break
+                        except Exception:
+                            continue
+                    
+                    if not text_input:
+                        # Ostatnia szansa - poczekaj na jakiekolwiek pole tekstowe
+                        self.log("[SOCIAL] 🌐 Czekam na pojawienie się pola tekstowego...")
+                        page.wait_for_selector("div[role='textbox'], [contenteditable='true']", timeout=15000)
+                        text_input = page.locator("div[role='textbox'], [contenteditable='true']").first
+                    
+                    if text_input:
+                        # Wyczyść pole i wpisz tekst
+                        text_input.clear()
+                        text_input.fill(post_text)
+                        self.log("[SOCIAL] 🌐 Wpisano tekst posta")
+                    else:
+                        raise Exception("Nie udało się znaleźć pola tekstowego")
+                    
+                    # Dodaj zdjęcie/wideo
+                    if image_path and Path(image_path).exists():
+                        # Spróbuj różne selektory dla przycisku dodawania mediów
+                        media_selectors = [
+                            "[aria-label='Dodaj zdjęcie/wideo']",
+                            "[aria-label='Dodaj zdjęcie']",
+                            "[aria-label='Dodaj wideo']",
+                            "[data-testid='media-attachment-button']",
+                            "[data-testid='composer-attachment-button']",
+                            "button[aria-label*='zdjęcie']",
+                            "button[aria-label*='wideo']",
+                            "button[aria-label*='media']"
+                        ]
+                        
+                        media_button = None
+                        for selector in media_selectors:
+                            try:
+                                if page.locator(selector).count() > 0:
+                                    media_button = page.locator(selector).first
+                                    self.log(f"[SOCIAL] 🌐 Znaleziono przycisk mediów: {selector}")
+                                    break
+                            except Exception:
+                                continue
+                        
+                        if media_button:
+                            try:
+                                # Kliknij przycisk mediów
+                                media_button.click()
+                                self.log("[SOCIAL] 🌐 Kliknięto przycisk dodawania mediów")
+                                
+                                # Poczekaj na pojawienie się selektora plików
+                                page.wait_for_selector("input[type='file']", timeout=10000)
+                                
+                                # Znajdź input file i dodaj plik
+                                file_input = page.locator("input[type='file']").first
+                                file_input.set_input_files(image_path)
+                                
+                                self.log(f"[SOCIAL] 🌐 Dodano zdjęcie: {Path(image_path).name}")
+                                
+                                # Poczekaj na załadowanie zdjęcia
+                                page.wait_for_timeout(3000)
+                                
+                            except Exception as e:
+                                self.log(f"[SOCIAL] ⚠️ Błąd podczas dodawania zdjęcia: {e}")
+                        else:
+                            self.log("[SOCIAL] ⚠️ Nie znaleziono przycisku dodawania mediów")
+                    
+                    elif video_path and Path(video_path).exists():
+                        # Podobna logika dla wideo
+                        media_selectors = [
+                            "[aria-label='Dodaj zdjęcie/wideo']",
+                            "[aria-label='Dodaj wideo']",
+                            "[data-testid='media-attachment-button']",
+                            "[data-testid='composer-attachment-button']"
+                        ]
+                        
+                        media_button = None
+                        for selector in media_selectors:
+                            try:
+                                if page.locator(selector).count() > 0:
+                                    media_button = page.locator(selector).first
+                                    break
+                            except Exception:
+                                continue
+                        
+                        if media_button:
+                            try:
+                                media_button.click()
+                                page.wait_for_selector("input[type='file']", timeout=10000)
+                                file_input = page.locator("input[type='file']").first
+                                file_input.set_input_files(video_path)
+                                self.log(f"[SOCIAL] 🌐 Dodano wideo: {Path(video_path).name}")
+                                page.wait_for_timeout(3000)
+                            except Exception as e:
+                                self.log(f"[SOCIAL] ⚠️ Błąd podczas dodawania wideo: {e}")
+                        else:
+                            self.log("[SOCIAL] ⚠️ Nie znaleziono przycisku dodawania mediów")
+                    
+                    # Opublikuj post - spróbuj różne selektory
+                    publish_selectors = [
+                        "text=Opublikuj",
+                        "text=Post",
+                        "text=Udostępnij",
+                        "text=Wyślij",
+                        "[data-testid='composer-post-button']",
+                        "[data-testid='post-button']",
+                        "button[type='submit']",
+                        "button:has-text('Opublikuj')",
+                        "button:has-text('Post')",
+                        "button:has-text('Udostępnij')"
+                    ]
+                    
+                    publish_button = None
+                    for selector in publish_selectors:
+                        try:
+                            if page.locator(selector).count() > 0:
+                                publish_button = page.locator(selector).first
+                                self.log(f"[SOCIAL] 🌐 Znaleziono przycisk publikacji: {selector}")
+                                break
+                        except Exception:
+                            continue
+                    
+                    if publish_button:
+                        # Sprawdź czy przycisk jest aktywny
+                        if publish_button.is_enabled():
+                            publish_button.click()
+                            self.log("[SOCIAL] 🌐 Kliknięto przycisk publikacji")
+                            
+                            # Poczekaj na potwierdzenie publikacji - różne możliwe komunikaty
+                            success_selectors = [
+                                "text=Opublikowano",
+                                "text=Post został opublikowany",
+                                "text=Opublikowano pomyślnie",
+                                "text=Post dodany",
+                                "[data-testid='post-success']"
+                            ]
+                            
+                            success_found = False
+                            for success_selector in success_selectors:
+                                try:
+                                    if page.locator(success_selector).count() > 0:
+                                        self.log(f"[SOCIAL] ✅ Post opublikowany pomyślnie! ({success_selector})")
+                                        success_found = True
+                                        break
+                                except Exception:
+                                    continue
+                            
+                            if not success_found:
+                                # Poczekaj chwilę i sprawdź czy post się pojawił
+                                page.wait_for_timeout(5000)
+                                self.log("[SOCIAL] ✅ Post prawdopodobnie opublikowany (timeout)")
+                            
+                            # Opcjonalnie dodaj komentarz
+                            comment_text = self.facebook_comment_text.get("1.0", tk.END).strip()
+                            if comment_text:
+                                self.log("[SOCIAL] 🌐 Próba dodania komentarza...")
+                                # TODO: Implementacja dodawania komentarza
+                                self.log("[SOCIAL] 🌐 Komentarz zostanie dodany w następnej wersji")
+                        else:
+                            self.log("[SOCIAL] ⚠️ Przycisk publikacji jest nieaktywny")
+                            # Sprawdź dlaczego - może brak tekstu lub błąd walidacji
+                            error_messages = page.locator("[role='alert'], .error, .warning").all()
+                            for error in error_messages:
+                                error_text = error.text_content()
+                                if error_text:
+                                    self.log(f"[SOCIAL] ⚠️ Błąd walidacji: {error_text}")
+                    else:
+                        raise Exception("Nie znaleziono przycisku publikacji")
+                    
+                except Exception as e:
+                    self.log(f"[SOCIAL] ❌ Błąd podczas publikacji: {e}")
+                    
+                    # Debug: zrób screenshot i zapisz HTML
+                    try:
+                        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                        screenshot_path = f"facebook_debug_{timestamp}.png"
+                        page.screenshot(path=screenshot_path)
+                        self.log(f"[SOCIAL] 📸 Zapisano screenshot debug: {screenshot_path}")
+                        
+                        html_path = f"facebook_debug_{timestamp}.html"
+                        with open(html_path, 'w', encoding='utf-8') as f:
+                            f.write(page.content())
+                        self.log(f"[SOCIAL] 📄 Zapisano HTML debug: {html_path}")
+                        
+                    except Exception as debug_error:
+                        self.log(f"[SOCIAL] ⚠️ Nie udało się zapisać debug: {debug_error}")
+                    
+                    # Pokaż błąd użytkownikowi
+                    self.root.after(0, lambda: messagebox.showerror("Błąd", f"Błąd podczas publikacji: {e}"))
+                
+                finally:
+                    # Zostaw przeglądarkę otwartą dla użytkownika
+                    self.log("[SOCIAL] 🌐 Przeglądarka pozostaje otwarta. Możesz ją zamknąć ręcznie.")
+                    
+        except Exception as e:
+            error_msg = f"Błąd Playwright: {e}"
+            self.log(f"[SOCIAL] ❌ {error_msg}")
+            self.root.after(0, lambda: messagebox.showerror("Błąd", error_msg))
 
     def on_closing(self):
         """Obsługuje zamknięcie aplikacji"""
